@@ -1,0 +1,109 @@
+{
+  "scenario_id": "cloud_cluster_monthly_cost_q2_2026",
+  "title": "Q2 2026 business cluster monthly cost detail",
+  "task_prompt": "Traverse the simulated cloud resource ledger, aggregate compute and storage usage for the business clusters retail-core, ads-ranking, and lakehouse-analytics, apply the current approved pricing catalog for 2026-06, and store a monthly cost detail report in session cache. Read the accounting rules and report schema first, and do not include the shared-ops cluster in the official report.",
+  "current_time": "2026-06-17T09:00:00Z",
+  "workspace_account_id": "cloud_finops_team",
+  "billing_month": "2026-06",
+  "cluster_ids": [
+    "cluster_retail_core",
+    "cluster_ads_ranking",
+    "cluster_lakehouse_analytics",
+    "cluster_shared_ops"
+  ],
+  "ledger_entry_ids": [
+    "led_retail_frontend_vcpu",
+    "led_retail_frontend_memory",
+    "led_retail_orders_vcpu",
+    "led_retail_orders_memory",
+    "led_retail_block_storage",
+    "led_retail_object_storage",
+    "led_ads_ranker_vcpu",
+    "led_ads_ranker_memory",
+    "led_ads_feature_vcpu",
+    "led_ads_feature_memory",
+    "led_ads_inference_gpu",
+    "led_ads_block_storage",
+    "led_ads_object_storage",
+    "led_lakehouse_batch_vcpu",
+    "led_lakehouse_batch_memory",
+    "led_lakehouse_serving_vcpu",
+    "led_lakehouse_serving_memory",
+    "led_lakehouse_block_storage",
+    "led_lakehouse_object_storage",
+    "led_shared_ops_vcpu",
+    "led_shared_ops_memory",
+    "led_shared_ops_block_storage",
+    "led_shared_ops_object_storage"
+  ],
+  "pricing_catalog_ids": [
+    "cat_apac_q1_2026_archive",
+    "cat_apac_q2_2026_current"
+  ],
+  "attachment_paths": [
+    "cost_accounting_rules.md",
+    "report_schema.md"
+  ],
+  "target_cluster_ids": [
+    "cluster_retail_core",
+    "cluster_ads_ranking",
+    "cluster_lakehouse_analytics"
+  ],
+  "excluded_cluster_ids": [
+    "cluster_shared_ops"
+  ],
+  "active_pricing_catalog_id": "cat_apac_q2_2026_current",
+  "stale_pricing_catalog_ids": [
+    "cat_apac_q1_2026_archive"
+  ],
+  "required_attachment_paths": [
+    "cost_accounting_rules.md",
+    "report_schema.md"
+  ],
+  "required_actions": [
+    "list_clusters",
+    "list_ledger_entries",
+    "list_pricing_catalogs",
+    "get_pricing_catalog",
+    "read_attachment",
+    "aggregate_cluster_usage",
+    "generate_cost_report"
+  ],
+  "expected_aggregate_totals": {
+    "cluster_retail_core": {
+      "vcpu": 160,
+      "memory_gb": 640,
+      "gpu": 0,
+      "block_storage_gb": 4200,
+      "object_storage_gb": 16000
+    },
+    "cluster_ads_ranking": {
+      "vcpu": 72,
+      "memory_gb": 288,
+      "gpu": 8,
+      "block_storage_gb": 3100,
+      "object_storage_gb": 9000
+    },
+    "cluster_lakehouse_analytics": {
+      "vcpu": 128,
+      "memory_gb": 1024,
+      "gpu": 0,
+      "block_storage_gb": 18000,
+      "object_storage_gb": 64000
+    }
+  },
+  "expected_report_cluster_costs": {
+    "cluster_retail_core": 10731.2,
+    "cluster_ads_ranking": 10569.04,
+    "cluster_lakehouse_analytics": 14476.16
+  },
+  "expected_report_total_cost": 35776.4,
+  "expected_highest_cost_cluster_id": "cluster_lakehouse_analytics",
+  "expected_totals": {
+    "vcpu": 360,
+    "memory_gb": 1952,
+    "gpu": 8,
+    "block_storage_gb": 25300,
+    "object_storage_gb": 89000
+  }
+}

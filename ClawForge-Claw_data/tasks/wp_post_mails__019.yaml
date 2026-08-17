@@ -1,0 +1,4 @@
+type: workplace
+asset: wp_post_mails__019
+runtime: python
+prompt_path: tasks/prompts/wp_post_mails__019.md

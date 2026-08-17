@@ -1,0 +1,6 @@
+asset: wp_fault_postmortem_kb_env__003
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__003.md
+runtime:
+  env_builder: tasks/wp_fault_postmortem_kb_env__003/env_builder.py
+  verify_script: scripts/wp_fault_postmortem_kb_env__003/verify_workplace.py
+  workdir: assets/wp_fault_postmortem_kb_env__003

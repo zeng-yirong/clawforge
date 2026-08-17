@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_doc_clue_memory_env__023.md
+asset: wp_doc_clue_memory_env__023
+runtime:
+  max_seconds: 600
+  memory_mb: 512

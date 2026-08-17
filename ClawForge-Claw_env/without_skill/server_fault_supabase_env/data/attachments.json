@@ -1,0 +1,16 @@
+{
+  "attachments": [
+    {
+      "path": "runbook_ups_and_service.md",
+      "title": "UPS and Service Outage Runbook",
+      "kind": "runbook",
+      "description": "Defines the expected remediation logic for UPS outage and service-down incidents."
+    },
+    {
+      "path": "supabase_write_contract.md",
+      "title": "Simulated Supabase Write Contract",
+      "kind": "write_contract",
+      "description": "Describes which processed incidents must be written into the in-memory Supabase table."
+    }
+  ]
+}

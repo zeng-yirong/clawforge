@@ -1,0 +1,9 @@
+# Nanoclaw task config
+asset: wp_business_markdown_report_env__000
+prompt: tasks/prompts/wp_business_markdown_report_env__000.md
+runtime:
+  cwd: assets/wp_business_markdown_report_env__000
+  timeout: 120
+  allowed_actions:
+    - read
+    - write

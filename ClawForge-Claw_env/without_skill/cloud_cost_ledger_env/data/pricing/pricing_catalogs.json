@@ -1,0 +1,102 @@
+{
+  "pricing_catalogs": [
+    {
+      "catalog_id": "cat_apac_q1_2026_archive",
+      "version": "2026.03-archive",
+      "status": "archived",
+      "region": "APAC",
+      "currency": "USD",
+      "billing_month": "2026-03",
+      "billing_hours": 730,
+      "approved_for_reporting": false,
+      "effective_from": "2026-01-01T00:00:00Z",
+      "effective_to": "2026-03-31T23:59:59Z",
+      "rates": [
+        {
+          "metric_code": "vcpu",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "vcpu-hour",
+          "unit_price": 0.051
+        },
+        {
+          "metric_code": "memory_gb",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "GiB-hour",
+          "unit_price": 0.0071
+        },
+        {
+          "metric_code": "gpu",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "gpu-hour",
+          "unit_price": 0.89
+        },
+        {
+          "metric_code": "block_storage_gb",
+          "resource_family": "storage",
+          "billing_basis": "monthly",
+          "unit": "GiB-month",
+          "unit_price": 0.115
+        },
+        {
+          "metric_code": "object_storage_gb",
+          "resource_family": "storage",
+          "billing_basis": "monthly",
+          "unit": "GiB-month",
+          "unit_price": 0.024
+        }
+      ]
+    },
+    {
+      "catalog_id": "cat_apac_q2_2026_current",
+      "version": "2026.06-live",
+      "status": "active",
+      "region": "APAC",
+      "currency": "USD",
+      "billing_month": "2026-06",
+      "billing_hours": 730,
+      "approved_for_reporting": true,
+      "effective_from": "2026-04-01T00:00:00Z",
+      "effective_to": "2026-06-30T23:59:59Z",
+      "rates": [
+        {
+          "metric_code": "vcpu",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "vcpu-hour",
+          "unit_price": 0.054
+        },
+        {
+          "metric_code": "memory_gb",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "GiB-hour",
+          "unit_price": 0.0075
+        },
+        {
+          "metric_code": "gpu",
+          "resource_family": "compute",
+          "billing_basis": "hourly",
+          "unit": "gpu-hour",
+          "unit_price": 0.95
+        },
+        {
+          "metric_code": "block_storage_gb",
+          "resource_family": "storage",
+          "billing_basis": "monthly",
+          "unit": "GiB-month",
+          "unit_price": 0.12
+        },
+        {
+          "metric_code": "object_storage_gb",
+          "resource_family": "storage",
+          "billing_basis": "monthly",
+          "unit": "GiB-month",
+          "unit_price": 0.026
+        }
+      ]
+    }
+  ]
+}

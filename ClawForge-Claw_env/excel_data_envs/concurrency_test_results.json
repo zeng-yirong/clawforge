@@ -1,0 +1,47 @@
+{
+  "timestamp": 1781425220.3485453,
+  "results": [
+    {
+      "test": "session_isolation",
+      "passed": true,
+      "details": {
+        "session1_pivots": 1,
+        "session2_pivots": 0
+      }
+    },
+    {
+      "test": "concurrent_sessions",
+      "passed": true,
+      "details": {
+        "num_sessions": 5,
+        "successful": 5,
+        "pivot_counts": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "chart_counts": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "elapsed_seconds": 0.22124838829040527
+      }
+    },
+    {
+      "test": "lock_contention",
+      "passed": true,
+      "details": {
+        "total_actions": 15,
+        "successful": 15,
+        "failed": 0,
+        "elapsed_seconds": 0.1254582405090332
+      }
+    }
+  ],
+  "all_passed": true
+}

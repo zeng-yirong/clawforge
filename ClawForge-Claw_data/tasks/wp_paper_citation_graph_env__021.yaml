@@ -1,0 +1,8 @@
+name: "Paper Citation Graph Extraction"
+description: "Extract clean citation graph from messy paper records"
+asset: "wp_paper_citation_graph_env__021"
+prompt_path: "tasks/prompts/wp_paper_citation_graph_env__021.md"
+runtime:
+  python_std_lib: true
+  max_file_writes: 10
+  max_file_size_mb: 5

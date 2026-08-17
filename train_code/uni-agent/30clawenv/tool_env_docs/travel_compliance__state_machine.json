@@ -1,0 +1,490 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "upload_policy",
+    "description": "Upload a company travel policy with compliance rules.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Policy name (e.g. 'domestic_travel_2024', 'executive_policy')."
+        },
+        "rules": {
+          "type": "dict",
+          "description": "Policy rules as key-value pairs, e.g. {\"max_flight_price\": 2000, \"cabin_class\": \"economy\", \"advance_days\": 7}."
+        },
+        "effective_date": {
+          "type": "string",
+          "description": "[Optional] Policy effective date in ISO format."
+        }
+      },
+      "required": [
+        "name",
+        "rules"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_policy",
+    "description": "Retrieve a policy by ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "description": "Policy ID."
+        }
+      },
+      "required": [
+        "policy_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_policies",
+    "description": "List all policies, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by status ('active', 'archived')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_flight",
+    "description": "Add a flight option from a booking platform.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "description": "Platform name (e.g. 'ctrip', 'qunar', 'fliggy')."
+        },
+        "origin": {
+          "type": "string",
+          "description": "Departure city or airport code."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Arrival city or airport code."
+        },
+        "price": {
+          "type": "number",
+          "description": "Flight price in local currency."
+        },
+        "cabin_class": {
+          "type": "string",
+          "description": "Cabin class (e.g. 'economy', 'business', 'first')."
+        },
+        "departure_time": {
+          "type": "string",
+          "description": "Departure time in ISO format."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional flight details (airline, duration, etc.)."
+        }
+      },
+      "required": [
+        "platform",
+        "origin",
+        "destination",
+        "price",
+        "cabin_class",
+        "departure_time"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_flights",
+    "description": "Search for flights matching criteria.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "[Optional] Filter by origin."
+        },
+        "destination": {
+          "type": "string",
+          "description": "[Optional] Filter by destination."
+        },
+        "max_price": {
+          "type": "number",
+          "description": "[Optional] Maximum price threshold."
+        },
+        "cabin_class": {
+          "type": "string",
+          "description": "[Optional] Filter by cabin class."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "define_travel_workflow",
+    "description": "Define a travel request workflow state machine.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Workflow name (e.g. 'standard_travel', 'executive_travel')."
+        },
+        "initial_state": {
+          "type": "string",
+          "description": "Starting state for travel requests. Defaults to 'draft'."
+        },
+        "terminal_states": {
+          "type": "array",
+          "description": "[Optional] States marking workflow completion (e.g. ['booked', 'cancelled', 'rejected'])."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_workflow_state",
+    "description": "Add a new state to a travel workflow.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "State machine ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "State name (e.g. 'compliance_check', 'pending_approval', 'approved')."
+        }
+      },
+      "required": [
+        "sm_id",
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_workflow_transition",
+    "description": "Define a transition between workflow states with optional guard conditions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "State machine ID."
+        },
+        "from_state": {
+          "type": "string",
+          "description": "Source state name."
+        },
+        "to_state": {
+          "type": "string",
+          "description": "Target state name."
+        },
+        "guard": {
+          "type": "dict",
+          "description": "[Optional] Guard condition as {field: {op: value}}. Supported operators: eq, neq, gt, lt, gte, lte, contains."
+        },
+        "trigger": {
+          "type": "string",
+          "description": "Trigger mode — 'auto' or 'manual'. Defaults to 'auto'."
+        }
+      },
+      "required": [
+        "sm_id",
+        "from_state",
+        "to_state"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_travel_request",
+    "description": "Create a new travel request entity governed by a workflow state machine.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "Workflow state machine ID."
+        },
+        "traveler": {
+          "type": "string",
+          "description": "Traveler name or employee ID."
+        },
+        "origin": {
+          "type": "string",
+          "description": "Departure city or airport code."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Arrival city or airport code."
+        },
+        "departure_date": {
+          "type": "string",
+          "description": "Departure date in ISO format."
+        },
+        "policy_id": {
+          "type": "string",
+          "description": "[Optional] Policy ID to validate against."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional request details (purpose, cost center, etc.)."
+        }
+      },
+      "required": [
+        "sm_id",
+        "traveler",
+        "origin",
+        "destination",
+        "departure_date"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_compliance",
+    "description": "Check if a travel request complies with the associated policy.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "select_flight",
+    "description": "Select a flight for a travel request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        },
+        "flight_id": {
+          "type": "string",
+          "description": "Flight ID to select."
+        }
+      },
+      "required": [
+        "request_id",
+        "flight_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "initiate_approval",
+    "description": "Initiate an approval flow for a travel request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        },
+        "approver": {
+          "type": "string",
+          "description": "Approver name or employee ID."
+        }
+      },
+      "required": [
+        "request_id",
+        "approver"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_approval",
+    "description": "Process an approval decision.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approval_id": {
+          "type": "string",
+          "description": "Approval ID."
+        },
+        "decision": {
+          "type": "string",
+          "description": "Approval decision ('approved' or 'rejected')."
+        },
+        "comments": {
+          "type": "string",
+          "description": "[Optional] Approver comments."
+        }
+      },
+      "required": [
+        "approval_id",
+        "decision"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "complete_booking",
+    "description": "Complete the booking for an approved travel request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "transition_request",
+    "description": "Attempt to transition a travel request to a target state.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        },
+        "to_state": {
+          "type": "string",
+          "description": "Desired target state."
+        }
+      },
+      "required": [
+        "request_id",
+        "to_state"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_travel_request",
+    "description": "Get the full state and history of a travel request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Travel request ID."
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_travel_requests",
+    "description": "List travel requests, optionally filtered by workflow, state, or traveler.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by workflow state machine ID."
+        },
+        "state": {
+          "type": "string",
+          "description": "[Optional] Filter by current state."
+        },
+        "traveler": {
+          "type": "string",
+          "description": "[Optional] Filter by traveler name."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,6 @@
+name: wp_cloud_cost_ledger_env__016
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__016.md
+asset: wp_cloud_cost_ledger_env__016
+runtime:
+  python: "3.10"
+  cwd: assets/wp_cloud_cost_ledger_env__016

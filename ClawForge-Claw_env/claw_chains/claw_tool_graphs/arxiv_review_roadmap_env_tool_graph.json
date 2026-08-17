@@ -1,0 +1,400 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_review",
+      "required_args": [
+        "--direction"
+      ],
+      "id": "generate-review"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_cache_entry",
+      "required_args": [
+        "--entry-id"
+      ],
+      "id": "get-cache-entry"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_paper",
+      "required_args": [
+        "--paper-id"
+      ],
+      "id": "get-paper"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_cache",
+      "required_args": [],
+      "id": "list-cache"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_papers",
+      "required_args": [],
+      "id": "list-papers"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-review"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-review"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-review",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-review",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-review",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating review, see summary",
+      "tier": "llm_weak",
+      "source": "generate-review",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::arxiv_review_tool_reasoning_q2_2026",
+      "tier": "gold",
+      "source": "get-paper",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-paper",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-paper",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting paper, list attachments",
+      "tier": "llm_weak",
+      "source": "get-paper",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_paper_id_for",
+      "tier": "gold",
+      "source": "list-papers",
+      "target": "get-paper"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-papers",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-papers",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing papers, list attachments",
+      "tier": "llm_weak",
+      "source": "list-papers",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, generate review",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "generate-review"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::arxiv_review_tool_reasoning_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "generate-review"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after reading attachment, get paper",
+      "tier": "llm_weak",
+      "source": "read-attachment",
+      "target": "get-paper"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-cache-entry"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-paper"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-papers"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

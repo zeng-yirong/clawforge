@@ -1,0 +1,525 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "archive_email",
+      "required_args": [
+        "--email-id"
+      ],
+      "id": "archive-email"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "classify_email",
+      "required_args": [
+        "--email-id",
+        "--folder",
+        "--labels"
+      ],
+      "id": "classify-email"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "complete_todo",
+      "required_args": [
+        "--todo-id"
+      ],
+      "id": "complete-todo"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_reply",
+      "required_args": [
+        "--target-email-id",
+        "--content"
+      ],
+      "id": "create-reply"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_todo",
+      "required_args": [
+        "--source-email-id",
+        "--title",
+        "--description"
+      ],
+      "id": "create-todo"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "delete_email",
+      "required_args": [
+        "--email-id"
+      ],
+      "id": "delete-email"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_emails",
+      "required_args": [],
+      "id": "list-emails"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_replies",
+      "required_args": [],
+      "id": "list-replies"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_todos",
+      "required_args": [],
+      "id": "list-todos"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-id"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_email",
+      "required_args": [
+        "--email-id"
+      ],
+      "id": "read-email"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "archive-email"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-reply"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-todo"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "archive-email"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-reply"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-todo"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-email",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-email",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "archive-email",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "archive-email",
+      "target": "list-emails"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "complete-todo",
+      "target": "list-todos"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-reply",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-reply",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-reply",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "create-reply",
+      "target": "list-replies"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_todo_id_for",
+      "tier": "dataflow",
+      "source": "create-todo",
+      "target": "complete-todo"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-todo",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-todo",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-todo",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "create-todo",
+      "target": "list-todos"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "delete-email",
+      "target": "list-emails"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_email_id_for",
+      "tier": "dataflow",
+      "source": "list-emails",
+      "target": "read-email"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_email_id_for",
+      "tier": "dataflow",
+      "source": "list-emails",
+      "target": "classify-email"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_email_id_for",
+      "tier": "dataflow",
+      "source": "list-emails",
+      "target": "archive-email"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_email_id_for",
+      "tier": "dataflow",
+      "source": "list-emails",
+      "target": "delete-email"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-emails",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-emails",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-replies",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-replies",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_todo_id_for",
+      "tier": "dataflow",
+      "source": "list-todos",
+      "target": "complete-todo"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-todos",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-todos",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "read-attachment",
+      "target": "create-todo"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-email",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-email",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "read-email",
+      "target": "create-todo"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-emails"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-replies"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-todos"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-email"
+    }
+  ]
+}

@@ -1,0 +1,630 @@
+{
+  "env_name": "logistics_envs",
+  "rel_path": "logistics_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_actions",
+    "required_attachment_ids"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_warehouse_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "default_warehouse_id (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/att_inventory_adjustment_guide.md",
+      "kind": "markdown_attachment",
+      "title": "Inventory Adjustment Guide",
+      "bytes": 1540,
+      "desc": "markdown_attachment file data/attachments/att_inventory_adjustment_guide.md"
+    },
+    {
+      "path": "data/attachments/att_return_policy.md",
+      "kind": "markdown_attachment",
+      "title": "LogiFlow Returns Processing Policy",
+      "bytes": 1636,
+      "desc": "markdown_attachment file data/attachments/att_return_policy.md"
+    },
+    {
+      "path": "data/attachments/att_shipment_tracking_guide.md",
+      "kind": "markdown_attachment",
+      "title": "LogiFlow Shipment Tracking Guide",
+      "bytes": 1190,
+      "desc": "markdown_attachment file data/attachments/att_shipment_tracking_guide.md"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice Chen",
+            "Apex Supply Co.",
+            "Bob Martinez",
+            "Carol White",
+            "David Kim",
+            "Eve Wilson",
+            "Frank Zhao",
+            "Grace Liu"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "alice.chen@email.com",
+            "bob.martinez@email.com",
+            "carol.white@email.com",
+            "david.kim@email.com",
+            "eve.wilson@logiflow.example.com",
+            "frank.zhao@logiflow.example.com",
+            "grace.liu@logiflow.example.com",
+            "orders@apexsupply.example.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "phone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "+1-555-0101",
+            "+1-555-0102",
+            "+1-555-0103",
+            "+1-555-0104",
+            "+1-555-0201",
+            "+1-555-0301",
+            "+1-555-0401",
+            "+1-555-0501"
+          ],
+          "desc": "phone (str)"
+        },
+        {
+          "name": "type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "cs_rep",
+            "customer",
+            "finance",
+            "vendor",
+            "warehouse_manager"
+          ],
+          "desc": "type (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/inventory/inventory.json",
+      "kind": "collection",
+      "wrapper_key": "inventory",
+      "record_key": "warehouse_id",
+      "count": 11,
+      "fields": [
+        {
+          "name": "sku",
+          "type": "str",
+          "required": true,
+          "desc": "sku (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "accessories",
+            "electronics",
+            "parts"
+          ],
+          "desc": "category (str)"
+        },
+        {
+          "name": "unit_cost",
+          "type": "float",
+          "required": true,
+          "desc": "unit_cost (float)"
+        },
+        {
+          "name": "list_price",
+          "type": "float",
+          "required": true,
+          "desc": "list_price (float)"
+        },
+        {
+          "name": "stock_level",
+          "type": "int",
+          "required": true,
+          "desc": "stock_level (int)"
+        },
+        {
+          "name": "reserved",
+          "type": "int",
+          "required": true,
+          "desc": "reserved (int)"
+        },
+        {
+          "name": "available",
+          "type": "int",
+          "required": true,
+          "desc": "available (int)"
+        },
+        {
+          "name": "reorder_point",
+          "type": "int",
+          "required": true,
+          "desc": "reorder_point (int)"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "warehouse_id (str)"
+        }
+      ],
+      "desc": "collection file data/inventory/inventory.json"
+    },
+    {
+      "path": "data/orders/orders.json",
+      "kind": "collection",
+      "wrapper_key": "orders",
+      "record_key": "order_id",
+      "count": 10,
+      "fields": [
+        {
+          "name": "order_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "order_id (str)"
+        },
+        {
+          "name": "customer_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "customer_id (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "delivered",
+            "in_transit",
+            "out_for_delivery",
+            "processing",
+            "shipped"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "created_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "created_at (str)"
+        },
+        {
+          "name": "updated_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "updated_at (str)"
+        },
+        {
+          "name": "items",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "items (list)"
+        },
+        {
+          "name": "total_amount",
+          "type": "float",
+          "required": true,
+          "desc": "total_amount (float)"
+        },
+        {
+          "name": "shipping_address",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "123 Oak St, Newark, NJ 07102",
+            "321 Maple Dr, Seattle, WA 98101",
+            "456 Pine Ave, Los Angeles, CA 90001",
+            "789 Elm Blvd, Chicago, IL 60601"
+          ],
+          "desc": "shipping_address (str)"
+        },
+        {
+          "name": "warehouse_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "warehouse_id (str)"
+        }
+      ],
+      "desc": "collection file data/orders/orders.json"
+    },
+    {
+      "path": "data/returns/returns.json",
+      "kind": "collection",
+      "wrapper_key": "returns",
+      "record_key": "return_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "return_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "return_id (str)"
+        },
+        {
+          "name": "order_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "order_id (str)"
+        },
+        {
+          "name": "customer_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "customer_id (str)"
+        },
+        {
+          "name": "reason",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "reason (str)"
+        },
+        {
+          "name": "requested_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "requested_at (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "approved",
+            "pending_inspection",
+            "pending_review",
+            "received",
+            "rejected"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "items",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "items (list)"
+        },
+        {
+          "name": "refund_amount",
+          "type": "float",
+          "required": true,
+          "desc": "refund_amount (float)"
+        },
+        {
+          "name": "return_tracking_number",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "RET001",
+            "RET002",
+            "RET003",
+            "RET005"
+          ],
+          "desc": "return_tracking_number (str)"
+        },
+        {
+          "name": "inspection_notes",
+          "type": "str",
+          "required": true,
+          "desc": "inspection_notes (str)"
+        },
+        {
+          "name": "resolution",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "refund_approved",
+            "rejected - past 30-day return window"
+          ],
+          "desc": "resolution (str)"
+        }
+      ],
+      "desc": "collection file data/returns/returns.json"
+    },
+    {
+      "path": "data/shipments/shipments.json",
+      "kind": "collection",
+      "wrapper_key": "shipments",
+      "record_key": "shipment_id",
+      "count": 7,
+      "fields": [
+        {
+          "name": "shipment_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "shipment_id (str)"
+        },
+        {
+          "name": "order_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "order_id (str)"
+        },
+        {
+          "name": "carrier",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "FedEx",
+            "UPS"
+          ],
+          "desc": "carrier (str)"
+        },
+        {
+          "name": "tracking_number",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "FX321654987",
+            "FX456789123",
+            "FX654987321",
+            "FX789456123",
+            "UPS123456789",
+            "UPS456123789",
+            "UPS987654321"
+          ],
+          "desc": "tracking_number (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "delivered",
+            "in_transit",
+            "out_for_delivery",
+            "processing"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "shipped_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "shipped_at (str)"
+        },
+        {
+          "name": "delivered_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "delivered_at (str)"
+        },
+        {
+          "name": "current_location",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Delivered to recipient",
+            "Denver, CO",
+            "Indianapolis, IN",
+            "Newark, NJ",
+            "Ontario, CA",
+            "Warehouse - LA"
+          ],
+          "desc": "current_location (str)"
+        },
+        {
+          "name": "events",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "events (list)"
+        }
+      ],
+      "desc": "collection file data/shipments/shipments.json"
+    },
+    {
+      "path": "data/warehouses.json",
+      "kind": "collection",
+      "wrapper_key": "warehouses",
+      "record_key": "warehouse_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "warehouse_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "warehouse_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Central Fulfillment Hub",
+            "East Distribution Center",
+            "West Distribution Center"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Chicago, IL",
+            "Los Angeles, CA",
+            "Newark, NJ"
+          ],
+          "desc": "location (str)"
+        },
+        {
+          "name": "capacity",
+          "type": "int",
+          "required": true,
+          "desc": "capacity (int)"
+        },
+        {
+          "name": "current_utilization",
+          "type": "int",
+          "required": true,
+          "desc": "current_utilization (int)"
+        }
+      ],
+      "desc": "collection file data/warehouses.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "order_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/orders/orders.json",
+          "record_key": "order_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "shipment_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/shipments/shipments.json",
+          "record_key": "shipment_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "return_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/returns/returns.json",
+          "record_key": "return_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "warehouse_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/inventory/inventory.json",
+          "record_key": "warehouse_id"
+        },
+        {
+          "file": "data/warehouses.json",
+          "record_key": "warehouse_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

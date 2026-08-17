@@ -1,0 +1,635 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "adjust_inventory",
+  "description": "Adjust the inventory level for a specific SKU in a warehouse.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sku": {
+     "type": "string",
+     "description": "Product SKU to adjust."
+    },
+    "warehouse_id": {
+     "type": "string",
+     "description": "Warehouse where inventory is held."
+    },
+    "quantity_change": {
+     "type": "integer",
+     "description": "Quantity to add or subtract."
+    },
+    "reason_code": {
+     "type": "string",
+     "description": "Code for the adjustment reason."
+    },
+    "notes": {
+     "type": "string",
+     "description": "Notes explaining the adjustment."
+    }
+   },
+   "required": [
+    "sku",
+    "warehouse_id",
+    "quantity_change",
+    "reason_code"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "approve_return",
+  "description": "Approve a customer return for processing.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "return_id": {
+     "type": "string",
+     "description": "ID of the return to approve."
+    },
+    "notes": {
+     "type": "string",
+     "description": "Notes regarding the approval."
+    }
+   },
+   "required": [
+    "return_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_reconciliation_report",
+  "description": "Generate a reconciliation report for a warehouse.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "warehouse_id": {
+     "type": "string",
+     "description": "Warehouse to report on."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_inventory",
+  "description": "Get detailed information about a specific inventory item.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sku": {
+     "type": "string",
+     "description": "SKU of the inventory item."
+    }
+   },
+   "required": [
+    "sku"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_order",
+  "description": "Get detailed information about a specific order.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "order_id": {
+     "type": "string",
+     "description": "ID of the order to retrieve."
+    }
+   },
+   "required": [
+    "order_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_return",
+  "description": "Get detailed information about a specific return.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "return_id": {
+     "type": "string",
+     "description": "ID of the return to retrieve."
+    }
+   },
+   "required": [
+    "return_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_shipment",
+  "description": "Get detailed information about a specific shipment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "shipment_id": {
+     "type": "string",
+     "description": "ID of the shipment to retrieve."
+    }
+   },
+   "required": [
+    "shipment_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "inspect_return",
+  "description": "Inspect a returned item and record findings.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "return_id": {
+     "type": "string",
+     "description": "ID of the return to inspect."
+    },
+    "inspection_notes": {
+     "type": "string",
+     "description": "Notes from the inspection."
+    },
+    "resolution": {
+     "type": "string",
+     "description": "Resolution for the return."
+    },
+    "condition": {
+     "type": "string",
+     "description": "Condition of the returned item.",
+     "default": "acceptable"
+    }
+   },
+   "required": [
+    "return_id",
+    "inspection_notes",
+    "resolution"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_inventory",
+  "description": "List inventory items matching given criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for items.",
+     "default": ""
+    },
+    "category": {
+     "type": "string",
+     "description": "Filter by category."
+    },
+    "warehouse_id": {
+     "type": "string",
+     "description": "Filter by warehouse."
+    },
+    "low_stock_only": {
+     "type": "boolean",
+     "description": "Only show low stock items."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_orders",
+  "description": "List orders matching given criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for orders.",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by order status."
+    },
+    "customer_id": {
+     "type": "string",
+     "description": "Filter by customer ID."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_returns",
+  "description": "List returns matching given criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for returns.",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by return status."
+    },
+    "customer_id": {
+     "type": "string",
+     "description": "Filter by customer ID."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_shipments",
+  "description": "List shipments matching given criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for shipments.",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by shipment status."
+    },
+    "carrier": {
+     "type": "string",
+     "description": "Filter by carrier."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read the content of an attachment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_id": {
+     "type": "string",
+     "description": "ID of the attachment to read."
+    }
+   },
+   "required": [
+    "attachment_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "receive_return",
+  "description": "Mark a return as received in the warehouse.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "return_id": {
+     "type": "string",
+     "description": "ID of the return to mark received."
+    }
+   },
+   "required": [
+    "return_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reject_return",
+  "description": "Reject a customer return with a reason.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "return_id": {
+     "type": "string",
+     "description": "ID of the return to reject."
+    },
+    "reason": {
+     "type": "string",
+     "description": "Reason for the rejection."
+    }
+   },
+   "required": [
+    "return_id",
+    "reason"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reserve_inventory",
+  "description": "Reserve a quantity of a SKU in a warehouse.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sku": {
+     "type": "string",
+     "description": "Product SKU to reserve."
+    },
+    "warehouse_id": {
+     "type": "string",
+     "description": "Warehouse for the reservation."
+    },
+    "quantity": {
+     "type": "integer",
+     "description": "Quantity to reserve."
+    }
+   },
+   "required": [
+    "sku",
+    "warehouse_id",
+    "quantity"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "update_order_status",
+  "description": "Update the status of an existing order.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "order_id": {
+     "type": "string",
+     "description": "ID of the order to update."
+    },
+    "new_status": {
+     "type": "string",
+     "description": "New status for the order."
+    }
+   },
+   "required": [
+    "order_id",
+    "new_status"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "update_shipment_status",
+  "description": "Update the status and tracking of a shipment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "shipment_id": {
+     "type": "string",
+     "description": "ID of the shipment to update."
+    },
+    "new_status": {
+     "type": "string",
+     "description": "New status for the shipment."
+    },
+    "tracking_number": {
+     "type": "string",
+     "description": "New tracking number."
+    },
+    "current_location": {
+     "type": "string",
+     "description": "Current location of the shipment."
+    }
+   },
+   "required": [
+    "shipment_id",
+    "new_status"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

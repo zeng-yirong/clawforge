@@ -1,0 +1,625 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_average_order",
+  "description": "Create average order value formula.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_bar_chart",
+  "description": "Create a bar chart from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "chart_id": {
+     "type": "string",
+     "description": "Unique identifier for the chart."
+    },
+    "title": {
+     "type": "string",
+     "description": "Title of the bar chart."
+    },
+    "x_axis": {
+     "type": "string",
+     "description": "Column for x-axis categories."
+    },
+    "y_axis": {
+     "type": "string",
+     "description": "Column for y-axis values."
+    },
+    "aggregation": {
+     "type": "string",
+     "description": "Aggregation function (e.g., sum).",
+     "default": "sum"
+    }
+   },
+   "required": [
+    "chart_id",
+    "title",
+    "x_axis",
+    "y_axis"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_column_chart",
+  "description": "Create a column chart from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "chart_id": {
+     "type": "string",
+     "description": "Unique identifier for the chart."
+    },
+    "title": {
+     "type": "string",
+     "description": "Title of the column chart."
+    },
+    "x_axis": {
+     "type": "string",
+     "description": "Column for x-axis categories."
+    },
+    "y_axis": {
+     "type": "string",
+     "description": "Column for y-axis values."
+    },
+    "aggregation": {
+     "type": "string",
+     "description": "Aggregation function (e.g., sum).",
+     "default": "sum"
+    }
+   },
+   "required": [
+    "chart_id",
+    "title",
+    "x_axis",
+    "y_axis"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_formula",
+  "description": "Create a calculation formula for Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "name": {
+     "type": "string",
+     "description": "Name of the formula."
+    },
+    "expression": {
+     "type": "string",
+     "description": "Formula expression string."
+    },
+    "description": {
+     "type": "string",
+     "description": "Brief description of the formula.",
+     "default": ""
+    }
+   },
+   "required": [
+    "name",
+    "expression"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_line_chart",
+  "description": "Create a line chart from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "chart_id": {
+     "type": "string",
+     "description": "Unique identifier for the chart."
+    },
+    "title": {
+     "type": "string",
+     "description": "Title of the line chart."
+    },
+    "x_axis": {
+     "type": "string",
+     "description": "Column for x-axis categories."
+    },
+    "y_axis": {
+     "type": "string",
+     "description": "Column for y-axis values."
+    },
+    "aggregation": {
+     "type": "string",
+     "description": "Aggregation function (e.g., sum).",
+     "default": "sum"
+    }
+   },
+   "required": [
+    "chart_id",
+    "title",
+    "x_axis",
+    "y_axis"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_pie_chart",
+  "description": "Create a pie chart from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "chart_id": {
+     "type": "string",
+     "description": "Unique identifier for the chart."
+    },
+    "title": {
+     "type": "string",
+     "description": "Title of the pie chart."
+    },
+    "label_column": {
+     "type": "string",
+     "description": "Column for pie slice labels."
+    },
+    "value_column": {
+     "type": "string",
+     "description": "Column for slice values."
+    },
+    "aggregation": {
+     "type": "string",
+     "description": "Aggregation function (e.g., sum).",
+     "default": "sum"
+    }
+   },
+   "required": [
+    "chart_id",
+    "title",
+    "label_column",
+    "value_column"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_pivot",
+  "description": "Create a custom pivot table from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "row_dimensions": {
+     "type": "string",
+     "description": "Columns to pivot as row dimensions."
+    },
+    "value_column": {
+     "type": "string",
+     "description": "Column to aggregate values."
+    },
+    "aggregation": {
+     "type": "string",
+     "description": "Aggregation function (e.g., sum).",
+     "default": "sum"
+    }
+   },
+   "required": [
+    "row_dimensions",
+    "value_column"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_pivot_category_region",
+  "description": "Create pivot by category and region.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_pivot_city",
+  "description": "Create pivot by city.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_pivot_salesperson",
+  "description": "Create pivot by salesperson.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_total_revenue",
+  "description": "Create total revenue formula.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_total_transactions",
+  "description": "Create total transactions formula.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "deduplicate",
+  "description": "Remove duplicate rows from Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "data_id": {
+     "type": "string",
+     "description": "Identifier for the dataset."
+    },
+    "key_column": {
+     "type": "string",
+     "description": "Column to check for duplicates.",
+     "default": "transaction_id"
+    }
+   },
+   "required": [
+    "data_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "fill_missing",
+  "description": "Fill missing values in Excel data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "data_id": {
+     "type": "string",
+     "description": "Identifier for the dataset."
+    }
+   },
+   "required": [
+    "data_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_chart",
+  "description": "Get a specific chart.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_chart_details",
+  "description": "Get chart details.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_charts",
+  "description": "List all created charts.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_cleaned_data",
+  "description": "Get cleaned deduplicated data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_data_summary",
+  "description": "Get data summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_formulas",
+  "description": "List all created formulas.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_pivots",
+  "description": "List all created pivot tables.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_raw_data",
+  "description": "List available raw datasets.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_raw_data",
+  "description": "Read raw dataset info from Excel.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "data_id": {
+     "type": "string",
+     "description": "Identifier for the dataset."
+    }
+   },
+   "required": [
+    "data_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

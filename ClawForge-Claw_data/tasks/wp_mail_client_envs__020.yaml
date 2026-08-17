@@ -1,0 +1,8 @@
+task_id: wp_mail_client_envs__020
+name: Tom's Urgent Mails
+description: Filter urgent unread emails from Tom Friend and output IDs and subjects.
+asset: wp_mail_client_envs__020
+prompt_path: tasks/prompts/wp_mail_client_envs__020.md
+runtime:
+  type: file_workplace
+  base_dir: assets/wp_mail_client_envs__020

@@ -1,0 +1,8 @@
+asset: wp_fault_postmortem_kb_env__031
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__031.md
+runtime:
+  image: python:3.11-slim
+  working_dir: /workspace
+  init:
+    - command: python tasks/wp_fault_postmortem_kb_env__031/env_builder.py
+      cwd: assets/wp_fault_postmortem_kb_env__031

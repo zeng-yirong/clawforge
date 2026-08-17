@@ -1,0 +1,6 @@
+name: paper_citation_graph_task
+prompt: tasks/prompts/wp_paper_citation_graph_env__032.md
+asset: wp_paper_citation_graph_env__032
+runtime:
+  cwd: assets/wp_paper_citation_graph_env__032
+  entrypoint: env_builder.py

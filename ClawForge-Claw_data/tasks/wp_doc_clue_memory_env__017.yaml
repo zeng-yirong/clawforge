@@ -1,0 +1,11 @@
+task_id: wp_doc_clue_memory_env__017
+prompt: tasks/prompts/wp_doc_clue_memory_env__017.md
+asset: wp_doc_clue_memory_env__017
+runtime:
+  max_timeout: 300
+  allowed_tools:
+    - file_read
+    - file_write
+    - directory_list
+    - json_parse
+    - glob

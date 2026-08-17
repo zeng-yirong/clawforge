@@ -1,0 +1,7 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "车主助手",
+  "preferred_language": "中文",
+  "default_driver_mode": "comfort",
+  "default_temperature_unit": "celsius"
+}

@@ -1,0 +1,7 @@
+task_id: wp_sku_competition_env__001
+asset: wp_sku_competition_env__001
+prompt_path: prompts/wp_sku_competition_env__001.md
+runtime:
+  cwd: "."
+  env:
+    WORKSPACE: "."

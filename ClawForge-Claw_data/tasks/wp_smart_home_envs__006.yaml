@@ -1,0 +1,7 @@
+id: wp_smart_home_envs__006
+name: Smart Home Climate Control – Health-Aware Energy Optimization
+prompt: tasks/prompts/wp_smart_home_envs__006.md
+asset: wp_smart_home_envs__006
+runtime:
+  timeout_ms: 30000
+  max_files: 100

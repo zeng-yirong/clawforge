@@ -1,0 +1,432 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "aggregate_cluster_usage",
+  "description": "Aggregate compute and storage usage for one cluster into cache.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "cluster_id": {
+     "type": "string",
+     "description": "ID of the cluster to aggregate."
+    }
+   },
+   "required": [
+    "cluster_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_cost_report",
+  "description": "Generate a monthly cluster cost detail report and store it in cache.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "catalog_id": {
+     "type": "string",
+     "description": "ID of the pricing catalog."
+    },
+    "cluster_ids": {
+     "type": "string",
+     "description": "Optional comma-separated cluster ids. Defaults to all business clusters in the session."
+    },
+    "billing_month": {
+     "type": "string",
+     "description": "Month for the report (YYYY-MM)."
+    }
+   },
+   "required": [
+    "catalog_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_cache_entry",
+  "description": "Get one cached aggregate or report by entry id.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_id": {
+     "type": "string",
+     "description": "ID of the cache entry."
+    }
+   },
+   "required": [
+    "entry_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_cluster",
+  "description": "Get detailed cluster metadata.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "cluster_id": {
+     "type": "string",
+     "description": "ID of the cluster."
+    }
+   },
+   "required": [
+    "cluster_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_ledger_entry",
+  "description": "Get one resource ledger entry by id.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_id": {
+     "type": "string",
+     "description": "ID of the ledger entry."
+    }
+   },
+   "required": [
+    "entry_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_pricing_catalog",
+  "description": "Get the full content of a pricing catalog.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "catalog_id": {
+     "type": "string",
+     "description": "ID of the pricing catalog."
+    }
+   },
+   "required": [
+    "catalog_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_attachments",
+  "description": "List supporting attachments.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_cache",
+  "description": "List cached aggregates and reports created during the session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_type": {
+     "type": "string",
+     "description": "Type of cache entries to list."
+    },
+    "cache_key": {
+     "type": "string",
+     "description": "Key for filtering cache."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of entries."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_clusters",
+  "description": "List available clusters from the simulated ledger scope.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for cluster names.",
+     "default": ""
+    },
+    "domain": {
+     "type": "string",
+     "description": "Filter by domain."
+    },
+    "cluster_role": {
+     "type": "string",
+     "description": "Filter by role."
+    },
+    "environment": {
+     "type": "string",
+     "description": "Filter by environment."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of clusters."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_ledger_entries",
+  "description": "List resource ledger entries with optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "cluster_id": {
+     "type": "string",
+     "description": "Filter by cluster ID."
+    },
+    "resource_family": {
+     "type": "string",
+     "description": "Filter by resource family."
+    },
+    "metric_code": {
+     "type": "string",
+     "description": "Filter by metric code."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of entries."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_pricing_catalogs",
+  "description": "List pricing catalogs available to the scenario.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "Filter by catalog status."
+    },
+    "current_only": {
+     "type": "boolean",
+     "description": "Only show current catalogs."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read a scenario attachment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_path": {
+     "type": "string",
+     "description": "Path to the attachment file."
+    }
+   },
+   "required": [
+    "attachment_path"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

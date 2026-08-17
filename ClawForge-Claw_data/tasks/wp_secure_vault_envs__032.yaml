@@ -1,0 +1,8 @@
+id: wp_secure_vault_envs__032
+asset: wp_secure_vault_envs__032
+prompt: prompts/wp_secure_vault_envs__032.md
+runtime:
+  cwd: assets/wp_secure_vault_envs__032
+  env:
+    - name: PYTHONUNBUFFERED
+      value: "1"

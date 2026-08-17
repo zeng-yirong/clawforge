@@ -1,0 +1,8 @@
+name: wp_customer_tier_label_env__014
+asset: wp_customer_tier_label_env__014
+prompt: tasks/prompts/wp_customer_tier_label_env__014.md
+runtime:
+  timeout: 300
+  resources:
+    cpu: 1
+    memory: 256

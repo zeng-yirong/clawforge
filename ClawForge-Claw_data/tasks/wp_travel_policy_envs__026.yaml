@@ -1,0 +1,6 @@
+name: "Travel Policy Flight Decision"
+prompt: "tasks/prompts/wp_travel_policy_envs__026.md"
+asset: "wp_travel_policy_envs__026"
+runtime:
+  workdir: "./assets/wp_travel_policy_envs__026"
+  entry_points: []

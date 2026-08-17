@@ -1,0 +1,6 @@
+id: wp_customer_tier_label_env__009
+asset: wp_customer_tier_label_env__009
+prompt: tasks/prompts/wp_customer_tier_label_env__009.md
+runtime:
+  workspace: assets/wp_customer_tier_label_env__009
+  timeout: 300

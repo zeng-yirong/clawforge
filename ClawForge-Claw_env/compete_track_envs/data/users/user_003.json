@@ -1,0 +1,23 @@
+{
+  "user_id": "user_003",
+  "name": "Carol Martinez",
+  "email": "carol.m@cloudco.com",
+  "competitor_id": "comp_002",
+  "tier": "enterprise",
+  "cohort": "cohort_q3_2024",
+  "acquisition_source": "referral",
+  "acquisition_campaign": "partner_program",
+  "acquisition_date": "2024-08-10",
+  "acquisition_cost": 0,
+  "initial_channel": "partner",
+  "lifetime_value": 280000,
+  "churned": false,
+  "engagement": {
+    "score": 92,
+    "monthly_active_days": 28,
+    "features_used": ["compute", "storage", "networking", "security"]
+  },
+  "activity_history": [
+    {"date": "2024-08-10", "action": "signup", "duration_minutes": 3}
+  ]
+}

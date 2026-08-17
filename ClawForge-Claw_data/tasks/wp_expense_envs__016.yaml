@@ -1,0 +1,7 @@
+name: wp_expense_envs__016
+prompt: tasks/prompts/wp_expense_envs__016.md
+asset: wp_expense_envs__016
+runtime:
+  max_steps: 30
+  working_dir: /workspace
+  allowed_actions: ["read", "write", "list", "edit"]

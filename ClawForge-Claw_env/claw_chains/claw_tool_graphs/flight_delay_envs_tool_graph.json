@@ -1,0 +1,1013 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "adjust_hotel_booking",
+      "required_args": [
+        "--booking-id"
+      ],
+      "id": "adjust-hotel-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "cancel_hotel_booking",
+      "required_args": [
+        "--booking-id",
+        "--cancellation-reason"
+      ],
+      "id": "cancel-hotel-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "cancel_transport_booking",
+      "required_args": [
+        "--booking-id",
+        "--cancellation-reason"
+      ],
+      "id": "cancel-transport-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_flight_status",
+      "required_args": [
+        "--flight-id"
+      ],
+      "id": "check-flight-status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compose_delay_notification",
+      "required_args": [
+        "--flight-id",
+        "--recipient-name",
+        "--recipient-email"
+      ],
+      "id": "compose-delay-notification"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_hotel_booking",
+      "required_args": [
+        "--hotel-id",
+        "--hotel-name",
+        "--check-in",
+        "--check-out",
+        "--guest-name"
+      ],
+      "id": "create-hotel-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_transport_booking",
+      "required_args": [
+        "--transport-type",
+        "--service-provider",
+        "--passenger-name",
+        "--passenger-phone",
+        "--pickup-location",
+        "--dropoff-location",
+        "--pickup-time"
+      ],
+      "id": "create-transport-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "detect_delayed_flights",
+      "required_args": [],
+      "id": "detect-delayed-flights"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_affected_connections",
+      "required_args": [
+        "--flight-id"
+      ],
+      "id": "get-affected-connections"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_conference",
+      "required_args": [
+        "--conference-id"
+      ],
+      "id": "get-conference"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_flight",
+      "required_args": [
+        "--flight-id"
+      ],
+      "id": "get-flight"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_hotel_booking",
+      "required_args": [
+        "--booking-id"
+      ],
+      "id": "get-hotel-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_notification",
+      "required_args": [
+        "--notification-id"
+      ],
+      "id": "get-notification"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_transport_booking",
+      "required_args": [
+        "--booking-id"
+      ],
+      "id": "get-transport-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attendees",
+      "required_args": [
+        "--conference-id"
+      ],
+      "id": "list-attendees"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_conferences",
+      "required_args": [],
+      "id": "list-conferences"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_flights",
+      "required_args": [],
+      "id": "list-flights"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_hotel_bookings",
+      "required_args": [],
+      "id": "list-hotel-bookings"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_notifications",
+      "required_args": [],
+      "id": "list-notifications"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_transport_bookings",
+      "required_args": [],
+      "id": "list-transport-bookings"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "notification_stats",
+      "required_args": [],
+      "id": "notification-stats"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reschedule_transport_booking",
+      "required_args": [
+        "--booking-id",
+        "--new-pickup-time"
+      ],
+      "id": "reschedule-transport-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "send_notification",
+      "required_args": [
+        "--notification-id"
+      ],
+      "id": "send-notification"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-transport-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for",
+      "tier": "dataflow",
+      "source": "adjust-hotel-booking",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::flight_delay_cascade",
+      "tier": "gold",
+      "source": "adjust-hotel-booking",
+      "target": "reschedule-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for",
+      "tier": "dataflow",
+      "source": "cancel-hotel-booking",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::flight_delay_cascade",
+      "tier": "gold",
+      "source": "check-flight-status",
+      "target": "get-affected-connections"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for",
+      "tier": "dataflow",
+      "source": "compose-delay-notification",
+      "target": "get-notification"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_notification_id_for",
+      "tier": "gold",
+      "source": "compose-delay-notification",
+      "target": "send-notification"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "adjust-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "cancel-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "reschedule-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-hotel-booking",
+      "target": "cancel-transport-booking"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-hotel-booking",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-hotel-booking",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-hotel-booking",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "adjust-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "cancel-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "reschedule-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "create-transport-booking",
+      "target": "cancel-transport-booking"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-transport-booking",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-transport-booking",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-transport-booking",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "detect-delayed-flights",
+      "target": "get-flight"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "detect-delayed-flights",
+      "target": "check-flight-status"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "detect-delayed-flights",
+      "target": "get-affected-connections"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "detect-delayed-flights",
+      "target": "compose-delay-notification"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::flight_delay_cascade",
+      "tier": "gold",
+      "source": "get-affected-connections",
+      "target": "adjust-hotel-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-affected-connections",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-affected-connections",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after seeing affected, get hotel details",
+      "tier": "llm_weak",
+      "source": "get-affected-connections",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after seeing affected, get transport details",
+      "tier": "llm_weak",
+      "source": "get-affected-connections",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-conference",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-conference",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-flight",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-flight",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for",
+      "tier": "dataflow",
+      "source": "get-hotel-booking",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-hotel-booking",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-hotel-booking",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-notification",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-notification",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-transport-booking",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-transport-booking",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attendees",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attendees",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_conference_id_for",
+      "tier": "dataflow",
+      "source": "list-conferences",
+      "target": "get-conference"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_conference_id_for",
+      "tier": "dataflow",
+      "source": "list-conferences",
+      "target": "list-attendees"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-conferences",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-conferences",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "list-flights",
+      "target": "get-flight"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "list-flights",
+      "target": "check-flight-status"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "list-flights",
+      "target": "get-affected-connections"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for",
+      "tier": "dataflow",
+      "source": "list-flights",
+      "target": "compose-delay-notification"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-flights",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-flights",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "adjust-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "cancel-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "reschedule-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "cancel-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for",
+      "tier": "dataflow",
+      "source": "list-hotel-bookings",
+      "target": "create-hotel-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-hotel-bookings",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-hotel-bookings",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for",
+      "tier": "dataflow",
+      "source": "list-notifications",
+      "target": "get-notification"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for",
+      "tier": "dataflow",
+      "source": "list-notifications",
+      "target": "send-notification"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-notifications",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-notifications",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "adjust-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "cancel-hotel-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "reschedule-transport-booking"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for",
+      "tier": "dataflow",
+      "source": "list-transport-bookings",
+      "target": "cancel-transport-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-transport-bookings",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-transport-bookings",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for",
+      "tier": "dataflow",
+      "source": "notification-stats",
+      "target": "get-notification"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for",
+      "tier": "dataflow",
+      "source": "notification-stats",
+      "target": "send-notification"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::flight_delay_cascade",
+      "tier": "gold",
+      "source": "reschedule-transport-booking",
+      "target": "compose-delay-notification"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after sending, check notification stats",
+      "tier": "llm_weak",
+      "source": "send-notification",
+      "target": "notification-stats"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-affected-connections"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-conference"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-flight"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-hotel-booking"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-notification"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-transport-booking"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attendees"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-conferences"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-flights"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-hotel-bookings"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-notifications"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-transport-bookings"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "crm_lead_001",
+      "name": "Nora Yi",
+      "role": "CRM Lead",
+      "email": "nora.yi@northstar.example.com"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+asset: wp_resume_interview_scheduler_env__045
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__045.md
+runtime:
+  cwd: assets/wp_resume_interview_scheduler_env__045

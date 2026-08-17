@@ -1,0 +1,601 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "control_ac",
+  "description": "Control an air conditioner device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the AC device"
+    },
+    "action": {
+     "type": "string",
+     "description": "Action: turn_on or turn_off",
+     "enum": [
+      "on",
+      "off"
+     ]
+    },
+    "temperature": {
+     "type": "number",
+     "description": "Desired temperature value"
+    },
+    "mode": {
+     "type": "string",
+     "description": "AC mode (cool/heat)"
+    }
+   },
+   "required": [
+    "device_id",
+    "action"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "control_humidifier",
+  "description": "Control a humidifier device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the humidifier"
+    },
+    "action": {
+     "type": "string",
+     "description": "Action: turn_on or turn_off",
+     "enum": [
+      "on",
+      "off"
+     ]
+    },
+    "humidity": {
+     "type": "integer",
+     "description": "Target humidity level"
+    }
+   },
+   "required": [
+    "device_id",
+    "action"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "control_light",
+  "description": "Control a light bulb.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the light"
+    },
+    "action": {
+     "type": "string",
+     "description": "Action: turn_on or turn_off",
+     "enum": [
+      "on",
+      "off"
+     ]
+    },
+    "brightness": {
+     "type": "integer",
+     "description": "Brightness level (0-100)"
+    }
+   },
+   "required": [
+    "device_id",
+    "action"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "control_plug",
+  "description": "Control a smart plug device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the smart plug"
+    },
+    "action": {
+     "type": "string",
+     "description": "Action: turn_on or turn_off",
+     "enum": [
+      "on",
+      "off"
+     ]
+    }
+   },
+   "required": [
+    "device_id",
+    "action"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_schedule",
+  "description": "Create a new schedule for a device action.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "name": {
+     "type": "string",
+     "description": "Schedule name"
+    },
+    "device_id": {
+     "type": "string",
+     "description": "Device to schedule"
+    },
+    "action": {
+     "type": "string",
+     "description": "Action to perform",
+     "enum": [
+      "on",
+      "off"
+     ]
+    },
+    "time": {
+     "type": "string",
+     "description": "Time of action"
+    },
+    "repeat": {
+     "type": "string",
+     "description": "Repeat frequency",
+     "enum": [
+      "once",
+      "daily",
+      "weekly",
+      "custom"
+     ]
+    },
+    "days": {
+     "type": "string",
+     "description": "Days of week"
+    },
+    "start": {
+     "type": "string",
+     "description": "Start date/time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End date/time"
+    }
+   },
+   "required": [
+    "name",
+    "device_id",
+    "action",
+    "time",
+    "repeat"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "delete_schedule",
+  "description": "Delete an existing schedule by ID.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "schedule_id": {
+     "type": "string",
+     "description": "ID of the schedule"
+    }
+   },
+   "required": [
+    "schedule_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "disable_schedule",
+  "description": "Disable a schedule without deleting.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "schedule_id": {
+     "type": "string",
+     "description": "ID of the schedule"
+    }
+   },
+   "required": [
+    "schedule_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "enable_schedule",
+  "description": "Enable a previously disabled schedule.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "schedule_id": {
+     "type": "string",
+     "description": "ID of the schedule"
+    }
+   },
+   "required": [
+    "schedule_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_tasks",
+  "description": "Execute all tasks scheduled for a given time.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "time": {
+     "type": "string",
+     "description": "Time to execute tasks for"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_device",
+  "description": "Retrieve current status of a device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the device"
+    }
+   },
+   "required": [
+    "device_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_schedule",
+  "description": "Retrieve details of a specific schedule.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "schedule_id": {
+     "type": "string",
+     "description": "ID of the schedule"
+    }
+   },
+   "required": [
+    "schedule_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_devices",
+  "description": "List all devices, optionally filtered by type.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Device type filter (optional)"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_schedules",
+  "description": "List all schedules, optionally filtered by enabled status.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "enabled": {
+     "type": "string",
+     "description": "Filter enabled (true/false)"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "scheduling_status",
+  "description": "Get scheduling status.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task_history",
+  "description": "Retrieve execution history for a schedule.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "schedule_id": {
+     "type": "string",
+     "description": "ID of the schedule"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Max number of records",
+     "default": 50
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "turn_off_device",
+  "description": "Turn off a specific device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the device"
+    }
+   },
+   "required": [
+    "device_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "turn_on_device",
+  "description": "Turn on a specific device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "ID of the device"
+    }
+   },
+   "required": [
+    "device_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "upcoming_tasks",
+  "description": "Get list of upcoming scheduled tasks.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "limit": {
+     "type": "integer",
+     "description": "Max number of tasks",
+     "default": 10
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

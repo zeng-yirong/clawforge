@@ -1,0 +1,1 @@
+嘿！我现在正开着车，车机音乐系统突然傻掉了。我明明在播放“夜驾驶”播放列表，刚听完一首歌，想切下一首，结果屏幕卡住不动了。我手动翻了翻工作区里的数据文件，找到了 `data/playlists/playlists.json` 和 `data/songs/songs.json`，还有 `ops/current_state.json` 记录了当前播放状态。你帮我根据当前状态，快速算出下一首应该是什么歌，把结果写到 `ops/next_song.json` 里，格式要包含 `song_id`、`title`、`artist`。别整复杂了，就按顺序下一首，不循环。我等着切歌，快点！

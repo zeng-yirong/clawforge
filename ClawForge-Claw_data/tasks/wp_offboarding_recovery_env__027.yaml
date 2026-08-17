@@ -1,0 +1,6 @@
+prompt: tasks/prompts/wp_offboarding_recovery_env__027.md
+asset: wp_offboarding_recovery_env__027
+runtime:
+  language: python3
+  entry: null
+  timeout: 120

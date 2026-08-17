@@ -1,0 +1,1 @@
+嘿，我是Alice，账号ID是alice_001。我们部门刚收到一批数据导出请求，我的权限只允许读取客户数据（customer_data），不能碰架构数据（architecture_data）。工作区的 data 目录下放了账户信息（accounts.json）、资产分类（assets.json）和请求列表（requests.json）。麻烦你帮我审查一下，找出那些超出我权限范围、且还没被处理的请求，把它们的ID写到 ops/deny_list.json 里。有些请求已经被驳回（状态是 denied），别算进去。辛苦啦！

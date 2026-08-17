@@ -1,0 +1,35 @@
+{
+  "competitor_id": "comp_004",
+  "name": "SmartSaaS",
+  "description": "Consumer-focused SaaS company providing productivity and collaboration tools.",
+  "sector": "Consumer SaaS",
+  "market_cap": 120000000000,
+  "market_share": 0.08,
+  "revenue": 22000000000,
+  "user_count": 45000000,
+  "growth_rate": 0.25,
+  "financials": {
+    "pe_ratio": 45.0,
+    "profit_margin": 0.15,
+    "debt_to_equity": 0.20,
+    "revenue_growth_yoy": 0.25,
+    "quarterly_earnings": [
+      {"quarter": "Q1 2026", "revenue": 5100000000, "net_income": 765000000},
+      {"quarter": "Q2 2026", "revenue": 5600000000, "net_income": 840000000}
+    ]
+  },
+  "products": [
+    {"product_id": "prod_008", "name": "SmartOffice", "category": "Productivity", "market_share": 0.15},
+    {"product_id": "prod_009", "name": "SmartChat", "category": "Collaboration", "market_share": 0.12}
+  ],
+  "news": [
+    {
+      "news_id": "news_comp_006",
+      "title": "SmartSaaS launches new collaboration features",
+      "category": "product",
+      "sentiment": "positive",
+      "published_at": "2026-06-11T11:00:00Z",
+      "summary": "SmartSaaS released major update to collaboration suite with AI-powered features."
+    }
+  ]
+}

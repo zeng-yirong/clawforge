@@ -1,0 +1,6 @@
+task_id: wp_arxiv_review_roadmap_env__010
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__010.md
+asset: wp_arxiv_review_roadmap_env__010
+runtime:
+  cpu: 1
+  memory: 512

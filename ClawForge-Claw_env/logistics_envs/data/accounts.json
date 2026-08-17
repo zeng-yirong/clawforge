@@ -1,0 +1,26 @@
+{
+  "accounts": [
+    {
+      "account_id": "ops_team",
+      "display_name": "LogiFlow Operations",
+      "department": "Operations",
+      "email": "ops@logiflow.example.com",
+      "permissions": [
+        "view_orders",
+        "update_orders",
+        "view_shipments",
+        "create_returns",
+        "process_returns",
+        "view_inventory",
+        "adjust_inventory",
+        "reconcile_inventory"
+      ],
+      "default_warehouse_id": "wh_001",
+      "voice": [
+        "professional",
+        "clear",
+        "solution-oriented"
+      ]
+    }
+  ]
+}

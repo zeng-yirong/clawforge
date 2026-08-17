@@ -1,0 +1,346 @@
+{
+  "env_name": "car_control_envs",
+  "rel_path": "car_control_envs",
+  "cli_module": "car_control_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "CAR_SESSION_ID",
+    "state_env": "CAR_STATE_ROOT",
+    "scenario_env": "CAR_SCENARIO_ID",
+    "default_scenario_id": "in_car_control"
+  },
+  "visible_verbs": [
+    {
+      "verb": "ac-fan",
+      "action": "ac_fan",
+      "role": "other",
+      "help": "Set AC fan speed",
+      "args": [
+        {
+          "name": "--speed",
+          "required": false,
+          "has_default": true,
+          "default": 2,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "ac-mode",
+      "action": "ac_mode",
+      "role": "other",
+      "help": "Set AC mode",
+      "args": [
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": true,
+          "default": "auto",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "ac-power",
+      "action": "ac_power",
+      "role": "other",
+      "help": "Set AC power",
+      "args": [
+        {
+          "name": "--on",
+          "required": false,
+          "has_default": true,
+          "default": true,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "ac-temp",
+      "action": "ac_temp",
+      "role": "other",
+      "help": "Set AC temperature",
+      "args": [
+        {
+          "name": "--temperature",
+          "required": false,
+          "has_default": true,
+          "default": 24,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "ambient-light",
+      "action": "ambient_light",
+      "role": "other",
+      "help": "Set ambient light",
+      "args": [
+        {
+          "name": "--on",
+          "required": false,
+          "has_default": true,
+          "default": true,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--color",
+          "required": false,
+          "has_default": true,
+          "default": "blue",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--brightness",
+          "required": false,
+          "has_default": true,
+          "default": 50,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "driving-mode",
+      "action": "driving_mode",
+      "role": "other",
+      "help": "Set driving mode",
+      "args": [
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": true,
+          "default": "comfort",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "media-play",
+      "action": "media_play",
+      "role": "other",
+      "help": "Play media",
+      "args": [
+        {
+          "name": "--source",
+          "required": false,
+          "has_default": true,
+          "default": "bluetooth",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "seat",
+      "action": "seat",
+      "role": "other",
+      "help": "Adjust seat",
+      "args": [
+        {
+          "name": "--zone",
+          "required": false,
+          "has_default": true,
+          "default": "fl",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--position",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "seat-heat",
+      "action": "seat_heat",
+      "role": "other",
+      "help": "Set seat heating",
+      "args": [
+        {
+          "name": "--zone",
+          "required": false,
+          "has_default": true,
+          "default": "fl",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--level",
+          "required": false,
+          "has_default": true,
+          "default": 1,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "status",
+      "action": "status",
+      "role": "other",
+      "help": "Get vehicle status",
+      "args": [
+        {
+          "name": "--query-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "volume",
+      "action": "volume",
+      "role": "other",
+      "help": "Set volume",
+      "args": [
+        {
+          "name": "--volume",
+          "required": false,
+          "has_default": true,
+          "default": 15,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "window",
+      "action": "window",
+      "role": "other",
+      "help": "Control window",
+      "args": [
+        {
+          "name": "--window",
+          "required": false,
+          "has_default": true,
+          "default": "fl",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--percentage",
+          "required": false,
+          "has_default": true,
+          "default": 100,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "in_car_control"
+  ]
+}

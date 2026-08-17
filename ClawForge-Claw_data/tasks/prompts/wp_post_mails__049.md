@@ -1,0 +1,1 @@
+嘿，我是 Priya Dev（运维）。刚收到 Mira Chen 的最新批准邮件，但她附件里的 brief 好像版本搞混了，日期看起来像被截了一半。你去 `data/emails/` 里找一下那封主题带「Approved」的邮件，附件是 `orbital_brief_v5.json`，那才是最终版。把正确的发射日期和运载火箭产品名记下来，然后去 `ops/` 下生成两个官宣文件 `pub_x.json` 和 `pub_reddit.json`，格式按标准来（平台、内容、时间戳、标签）。对了，`data/social/` 下有个 Reddit 帖子在问发射时间，你以官方身份回复一下，回复内容放到 `ops/reply.json` 里。所有产出放 `ops/` 下，我回头检查。我只想要准确的答案，别给我一堆草稿。

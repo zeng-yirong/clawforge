@@ -1,0 +1,9 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "李明",
+  "employee_id": "EMP001",
+  "department": "信息技术部",
+  "security_level": "high",
+  "preferred_charset": "alphanumeric",
+  "default_password_length": 16
+}

@@ -1,0 +1,5 @@
+asset: wp_doc_clue_memory_env__021
+prompt_path: tasks/prompts/wp_doc_clue_memory_env__021.md
+runtime:
+  type: simple
+  cwd: assets/wp_doc_clue_memory_env__021

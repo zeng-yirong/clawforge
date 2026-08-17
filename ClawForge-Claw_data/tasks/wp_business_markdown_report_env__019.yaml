@@ -1,0 +1,5 @@
+asset: wp_business_markdown_report_env__019
+prompt_path: tasks/prompts/wp_business_markdown_report_env__019.md
+runtime:
+  workspace: assets/wp_business_markdown_report_env__019
+  actions: []

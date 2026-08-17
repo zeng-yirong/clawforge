@@ -1,0 +1,119 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

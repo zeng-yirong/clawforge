@@ -1,0 +1,7 @@
+task_id: wp_mail_client_envs__008
+asset: wp_mail_client_envs__008
+prompt_path: tasks/prompts/wp_mail_client_envs__008.md
+runtime:
+  type: file_workplace
+  agent_workdir: .
+  timeout_seconds: 600

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "q2_business_travel_2026",
+  "description": "Q2 2026 Business Travel Booking - Compare platform prices, validate against policy, and complete booking",
+  "policy_ids": ["travel_policy_001", "travel_policy_002"],
+  "platform_ids": ["skybook", "flightpro", "aerocheap"],
+  "required_actions": [
+    "compare_platform_prices",
+    "validate_booking_against_policy",
+    "initiate_approval_request",
+    "create_booking"
+  ],
+  "task": "Book a business class flight from New York (JFK) to London (LHR) for a client meeting. Departure date: June 15, 2026. Compare prices across all platforms, ensure compliance with travel policy, obtain necessary approvals, and complete the booking."
+}

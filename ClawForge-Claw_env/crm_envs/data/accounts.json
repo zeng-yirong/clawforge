@@ -1,0 +1,20 @@
+{
+  "accounts": [
+    {
+      "account_id": "crm_admin",
+      "display_name": "CRM Administrator",
+      "email": "admin@crm.example.com",
+      "default_tag_color": "#3498db",
+      "auto_tagging_enabled": true,
+      "birthday_reminders_enabled": true,
+      "reminder_days_before": 7,
+      "available_folders": [
+        "all",
+        "personal",
+        "business",
+        "archive",
+        "inactive"
+      ]
+    }
+  ]
+}

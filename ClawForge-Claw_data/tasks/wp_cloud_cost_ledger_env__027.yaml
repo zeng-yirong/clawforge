@@ -1,0 +1,7 @@
+task_name: wp_cloud_cost_ledger_env__027
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__027.md
+asset: wp_cloud_cost_ledger_env__027
+runtime:
+  timeout_seconds: 300
+  max_steps: 30
+  work_dir: "."

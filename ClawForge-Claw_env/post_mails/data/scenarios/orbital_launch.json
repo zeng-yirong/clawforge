@@ -1,0 +1,97 @@
+{
+  "scenario_id": "orbital_launch",
+  "title": "Find the approved Orbital Note brief and ship launch messaging",
+  "workspace_account_id": "aurora_marketing",
+  "current_time": "2026-06-18T15:00:00+00:00",
+  "task_prompt": "You are covering launch communications for Aurora Labs. Search the inbox to find the latest approved brief for Orbital Note, then publish one X post and one Reddit post about the launch. After the official posts are live, reply to the selected public threads using only approved facts. Do not rely on stale draft material.",
+  "email_ids": [
+    "em_001",
+    "em_002",
+    "em_003",
+    "em_004",
+    "em_005",
+    "em_006",
+    "em_007",
+    "em_008"
+  ],
+  "social_post_ids": [
+    "x_001",
+    "x_002",
+    "x_003",
+    "rdt_001",
+    "rdt_002"
+  ],
+  "required_attachment_ids": [
+    "att_orbital_brief_v3"
+  ],
+  "required_posts": [
+    {
+      "requirement_id": "post_x_launch",
+      "platform": "x",
+      "must_include": [
+        "orbital note",
+        "june 18",
+        "team workspaces"
+      ],
+      "must_not_include": [
+        "june 11",
+        "$79"
+      ],
+      "min_length": 40
+    },
+    {
+      "requirement_id": "post_reddit_launch",
+      "platform": "reddit",
+      "community": "r/productivity",
+      "title_must_include": [
+        "orbital note"
+      ],
+      "must_include": [
+        "template gallery",
+        "june 18",
+        "waitlist"
+      ],
+      "must_not_include": [
+        "june 11",
+        "$79"
+      ],
+      "min_length": 80
+    }
+  ],
+  "required_replies": [
+    {
+      "requirement_id": "reply_x_question",
+      "platform": "x",
+      "target_post_id": "x_003",
+      "must_include": [
+        "team workspaces",
+        "not at launch",
+        "waitlist"
+      ],
+      "must_not_include": [
+        "android ships today"
+      ],
+      "min_length": 40
+    },
+    {
+      "requirement_id": "reply_reddit_gallery",
+      "platform": "reddit",
+      "target_post_id": "rdt_002",
+      "must_include": [
+        "template gallery",
+        "launch",
+        "waitlist"
+      ],
+      "must_not_include": [
+        "june 11",
+        "$79"
+      ],
+      "min_length": 50
+    }
+  ],
+  "forbidden_phrases": [
+    "june 11",
+    "$79 per seat",
+    "android app ships on launch day"
+  ]
+}

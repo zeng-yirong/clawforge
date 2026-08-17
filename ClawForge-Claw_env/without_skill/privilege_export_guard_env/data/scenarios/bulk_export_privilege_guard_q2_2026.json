@@ -1,0 +1,38 @@
+{
+  "scenario_id": "bulk_export_privilege_guard_q2_2026",
+  "title": "Block unauthorized bulk export request",
+  "task_prompt": "Inspect the high-volume export request, confirm it exceeds allowed privilege level, deny the request, and preserve the audit trail.",
+  "current_time": "2026-06-23T09:00:00Z",
+  "workspace_account_id": "secops_export_guard",
+  "request_ids": [
+    "req_export_001"
+  ],
+  "asset_ids": [
+    "asset_customer_master",
+    "asset_architecture_docs"
+  ],
+  "attachment_paths": [
+    "bulk_export_policy.md"
+  ],
+  "expected_request_ids": [
+    "req_export_001"
+  ],
+  "deny_request_ids": [
+    "req_export_001"
+  ],
+  "expected_reason_codes": [
+    "unauthorized_bulk_export_block"
+  ],
+  "expected_risk_types": [
+    "bulk_export_abuse"
+  ],
+  "required_attachment_paths": [
+    "bulk_export_policy.md"
+  ],
+  "required_actions": [
+    "list_requests",
+    "get_request",
+    "read_attachment",
+    "deny_request"
+  ]
+}

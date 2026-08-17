@@ -1,0 +1,6 @@
+task_id: wp_resume_interview_scheduler_env__001
+prompt_path: tasks/prompts/wp_resume_interview_scheduler_env__001.md
+asset: wp_resume_interview_scheduler_env__001
+runtime:
+  python: "3.9"
+  timeout: 300

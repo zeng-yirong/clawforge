@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "data_gov_001",
+      "name": "Iris Chen",
+      "role": "Data Governance Lead",
+      "email": "iris.chen@northstar.example.com"
+    }
+  ]
+}

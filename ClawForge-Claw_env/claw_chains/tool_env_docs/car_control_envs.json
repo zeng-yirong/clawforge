@@ -1,0 +1,398 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ac_fan",
+  "description": "Set AC fan speed.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "speed": {
+     "type": "integer",
+     "description": "fan speed level",
+     "default": 2
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ac_mode",
+  "description": "Set AC mode.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "mode": {
+     "type": "string",
+     "description": "ac mode setting",
+     "default": "auto"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ac_power",
+  "description": "Set AC power.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "on": {
+     "type": "boolean",
+     "description": "turn on/off",
+     "default": true
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ac_temp",
+  "description": "Set AC temperature.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "temperature": {
+     "type": "integer",
+     "description": "target temperature value",
+     "default": 24
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ambient_light",
+  "description": "Set ambient light.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "on": {
+     "type": "boolean",
+     "description": "turn on/off",
+     "default": true
+    },
+    "color": {
+     "type": "string",
+     "description": "light color",
+     "default": "blue"
+    },
+    "brightness": {
+     "type": "integer",
+     "description": "brightness level",
+     "default": 50
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "driving_mode",
+  "description": "Set driving mode.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "mode": {
+     "type": "string",
+     "description": "driving mode option",
+     "default": "comfort"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "media_play",
+  "description": "Play media.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "source": {
+     "type": "string",
+     "description": "media source identifier",
+     "default": "bluetooth"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "seat",
+  "description": "Adjust seat.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "zone": {
+     "type": "string",
+     "description": "seat zone",
+     "default": "fl"
+    },
+    "position": {
+     "type": "integer",
+     "description": "seat position"
+    }
+   },
+   "required": [
+    "position"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "seat_heat",
+  "description": "Set seat heating.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "zone": {
+     "type": "string",
+     "description": "seat zone",
+     "default": "fl"
+    },
+    "level": {
+     "type": "integer",
+     "description": "heating level",
+     "default": 1
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Get session summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "status",
+  "description": "Get vehicle status.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query_type": {
+     "type": "string",
+     "description": "status query type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "volume",
+  "description": "Set volume.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "volume": {
+     "type": "integer",
+     "description": "volume level",
+     "default": 15
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "window",
+  "description": "Control window.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "window": {
+     "type": "string",
+     "description": "window identifier",
+     "default": "fl"
+    },
+    "percentage": {
+     "type": "integer",
+     "description": "open percentage",
+     "default": 100
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

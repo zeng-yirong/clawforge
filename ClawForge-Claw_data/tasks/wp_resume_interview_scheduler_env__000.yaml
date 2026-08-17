@@ -1,0 +1,13 @@
+task_id: wp_resume_interview_scheduler_env__000
+asset: wp_resume_interview_scheduler_env__000
+prompt_path: tasks/prompts/wp_resume_interview_scheduler_env__000.md
+runtime:
+  max_steps: 20
+  timeout_seconds: 300
+  tools:
+    - read
+    - write
+    - edit
+    - shell
+    - list_directory
+    - glob

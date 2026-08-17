@@ -1,0 +1,9 @@
+{
+  "exit_requests": [
+    {
+      "employee_id": "emp_ops_001",
+      "employee_name": "Mira Fang",
+      "approval_status": "approved"
+    }
+  ]
+}

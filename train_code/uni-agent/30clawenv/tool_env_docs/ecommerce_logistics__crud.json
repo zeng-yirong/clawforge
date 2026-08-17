@@ -1,0 +1,312 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "login",
+    "description": "Authenticate a user for the logistics system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "Username of the user."
+        },
+        "password": {
+          "type": "string",
+          "description": "Password of the user."
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "logout",
+    "description": "Log out the current user.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_login_status",
+    "description": "Get the authentication status of the current user.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_shipment",
+    "description": "Create a new shipment record.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Original order ID."
+        },
+        "products": {
+          "type": "array",
+          "description": "List of product names in shipment."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Shipping destination address."
+        },
+        "customer_name": {
+          "type": "string",
+          "description": "Name of the customer."
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Shipping priority from 1-3 (1=standard, 2=express, 3=urgent). Defaults to 1."
+        }
+      },
+      "required": [
+        "order_id",
+        "products",
+        "destination",
+        "customer_name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_shipment_status",
+    "description": "Get the current status and tracking history of a shipment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "shipment_id": {
+          "type": "integer",
+          "description": "ID of the shipment to retrieve."
+        }
+      },
+      "required": [
+        "shipment_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_shipment_status",
+    "description": "Update the status of a shipment and add to tracking history.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "shipment_id": {
+          "type": "integer",
+          "description": "ID of the shipment to update."
+        },
+        "new_status": {
+          "type": "string",
+          "description": "New status for the shipment."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the status update."
+        }
+      },
+      "required": [
+        "shipment_id",
+        "new_status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_return_order",
+    "description": "Create a new return/exchange order.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Original order ID."
+        },
+        "product_name": {
+          "type": "string",
+          "description": "Name of the product being returned."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for return."
+        },
+        "return_type": {
+          "type": "string",
+          "description": "Type of return - \"refund\" or \"exchange\". Defaults to \"refund\"."
+        },
+        "condition": {
+          "type": "string",
+          "description": "Condition of returned item - \"unopened\", \"used\", or \"damaged\". Defaults to \"unopened\"."
+        }
+      },
+      "required": [
+        "order_id",
+        "product_name",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_return_order",
+    "description": "Process a return order (approve, reject, or complete).",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "return_id": {
+          "type": "integer",
+          "description": "ID of the return order to process."
+        },
+        "action": {
+          "type": "string",
+          "description": "Action to take - \"approve\", \"reject\", or \"complete\"."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the processing decision."
+        }
+      },
+      "required": [
+        "return_id",
+        "action"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_inventory_status",
+    "description": "Get current inventory status, optionally filtered by category.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Specific product category to query. If None, returns all inventory."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reconcile_inventory",
+    "description": "Reconcile inventory by comparing recorded vs actual quantities.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Product category to reconcile."
+        },
+        "actual_quantity": {
+          "type": "integer",
+          "description": "Physically counted quantity."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the reconciliation."
+        }
+      },
+      "required": [
+        "category",
+        "actual_quantity"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_reconciliation_history",
+    "description": "Get inventory reconciliation history, optionally filtered by category.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "category": {
+          "type": "string",
+          "description": "Product category to filter logs. If None, returns all reconciliation logs."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_user_shipments",
+    "description": "Get all shipments created by the current user.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_pending_returns",
+    "description": "Get all return orders pending review.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

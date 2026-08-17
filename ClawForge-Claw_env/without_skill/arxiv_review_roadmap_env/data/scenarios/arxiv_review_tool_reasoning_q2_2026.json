@@ -1,0 +1,13 @@
+{
+  "scenario_id": "arxiv_review_tool_reasoning_q2_2026",
+  "title": "Generate literature review for tool-augmented reasoning",
+  "task_prompt": "Search the ArXiv abstract memory store for tool-augmented reasoning papers, read the review style guide, and generate a Markdown review plus Mermaid roadmap into cache.",
+  "current_time": "2026-06-23T10:00:00Z",
+  "workspace_account_id": "research_scout_team",
+  "paper_ids": ["paper_tar_001", "paper_tar_002", "paper_tar_003", "paper_diff_001"],
+  "attachment_paths": ["review_style_guide.md"],
+  "target_direction": "tool_augmented_reasoning",
+  "expected_paper_ids": ["paper_tar_001", "paper_tar_002", "paper_tar_003"],
+  "required_attachment_paths": ["review_style_guide.md"],
+  "required_actions": ["list_papers", "get_paper", "read_attachment", "generate_review"]
+}

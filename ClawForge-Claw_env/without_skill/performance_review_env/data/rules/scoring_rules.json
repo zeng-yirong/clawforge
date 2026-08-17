@@ -1,0 +1,10 @@
+{
+  "scoring_rules": [
+    {
+      "role_code": "software_engineer",
+      "feature_delivery_weight": 0.4,
+      "quality_weight": 0.35,
+      "collaboration_weight": 0.25
+    }
+  ]
+}

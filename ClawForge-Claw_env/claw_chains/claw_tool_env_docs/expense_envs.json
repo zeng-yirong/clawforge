@@ -1,0 +1,161 @@
+{
+  "env_name": "expense_envs",
+  "rel_path": "expense_envs",
+  "cli_module": "expense_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "EXPENSE_SESSION_ID",
+    "state_env": "EXPENSE_STATE_ROOT",
+    "scenario_env": "EXPENSE_SCENARIO_ID",
+    "default_scenario_id": "expense_analysis_001"
+  },
+  "visible_verbs": [
+    {
+      "verb": "calculate-budget",
+      "action": "calculate_budget",
+      "role": "other",
+      "help": "Calculate expense budget",
+      "args": [
+        {
+          "name": "--tier",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--destination",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--duration-days",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "export-report",
+      "action": "export_report",
+      "role": "other",
+      "help": "Export expense report",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "generate-analysis",
+      "action": "generate_analysis",
+      "role": "produce",
+      "help": "Generate budget vs actual analysis",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "load-consumption",
+      "action": "load_consumption",
+      "role": "other",
+      "help": "Load consumption records",
+      "args": [
+        {
+          "name": "--trip-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "load-policy",
+      "action": "load_policy",
+      "role": "other",
+      "help": "Load travel policy",
+      "args": [
+        {
+          "name": "--tier",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "expense_analysis_001"
+  ]
+}

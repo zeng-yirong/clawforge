@@ -1,0 +1,8 @@
+name: wp_expense_envs__004
+description: "离线费用管理与预算分析：根据差旅政策与实际消费记录，识别超支类别并生成超支明细报告。"
+asset: wp_expense_envs__004
+prompt_path: tasks/prompts/wp_expense_envs__004.md
+runtime:
+  cwd: assets/wp_expense_envs__004/
+  entry_point: env_builder.py
+  verify_script: scripts/wp_expense_envs__004/verify_workplace.py

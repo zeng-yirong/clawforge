@@ -1,0 +1,303 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_players",
+      "required_args": [],
+      "id": "list-players"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_playlists",
+      "required_args": [],
+      "id": "list-playlists"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_songs",
+      "required_args": [],
+      "id": "list-songs"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "next",
+      "required_args": [],
+      "id": "next"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "pause",
+      "required_args": [],
+      "id": "pause"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "play",
+      "required_args": [
+        "--song-id"
+      ],
+      "id": "play"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "previous",
+      "required_args": [],
+      "id": "previous"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "resume",
+      "required_args": [],
+      "id": "resume"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "search",
+      "required_args": [],
+      "id": "search"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "seek",
+      "required_args": [],
+      "id": "seek"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "set_mode",
+      "required_args": [],
+      "id": "set-mode"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "status",
+      "required_args": [],
+      "id": "status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "switch_player",
+      "required_args": [],
+      "id": "switch-player"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-players",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-players",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "list-players",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-playlists",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-playlists",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_song_id_for",
+      "tier": "dataflow",
+      "source": "list-songs",
+      "target": "play"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-songs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-songs",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "next",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "pause",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "play",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "previous",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "resume",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "seek",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "set-mode",
+      "target": "status"
+    }
+  ]
+}

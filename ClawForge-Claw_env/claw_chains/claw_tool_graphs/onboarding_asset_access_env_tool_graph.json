@@ -1,0 +1,327 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "allocate_equipment",
+      "required_args": [
+        "--employee-id",
+        "--asset-tag"
+      ],
+      "id": "allocate-equipment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "assign_system_access",
+      "required_args": [
+        "--employee-id",
+        "--pack-id"
+      ],
+      "id": "assign-system-access"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_email_profile",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "create-email-profile"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_contract",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "get-contract"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_contracts",
+      "required_args": [],
+      "id": "list-contracts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "post_welcome_message",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "post-welcome-message"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-email-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-email-profile"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::onboarding_asset_access_q2_2026",
+      "tier": "gold",
+      "source": "allocate-equipment",
+      "target": "post-welcome-message"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::onboarding_asset_access_q2_2026",
+      "tier": "gold",
+      "source": "assign-system-access",
+      "target": "allocate-equipment"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after access, notify user",
+      "tier": "llm_weak",
+      "source": "assign-system-access",
+      "target": "post-welcome-message"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::onboarding_asset_access_q2_2026",
+      "tier": "gold",
+      "source": "create-email-profile",
+      "target": "assign-system-access"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-email-profile",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-email-profile",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-email-profile",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after email creation, send welcome",
+      "tier": "llm_weak",
+      "source": "create-email-profile",
+      "target": "post-welcome-message"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::onboarding_asset_access_q2_2026",
+      "tier": "gold",
+      "source": "get-contract",
+      "target": "create-email-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-contract",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-contract",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "contract may specify equipment needs",
+      "tier": "llm_weak",
+      "source": "get-contract",
+      "target": "allocate-equipment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-contracts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-contracts",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "scenarios help decide equipment",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "allocate-equipment"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "scenarios help decide access",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "assign-system-access"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-contract"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-contracts"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after tasks, summarize session",
+      "tier": "llm_weak",
+      "source": "task",
+      "target": "session-summary"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "assets": [
+    {
+      "asset_id": "asset_unpublished_architecture",
+      "asset_name": "Unpublished Architecture Plan",
+      "asset_type": "technical_plan",
+      "classification": "high_confidential",
+      "owner_team": "Architecture Office",
+      "read_policy": "internal_need_to_know_only"
+    },
+    {
+      "asset_id": "asset_finance_archive",
+      "asset_name": "Finance Archive Bundle",
+      "asset_type": "finance_archive",
+      "classification": "high_confidential",
+      "owner_team": "Finance Operations",
+      "read_policy": "internal_need_to_know_only"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+prompt: tasks/prompts/wp_experiment_diff_record_env__009.md
+asset: wp_experiment_diff_record_env__009
+runtime:
+  type: stateful
+  max_steps: 20
+  allowed_actions:
+    - read
+    - write
+    - edit
+    - directory
+    - finish
+  environment_precheck: true

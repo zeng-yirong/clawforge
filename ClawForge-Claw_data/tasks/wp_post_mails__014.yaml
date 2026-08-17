@@ -1,0 +1,5 @@
+name: wp_post_mails__014
+asset: wp_post_mails__014
+prompt: tasks/prompts/wp_post_mails__014.md
+runtime:
+  python: ">=3.10"

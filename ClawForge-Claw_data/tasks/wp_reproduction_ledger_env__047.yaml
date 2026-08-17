@@ -1,0 +1,6 @@
+asset: wp_reproduction_ledger_env__047
+prompt: tasks/prompts/wp_reproduction_ledger_env__047.md
+runtime:
+  type: workplace
+  workdir: ./
+  timeout: 300

@@ -1,0 +1,12 @@
+task_id: wp_secure_vault_envs__043
+prompt: tasks/prompts/wp_secure_vault_envs__043.md
+asset: wp_secure_vault_envs__043
+runtime:
+  workspace: .
+  max_steps: 25
+  allowed_actions:
+    - read
+    - write
+    - list
+    - delete
+    - edit

@@ -1,0 +1,7 @@
+name: "Smart Home Energy-Aware Climate Control - Peak Hour Optimization"
+asset: "wp_smart_home_envs__039"
+prompt: "tasks/prompts/wp_smart_home_envs__039.md"
+runtime:
+  cwd: "assets/wp_smart_home_envs__039"
+  artifacts:
+    - "ops/plan.json"

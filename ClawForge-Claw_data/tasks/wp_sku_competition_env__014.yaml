@@ -1,0 +1,7 @@
+task_id: wp_sku_competition_env__014
+asset: wp_sku_competition_env__014
+prompt: prompts/wp_sku_competition_env__014.md
+runtime:
+  base_image: python:3.11-slim
+  timeout_seconds: 300
+  memory_mb: 512

@@ -1,0 +1,9 @@
+name: "wp_performance_review_env__019"
+description: "绩效评估：根据输出账本和角色规则计算员工月度绩效分数并生成档案"
+asset: wp_performance_review_env__019
+prompt: tasks/prompts/wp_performance_review_env__019.md
+runtime:
+  language: python
+  version: "3.10"
+  working_directory: assets/wp_performance_review_env__019
+  entrypoint: env_builder.py

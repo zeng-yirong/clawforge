@@ -1,0 +1,1 @@
+Hey，新员工 Alex Chen 今天正式报到，他的电子签合同已经回来了，就在 `data/onboarding/contracts.json` 里。你帮我跑一下入职流程：先给他创建邮件账户，然后按标准权限包配置系统访问，再分配一台笔记本和一台显示器，最后在 Slack 上发条欢迎消息。所有操作的结果都整理到 `ops/onboarding_summary.json` 里，我回头核对。权限包和设备清单分别放在 `data/onboarding/permission_packs.json` 和 `data/onboarding/equipment_inventory.json`，账户信息参考 `data/accounts.json`。注意别搞错人，只处理已经签了字的合同。

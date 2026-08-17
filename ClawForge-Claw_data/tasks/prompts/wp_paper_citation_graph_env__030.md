@@ -1,0 +1,1 @@
+实验室刚把最新一波论文摘要整理好，我想趁热打个 AI 方向的引用关系图。数据源在 `data/papers/papers.json`，但里面夹杂了生物学和其他方向的，千万别弄混——只要 "AI" 方向的论文。图的结构我比较传统：节点列表和边列表，每个节点带上 paper_id、title、year；边带上 source 和 target（就是论文的 paper_id）。产物丢到 `cache/citation_graph.json` 就行，我直接拿去灌可视化。你弄完告诉我一声，我检查下有没有漏掉引用。

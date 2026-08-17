@@ -1,0 +1,219 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "calculate_budget",
+      "required_args": [],
+      "id": "calculate-budget"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "export_report",
+      "required_args": [],
+      "id": "export-report"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_analysis",
+      "required_args": [],
+      "id": "generate-analysis"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "load_consumption",
+      "required_args": [
+        "--trip-id"
+      ],
+      "id": "load-consumption"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "load_policy",
+      "required_args": [],
+      "id": "load-policy"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-analysis"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-analysis"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "budget is input to budget vs actual analysis.",
+      "tier": "llm_weak",
+      "source": "calculate-budget",
+      "target": "generate-analysis"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after exporting, user may want a session summary.",
+      "tier": "llm_weak",
+      "source": "export-report",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-analysis",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-analysis",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-analysis",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "analysis results are often exported.",
+      "tier": "llm_weak",
+      "source": "generate-analysis",
+      "target": "export-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up: after listing scenarios, user often loads consumption records for a selected scenario.",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "load-consumption"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "consumption data is used to compute budget.",
+      "tier": "llm_weak",
+      "source": "load-consumption",
+      "target": "calculate-budget"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "travel policy affects budget calculation.",
+      "tier": "llm_weak",
+      "source": "load-policy",
+      "target": "calculate-budget"
+    }
+  ]
+}

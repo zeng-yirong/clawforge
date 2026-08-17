@@ -1,0 +1,8 @@
+name: wp_business_markdown_report_env__021
+version: "1.0"
+prompt: tasks/prompts/wp_business_markdown_report_env__021.md
+assets:
+  - wp_business_markdown_report_env__021
+runtime:
+  image: python:3.10
+  command: python -m task

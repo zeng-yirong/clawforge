@@ -1,0 +1,384 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_players",
+  "description": "List available players",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_playlists",
+  "description": "List all playlists",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_songs",
+  "description": "List all songs",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "next",
+  "description": "Next track",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "pause",
+  "description": "Pause playback",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "play",
+  "description": "Play a song by ID",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "song_id": {
+     "type": "string",
+     "description": "ID of the song to play"
+    }
+   },
+   "required": [
+    "song_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "previous",
+  "description": "Previous track",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "resume",
+  "description": "Resume playback",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "search",
+  "description": "Search songs",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "title": {
+     "type": "string",
+     "description": "Filter by song title"
+    },
+    "artist": {
+     "type": "string",
+     "description": "Filter by artist name"
+    },
+    "album": {
+     "type": "string",
+     "description": "Filter by album"
+    },
+    "brand": {
+     "type": "string",
+     "description": "Filter by brand"
+    },
+    "tag": {
+     "type": "string",
+     "description": "Filter by tag"
+    },
+    "scene": {
+     "type": "string",
+     "description": "Filter by scene"
+    },
+    "style": {
+     "type": "string",
+     "description": "Filter by style"
+    },
+    "language": {
+     "type": "string",
+     "description": "Filter by language"
+    },
+    "era": {
+     "type": "string",
+     "description": "Filter by era"
+    },
+    "crowd": {
+     "type": "string",
+     "description": "Filter by crowd"
+    },
+    "similar_to": {
+     "type": "string",
+     "description": "Find songs similar to given"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "seek",
+  "description": "Seek to position",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "position": {
+     "type": "integer",
+     "description": "Target position in seconds",
+     "default": 0
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Get session summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "set_mode",
+  "description": "Set play mode",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "mode": {
+     "type": "string",
+     "description": "Playback mode (e.g., normal, shuffle)",
+     "default": "repeat_all"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "status",
+  "description": "Get current playback status",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "switch_player",
+  "description": "Switch audio player",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "player": {
+     "type": "string",
+     "description": "Player identifier or name",
+     "default": "local"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

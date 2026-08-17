@@ -1,0 +1,1 @@
+Hey Lisa 这里！昨天实习生跑了一轮复制流程，把三份日志全丢在 `replication_logs/` 里了，项目文档在 `docs/project_alpha/README.md`，对应的版本标在 `data/projects/project_docs.json` 里。我需要你把最终确认的复制账本归档到 `ops/reproduction_ledger.json` 里，只保留版本匹配、复制成功的那一次，其他垃圾别塞进去。我赶着提交，多谢！

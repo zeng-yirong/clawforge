@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "hr_offboarding_ops",
+      "display_name": "HR Offboarding Ops",
+      "department": "HR Operations",
+      "email": "offboarding-ops@northstar.example.com",
+      "permissions": ["view_exit_requests", "revoke_access", "reclaim_equipment", "generate_handover_records"]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "accounts": [
+    {
+      "account_id": "secops_confdoc_guard",
+      "display_name": "Confidential Document Guard",
+      "department": "Security Operations",
+      "email": "confidential-doc-guard@northstar.example.com",
+      "permissions": [
+        "view_requests",
+        "view_assets",
+        "read_policies",
+        "deny_requests",
+        "write_audit_logs"
+      ]
+    }
+  ]
+}

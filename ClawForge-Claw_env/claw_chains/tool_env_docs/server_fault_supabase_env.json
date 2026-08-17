@@ -1,0 +1,453 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "batch_remediate",
+  "description": "Execute remediation logic for multiple incidents.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "incident_ids": {
+     "type": "string",
+     "description": "Comma-separated incident ids"
+    },
+    "remediation_mode": {
+     "type": "string",
+     "description": "Mode of remediation (automatic/manual)."
+    },
+    "operator_note": {
+     "type": "string",
+     "description": "Note from operator about the action."
+    }
+   },
+   "required": [
+    "incident_ids",
+    "remediation_mode",
+    "operator_note"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_audit_log",
+  "description": "Get one audit log entry.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "audit_id": {
+     "type": "string",
+     "description": "Unique identifier of the audit log."
+    }
+   },
+   "required": [
+    "audit_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_incident",
+  "description": "Get incident details.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "incident_id": {
+     "type": "string",
+     "description": "Unique identifier of the incident."
+    }
+   },
+   "required": [
+    "incident_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_supabase_row",
+  "description": "Get one Supabase memory row.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "row_id": {
+     "type": "string",
+     "description": "Unique identifier of the row."
+    }
+   },
+   "required": [
+    "row_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_attachments",
+  "description": "List supporting attachments.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_audit_logs",
+  "description": "List audit logs for the rollout session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "action_type": {
+     "type": "string",
+     "description": "Filter by action type (e.g., create)."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of logs to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_incidents",
+  "description": "List server fault incidents.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query to filter incidents.",
+     "default": ""
+    },
+    "category": {
+     "type": "string",
+     "description": "Incident category filter."
+    },
+    "severity": {
+     "type": "string",
+     "description": "Incident severity level filter."
+    },
+    "status": {
+     "type": "string",
+     "description": "Incident status filter."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of incidents to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_supabase_rows",
+  "description": "List rows in the simulated Supabase memory table.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "table_name": {
+     "type": "string",
+     "description": "Name of the memory table."
+    },
+    "incident_id": {
+     "type": "string",
+     "description": "Filter rows by incident ID."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of rows to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read an attachment used by the scenario.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_path": {
+     "type": "string",
+     "description": "File path to the attachment."
+    }
+   },
+   "required": [
+    "attachment_path"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "remediate_incident",
+  "description": "Execute remediation logic for one incident.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "incident_id": {
+     "type": "string",
+     "description": "ID of the incident to remediate."
+    },
+    "remediation_mode": {
+     "type": "string",
+     "description": "Mode of remediation (automatic/manual)."
+    },
+    "operator_note": {
+     "type": "string",
+     "description": "Note from operator about the action."
+    }
+   },
+   "required": [
+    "incident_id",
+    "remediation_mode",
+    "operator_note"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "screen_risk_incidents",
+  "description": "Screen UPS outage and service-down risk tickets.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "categories": {
+     "type": "string",
+     "description": "Comma-separated categories"
+    },
+    "statuses": {
+     "type": "string",
+     "description": "Comma-separated statuses",
+     "default": "open,triaged"
+    },
+    "severities": {
+     "type": "string",
+     "description": "Comma-separated severities",
+     "default": "critical,high"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of tickets to return."
+    }
+   },
+   "required": [
+    "categories"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write_supabase_resolution",
+  "description": "Write a processed incident into the simulated Supabase memory table.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "incident_id": {
+     "type": "string",
+     "description": "ID of the resolved incident."
+    },
+    "table_name": {
+     "type": "string",
+     "description": "Target memory table name.",
+     "default": "incident_resolutions"
+    }
+   },
+   "required": [
+    "incident_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

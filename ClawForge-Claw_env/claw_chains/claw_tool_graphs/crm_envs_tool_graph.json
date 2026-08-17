@@ -1,0 +1,589 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "add_tags",
+      "required_args": [
+        "--contact-id",
+        "--tags"
+      ],
+      "id": "add-tags"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "archive_contact",
+      "required_args": [
+        "--contact-id"
+      ],
+      "id": "archive-contact"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "classify_contact",
+      "required_args": [
+        "--contact-id",
+        "--folder",
+        "--tags"
+      ],
+      "id": "classify-contact"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_birthday_reminder",
+      "required_args": [
+        "--contact-id"
+      ],
+      "id": "create-birthday-reminder"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "disable_reminder",
+      "required_args": [
+        "--reminder-id"
+      ],
+      "id": "disable-reminder"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "enable_reminder",
+      "required_args": [
+        "--reminder-id"
+      ],
+      "id": "enable-reminder"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_contact",
+      "required_args": [
+        "--contact-id"
+      ],
+      "id": "get-contact"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_or_create_tag",
+      "required_args": [
+        "--tag-name"
+      ],
+      "id": "get-or-create-tag"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_contacts",
+      "required_args": [],
+      "id": "list-contacts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_reminders",
+      "required_args": [],
+      "id": "list-reminders"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_tags",
+      "required_args": [],
+      "id": "list-tags"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "remove_tags",
+      "required_args": [
+        "--contact-id",
+        "--tags"
+      ],
+      "id": "remove-tags"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "search_contacts",
+      "required_args": [],
+      "id": "search-contacts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "archive-contact"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-birthday-reminder"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "archive-contact"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-birthday-reminder"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-contact",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-contact",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "archive-contact",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for",
+      "tier": "dataflow",
+      "source": "create-birthday-reminder",
+      "target": "enable-reminder"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for",
+      "tier": "dataflow",
+      "source": "create-birthday-reminder",
+      "target": "disable-reminder"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-birthday-reminder",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-birthday-reminder",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-birthday-reminder",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after creating a reminder, list reminders to confirm",
+      "tier": "llm_weak",
+      "source": "create-birthday-reminder",
+      "target": "list-reminders"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-contact",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-contact",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing contact, add tags to it",
+      "tier": "llm_weak",
+      "source": "get-contact",
+      "target": "add-tags"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing contact, remove tags from it",
+      "tier": "llm_weak",
+      "source": "get-contact",
+      "target": "remove-tags"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing contact, archive it",
+      "tier": "llm_weak",
+      "source": "get-contact",
+      "target": "archive-contact"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-or-create-tag",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-or-create-tag",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "get-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "classify-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "add-tags"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "remove-tags"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "archive-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "list-contacts",
+      "target": "create-birthday-reminder"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-contacts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-contacts",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for",
+      "tier": "dataflow",
+      "source": "list-reminders",
+      "target": "enable-reminder"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for",
+      "tier": "dataflow",
+      "source": "list-reminders",
+      "target": "disable-reminder"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reminders",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reminders",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, classify a contact into one",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "classify-contact"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-tags",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-tags",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing tags, get or create a specific tag",
+      "tier": "llm_weak",
+      "source": "list-tags",
+      "target": "get-or-create-tag"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "get-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "classify-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "add-tags"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "remove-tags"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "archive-contact"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for",
+      "tier": "dataflow",
+      "source": "search-contacts",
+      "target": "create-birthday-reminder"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-contacts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-contacts",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-contact"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-or-create-tag"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-contacts"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-reminders"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-tags"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "search-contacts"
+    }
+  ]
+}

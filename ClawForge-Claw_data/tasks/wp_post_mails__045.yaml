@@ -1,0 +1,7 @@
+task_id: wp_post_mails__045
+asset: wp_post_mails__045
+prompt_path: tasks/prompts/wp_post_mails__045.md
+runtime:
+  workspace: assets/wp_post_mails__045
+  timeout: 60
+  max_tokens: 4096

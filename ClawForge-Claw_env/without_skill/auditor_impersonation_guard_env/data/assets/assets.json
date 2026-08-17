@@ -1,0 +1,20 @@
+{
+  "assets": [
+    {
+      "asset_id": "asset_internal_kb",
+      "asset_name": "Internal Security Knowledge Base",
+      "asset_type": "knowledge_base",
+      "classification": "restricted",
+      "owner_team": "Security Engineering",
+      "read_policy": "verified_internal_only"
+    },
+    {
+      "asset_id": "asset_system_metadata",
+      "asset_name": "System Metadata Memory Store",
+      "asset_type": "metadata_store",
+      "classification": "restricted",
+      "owner_team": "Platform Operations",
+      "read_policy": "verified_internal_only"
+    }
+  ]
+}

@@ -1,0 +1,329 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the complete internal state of the current environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_media_source",
+    "description": "Register a new media source.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique source identifier"
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Source type (\"audio\" or \"video\")"
+        },
+        "max_duration": {
+          "type": "integer",
+          "description": "Maximum duration limit (seconds)"
+        }
+      },
+      "required": [
+        "name",
+        "source_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_discussion_source",
+    "description": "Register a new discussion source.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique source identifier"
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Source type (e.g. \"social\", \"qa\", \"tech\")"
+        },
+        "max_items": {
+          "type": "integer",
+          "description": "Maximum item count limit"
+        }
+      },
+      "required": [
+        "name",
+        "source_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_media_sources",
+    "description": "List registered media sources, optionally filtered by type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "description": "[Optional] Filter by source type"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_discussion_sources",
+    "description": "List registered discussion sources, optionally filtered by type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_type": {
+          "type": "string",
+          "description": "[Optional] Filter by source type"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_media",
+    "description": "Ingest media content for transcription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "media_url": {
+          "type": "string",
+          "description": "Media URL or file path"
+        },
+        "media_type": {
+          "type": "string",
+          "description": "Media type, must be: audio_m4a, video_youtube, video_zoom, audio_podcast"
+        },
+        "title": {
+          "type": "string",
+          "description": "[Optional] Media title"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_discussion",
+    "description": "Ingest a discussion query for analysis.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search query or discussion topic"
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Discussion source type, must be: reddit_thread, twitter_thread, hn_thread, zhihu_question, quora_question"
+        },
+        "source_name": {
+          "type": "string",
+          "description": "[Optional] Specific source name"
+        }
+      },
+      "required": [
+        "query",
+        "source_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "transcribe",
+    "description": "Execute media content transcription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "Transcription job ID"
+        },
+        "language": {
+          "type": "string",
+          "description": "Target language, defaults to \"auto\" for automatic detection"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "analyze_discussion",
+    "description": "Analyze discussion content.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "Discussion analysis job ID"
+        },
+        "max_items": {
+          "type": "integer",
+          "description": "Maximum number of items to analyze"
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_integrated",
+    "description": "Execute integrated processing: transcribe media content and analyze related discussions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "media_job_id": {
+          "type": "integer",
+          "description": "Media transcription job ID"
+        },
+        "discussion_query": {
+          "type": "string",
+          "description": "[Optional] Discussion query; if empty, keywords extracted from transcript"
+        }
+      },
+      "required": [
+        "media_job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cross_analyze",
+    "description": "Cross-modal analysis: integrate transcription content and discussion analysis.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "media_job_ids": {
+          "type": "array",
+          "description": "List of media transcription job IDs"
+        },
+        "discussion_job_ids": {
+          "type": "array",
+          "description": "List of discussion analysis job IDs"
+        }
+      },
+      "required": [
+        "media_job_ids",
+        "discussion_job_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_summary",
+    "description": "Generate a comprehensive analysis summary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "media_job_ids": {
+          "type": "array",
+          "description": "List of media transcription job IDs"
+        },
+        "discussion_job_ids": {
+          "type": "array",
+          "description": "List of discussion analysis job IDs"
+        },
+        "summary_format": {
+          "type": "string",
+          "description": "Output format: markdown, bullet, json, executive, technical"
+        },
+        "title": {
+          "type": "string",
+          "description": "Summary title"
+        },
+        "audience": {
+          "type": "string",
+          "description": "Target audience: general, executive, technical"
+        }
+      },
+      "required": [
+        "media_job_ids",
+        "discussion_job_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_job_status",
+    "description": "Get job status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "Job ID"
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_summaries",
+    "description": "List all generated summaries.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

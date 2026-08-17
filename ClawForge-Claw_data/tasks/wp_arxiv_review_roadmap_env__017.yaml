@@ -1,0 +1,6 @@
+task_id: wp_arxiv_review_roadmap_env__017
+prompt_path: tasks/prompts/wp_arxiv_review_roadmap_env__017.md
+asset: wp_arxiv_review_roadmap_env__017
+runtime:
+  image: python:3.12-slim
+  resource: small

@@ -1,0 +1,17 @@
+task_id: wp_car_navi_envs__030
+asset: wp_car_navi_envs__030
+prompt_path: tasks/prompts/wp_car_navi_envs__030.md
+runtime:
+  environment:
+    - key: CAR_NAVI_SESSION_ID
+      value: navi-20250301-abc
+    - key: CAR_NAVI_STATE_ROOT
+      value: "."
+    - key: CAR_NAVI_SCENARIO_ID
+      value: scn_030
+  workspace:
+    max_file_size_mb: 10
+    allowed_extensions:
+      - .json
+      - .log
+      - .yaml

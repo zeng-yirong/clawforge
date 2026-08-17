@@ -1,0 +1,8 @@
+name: wp_excel_data_envs__017
+asset: wp_excel_data_envs__017
+prompt_path: tasks/prompts/wp_excel_data_envs__017.md
+runtime:
+  cwd: assets/wp_excel_data_envs__017
+  entrypoint: null
+  allowed_commands: null
+  forbidden_commands: null

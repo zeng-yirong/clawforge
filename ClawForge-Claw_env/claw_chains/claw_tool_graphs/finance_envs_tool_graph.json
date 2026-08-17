@@ -1,0 +1,731 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_brief",
+      "required_args": [
+        "--ticker",
+        "--title",
+        "--brief-type",
+        "--summary",
+        "--investment-rationale",
+        "--risks",
+        "--valuation-methodology",
+        "--key-metrics"
+      ],
+      "id": "create-brief"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_earnings_summary",
+      "required_args": [
+        "--symbols"
+      ],
+      "id": "create-earnings-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_sector_overview",
+      "required_args": [
+        "--sector"
+      ],
+      "id": "generate-sector-overview"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_brief",
+      "required_args": [
+        "--brief-id"
+      ],
+      "id": "get-brief"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_earnings",
+      "required_args": [
+        "--earnings-id"
+      ],
+      "id": "get-earnings"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_news",
+      "required_args": [
+        "--news-id"
+      ],
+      "id": "get-news"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_stock",
+      "required_args": [
+        "--symbol"
+      ],
+      "id": "get-stock"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_briefs",
+      "required_args": [],
+      "id": "list-briefs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_earnings",
+      "required_args": [],
+      "id": "list-earnings"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_news",
+      "required_args": [],
+      "id": "list-news"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_stocks",
+      "required_args": [],
+      "id": "list-stocks"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "provide_recommendations",
+      "required_args": [
+        "--symbols"
+      ],
+      "id": "provide-recommendations"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "review_brief",
+      "required_args": [
+        "--brief-id",
+        "--decision"
+      ],
+      "id": "review-brief"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "screen_stocks",
+      "required_args": [],
+      "id": "screen-stocks"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "submit_brief",
+      "required_args": [
+        "--brief-id"
+      ],
+      "id": "submit-brief"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_brief",
+      "required_args": [
+        "--brief-id",
+        "--updates"
+      ],
+      "id": "update-brief"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-brief"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-earnings-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-sector-overview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-brief"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-brief"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-earnings-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-sector-overview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "create-brief",
+      "target": "get-brief"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_brief_id_for",
+      "tier": "gold",
+      "source": "create-brief",
+      "target": "update-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "create-brief",
+      "target": "submit-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "create-brief",
+      "target": "review-brief"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-brief",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-brief",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-brief",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_earnings_id_for",
+      "tier": "dataflow",
+      "source": "create-earnings-summary",
+      "target": "get-earnings"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-earnings-summary",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-earnings-summary",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-earnings-summary",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-sector-overview",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-sector-overview",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-sector-overview",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-brief",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-brief",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-earnings",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-earnings",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-news",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-news",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::multi_dim_brief_tech_sector",
+      "tier": "gold",
+      "source": "get-stock",
+      "target": "list-news"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-stock",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-stock",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing stock details, check related news",
+      "tier": "llm_weak",
+      "source": "get-stock",
+      "target": "get-news"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after stock info, look up earnings",
+      "tier": "llm_weak",
+      "source": "get-stock",
+      "target": "get-earnings"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "list-briefs",
+      "target": "get-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "list-briefs",
+      "target": "update-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "list-briefs",
+      "target": "submit-brief"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for",
+      "tier": "dataflow",
+      "source": "list-briefs",
+      "target": "review-brief"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-briefs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-briefs",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_earnings_id_for",
+      "tier": "dataflow",
+      "source": "list-earnings",
+      "target": "get-earnings"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::multi_dim_brief_tech_sector",
+      "tier": "gold",
+      "source": "list-earnings",
+      "target": "screen-stocks"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-earnings",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-earnings",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after earnings list, view stock details",
+      "tier": "llm_weak",
+      "source": "list-earnings",
+      "target": "get-stock"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing earnings, may want to summarize them",
+      "tier": "llm_weak",
+      "source": "list-earnings",
+      "target": "create-earnings-summary"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_news_id_for",
+      "tier": "dataflow",
+      "source": "list-news",
+      "target": "get-news"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::multi_dim_brief_tech_sector",
+      "tier": "gold",
+      "source": "list-news",
+      "target": "list-earnings"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-news",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-news",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::multi_dim_brief_tech_sector",
+      "tier": "gold",
+      "source": "list-stocks",
+      "target": "get-stock"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-stocks",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-stocks",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing stocks, often read news about them",
+      "tier": "llm_weak",
+      "source": "list-stocks",
+      "target": "get-news"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::multi_dim_brief_tech_sector",
+      "tier": "gold",
+      "source": "screen-stocks",
+      "target": "create-brief"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after screening, inspect a stock's details",
+      "tier": "llm_weak",
+      "source": "screen-stocks",
+      "target": "get-stock"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-brief"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-earnings"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-news"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-stock"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-briefs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-earnings"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-news"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-stocks"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-brief",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-brief",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-brief",
+      "target": "finish"
+    }
+  ]
+}

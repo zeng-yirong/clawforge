@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_business_markdown_report_env__017.md
+asset: wp_business_markdown_report_env__017
+runtime:
+  node: {}
+  python: {}

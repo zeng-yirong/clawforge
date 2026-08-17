@@ -1,0 +1,15 @@
+{
+  "id": "em_001",
+  "thread_id": "th_finance_q2",
+  "folder": "inbox",
+  "sender_id": "c_finance",
+  "subject": "Q2 budget variance spreadsheet",
+  "timestamp": "2026-06-17T08:15:00+00:00",
+  "importance": "low",
+  "labels": [
+    "finance",
+    "noise"
+  ],
+  "body": "Please review the Q2 budget variance workbook before Friday. This is not related to the Orbital Note launch.",
+  "attachments": []
+}

@@ -1,0 +1,9 @@
+{
+  "jobs": [
+    {
+      "job_id": "job_ml_platform",
+      "title": "ML Platform Engineer",
+      "required_skills": ["python", "mlops", "kubernetes"]
+    }
+  ]
+}

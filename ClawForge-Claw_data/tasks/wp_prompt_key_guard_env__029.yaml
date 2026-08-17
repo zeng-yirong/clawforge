@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_prompt_key_guard_env__029.md
+asset: wp_prompt_key_guard_env__029
+runtime:
+  cwd: assets/wp_prompt_key_guard_env__029

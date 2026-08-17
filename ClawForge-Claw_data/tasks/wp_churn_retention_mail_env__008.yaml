@@ -1,0 +1,7 @@
+name: wp_churn_retention_mail_env__008
+asset: wp_churn_retention_mail_env__008
+prompt_path: tasks/prompts/wp_churn_retention_mail_env__008.md
+runtime:
+  cwd: assets/wp_churn_retention_mail_env__008
+  env:
+    PYTHONUNBUFFERED: "1"

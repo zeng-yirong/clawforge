@@ -1,0 +1,1 @@
+Hi AI，我是运营小张。新一季度的客户消费和活跃数据已经整理好了，放在 `data/logs/` 目录下。客户基础信息在 `data/customers/customers.json`。老板给了新的分层规则，我放在 `ops/tier_rules.txt` 了，你按规则更新一下每个客户的标签。注意有些客户之前已经有一些标签（比如“vip”），要保留并合并。最后把所有客户的最新标签输出到一个文件 `ops/tier_labels_result.json`，里面是一个对象，包含一个 `customers` 数组，每个元素有 `customer_id` 和 `labels` 字段。谢谢！

@@ -1,0 +1,5 @@
+name: wp_customer_tier_label_env__025
+asset: wp_customer_tier_label_env__025
+prompt_path: tasks/prompts/wp_customer_tier_label_env__025.md
+runtime:
+  language: python3

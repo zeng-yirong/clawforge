@@ -1,0 +1,6 @@
+asset: wp_server_fault_supabase_env__008
+prompt: tasks/prompts/wp_server_fault_supabase_env__008.md
+runtime:
+  max_iterations: 30
+  max_seconds: 600
+  environment: server_fault_supabase_env

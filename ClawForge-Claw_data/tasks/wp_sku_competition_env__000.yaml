@@ -1,0 +1,11 @@
+prompt_path: tasks/prompts/wp_sku_competition_env__000.md
+asset: wp_sku_competition_env__000
+runtime:
+  language: python
+  max_time_minutes: 15
+  allowed_packages:
+    - json
+    - csv
+    - os
+    - shutil
+    - pathlib

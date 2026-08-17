@@ -1,0 +1,16 @@
+{
+  "accounts": [
+    {
+      "account_id": "research_scout_team",
+      "display_name": "Research Scout Team",
+      "department": "Research Strategy",
+      "email": "research-scout@northstar.example.com",
+      "permissions": [
+        "view_papers",
+        "read_attachments",
+        "generate_reviews",
+        "view_cache"
+      ]
+    }
+  ]
+}

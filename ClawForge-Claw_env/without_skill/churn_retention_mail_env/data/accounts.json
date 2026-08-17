@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "retention_ops",
+      "display_name": "Retention Operations",
+      "department": "Customer Success",
+      "email": "retention-ops@northstar.example.com",
+      "permissions": ["view_customers", "view_news", "generate_retention_emails", "view_cache"]
+    }
+  ]
+}

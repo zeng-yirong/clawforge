@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+"""
+Description: Write or append text content to a file.
+
+Parameters:
+  --path (string, required): Path to the file to write.
+  --content (string, required): Text content to write.
+  --append (bool, optional): Append to the file instead of overwriting.
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def parse_bool(value: str) -> bool:
+    lowered = value.strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Write text content to a file.")
+    parser.add_argument("--path", required=True, type=str, help="Path to the file to write.")
+    parser.add_argument("--content", required=True, type=str, help="Text content to write.")
+    parser.add_argument(
+        "--append",
+        type=parse_bool,
+        default=False,
+        help="Append to the file instead of overwriting it.",
+    )
+    args = parser.parse_args()
+
+    path = Path(args.path)
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        mode = "a" if args.append else "w"
+        with path.open(mode, encoding="utf-8") as f:
+            f.write(args.content)
+        action = "Appended to" if args.append else "Wrote"
+        print(f"{action} {path} ({len(args.content)} characters).")
+    except Exception as exc:
+        print(f"Failed to write {path}: {exc}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

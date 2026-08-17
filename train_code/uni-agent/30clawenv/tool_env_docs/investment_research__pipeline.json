@@ -1,0 +1,236 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "configure_data_source",
+    "description": "Configure an existing data source's activation status and refresh interval.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Data source identifier (e.g., 'stock_price', 'corporate_news')."
+        },
+        "is_active": {
+          "type": "boolean",
+          "description": "Whether the source should be active for data ingestion."
+        },
+        "refresh_interval": {
+          "type": "string",
+          "description": "[Optional] Refresh frequency ('daily', 'hourly', etc.)."
+        }
+      },
+      "required": [
+        "name",
+        "is_active"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_active_sources",
+    "description": "List all active data sources available for research.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_research_data",
+    "description": "Ingest financial research data for a specific stock ticker.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "Stock ticker symbol (e.g., 'AAPL', 'MSFT')."
+        },
+        "data_type": {
+          "type": "string",
+          "description": "Type of data being ingested. Must be one of VALID_DATA_TYPES."
+        },
+        "source": {
+          "type": "string",
+          "description": "Data source name (must match registered sources)."
+        },
+        "data_path": {
+          "type": "string",
+          "description": "Path to data file, API endpoint, or content identifier."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional metadata (date_range, version, etc.)."
+        }
+      },
+      "required": [
+        "ticker",
+        "data_type",
+        "source",
+        "data_path"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_research_job",
+    "description": "Process ingested research data to extract financial insights.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "The job ID returned by ingest_research_data()."
+        },
+        "processing_params": {
+          "type": "dict",
+          "description": "[Optional] Processing parameters: - time_period (str): Specify time period for analysis. - detailed_mode (bool): Whether to extract detailed metrics. - sentiment_window (int): Window size for sentiment analysis. - include_derivatives (bool): Include financial derivatives."
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_research_job",
+    "description": "Retrieve the full state of a research processing job.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "Research job ID."
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_research_jobs",
+    "description": "List all research jobs, optionally filtered by ticker and status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "[Optional] Filter by stock ticker."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by job status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cross_validate_sources",
+    "description": "Perform cross-validation across multiple completed research jobs to check consistency.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_ids": {
+          "type": "array",
+          "description": "List of completed job IDs to validate against each other."
+        },
+        "validation_rules": {
+          "type": "array",
+          "description": "[Optional] Specific validation rules to apply. If None, uses the environment's default cross_validation_rules."
+        }
+      },
+      "required": [
+        "job_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_investment_brief",
+    "description": "Generate a comprehensive investment brief from processed research data.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_ids": {
+          "type": "array",
+          "description": "List of job IDs to include in the brief."
+        },
+        "brief_format": {
+          "type": "string",
+          "description": "Output format - 'investor_report', 'executive_summary', 'risk_assessment', or 'data_validation'."
+        },
+        "risk_level": {
+          "type": "string",
+          "description": "Risk assessment level - 'low', 'medium', 'high'."
+        },
+        "include_validation": {
+          "type": "boolean",
+          "description": "Whether to include cross-validation results."
+        }
+      },
+      "required": [
+        "job_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_investment_briefs",
+    "description": "List all generated investment briefs.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticker": {
+          "type": "string",
+          "description": "[Optional] Filter by stock ticker."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "contacts": [
+    {"contact_id": "c_analyst_1", "name": "Sarah Chen", "email": "sarah.chen@investwise.example.com", "role": "Senior Analyst", "team": "Technology"},
+    {"contact_id": "c_analyst_2", "name": "Mike Johnson", "email": "mike.johnson@investwise.example.com", "role": "Analyst", "team": "Healthcare"},
+    {"contact_id": "c_ir_1", "name": "Lisa Wang", "email": "lisa.wang@techventures.example.com", "role": "IR Director", "team": "Investor Relations"},
+    {"contact_id": "c_editor_1", "name": "James Smith", "email": "james.smith@investwise.example.com", "role": "Editor", "team": "Editorial"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "competitor_id": "comp_003",
+  "name": "DataFlow AI",
+  "description": "Fast-growing AI startup focused on enterprise machine learning platforms.",
+  "sector": "AI/ML",
+  "market_cap": 45000000000,
+  "market_share": 0.05,
+  "revenue": 8500000000,
+  "user_count": 3200000,
+  "growth_rate": 0.42,
+  "financials": {
+    "pe_ratio": 85.0,
+    "profit_margin": -0.08,
+    "debt_to_equity": 0.15,
+    "revenue_growth_yoy": 0.42,
+    "quarterly_earnings": [
+      {"quarter": "Q1 2026", "revenue": 1900000000, "net_income": -150000000},
+      {"quarter": "Q2 2026", "revenue": 2200000000, "net_income": -180000000}
+    ]
+  },
+  "products": [
+    {"product_id": "prod_006", "name": "DataFlow ML Platform", "category": "ML Platform", "market_share": 0.12},
+    {"product_id": "prod_007", "name": "DataFlow AutoML", "category": "AutoML", "market_share": 0.08}
+  ],
+  "news": [
+    {
+      "news_id": "news_comp_004",
+      "title": "DataFlow AI raises $500M in Series D",
+      "category": "funding",
+      "sentiment": "positive",
+      "published_at": "2026-06-07T16:00:00Z",
+      "summary": "DataFlow AI closed a $500M funding round led by top tier VCs at $4.5B valuation."
+    },
+    {
+      "news_id": "news_comp_005",
+      "title": "DataFlow AI partners with major retailer",
+      "category": "partnership",
+      "sentiment": "positive",
+      "published_at": "2026-06-05T09:00:00Z",
+      "summary": "Global retail chain signs enterprise agreement with DataFlow AI for inventory optimization."
+    }
+  ]
+}

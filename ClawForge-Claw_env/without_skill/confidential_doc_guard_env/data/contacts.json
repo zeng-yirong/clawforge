@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "legal_001",
+      "name": "Wendy Qiu",
+      "role": "Legal Counsel",
+      "email": "wendy.qiu@northstar.example.com"
+    }
+  ]
+}

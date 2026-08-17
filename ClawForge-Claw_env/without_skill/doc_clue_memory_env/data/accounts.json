@@ -1,0 +1,24 @@
+{
+  "accounts": [
+    {
+      "account_id": "signal_research_team",
+      "display_name": "Northstar Signal Research",
+      "department": "Technology Narrative Intelligence",
+      "email": "signals@northstar.example.com",
+      "permissions": [
+        "view_reports",
+        "view_presentations",
+        "view_media_samples",
+        "search_library",
+        "read_attachments",
+        "save_temp_records"
+      ],
+      "default_region": "Global",
+      "voice": [
+        "forensic",
+        "structured",
+        "evidence-led"
+      ]
+    }
+  ]
+}

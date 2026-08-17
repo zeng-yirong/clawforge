@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+"""
+Description: Read a file or list a directory.
+
+Parameters:
+  --path (string, required): Path to the file or directory.
+  --start_line (int, optional): First 1-based line to show for file reads.
+  --end_line (int, optional): Last 1-based line to show for file reads. Use -1 for EOF.
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="utf-8", errors="replace")
+
+
+def format_file_content(path: Path, text: str, start_line: int | None, end_line: int | None) -> str:
+    lines = text.splitlines()
+    total_lines = len(lines)
+
+    if total_lines == 0:
+        return f"File: {path}\n<empty file>"
+
+    start = 1 if start_line is None else start_line
+    end = total_lines if end_line in (None, -1) else end_line
+
+    if start < 1:
+        raise ValueError(f"Invalid start_line {start}. It must be >= 1.")
+    if end < start:
+        raise ValueError(f"Invalid line range [{start}, {end}]. end_line must be >= start_line.")
+    if start > total_lines:
+        raise ValueError(f"start_line {start} is beyond end of file ({total_lines} lines total).")
+
+    end = min(end, total_lines)
+    selected = lines[start - 1 : end]
+    numbered = "\n".join(f"{idx:6}\t{line}" for idx, line in enumerate(selected, start=start))
+    return f"File: {path}\nShowing lines {start}-{end} of {total_lines}\n{numbered}"
+
+
+def format_directory(path: Path) -> str:
+    entries = sorted(item for item in path.iterdir() if not item.name.startswith("."))
+    if not entries:
+        return f"Directory: {path}\n<empty directory>"
+
+    lines = [f"Directory: {path}"]
+    for entry in entries:
+        kind = "[DIR]" if entry.is_dir() else "[FILE]"
+        lines.append(f"{kind} {entry.name}")
+    return "\n".join(lines)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Read a file or list a directory.")
+    parser.add_argument("--path", required=True, type=str, help="Path to the file or directory.")
+    parser.add_argument("--start_line", type=int, default=None, help="First 1-based line to show.")
+    parser.add_argument("--end_line", type=int, default=None, help="Last 1-based line to show. Use -1 for EOF.")
+    args = parser.parse_args()
+
+    path = Path(args.path)
+    if not path.exists():
+        print(f"Path does not exist: {path}")
+        sys.exit(1)
+
+    try:
+        if path.is_dir():
+            print(format_directory(path))
+            return
+
+        text = read_text(path)
+        print(format_file_content(path, text, args.start_line, args.end_line))
+    except Exception as exc:
+        print(f"Failed to read {path}: {exc}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

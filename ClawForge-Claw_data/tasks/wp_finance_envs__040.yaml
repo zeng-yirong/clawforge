@@ -1,0 +1,8 @@
+id: wp_finance_envs__040
+name: Tech Sector Bullish Earnings Screen
+description: Filter technology stocks with revenue beats and bullish news, then summarize
+prompt_path: tasks/prompts/wp_finance_envs__040.md
+asset: wp_finance_envs__040
+runtime:
+  timeout: 300
+  max_steps: 50

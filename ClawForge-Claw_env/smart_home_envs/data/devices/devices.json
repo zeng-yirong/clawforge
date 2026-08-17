@@ -1,0 +1,74 @@
+{
+  "devices": [
+    {
+      "device_id": "ac_living",
+      "name": "Living Room AC",
+      "type": "air_conditioner",
+      "location": "living_room",
+      "power_watts": 1200,
+      "default_settings": {
+        "temperature": 24,
+        "mode": "auto",
+        "fan_speed": "auto"
+      }
+    },
+    {
+      "device_id": "ac_bedroom",
+      "name": "Bedroom AC",
+      "type": "air_conditioner",
+      "location": "bedroom",
+      "power_watts": 900,
+      "default_settings": {
+        "temperature": 23,
+        "mode": "auto",
+        "fan_speed": "quiet"
+      }
+    },
+    {
+      "device_id": "humidifier_bedroom",
+      "name": "Bedroom Humidifier",
+      "type": "humidifier",
+      "location": "bedroom",
+      "power_watts": 300,
+      "default_settings": {
+        "humidity_level": 50,
+        "mode": "auto"
+      }
+    },
+    {
+      "device_id": "humidifier_living",
+      "name": "Living Room Humidifier",
+      "type": "humidifier",
+      "location": "living_room",
+      "power_watts": 350,
+      "default_settings": {
+        "humidity_level": 45,
+        "mode": "auto"
+      }
+    },
+    {
+      "device_id": "plug_tv",
+      "name": "TV Smart Plug",
+      "type": "smart_plug",
+      "location": "living_room",
+      "power_watts": 150,
+      "default_settings": {}
+    },
+    {
+      "device_id": "plug_lamp",
+      "name": "Floor Lamp Smart Plug",
+      "type": "smart_plug",
+      "location": "living_room",
+      "power_watts": 60,
+      "default_settings": {}
+    },
+    {
+      "device_id": "plug_desk",
+      "name": "Desk Setup Smart Plug",
+      "type": "smart_plug",
+      "location": "study_room",
+      "power_watts": 200,
+      "default_settings": {}
+    }
+  ]
+}

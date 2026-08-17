@@ -1,0 +1,9 @@
+name: wp_performance_review_env__024
+asset: wp_performance_review_env__024
+prompt_path: tasks/prompts/wp_performance_review_env__024.md
+runtime:
+  workdir: assets/wp_performance_review_env__024
+  actions:
+    - type: read
+    - type: edit
+    - type: finish

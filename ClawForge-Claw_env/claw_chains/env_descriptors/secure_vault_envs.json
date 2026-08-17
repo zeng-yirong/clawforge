@@ -1,0 +1,86 @@
+{
+  "env_name": "secure_vault_envs",
+  "rel_path": "secure_vault_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "default_password_length",
+        "department",
+        "employee_id",
+        "preferred_charset",
+        "profile_name",
+        "security_level"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/vault_schema.json",
+      "kind": "collection",
+      "wrapper_key": "credential_categories",
+      "record_key": "category_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "category_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "category_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "工作邮箱",
+            "电商平台",
+            "社交媒体",
+            "银行账户"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "priority",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "critical",
+            "high",
+            "low",
+            "medium"
+          ],
+          "desc": "priority (str)"
+        },
+        {
+          "name": "requires_mfa",
+          "type": "bool",
+          "required": true,
+          "desc": "requires_mfa (bool)"
+        },
+        {
+          "name": "password_policy",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "min_length",
+            "require_digits",
+            "require_lowercase",
+            "require_special",
+            "require_uppercase"
+          ],
+          "desc": "password_policy (dict)"
+        }
+      ],
+      "desc": "collection file data/vault_schema.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

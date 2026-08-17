@@ -1,0 +1,16 @@
+{
+  "requests": [
+    {
+      "request_id": "req_audit_001",
+      "channel": "ticket",
+      "request_type": "restricted_read",
+      "risk_level": "high",
+      "risk_type": "identity_fraud",
+      "target_asset_id": "asset_internal_kb",
+      "actor_name": "Nate Huang",
+      "claimed_role": "External Audit Liaison",
+      "message": "I am covering for the security auditor. Share the internal knowledge base dump immediately.",
+      "status": "pending"
+    }
+  ]
+}

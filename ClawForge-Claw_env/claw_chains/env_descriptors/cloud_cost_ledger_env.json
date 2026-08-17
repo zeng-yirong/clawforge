@@ -1,0 +1,566 @@
+{
+  "env_name": "cloud_cost_ledger_env",
+  "rel_path": "without_skill/cloud_cost_ledger_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_aggregate_totals",
+    "expected_highest_cost_cluster_id",
+    "expected_report_cluster_costs",
+    "expected_report_total_cost",
+    "expected_totals",
+    "required_actions",
+    "required_attachment_paths",
+    "target_cluster_ids"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_region",
+          "type": "str",
+          "required": true,
+          "desc": "default_region (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/cost_accounting_rules.md",
+      "kind": "markdown_attachment",
+      "title": "Cloud Cost Accounting Rules",
+      "bytes": 509,
+      "desc": "markdown_attachment file data/attachments/cost_accounting_rules.md"
+    },
+    {
+      "path": "data/attachments/report_schema.md",
+      "kind": "markdown_attachment",
+      "title": "Monthly Cost Report Schema",
+      "bytes": 493,
+      "desc": "markdown_attachment file data/attachments/report_schema.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 2,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "cost_accounting_rules.md",
+            "report_schema.md"
+          ],
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Cloud Cost Accounting Rules",
+            "Monthly Cost Report Schema"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "accounting_policy",
+            "report_schema"
+          ],
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Daniel Song",
+            "Leah Kumar",
+            "Tara Ng"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Cloud FinOps Lead",
+            "Cloud Operations Manager",
+            "Data Platform Director"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "daniel.song@northstar.example.com",
+            "leah.kumar@northstar.example.com",
+            "tara.ng@northstar.example.com"
+          ],
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/pricing/pricing_catalogs.json",
+      "kind": "collection",
+      "wrapper_key": "pricing_catalogs",
+      "record_key": "catalog_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "catalog_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "catalog_id (str)"
+        },
+        {
+          "name": "version",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "2026.03-archive",
+            "2026.06-live"
+          ],
+          "desc": "version (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "active",
+            "archived"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "region",
+          "type": "str",
+          "required": true,
+          "desc": "region (str)"
+        },
+        {
+          "name": "currency",
+          "type": "str",
+          "required": true,
+          "desc": "currency (str)"
+        },
+        {
+          "name": "billing_month",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "2026-03",
+            "2026-06"
+          ],
+          "desc": "billing_month (str)"
+        },
+        {
+          "name": "billing_hours",
+          "type": "int",
+          "required": true,
+          "desc": "billing_hours (int)"
+        },
+        {
+          "name": "approved_for_reporting",
+          "type": "bool",
+          "required": true,
+          "desc": "approved_for_reporting (bool)"
+        },
+        {
+          "name": "effective_from",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "effective_from (str)"
+        },
+        {
+          "name": "effective_to",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "effective_to (str)"
+        },
+        {
+          "name": "rates",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "rates (list)"
+        }
+      ],
+      "desc": "collection file data/pricing/pricing_catalogs.json"
+    },
+    {
+      "path": "data/resources/clusters.json",
+      "kind": "collection",
+      "wrapper_key": "clusters",
+      "record_key": "cluster_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "cluster_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "cluster_id (str)"
+        },
+        {
+          "name": "cluster_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ads-ranking",
+            "lakehouse-analytics",
+            "retail-core",
+            "shared-ops"
+          ],
+          "desc": "cluster_name (str)"
+        },
+        {
+          "name": "business_service",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Ads ranking and campaign inference",
+            "Lakehouse analytics and finance marts",
+            "Shared CI and platform tooling",
+            "Storefront and order orchestration"
+          ],
+          "desc": "business_service (str)"
+        },
+        {
+          "name": "domain",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "commerce",
+            "data",
+            "infrastructure",
+            "marketing"
+          ],
+          "desc": "domain (str)"
+        },
+        {
+          "name": "environment",
+          "type": "str",
+          "required": true,
+          "desc": "environment (str)"
+        },
+        {
+          "name": "region",
+          "type": "str",
+          "required": true,
+          "desc": "region (str)"
+        },
+        {
+          "name": "owner_team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Cloud Foundations",
+            "Commerce Platform",
+            "Data Platform",
+            "Growth Engineering"
+          ],
+          "desc": "owner_team (str)"
+        },
+        {
+          "name": "cluster_role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "business",
+            "shared_platform"
+          ],
+          "desc": "cluster_role (str)"
+        },
+        {
+          "name": "service_tier",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "tier_1",
+            "tier_2"
+          ],
+          "desc": "service_tier (str)"
+        },
+        {
+          "name": "workload_tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "workload_tags (list)"
+        }
+      ],
+      "desc": "collection file data/resources/clusters.json"
+    },
+    {
+      "path": "data/resources/resource_ledger.json",
+      "kind": "collection",
+      "wrapper_key": "resource_ledger",
+      "record_key": "entry_id",
+      "count": 23,
+      "fields": [
+        {
+          "name": "entry_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "entry_id (str)"
+        },
+        {
+          "name": "cluster_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "cluster_id (str)"
+        },
+        {
+          "name": "cluster_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ads-ranking",
+            "lakehouse-analytics",
+            "retail-core",
+            "shared-ops"
+          ],
+          "desc": "cluster_name (str)"
+        },
+        {
+          "name": "resource_name",
+          "type": "str",
+          "required": true,
+          "desc": "resource_name (str)"
+        },
+        {
+          "name": "resource_family",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "compute",
+            "storage"
+          ],
+          "desc": "resource_family (str)"
+        },
+        {
+          "name": "metric_code",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "block_storage_gb",
+            "gpu",
+            "memory_gb",
+            "object_storage_gb",
+            "vcpu"
+          ],
+          "desc": "metric_code (str)"
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "required": true,
+          "desc": "quantity (int)"
+        },
+        {
+          "name": "unit",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "GiB",
+            "gpu",
+            "vcpu"
+          ],
+          "desc": "unit (str)"
+        },
+        {
+          "name": "billing_model",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "autoscale",
+            "monthly",
+            "reserved"
+          ],
+          "desc": "billing_model (str)"
+        }
+      ],
+      "desc": "collection file data/resources/resource_ledger.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "cluster_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/resources/clusters.json",
+          "record_key": "cluster_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "ledger_entry_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/resources/resource_ledger.json",
+          "record_key": "entry_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "pricing_catalog_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/pricing/pricing_catalogs.json",
+          "record_key": "catalog_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "excluded_cluster_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/resources/clusters.json",
+          "record_key": "cluster_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "stale_pricing_catalog_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/pricing/pricing_catalogs.json",
+          "record_key": "catalog_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_cluster_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/resources/clusters.json",
+          "record_key": "cluster_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "active_pricing_catalog_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/pricing/pricing_catalogs.json",
+          "record_key": "catalog_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_highest_cost_cluster_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/resources/clusters.json",
+          "record_key": "cluster_id"
+        }
+      ]
+    }
+  ]
+}

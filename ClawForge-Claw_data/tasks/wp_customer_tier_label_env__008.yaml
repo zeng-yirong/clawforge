@@ -1,0 +1,6 @@
+task_id: wp_customer_tier_label_env__008
+asset: wp_customer_tier_label_env__008
+prompt_path: tasks/prompts/wp_customer_tier_label_env__008.md
+runtime:
+  image: python:3.11-slim
+  working_dir: /workplace

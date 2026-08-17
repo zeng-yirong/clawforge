@@ -1,0 +1,7 @@
+asset: wp_fault_postmortem_kb_env__009
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__009.md
+env_builder: tasks/wp_fault_postmortem_kb_env__009/env_builder.py
+verify: scripts/wp_fault_postmortem_kb_env__009/verify_workplace.py
+runtime:
+  workdir: "."
+  timeout: 300

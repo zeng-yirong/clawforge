@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_paper_citation_graph_env__023.md
+asset: wp_paper_citation_graph_env__023
+runtime:
+  workspace_type: file
+  max_timeout: 300

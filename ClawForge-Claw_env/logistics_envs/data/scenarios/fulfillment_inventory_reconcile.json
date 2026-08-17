@@ -1,0 +1,63 @@
+{
+  "scenario_id": "fulfillment_inventory_reconcile",
+  "title": "Resolve shipment discrepancies and reconcile warehouse inventory",
+  "workspace_account_id": "ops_team",
+  "current_time": "2026-06-16T10:00:00+00:00",
+  "task_prompt": "You are an operations specialist at LogiFlow. A warehouse inventory discrepancy has been reported at the East Distribution Center (wh_001). Your task is to: 1) Review pending returns and approve/reject them based on policy, 2) Check shipment tracking for in-transit orders and update status as needed, 3) Reconcile inventory levels for any discrepancies, 4) Generate a reconciliation report. Follow company policy: returns must be inspected within 5 days of receipt, refunds require manager approval for amounts over $100, and inventory adjustments must be documented with reason codes.",
+  "order_ids": ["ord_001", "ord_002", "ord_003", "ord_004", "ord_005", "ord_006", "ord_007", "ord_008", "ord_009", "ord_010"],
+  "shipment_ids": ["ship_001", "ship_002", "ship_003", "ship_004", "ship_005", "ship_006", "ship_010"],
+  "return_ids": ["ret_001", "ret_002", "ret_003", "ret_004", "ret_005"],
+  "warehouse_ids": ["wh_001", "wh_002", "wh_003"],
+  "required_attachment_ids": ["att_return_policy", "att_inventory_adjustment_guide"],
+  "required_actions": [
+    {
+      "requirement_id": "approve_return_ret_001",
+      "action_type": "approve_return",
+      "target_return_id": "ret_001",
+      "must_include": ["defective", "approved"],
+      "must_not_include": []
+    },
+    {
+      "requirement_id": "inspect_return_ret_003",
+      "action_type": "inspect_return",
+      "target_return_id": "ret_003",
+      "must_include": ["wrong item", "exchange"],
+      "must_not_include": []
+    },
+    {
+      "requirement_id": "update_shipment_ship_005",
+      "action_type": "update_shipment_status",
+      "target_shipment_id": "ship_005",
+      "new_status": "shipped",
+      "must_include": ["shipped", "fedex"],
+      "must_not_include": []
+    },
+    {
+      "requirement_id": "adjust_inventory_sku_1002",
+      "action_type": "adjust_inventory",
+      "target_sku": "SKU-1002",
+      "warehouse_id": "wh_001",
+      "adjustment_type": "damage",
+      "quantity_change": -5,
+      "must_include": ["damage", "adjusted"],
+      "must_not_include": []
+    },
+    {
+      "requirement_id": "create_reconciliation_report",
+      "action_type": "generate_report",
+      "report_type": "inventory_reconciliation",
+      "must_include": ["reconciliation", "discrepancy"],
+      "must_not_include": []
+    }
+  ],
+  "forbidden_phrases": [
+    "unauthorized refund",
+    "write-off without approval",
+    "ignore discrepancy"
+  ],
+  "validation_rules": {
+    "return_approval_requires_inspection": true,
+    "refund_over_100_requires_manager": true,
+    "inventory_adjustment_requires_reason": true
+  }
+}

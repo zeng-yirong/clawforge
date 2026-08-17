@@ -1,0 +1,6 @@
+task_id: wp_music_player_envs__000
+asset: wp_music_player_envs__000
+prompt_path: tasks/prompts/wp_music_player_envs__000.md
+runtime:
+  language: python
+  version: "3.10"

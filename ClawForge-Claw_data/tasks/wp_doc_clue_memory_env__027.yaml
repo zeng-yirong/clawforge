@@ -1,0 +1,11 @@
+task_id: wp_doc_clue_memory_env__027
+prompt_path: tasks/prompts/wp_doc_clue_memory_env__027.md
+asset: wp_doc_clue_memory_env__027
+description: "Q2 HelioSync Edge Inference Fabric clue collection from reports, presentations and media samples."
+runtime:
+  cwd: assets/wp_doc_clue_memory_env__027/
+  timeout_seconds: 300
+  allowed_actions:
+    - read
+    - write
+    - list

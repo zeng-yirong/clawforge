@@ -1,0 +1,14 @@
+{
+  "system_access": [
+    {
+      "employee_id": "emp_ops_001",
+      "system_name": "CRM",
+      "status": "active"
+    },
+    {
+      "employee_id": "emp_ops_001",
+      "system_name": "Admin Portal",
+      "status": "active"
+    }
+  ]
+}

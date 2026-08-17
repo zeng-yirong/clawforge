@@ -1,0 +1,119 @@
+{
+  "scenario_id": "email_inbox_automation",
+  "title": "Automated Email Management and Task Generation",
+  "workspace_account_id": "assistant_demo",
+  "current_time": "2026-06-18T10:00:00+00:00",
+  "task_prompt": "You are an AI assistant managing an email inbox. Your job is to: 1) Classify each email into appropriate folders (work, personal, spam, newsletter, finance, hr), 2) Archive emails that don't need action, 3) Read important emails and their attachments to extract key information, 4) Generate TODO items for actionable emails, 5) Reply to emails that require a response. Focus on being thorough - read attachments before generating tasks. Do not mark spam emails as work items.",
+  "email_ids": [
+    "mc_001",
+    "mc_002",
+    "mc_003",
+    "mc_004",
+    "mc_005",
+    "mc_006",
+    "mc_007",
+    "mc_008"
+  ],
+  "required_classifications": [
+    {
+      "requirement_id": "classify_q3_planning",
+      "email_id": "mc_001",
+      "expected_folder": "work",
+      "expected_labels": ["work", "urgent"]
+    },
+    {
+      "requirement_id": "classify_invoice",
+      "email_id": "mc_002",
+      "expected_folder": "finance",
+      "expected_labels": ["finance"]
+    },
+    {
+      "requirement_id": "classify_code_review",
+      "email_id": "mc_003",
+      "expected_folder": "work",
+      "expected_labels": ["work"]
+    },
+    {
+      "requirement_id": "classify_client_feedback",
+      "email_id": "mc_004",
+      "expected_folder": "work",
+      "expected_labels": ["work", "client"]
+    },
+    {
+      "requirement_id": "classify_newsletter",
+      "email_id": "mc_005",
+      "expected_folder": "archive",
+      "expected_labels": ["newsletter"]
+    },
+    {
+      "requirement_id": "classify_personal",
+      "email_id": "mc_006",
+      "expected_folder": "personal",
+      "expected_labels": ["personal"]
+    },
+    {
+      "requirement_id": "classify_spam",
+      "email_id": "mc_007",
+      "expected_folder": "trash",
+      "expected_labels": ["spam"]
+    },
+    {
+      "requirement_id": "classify_hr",
+      "email_id": "mc_008",
+      "expected_folder": "work",
+      "expected_labels": ["hr", "compliance"]
+    }
+  ],
+  "required_archive": [
+    "mc_005",
+    "mc_006",
+    "mc_007"
+  ],
+  "required_delete": [
+    "mc_007"
+  ],
+  "required_attachment_reads": [
+    "mcatt_001",
+    "mcatt_003"
+  ],
+  "required_todos": [
+    {
+      "requirement_id": "todo_q3_planning",
+      "source_email_id": "mc_001",
+      "must_include": ["Q3 planning", "roadmap"],
+      "due_aware": true
+    },
+    {
+      "requirement_id": "todo_client_feedback",
+      "source_email_id": "mc_004",
+      "must_include": ["dashboard", "export", "performance"],
+      "due_aware": true
+    },
+    {
+      "requirement_id": "todo_training",
+      "source_email_id": "mc_008",
+      "must_include": ["compliance", "training", "June 30"],
+      "due_aware": true
+    }
+  ],
+  "required_replies": [
+    {
+      "requirement_id": "reply_client",
+      "target_email_id": "mc_004",
+      "must_include": ["acknowledge", "feedback", "timeline"],
+      "min_length": 50
+    },
+    {
+      "requirement_id": "reply_colleague",
+      "target_email_id": "mc_003",
+      "must_include": ["review", "code"],
+      "min_length": 30
+    }
+  ],
+  "forbidden_phrases": [
+    "I don't know",
+    "can't help",
+    "not my problem",
+    "contact someone else"
+  ]
+}

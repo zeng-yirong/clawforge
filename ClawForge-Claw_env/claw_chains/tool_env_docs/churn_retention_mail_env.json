@@ -1,0 +1,317 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_retention_email",
+  "description": "Generates a personalized retention email for a customer.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "customer_id": {
+     "type": "string",
+     "description": "Customer identifier."
+    }
+   },
+   "required": [
+    "customer_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_cache_entry",
+  "description": "Retrieves a cached entry by its ID.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_id": {
+     "type": "string",
+     "description": "Unique identifier of cache entry."
+    }
+   },
+   "required": [
+    "entry_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_customer",
+  "description": "Fetches detailed information about a customer.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "customer_id": {
+     "type": "string",
+     "description": "Customer identifier."
+    }
+   },
+   "required": [
+    "customer_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_news_sample",
+  "description": "Retrieves a specific news sample by ID.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "news_id": {
+     "type": "string",
+     "description": "Unique identifier of news sample."
+    }
+   },
+   "required": [
+    "news_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_cache",
+  "description": "Lists cached entries filtered by type, key, and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_type": {
+     "type": "string",
+     "description": "Type of cache entries."
+    },
+    "cache_key": {
+     "type": "string",
+     "description": "Key to filter by."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Max number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_customers",
+  "description": "Lists customers filtered by query, industry, risk level, and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query.",
+     "default": ""
+    },
+    "industry": {
+     "type": "string",
+     "description": "Filter by industry."
+    },
+    "risk_level": {
+     "type": "string",
+     "description": "Filter by risk level."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Max number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_news_samples",
+  "description": "Lists news samples optionally filtered by industry and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "industry": {
+     "type": "string",
+     "description": "Filter by industry."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Max number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "Lists available retention scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Provides a summary of the current session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Displays the current task or instructions.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

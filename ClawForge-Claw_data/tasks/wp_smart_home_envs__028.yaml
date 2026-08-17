@@ -1,0 +1,8 @@
+task_id: wp_smart_home_envs__028
+asset: wp_smart_home_envs__028
+prompt: tasks/prompts/wp_smart_home_envs__028.md
+runtime:
+  max_iterations: 20
+  workspace: assets/wp_smart_home_envs__028
+  allowed_commands: ["python", "cat", "ls", "head", "tail", "cp", "mv", "mkdir", "echo", "touch"]
+  disallowed_commands: ["rm -rf", "chmod", "sudo"]

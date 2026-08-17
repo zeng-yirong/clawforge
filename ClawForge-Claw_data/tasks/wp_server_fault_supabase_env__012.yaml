@@ -1,0 +1,4 @@
+task_id: wp_server_fault_supabase_env__012
+prompt_path: tasks/prompts/wp_server_fault_supabase_env__012.md
+assets: [wp_server_fault_supabase_env__012]
+timeout_seconds: 600

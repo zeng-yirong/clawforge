@@ -1,0 +1,10 @@
+asset: wp_churn_retention_mail_env__015
+prompt_path: tasks/prompts/wp_churn_retention_mail_env__015.md
+runtime:
+  image: python:3.11-slim
+  command: ["python", "-c", "import os; os.chdir('/workspace'); exec(open('env_builder.py').read())"]
+  mount: /workspace
+  timeout_seconds: 120
+output:
+  content_type: text
+  expected_file: ops/retention_cache.json

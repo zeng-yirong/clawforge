@@ -1,0 +1,7 @@
+task_name: wp_scheduling_envs__047
+prompt: tasks/prompts/wp_scheduling_envs__047.md
+asset: wp_scheduling_envs__047
+config:
+  runtime: python3
+  max_steps: 30
+  workdir: assets/wp_scheduling_envs__047

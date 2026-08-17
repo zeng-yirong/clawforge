@@ -1,0 +1,5 @@
+prompt: "tasks/prompts/wp_sku_competition_env__012.md"
+asset: "wp_sku_competition_env__012"
+runtime:
+  timeout: 120
+  workdir: "assets/wp_sku_competition_env__012"

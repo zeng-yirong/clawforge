@@ -1,0 +1,7 @@
+task_name: wp_scheduling_envs__014
+prompt_path: tasks/prompts/wp_scheduling_envs__014.md
+asset: wp_scheduling_envs__014
+runtime:
+  python: "3.10"
+  working_directory: assets/wp_scheduling_envs__014/
+  time_limit_seconds: 120

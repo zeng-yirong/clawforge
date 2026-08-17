@@ -1,0 +1,8 @@
+asset: wp_churn_retention_mail_env__028
+prompt: tasks/prompts/wp_churn_retention_mail_env__028.md
+runtime:
+  cwd: assets/wp_churn_retention_mail_env__028
+  timeout: 120
+workplace:
+  env_builder: tasks/wp_churn_retention_mail_env__028/env_builder.py
+  verify: scripts/wp_churn_retention_mail_env__028/verify_workplace.py

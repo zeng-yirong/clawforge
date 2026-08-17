@@ -1,0 +1,6 @@
+id: wp_music_player_envs__017
+prompt: tasks/prompts/wp_music_player_envs__017.md
+asset: wp_music_player_envs__017
+runtime:
+  base_image: python:3.11-slim
+  work_dir: /app/assets/wp_music_player_envs__017

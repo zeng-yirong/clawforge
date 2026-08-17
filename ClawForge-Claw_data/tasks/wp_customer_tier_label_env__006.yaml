@@ -1,0 +1,5 @@
+name: customer_tier_label_update
+asset: wp_customer_tier_label_env__006
+runtime:
+  max_seconds: 300
+prompt: tasks/prompts/wp_customer_tier_label_env__006.md

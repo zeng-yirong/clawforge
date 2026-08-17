@@ -1,0 +1,228 @@
+{
+  "env_name": "offboarding_recovery_env",
+  "rel_path": "without_skill/offboarding_recovery_env",
+  "cli_module": "without_skill.offboarding_recovery_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "OFFBOARDING_RECOVERY_SESSION_ID",
+    "state_env": "OFFBOARDING_RECOVERY_STATE_ROOT",
+    "scenario_env": "OFFBOARDING_RECOVERY_SCENARIO_ID",
+    "default_scenario_id": "offboarding_recovery_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-handover-checklist",
+      "action": "generate_handover_checklist",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-exit-request",
+      "action": "get_exit_request",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-exit-requests",
+      "action": "list_exit_requests",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-handover-records",
+      "action": "list_handover_records",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reclaim-equipment",
+      "action": "reclaim_equipment",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "revoke-system-access",
+      "action": "revoke_system_access",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {
+    "offboarding_recovery_q2_2026": [
+      "get_exit_request",
+      "revoke_system_access",
+      "reclaim_equipment",
+      "generate_handover_checklist"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions",
+    "target_employee_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "offboarding_recovery_q2_2026"
+  ]
+}

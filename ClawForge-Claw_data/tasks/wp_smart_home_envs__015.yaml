@@ -1,0 +1,8 @@
+task_id: wp_smart_home_envs__015
+asset: wp_smart_home_envs__015
+prompt: prompts/wp_smart_home_envs__015.md
+runtime:
+  cwd: assets/wp_smart_home_envs__015
+  python_version: "3.10"
+  requirements:
+    - stdlib

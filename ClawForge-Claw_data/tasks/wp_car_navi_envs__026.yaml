@@ -1,0 +1,7 @@
+task_id: wp_car_navi_envs__026
+asset: wp_car_navi_envs__026
+prompt: tasks/prompts/wp_car_navi_envs__026.md
+runtime:
+  env:
+    - CAR_NAVI_SESSION_ID: "navi-026"
+    - CAR_NAVI_STATE_ROOT: "."

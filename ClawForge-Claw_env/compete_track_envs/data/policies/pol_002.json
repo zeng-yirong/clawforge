@@ -1,0 +1,22 @@
+{
+  "policy_id": "pol_002",
+  "title": "US AI Transparency Act",
+  "description": "Mandates disclosure of AI-generated content and algorithmic decision-making processes.",
+  "policy_type": "ai_regulation",
+  "jurisdiction": "US",
+  "status": "proposed",
+  "impact_level": "medium",
+  "full_text": "The AI Transparency Act requires companies to disclose when content is AI-generated and to provide explanations for algorithmic decisions that significantly affect consumers.",
+  "summary": "Requires disclosure of AI-generated content and algorithmic decision explanations.",
+  "impact": {
+    "affected_competitors": ["comp_001", "comp_003", "comp_004"],
+    "key_requirements": [
+      "Label AI-generated content",
+      "Explain algorithmic decisions",
+      "Maintain audit trails"
+    ],
+    "deadline": "2026-12-01T00:00:00Z",
+    "compliance_cost_estimate": 25000000
+  },
+  "changes": []
+}

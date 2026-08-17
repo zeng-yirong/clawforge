@@ -1,0 +1,16 @@
+schema_version: "1.0"
+asset: wp_cloud_cost_ledger_env__025
+prompt_path: tasks/prompts/wp_cloud_cost_ledger_env__025.md
+runtime:
+  timeout_seconds: 300
+  max_turns: 30
+  allowed_modules:
+    - json
+    - csv
+    - os
+    - sys
+    - re
+    - pathlib
+    - math
+    - decimal
+    - statistics

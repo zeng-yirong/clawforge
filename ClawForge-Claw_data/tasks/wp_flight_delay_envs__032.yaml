@@ -1,0 +1,6 @@
+name: wp_flight_delay_envs__032
+asset: wp_flight_delay_envs__032
+prompt: tasks/prompts/wp_flight_delay_envs__032.md
+runtime:
+  type: python
+  version: "3.12"

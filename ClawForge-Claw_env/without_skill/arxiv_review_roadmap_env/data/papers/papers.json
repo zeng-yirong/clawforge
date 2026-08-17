@@ -1,0 +1,40 @@
+{
+  "papers": [
+    {
+      "paper_id": "paper_tar_001",
+      "title": "Tool-Augmented Deliberation for Long-Horizon Agents",
+      "direction": "tool_augmented_reasoning",
+      "year": 2026,
+      "keywords": ["planning", "tool use", "verification"],
+      "abstract": "Studies long-horizon agent planning with explicit tool calls and verification loops.",
+      "citation_ids": ["paper_tar_002", "paper_tar_003"]
+    },
+    {
+      "paper_id": "paper_tar_002",
+      "title": "Execution Traces as Memory for Tool-Using LLMs",
+      "direction": "tool_augmented_reasoning",
+      "year": 2025,
+      "keywords": ["memory", "execution traces", "tool use"],
+      "abstract": "Uses execution traces as compressed memory to stabilize multi-step tool use.",
+      "citation_ids": ["paper_tar_003"]
+    },
+    {
+      "paper_id": "paper_tar_003",
+      "title": "Verified Retrieval-Act Loops in Agentic Systems",
+      "direction": "tool_augmented_reasoning",
+      "year": 2024,
+      "keywords": ["retrieval", "verification", "agent systems"],
+      "abstract": "Introduces retrieval-act loops with explicit verification checkpoints for grounded action.",
+      "citation_ids": []
+    },
+    {
+      "paper_id": "paper_diff_001",
+      "title": "Sparse Experts for Vision Models",
+      "direction": "efficient_vision",
+      "year": 2025,
+      "keywords": ["vision", "sparse experts"],
+      "abstract": "Explores sparse expert routing for efficient large-scale vision models.",
+      "citation_ids": []
+    }
+  ]
+}

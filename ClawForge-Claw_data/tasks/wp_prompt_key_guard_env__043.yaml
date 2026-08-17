@@ -1,0 +1,7 @@
+wallet: "local"
+prompt: "tasks/prompts/wp_prompt_key_guard_env__043.md"
+asset: "wp_prompt_key_guard_env__043"
+runtime:
+  cwd: "assets/wp_prompt_key_guard_env__043"
+  env:
+    - "PYTHONUNBUFFERED=1"

@@ -1,0 +1,8 @@
+name: wp_travel_policy_envs__009
+description: "Travel policy compliance – find the cheapest eligible flight and output booking decision"
+asset: wp_travel_policy_envs__009
+prompt: tasks/prompts/wp_travel_policy_envs__009.md
+runtime:
+  cwd: "assets/wp_travel_policy_envs__009"
+  timeout_seconds: 600
+  max_turns: 30

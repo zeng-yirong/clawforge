@@ -1,0 +1,5 @@
+asset: wp_reproduction_ledger_env__009
+prompt_path: tasks/prompts/wp_reproduction_ledger_env__009.md
+runtime:
+  environment: python:3.11
+  workspace: "."

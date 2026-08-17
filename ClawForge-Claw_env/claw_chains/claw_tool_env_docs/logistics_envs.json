@@ -1,0 +1,802 @@
+{
+  "env_name": "logistics_envs",
+  "rel_path": "logistics_envs",
+  "cli_module": "logistics_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "LOGISTICS_SESSION_ID",
+    "state_env": "LOGISTICS_STATE_ROOT",
+    "scenario_env": "LOGISTICS_SCENARIO_ID",
+    "default_scenario_id": "fulfillment_inventory_reconcile"
+  },
+  "visible_verbs": [
+    {
+      "verb": "adjust-inventory",
+      "action": "adjust_inventory",
+      "role": "other",
+      "help": "Adjust inventory level.",
+      "args": [
+        {
+          "name": "--sku",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--warehouse-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--quantity-change",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--reason-code",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--notes",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "approve-return",
+      "action": "approve_return",
+      "role": "produce",
+      "help": "Approve a return.",
+      "args": [
+        {
+          "name": "--return-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--notes",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-reconciliation-report",
+      "action": "generate_reconciliation_report",
+      "role": "produce",
+      "help": "Generate reconciliation report.",
+      "args": [
+        {
+          "name": "--warehouse-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-inventory",
+      "action": "get_inventory",
+      "role": "read",
+      "help": "Get inventory item details.",
+      "args": [
+        {
+          "name": "--sku",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-order",
+      "action": "get_order",
+      "role": "read",
+      "help": "Get order details.",
+      "args": [
+        {
+          "name": "--order-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-return",
+      "action": "get_return",
+      "role": "read",
+      "help": "Get return details.",
+      "args": [
+        {
+          "name": "--return-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-shipment",
+      "action": "get_shipment",
+      "role": "read",
+      "help": "Get shipment details.",
+      "args": [
+        {
+          "name": "--shipment-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "inspect-return",
+      "action": "inspect_return",
+      "role": "read",
+      "help": "Inspect a return.",
+      "args": [
+        {
+          "name": "--return-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--inspection-notes",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--resolution",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--condition",
+          "required": false,
+          "has_default": true,
+          "default": "acceptable",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-inventory",
+      "action": "list_inventory",
+      "role": "read",
+      "help": "List inventory.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--warehouse-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--low-stock-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-orders",
+      "action": "list_orders",
+      "role": "read",
+      "help": "List orders.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--customer-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-returns",
+      "action": "list_returns",
+      "role": "read",
+      "help": "List returns.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--customer-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-shipments",
+      "action": "list_shipments",
+      "role": "read",
+      "help": "List shipments.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--carrier",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment.",
+      "args": [
+        {
+          "name": "--attachment-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "receive-return",
+      "action": "receive_return",
+      "role": "other",
+      "help": "Mark return as received.",
+      "args": [
+        {
+          "name": "--return-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reject-return",
+      "action": "reject_return",
+      "role": "guard",
+      "help": "Reject a return.",
+      "args": [
+        {
+          "name": "--return-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--reason",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reserve-inventory",
+      "action": "reserve_inventory",
+      "role": "other",
+      "help": "Reserve inventory.",
+      "args": [
+        {
+          "name": "--sku",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--warehouse-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--quantity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "update-order-status",
+      "action": "update_order_status",
+      "role": "produce",
+      "help": "Update order status.",
+      "args": [
+        {
+          "name": "--order-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-status",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "update-shipment-status",
+      "action": "update_shipment_status",
+      "role": "produce",
+      "help": "Update shipment status.",
+      "args": [
+        {
+          "name": "--shipment-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-status",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tracking-number",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-orders",
+      "dst": "get-order",
+      "weight": 0.8,
+      "relationship": "produces_order_id_for"
+    },
+    {
+      "src": "list-orders",
+      "dst": "update-order-status",
+      "weight": 0.8,
+      "relationship": "produces_order_id_for"
+    },
+    {
+      "src": "list-shipments",
+      "dst": "get-shipment",
+      "weight": 0.8,
+      "relationship": "produces_shipment_id_for"
+    },
+    {
+      "src": "list-shipments",
+      "dst": "update-shipment-status",
+      "weight": 0.8,
+      "relationship": "produces_shipment_id_for"
+    },
+    {
+      "src": "list-returns",
+      "dst": "get-return",
+      "weight": 0.8,
+      "relationship": "produces_return_id_for"
+    },
+    {
+      "src": "list-returns",
+      "dst": "approve-return",
+      "weight": 0.8,
+      "relationship": "produces_return_id_for"
+    },
+    {
+      "src": "list-returns",
+      "dst": "reject-return",
+      "weight": 0.8,
+      "relationship": "produces_return_id_for"
+    },
+    {
+      "src": "list-returns",
+      "dst": "inspect-return",
+      "weight": 0.8,
+      "relationship": "produces_return_id_for"
+    },
+    {
+      "src": "list-returns",
+      "dst": "receive-return",
+      "weight": 0.8,
+      "relationship": "produces_return_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "fulfillment_inventory_reconcile": [
+      "{'requirement_id': 'approve_return_ret_001', 'action_type': 'approve_return', 'target_return_id': 'ret_001', 'must_include': ['defective', 'approved'], 'must_not_include': []}",
+      "{'requirement_id': 'inspect_return_ret_003', 'action_type': 'inspect_return', 'target_return_id': 'ret_003', 'must_include': ['wrong item', 'exchange'], 'must_not_include': []}",
+      "{'requirement_id': 'update_shipment_ship_005', 'action_type': 'update_shipment_status', 'target_shipment_id': 'ship_005', 'new_status': 'shipped', 'must_include': ['shipped', 'fedex'], 'must_not_include': []}",
+      "{'requirement_id': 'adjust_inventory_sku_1002', 'action_type': 'adjust_inventory', 'target_sku': 'SKU-1002', 'warehouse_id': 'wh_001', 'adjustment_type': 'damage', 'quantity_change': -5, 'must_include': ['damage', 'adjusted'], 'must_not_include': []}",
+      "{'requirement_id': 'create_reconciliation_report', 'action_type': 'generate_report', 'report_type': 'inventory_reconciliation', 'must_include': ['reconciliation', 'discrepancy'], 'must_not_include': []}"
+    ]
+  },
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_actions",
+    "required_attachment_ids"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "fulfillment_inventory_reconcile"
+  ]
+}

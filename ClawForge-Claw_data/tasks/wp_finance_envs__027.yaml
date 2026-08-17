@@ -1,0 +1,6 @@
+task_id: wp_finance_envs__027
+prompt_path: tasks/prompts/wp_finance_envs__027.md
+asset: wp_finance_envs__027
+runtime:
+  base_image: python:3.11-slim
+  timeout: 60

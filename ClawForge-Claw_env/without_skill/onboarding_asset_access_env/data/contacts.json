@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "it_helpdesk_001",
+      "name": "Derek Sun",
+      "role": "IT Helpdesk Lead",
+      "email": "derek.sun@northstar.example.com"
+    }
+  ]
+}

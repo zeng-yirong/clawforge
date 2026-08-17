@@ -1,0 +1,12 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_001",
+      "account_name": "Primary Monitoring Account",
+      "location": "Building A",
+      "sensors": ["temp_001", "temp_002", "humidity_001", "humidity_002", "air_001", "energy_001"],
+      "locations": ["loc_lobby", "loc_office", "loc_server_room", "loc_warehouse"],
+      "notification_contacts": ["contact_001", "contact_002", "contact_003"]
+    }
+  ]
+}

@@ -1,0 +1,553 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_flight",
+    "description": "Register a flight in the itinerary for monitoring.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_number": {
+          "type": "string",
+          "description": "Flight number (e.g. 'CA1234')."
+        },
+        "departure_time": {
+          "type": "string",
+          "description": "Scheduled departure in ISO format (e.g. '2026-06-15T08:00')."
+        },
+        "arrival_time": {
+          "type": "string",
+          "description": "Scheduled arrival in ISO format."
+        },
+        "origin": {
+          "type": "string",
+          "description": "Departure airport code (e.g. 'PEK')."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Arrival airport code (e.g. 'SHA')."
+        },
+        "passenger_name": {
+          "type": "string",
+          "description": "Passenger's full name."
+        },
+        "passenger_email": {
+          "type": "string",
+          "description": "Passenger's email for notifications."
+        }
+      },
+      "required": [
+        "flight_number",
+        "departure_time",
+        "arrival_time",
+        "origin",
+        "destination",
+        "passenger_name",
+        "passenger_email"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "report_flight_delay",
+    "description": "Report a flight delay and trigger cascading adjustments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "The delayed flight ID."
+        },
+        "delay_minutes": {
+          "type": "integer",
+          "description": "Delay duration in minutes."
+        },
+        "new_arrival_time": {
+          "type": "string",
+          "description": "[Optional] New arrival time. If not provided, calculated from original arrival + delay."
+        }
+      },
+      "required": [
+        "flight_id",
+        "delay_minutes"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_flight_status",
+    "description": "Check the current status of a flight and its linked items.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "Flight ID to check."
+        }
+      },
+      "required": [
+        "flight_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_flights",
+    "description": "List all flights, optionally filtered by status or date.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by flight status."
+        },
+        "date": {
+          "type": "string",
+          "description": "[Optional] Filter by departure date prefix (e.g. '2026-06-15')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "book_hotel",
+    "description": "Book a hotel and link it to a flight for automatic adjustment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "Associated flight ID."
+        },
+        "hotel_name": {
+          "type": "string",
+          "description": "Hotel name."
+        },
+        "check_in_time": {
+          "type": "string",
+          "description": "Check-in time in ISO format."
+        },
+        "check_out_time": {
+          "type": "string",
+          "description": "Check-out time in ISO format."
+        },
+        "room_type": {
+          "type": "string",
+          "description": "Room type. Defaults to 'standard'."
+        },
+        "confirmation_number": {
+          "type": "string",
+          "description": "Hotel confirmation number."
+        }
+      },
+      "required": [
+        "flight_id",
+        "hotel_name",
+        "check_in_time",
+        "check_out_time"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "modify_hotel_booking",
+    "description": "Manually modify a hotel booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "hotel_id": {
+          "type": "integer",
+          "description": "Hotel booking ID."
+        },
+        "new_check_in": {
+          "type": "string",
+          "description": "[Optional] New check-in time."
+        },
+        "new_check_out": {
+          "type": "string",
+          "description": "[Optional] New check-out time."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for modification."
+        }
+      },
+      "required": [
+        "hotel_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_hotel_booking",
+    "description": "Cancel a hotel booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "hotel_id": {
+          "type": "integer",
+          "description": "Hotel booking ID."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Cancellation reason."
+        }
+      },
+      "required": [
+        "hotel_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_hotels",
+    "description": "List hotel bookings, optionally filtered.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by associated flight."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by booking status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "arrange_pickup",
+    "description": "Arrange airport pickup linked to a flight.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "Associated flight ID."
+        },
+        "pickup_time": {
+          "type": "string",
+          "description": "Scheduled pickup time in ISO format."
+        },
+        "pickup_location": {
+          "type": "string",
+          "description": "Pickup location (e.g. 'Terminal 2 Exit B')."
+        },
+        "driver_name": {
+          "type": "string",
+          "description": "Driver's name."
+        },
+        "driver_phone": {
+          "type": "string",
+          "description": "Driver's contact phone."
+        },
+        "vehicle_info": {
+          "type": "string",
+          "description": "Vehicle description."
+        }
+      },
+      "required": [
+        "flight_id",
+        "pickup_time",
+        "pickup_location"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "modify_pickup",
+    "description": "Manually modify a pickup arrangement.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pickup_id": {
+          "type": "integer",
+          "description": "Pickup arrangement ID."
+        },
+        "new_pickup_time": {
+          "type": "string",
+          "description": "[Optional] New pickup time."
+        },
+        "new_location": {
+          "type": "string",
+          "description": "[Optional] New pickup location."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for modification."
+        }
+      },
+      "required": [
+        "pickup_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_pickup",
+    "description": "Cancel a pickup arrangement.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pickup_id": {
+          "type": "integer",
+          "description": "Pickup arrangement ID."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Cancellation reason."
+        }
+      },
+      "required": [
+        "pickup_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_pickups",
+    "description": "List pickup arrangements, optionally filtered.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by associated flight."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by pickup status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "schedule_meeting",
+    "description": "Schedule a meeting linked to a flight for delay notifications.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "Associated flight ID (traveler's flight)."
+        },
+        "title": {
+          "type": "string",
+          "description": "Meeting title."
+        },
+        "start_time": {
+          "type": "string",
+          "description": "Meeting start time in ISO format."
+        },
+        "end_time": {
+          "type": "string",
+          "description": "Meeting end time in ISO format."
+        },
+        "location": {
+          "type": "string",
+          "description": "Meeting location or virtual link."
+        },
+        "participants": {
+          "type": "array",
+          "description": "List of participants with 'name' and 'email' keys."
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Meeting priority 1-10. Defaults to 5."
+        }
+      },
+      "required": [
+        "flight_id",
+        "title",
+        "start_time",
+        "end_time",
+        "location",
+        "participants"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reschedule_meeting",
+    "description": "Reschedule a meeting and optionally notify participants.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "meeting_id": {
+          "type": "integer",
+          "description": "Meeting ID."
+        },
+        "new_start_time": {
+          "type": "string",
+          "description": "New start time."
+        },
+        "new_end_time": {
+          "type": "string",
+          "description": "New end time."
+        },
+        "notify_participants": {
+          "type": "boolean",
+          "description": "Whether to send reschedule notifications."
+        }
+      },
+      "required": [
+        "meeting_id",
+        "new_start_time",
+        "new_end_time"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_meeting",
+    "description": "Cancel a meeting and optionally notify participants.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "meeting_id": {
+          "type": "integer",
+          "description": "Meeting ID."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Cancellation reason."
+        },
+        "notify_participants": {
+          "type": "boolean",
+          "description": "Whether to send cancellation notifications."
+        }
+      },
+      "required": [
+        "meeting_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_meetings",
+    "description": "List meetings, optionally filtered.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "flight_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by associated flight."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by meeting status."
+        },
+        "date": {
+          "type": "string",
+          "description": "[Optional] Filter by date prefix."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "send_custom_notification",
+    "description": "Send a custom notification to a recipient.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "recipient_email": {
+          "type": "string",
+          "description": "Recipient's email address."
+        },
+        "recipient_name": {
+          "type": "string",
+          "description": "Recipient's name."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Notification subject."
+        },
+        "message": {
+          "type": "string",
+          "description": "Notification message body."
+        },
+        "notification_type": {
+          "type": "string",
+          "description": "Type of notification (reminder, alert, update)."
+        }
+      },
+      "required": [
+        "recipient_email",
+        "recipient_name",
+        "subject",
+        "message"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

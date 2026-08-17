@@ -1,0 +1,16 @@
+task_id: wp_performance_review_env__016
+prompt: tasks/prompts/wp_performance_review_env__016.md
+asset: wp_performance_review_env__016
+runtime:
+  type: python
+  version: "3.10"
+  working_directory: assets/wp_performance_review_env__016
+  actions:
+    - type: read
+      path: data/employees/employees.json
+    - type: read
+      path: data/ledgers/monthly_outputs.json
+    - type: read
+      path: data/rules/scoring_rules.json
+    - type: write
+      path: ops/performance_profiles.json

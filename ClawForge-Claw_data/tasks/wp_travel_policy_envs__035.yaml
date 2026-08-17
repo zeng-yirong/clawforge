@@ -1,0 +1,9 @@
+task_id: wp_travel_policy_envs__035
+asset: wp_travel_policy_envs__035
+prompt: tasks/prompts/wp_travel_policy_envs__035.md
+runtime:
+  cwd: assets/wp_travel_policy_envs__035
+  entrypoint: null
+  max_steps: 50
+  output_formats:
+    - ops/booking_decision.json

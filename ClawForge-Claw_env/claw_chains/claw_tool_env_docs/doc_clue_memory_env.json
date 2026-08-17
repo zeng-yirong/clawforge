@@ -1,0 +1,516 @@
+{
+  "env_name": "doc_clue_memory_env",
+  "rel_path": "without_skill/doc_clue_memory_env",
+  "cli_module": "without_skill.doc_clue_memory_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "DOC_CLUE_MEMORY_SESSION_ID",
+    "state_env": "DOC_CLUE_MEMORY_STATE_ROOT",
+    "scenario_env": "DOC_CLUE_MEMORY_SCENARIO_ID",
+    "default_scenario_id": "tech_solution_signal_trace_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "get-media-sample",
+      "action": "get_media_sample",
+      "role": "read",
+      "help": "Get one media sample.",
+      "args": [
+        {
+          "name": "--sample-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-presentation",
+      "action": "get_presentation",
+      "role": "read",
+      "help": "Get full presentation notes.",
+      "args": [
+        {
+          "name": "--presentation-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-report",
+      "action": "get_report",
+      "role": "read",
+      "help": "Get full report content.",
+      "args": [
+        {
+          "name": "--report-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-temp-record",
+      "action": "get_temp_record",
+      "role": "read",
+      "help": "Get one saved temporary record.",
+      "args": [
+        {
+          "name": "--record-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-attachments",
+      "action": "list_attachments",
+      "role": "read",
+      "help": "List supporting attachments.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-media-samples",
+      "action": "list_media_samples",
+      "role": "read",
+      "help": "List media copy memory samples.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--channel",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-presentations",
+      "action": "list_presentations",
+      "role": "read",
+      "help": "List presentation samples.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--owner",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-reports",
+      "action": "list_reports",
+      "role": "read",
+      "help": "List industry reports.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sector",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-temp-records",
+      "action": "list_temp_records",
+      "role": "read",
+      "help": "List saved temporary records.",
+      "args": [
+        {
+          "name": "--record-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment used by the scenario.",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "save-clue-list",
+      "action": "save_clue_list",
+      "role": "produce",
+      "help": "Save a clue list into the environment temporary records.",
+      "args": [
+        {
+          "name": "--solution-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--solution-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--document-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated document ids",
+          "hidden": false
+        },
+        {
+          "name": "--clues-json",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "JSON array of clue strings",
+          "hidden": false
+        },
+        {
+          "name": "--summary",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--confidence",
+          "required": false,
+          "has_default": true,
+          "default": "medium",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "search-library",
+      "action": "search_library",
+      "role": "read",
+      "help": "Search across reports, presentations, and media samples.",
+      "args": [
+        {
+          "name": "--query",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--source-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-reports",
+      "dst": "get-report",
+      "weight": 0.8,
+      "relationship": "produces_report_id_for"
+    },
+    {
+      "src": "list-presentations",
+      "dst": "get-presentation",
+      "weight": 0.8,
+      "relationship": "produces_presentation_id_for"
+    },
+    {
+      "src": "list-media-samples",
+      "dst": "get-media-sample",
+      "weight": 0.8,
+      "relationship": "produces_sample_id_for"
+    },
+    {
+      "src": "list-temp-records",
+      "dst": "get-temp-record",
+      "weight": 0.8,
+      "relationship": "produces_record_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "tech_solution_signal_trace_q2_2026": [
+      "task",
+      "search_library",
+      "get_report",
+      "get_presentation",
+      "get_media_sample",
+      "read_attachment",
+      "save_clue_list"
+    ]
+  },
+  "anchor_keys": [
+    "expected_document_ids",
+    "forbidden_document_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "required_source_types",
+    "target_solution_aliases",
+    "target_solution_id",
+    "target_solution_name"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "tech_solution_signal_trace_q2_2026"
+  ]
+}

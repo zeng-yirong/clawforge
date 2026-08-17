@@ -1,0 +1,355 @@
+{
+  "env_name": "server_fault_supabase_env",
+  "rel_path": "without_skill/server_fault_supabase_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_incident_ids",
+    "expected_resolution_states",
+    "forbidden_incident_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "required_audit_actions",
+    "target_categories",
+    "target_statuses"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_region",
+          "type": "str",
+          "required": true,
+          "desc": "default_region (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/runbook_ups_and_service.md",
+      "kind": "markdown_attachment",
+      "title": "UPS and Service Outage Runbook",
+      "bytes": 534,
+      "desc": "markdown_attachment file data/attachments/runbook_ups_and_service.md"
+    },
+    {
+      "path": "data/attachments/supabase_write_contract.md",
+      "kind": "markdown_attachment",
+      "title": "Simulated Supabase Write Contract",
+      "bytes": 415,
+      "desc": "markdown_attachment file data/attachments/supabase_write_contract.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 2,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "runbook_ups_and_service.md",
+            "supabase_write_contract.md"
+          ],
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Simulated Supabase Write Contract",
+            "UPS and Service Outage Runbook"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "runbook",
+            "write_contract"
+          ],
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Harper Zhou",
+            "Lena Park",
+            "Nikhil Rao"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Database Reliability Engineer",
+            "Facilities Power Coordinator",
+            "NOC Lead"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "harper.zhou@northstar.example.com",
+            "lena.park@northstar.example.com",
+            "nikhil.rao@northstar.example.com"
+          ],
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/incidents/incident_pool.json",
+      "kind": "collection",
+      "wrapper_key": "incidents",
+      "record_key": "incident_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "incident_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "incident_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "db_replica_lag",
+            "network_degradation",
+            "service_down",
+            "ups_outage"
+          ],
+          "desc": "category (str)"
+        },
+        {
+          "name": "severity",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "critical",
+            "high",
+            "medium"
+          ],
+          "desc": "severity (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "open",
+            "triaged"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "assigned_team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "app_ops",
+            "db_ops",
+            "ml_platform",
+            "network_ops",
+            "power_ops"
+          ],
+          "desc": "assigned_team (str)"
+        },
+        {
+          "name": "ticket_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "risk_work_order",
+            "watchlist"
+          ],
+          "desc": "ticket_type (str)"
+        },
+        {
+          "name": "service",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "analytics-mirror",
+            "billing-api",
+            "edge-cluster-a12",
+            "inference-worker",
+            "west4-spine-uplink"
+          ],
+          "desc": "service (str)"
+        },
+        {
+          "name": "opened_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "opened_at (str)"
+        },
+        {
+          "name": "updated_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "updated_at (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "risk_flags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "risk_flags (list)"
+        }
+      ],
+      "desc": "collection file data/incidents/incident_pool.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "incident_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/incidents/incident_pool.json",
+          "record_key": "incident_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_incident_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/incidents/incident_pool.json",
+          "record_key": "incident_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "forbidden_incident_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/incidents/incident_pool.json",
+          "record_key": "incident_id"
+        }
+      ]
+    }
+  ]
+}

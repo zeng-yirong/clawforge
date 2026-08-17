@@ -1,0 +1,437 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_customer",
+      "required_args": [
+        "--customer-id"
+      ],
+      "id": "get-customer"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_customer_metrics",
+      "required_args": [
+        "--customer-id"
+      ],
+      "id": "get-customer-metrics"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_update_log",
+      "required_args": [
+        "--update-id"
+      ],
+      "id": "get-update-log"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_customers",
+      "required_args": [],
+      "id": "list-customers"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_update_logs",
+      "required_args": [],
+      "id": "list-update-logs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_customer_labels",
+      "required_args": [
+        "--customer-id"
+      ],
+      "id": "update-customer-labels"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-customer-labels"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-customer-labels"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-customer",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-customer",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting customer, often check metrics",
+      "tier": "llm_weak",
+      "source": "get-customer",
+      "target": "get-customer-metrics"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting customer, often check update log",
+      "tier": "llm_weak",
+      "source": "get-customer",
+      "target": "get-update-log"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting customer, often read attachment",
+      "tier": "llm_weak",
+      "source": "get-customer",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::customer_tier_labeling_q2_2026",
+      "tier": "gold",
+      "source": "get-customer-metrics",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-customer-metrics",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-customer-metrics",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-update-log",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-update-log",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_customer_id_for",
+      "tier": "dataflow",
+      "source": "list-customers",
+      "target": "get-customer"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_customer_id_for",
+      "tier": "gold",
+      "source": "list-customers",
+      "target": "get-customer-metrics"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_customer_id_for",
+      "tier": "dataflow",
+      "source": "list-customers",
+      "target": "update-customer-labels"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-customers",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-customers",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_update_id_for",
+      "tier": "dataflow",
+      "source": "list-update-logs",
+      "target": "get-update-log"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-update-logs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-update-logs",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::customer_tier_labeling_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "update-customer-labels"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-customer"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-customer-metrics"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-update-log"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-customers"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-update-logs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after task, often get session summary",
+      "tier": "llm_weak",
+      "source": "task",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_update_id_for",
+      "tier": "dataflow",
+      "source": "update-customer-labels",
+      "target": "get-update-log"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-customer-labels",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-customer-labels",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-customer-labels",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after updating labels, verify customer",
+      "tier": "llm_weak",
+      "source": "update-customer-labels",
+      "target": "get-customer"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after updating labels, check metrics impact",
+      "tier": "llm_weak",
+      "source": "update-customer-labels",
+      "target": "get-customer-metrics"
+    }
+  ]
+}

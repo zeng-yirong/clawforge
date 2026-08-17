@@ -1,0 +1,10 @@
+{
+  "contracts": [
+    {
+      "employee_id": "emp_new_001",
+      "employee_name": "Olive Fan",
+      "status": "signed",
+      "email": "olive.fan@northstar.example.com"
+    }
+  ]
+}

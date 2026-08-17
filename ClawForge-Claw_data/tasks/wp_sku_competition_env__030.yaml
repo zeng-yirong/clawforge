@@ -1,0 +1,6 @@
+task_id: wp_sku_competition_env__030
+asset: wp_sku_competition_env__030
+prompt: tasks/prompts/wp_sku_competition_env__030.md
+runtime:
+  type: workspace
+  workspace_path: assets/wp_sku_competition_env__030

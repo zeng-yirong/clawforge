@@ -1,0 +1,550 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "control_ac",
+      "required_args": [
+        "--device-id",
+        "--action"
+      ],
+      "id": "control-ac"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "control_humidifier",
+      "required_args": [
+        "--device-id",
+        "--action"
+      ],
+      "id": "control-humidifier"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "control_light",
+      "required_args": [
+        "--device-id",
+        "--action"
+      ],
+      "id": "control-light"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "control_plug",
+      "required_args": [
+        "--device-id",
+        "--action"
+      ],
+      "id": "control-plug"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_schedule",
+      "required_args": [
+        "--name",
+        "--device-id",
+        "--action",
+        "--time",
+        "--repeat"
+      ],
+      "id": "create-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "delete_schedule",
+      "required_args": [
+        "--schedule-id"
+      ],
+      "id": "delete-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "disable_schedule",
+      "required_args": [
+        "--schedule-id"
+      ],
+      "id": "disable-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "enable_schedule",
+      "required_args": [
+        "--schedule-id"
+      ],
+      "id": "enable-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "execute_tasks",
+      "required_args": [],
+      "id": "execute-tasks"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_device",
+      "required_args": [
+        "--device-id"
+      ],
+      "id": "get-device"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_schedule",
+      "required_args": [
+        "--schedule-id"
+      ],
+      "id": "get-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_devices",
+      "required_args": [],
+      "id": "list-devices"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_schedules",
+      "required_args": [],
+      "id": "list-schedules"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "scheduling_status",
+      "required_args": [],
+      "id": "scheduling-status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task_history",
+      "required_args": [],
+      "id": "task-history"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "turn_off_device",
+      "required_args": [
+        "--device-id"
+      ],
+      "id": "turn-off-device"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "turn_on_device",
+      "required_args": [
+        "--device-id"
+      ],
+      "id": "turn-on-device"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "upcoming_tasks",
+      "required_args": [],
+      "id": "upcoming-tasks"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-schedule"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "create-schedule",
+      "target": "get-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "create-schedule",
+      "target": "enable-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "create-schedule",
+      "target": "disable-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "create-schedule",
+      "target": "delete-schedule"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-schedule",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-schedule",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-schedule",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after disabling, delete the schedule",
+      "tier": "llm_weak",
+      "source": "disable-schedule",
+      "target": "delete-schedule"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after executing tasks, view execution history",
+      "tier": "llm_weak",
+      "source": "execute-tasks",
+      "target": "task-history"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-device",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-device",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after checking status, turn off device if needed",
+      "tier": "llm_weak",
+      "source": "get-device",
+      "target": "turn-off-device"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-schedule",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-schedule",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "get-device"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "turn-on-device"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "turn-off-device"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "control-light"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "control-ac"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "control-humidifier"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "control-plug"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "list-devices",
+      "target": "create-schedule"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-devices",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-devices",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "list-schedules",
+      "target": "get-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "list-schedules",
+      "target": "enable-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "list-schedules",
+      "target": "disable-schedule"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for",
+      "tier": "dataflow",
+      "source": "list-schedules",
+      "target": "delete-schedule"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-schedules",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-schedules",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after checking status, view upcoming tasks",
+      "tier": "llm_weak",
+      "source": "scheduling-status",
+      "target": "upcoming-tasks"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-device"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-schedule"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-devices"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-schedules"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after turning on, verify device status",
+      "tier": "llm_weak",
+      "source": "turn-on-device",
+      "target": "get-device"
+    }
+  ]
+}

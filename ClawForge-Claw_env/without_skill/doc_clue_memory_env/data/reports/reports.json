@@ -1,0 +1,70 @@
+{
+  "reports": [
+    {
+      "report_id": "rep_001",
+      "title": "Industrial Vision Edge Architecture Outlook 2026",
+      "sector": "industrial_ai",
+      "published_at": "2026-05-28",
+      "tags": [
+        "edge inference",
+        "industrial vision",
+        "thermal scheduling"
+      ],
+      "summary": "Field checks show HelioSync Edge Inference Fabric, also labeled HSEF, appearing in industrial vision pilots that require thermal-aware model handoff.",
+      "solution_aliases": [
+        "HelioSync Edge Inference Fabric",
+        "HelioSync fabric",
+        "HSEF"
+      ],
+      "content": "Across three APAC inspection pilots, HelioSync Edge Inference Fabric is used as the switching layer between sensor buses and local model runners. Buyers cite thermal-aware job handoff and deterministic multimodel failover as differentiators. Multiple interviewees shorten the name to HSEF in procurement notes."
+    },
+    {
+      "report_id": "rep_002",
+      "title": "Warehouse Telemetry Middleware Watchlist",
+      "sector": "logistics_ai",
+      "published_at": "2026-05-11",
+      "tags": [
+        "middleware",
+        "warehouse",
+        "control plane"
+      ],
+      "summary": "HelioStream Runtime appears in warehouse telemetry stacks, but it is a middleware control plane rather than the target edge fabric.",
+      "solution_aliases": [
+        "HelioStream Runtime",
+        "HSR"
+      ],
+      "content": "This report tracks orchestration middleware such as HelioStream Runtime and NavMesh Control Plane. The material does not describe HelioSync Edge Inference Fabric and should not be treated as proof for the target solution."
+    },
+    {
+      "report_id": "rep_003",
+      "title": "Factory AI Cooling and Interconnect Buyer Signals Q2 2026",
+      "sector": "industrial_ai",
+      "published_at": "2026-06-06",
+      "tags": [
+        "buyer signals",
+        "interconnect",
+        "inspection pods"
+      ],
+      "summary": "Two OEM buying committees connect HelioSync fabric with edge inspection pods where model switching and heat limits matter.",
+      "solution_aliases": [
+        "HelioSync Edge Inference Fabric",
+        "HelioSync fabric"
+      ],
+      "content": "Committee notes from two OEMs explicitly tie HelioSync fabric to line-side inspection pods. The cited value proposition is fast switching between visual defect models and acoustic anomaly models without exceeding edge enclosure thermal budgets."
+    },
+    {
+      "report_id": "rep_004",
+      "title": "Compact Robotics Sensor Bus Primer",
+      "sector": "robotics",
+      "published_at": "2026-04-21",
+      "tags": [
+        "sensor bus",
+        "robotics",
+        "embedded"
+      ],
+      "summary": "A primer on sensor buses with no direct mention of the target solution.",
+      "solution_aliases": [],
+      "content": "The primer compares CAN-FD, PCIe-over-cable, and custom sensor buses used in compact robotics. No HelioSync references are included."
+    }
+  ]
+}

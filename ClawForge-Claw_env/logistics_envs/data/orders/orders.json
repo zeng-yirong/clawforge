@@ -1,0 +1,136 @@
+{
+  "orders": [
+    {
+      "order_id": "ord_001",
+      "customer_id": "c_customer_001",
+      "status": "delivered",
+      "created_at": "2026-06-10T09:30:00+00:00",
+      "updated_at": "2026-06-15T14:20:00+00:00",
+      "items": [
+        {"sku": "SKU-1001", "name": "Wireless Bluetooth Headphones", "quantity": 1, "unit_price": 79.99},
+        {"sku": "SKU-1002", "name": "USB-C Charging Cable", "quantity": 2, "unit_price": 12.99}
+      ],
+      "total_amount": 105.97,
+      "shipping_address": "123 Oak St, Newark, NJ 07102",
+      "warehouse_id": "wh_001"
+    },
+    {
+      "order_id": "ord_002",
+      "customer_id": "c_customer_002",
+      "status": "in_transit",
+      "created_at": "2026-06-12T11:45:00+00:00",
+      "updated_at": "2026-06-14T08:00:00+00:00",
+      "items": [
+        {"sku": "SKU-2001", "name": "Ergonomic Keyboard", "quantity": 1, "unit_price": 149.99}
+      ],
+      "total_amount": 149.99,
+      "shipping_address": "456 Pine Ave, Los Angeles, CA 90001",
+      "warehouse_id": "wh_002"
+    },
+    {
+      "order_id": "ord_003",
+      "customer_id": "c_customer_003",
+      "status": "delivered",
+      "created_at": "2026-06-08T16:20:00+00:00",
+      "updated_at": "2026-06-13T10:15:00+00:00",
+      "items": [
+        {"sku": "SKU-3001", "name": "4K Monitor 27-inch", "quantity": 1, "unit_price": 349.99},
+        {"sku": "SKU-3002", "name": "Monitor Stand", "quantity": 1, "unit_price": 49.99}
+      ],
+      "total_amount": 399.98,
+      "shipping_address": "789 Elm Blvd, Chicago, IL 60601",
+      "warehouse_id": "wh_003"
+    },
+    {
+      "order_id": "ord_004",
+      "customer_id": "c_customer_001",
+      "status": "out_for_delivery",
+      "created_at": "2026-06-14T08:30:00+00:00",
+      "updated_at": "2026-06-16T06:45:00+00:00",
+      "items": [
+        {"sku": "SKU-4001", "name": "Portable SSD 1TB", "quantity": 1, "unit_price": 129.99}
+      ],
+      "total_amount": 129.99,
+      "shipping_address": "123 Oak St, Newark, NJ 07102",
+      "warehouse_id": "wh_001"
+    },
+    {
+      "order_id": "ord_005",
+      "customer_id": "c_customer_004",
+      "status": "processing",
+      "created_at": "2026-06-15T13:00:00+00:00",
+      "updated_at": "2026-06-15T13:00:00+00:00",
+      "items": [
+        {"sku": "SKU-5001", "name": "Webcam HD 1080p", "quantity": 2, "unit_price": 69.99}
+      ],
+      "total_amount": 139.98,
+      "shipping_address": "321 Maple Dr, Seattle, WA 98101",
+      "warehouse_id": "wh_002"
+    },
+    {
+      "order_id": "ord_006",
+      "customer_id": "c_customer_002",
+      "status": "delivered",
+      "created_at": "2026-06-05T10:15:00+00:00",
+      "updated_at": "2026-06-11T15:30:00+00:00",
+      "items": [
+        {"sku": "SKU-1001", "name": "Wireless Bluetooth Headphones", "quantity": 1, "unit_price": 79.99}
+      ],
+      "total_amount": 79.99,
+      "shipping_address": "456 Pine Ave, Los Angeles, CA 90001",
+      "warehouse_id": "wh_002"
+    },
+    {
+      "order_id": "ord_007",
+      "customer_id": "c_customer_003",
+      "status": "shipped",
+      "created_at": "2026-06-13T09:00:00+00:00",
+      "updated_at": "2026-06-15T12:00:00+00:00",
+      "items": [
+        {"sku": "SKU-6001", "name": "Mechanical Keyboard Switches", "quantity": 3, "unit_price": 24.99}
+      ],
+      "total_amount": 74.97,
+      "shipping_address": "789 Elm Blvd, Chicago, IL 60601",
+      "warehouse_id": "wh_003"
+    },
+    {
+      "order_id": "ord_008",
+      "customer_id": "c_customer_004",
+      "status": "delivered",
+      "created_at": "2026-06-01T14:30:00+00:00",
+      "updated_at": "2026-06-07T11:20:00+00:00",
+      "items": [
+        {"sku": "SKU-7001", "name": "Laptop Stand Aluminum", "quantity": 1, "unit_price": 89.99}
+      ],
+      "total_amount": 89.99,
+      "shipping_address": "321 Maple Dr, Seattle, WA 98101",
+      "warehouse_id": "wh_002"
+    },
+    {
+      "order_id": "ord_009",
+      "customer_id": "c_customer_001",
+      "status": "delivered",
+      "created_at": "2026-06-03T11:00:00+00:00",
+      "updated_at": "2026-06-09T09:45:00+00:00",
+      "items": [
+        {"sku": "SKU-8001", "name": "USB Hub 7-Port", "quantity": 1, "unit_price": 45.99}
+      ],
+      "total_amount": 45.99,
+      "shipping_address": "123 Oak St, Newark, NJ 07102",
+      "warehouse_id": "wh_001"
+    },
+    {
+      "order_id": "ord_010",
+      "customer_id": "c_customer_003",
+      "status": "in_transit",
+      "created_at": "2026-06-14T15:45:00+00:00",
+      "updated_at": "2026-06-16T08:30:00+00:00",
+      "items": [
+        {"sku": "SKU-9001", "name": "Wireless Mouse", "quantity": 2, "unit_price": 35.99}
+      ],
+      "total_amount": 71.98,
+      "shipping_address": "789 Elm Blvd, Chicago, IL 60601",
+      "warehouse_id": "wh_003"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "equipment_inventory": [
+    {
+      "asset_tag": "LT-3001",
+      "asset_type": "laptop",
+      "status": "available"
+    }
+  ]
+}

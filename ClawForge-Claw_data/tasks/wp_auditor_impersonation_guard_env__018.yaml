@@ -1,0 +1,6 @@
+task_id: wp_auditor_impersonation_guard_env__018
+asset: wp_auditor_impersonation_guard_env__018
+prompt_path: tasks/prompts/wp_auditor_impersonation_guard_env__018.md
+runtime:
+  python: "3.11"
+  cwd: assets/wp_auditor_impersonation_guard_env__018

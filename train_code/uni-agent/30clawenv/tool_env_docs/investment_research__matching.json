@@ -1,0 +1,275 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_research_project",
+    "description": "Create a new research project for a specific stock.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project name (e.g., 'AAPL_Q4_2024_Analysis')."
+        },
+        "stock_symbol": {
+          "type": "string",
+          "description": "Stock ticker symbol."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional project description."
+        }
+      },
+      "required": [
+        "name",
+        "stock_symbol"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_projects",
+    "description": "List all research projects.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by project status ('active', 'completed')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_data_source",
+    "description": "Add a data source to a research project.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "Target project ID."
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Type of source - 'price', 'financial', or 'video'."
+        },
+        "content": {
+          "type": "dict",
+          "description": "Source content data."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "Optional metadata about the source."
+        }
+      },
+      "required": [
+        "project_id",
+        "source_type",
+        "content"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_data_sources",
+    "description": "List data sources, optionally filtered by project or type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by project ID."
+        },
+        "source_type": {
+          "type": "string",
+          "description": "[Optional] Filter by source type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_validation_rule",
+    "description": "Add a validation rule for cross-validating data sources.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "Target project ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "Rule name (e.g., 'Revenue_Growth_Correlation')."
+        },
+        "rule_type": {
+          "type": "string",
+          "description": "Type of validation rule."
+        },
+        "parameters": {
+          "type": "dict",
+          "description": "Rule parameters and thresholds."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional rule description."
+        }
+      },
+      "required": [
+        "project_id",
+        "name",
+        "rule_type",
+        "parameters"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "run_validation",
+    "description": "Run validation rules on project data sources.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "Target project ID."
+        },
+        "include_rules": {
+          "type": "array",
+          "description": "[Optional] Specific rule IDs to include."
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_brief",
+    "description": "Generate an investment brief for a project.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "Target project ID."
+        },
+        "template": {
+          "type": "string",
+          "description": "Brief template type."
+        },
+        "include_validation": {
+          "type": "boolean",
+          "description": "Whether to include validation results."
+        }
+      },
+      "required": [
+        "project_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "publish_brief",
+    "description": "Publish a draft brief, making it available for review.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "brief_id": {
+          "type": "integer",
+          "description": "Brief ID to publish."
+        }
+      },
+      "required": [
+        "brief_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "archive_brief",
+    "description": "Archive a published brief.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "brief_id": {
+          "type": "integer",
+          "description": "Brief ID to archive."
+        }
+      },
+      "required": [
+        "brief_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_briefs",
+    "description": "List investment briefs with optional filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "project_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by project ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by brief status."
+        },
+        "min_confidence": {
+          "type": "integer",
+          "description": "[Optional] Minimum confidence score threshold."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

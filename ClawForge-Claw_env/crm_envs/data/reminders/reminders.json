@@ -1,0 +1,92 @@
+{
+  "reminders": [
+    {
+      "reminder_id": "rem_001",
+      "contact_id": "ct_001",
+      "reminder_type": "birthday",
+      "title": "Alice Johnson's Birthday",
+      "description": "Birthday reminder for Alice Johnson",
+      "reminder_date": "1985-03-15",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_002",
+      "contact_id": "ct_002",
+      "reminder_type": "birthday",
+      "title": "Bob Smith's Birthday",
+      "description": "Birthday reminder for Bob Smith",
+      "reminder_date": "1980-07-22",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_003",
+      "contact_id": "ct_003",
+      "reminder_type": "birthday",
+      "title": "Carol Williams's Birthday",
+      "description": "Birthday reminder for Carol Williams",
+      "reminder_date": "1990-11-08",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_004",
+      "contact_id": "ct_004",
+      "reminder_type": "birthday",
+      "title": "David Brown's Birthday",
+      "description": "Birthday reminder for David Brown",
+      "reminder_date": "1988-04-25",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_005",
+      "contact_id": "ct_005",
+      "reminder_type": "birthday",
+      "title": "Emma Davis's Birthday",
+      "description": "Birthday reminder for Emma Davis",
+      "reminder_date": "1987-09-30",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_006",
+      "contact_id": "ct_006",
+      "reminder_type": "birthday",
+      "title": "Frank Miller's Birthday",
+      "description": "Birthday reminder for Frank Miller",
+      "reminder_date": "1975-12-03",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_007",
+      "contact_id": "ct_007",
+      "reminder_type": "birthday",
+      "title": "Grace Wilson's Birthday",
+      "description": "Birthday reminder for Grace Wilson",
+      "reminder_date": "1992-06-18",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    },
+    {
+      "reminder_id": "rem_008",
+      "contact_id": "ct_008",
+      "reminder_type": "birthday",
+      "title": "Henry Taylor's Birthday",
+      "description": "Birthday reminder for Henry Taylor",
+      "reminder_date": "1983-08-12",
+      "days_before": 7,
+      "is_recurring": true,
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "lab_eval_ops",
+      "display_name": "Lab Evaluation Ops",
+      "department": "Applied Research",
+      "email": "lab-eval-ops@northstar.example.com",
+      "permissions": ["view_experiment_results", "generate_diff_records"]
+    }
+  ]
+}

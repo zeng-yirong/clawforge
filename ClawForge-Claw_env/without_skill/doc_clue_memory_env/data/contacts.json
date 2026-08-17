@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "contact_id": "siglead_001",
+      "name": "Rhea Morita",
+      "role": "Signal Research Lead",
+      "email": "rhea.morita@northstar.example.com"
+    },
+    {
+      "contact_id": "marketintel_001",
+      "name": "Dev Mehra",
+      "role": "Market Intelligence Partner",
+      "email": "dev.mehra@northstar.example.com"
+    },
+    {
+      "contact_id": "archiveops_001",
+      "name": "Keiko Han",
+      "role": "Archive Operations",
+      "email": "keiko.han@northstar.example.com"
+    }
+  ]
+}

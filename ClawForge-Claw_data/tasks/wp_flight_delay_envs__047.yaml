@@ -1,0 +1,7 @@
+task_id: wp_flight_delay_envs__047
+asset: wp_flight_delay_envs__047
+prompt: tasks/prompts/wp_flight_delay_envs__047.md
+runtime:
+  language: python
+  version: "3.11"
+  working_directory: assets/wp_flight_delay_envs__047

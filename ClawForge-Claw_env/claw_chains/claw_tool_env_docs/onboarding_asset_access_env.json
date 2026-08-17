@@ -1,0 +1,259 @@
+{
+  "env_name": "onboarding_asset_access_env",
+  "rel_path": "without_skill/onboarding_asset_access_env",
+  "cli_module": "without_skill.onboarding_asset_access_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "ONBOARDING_ASSET_ACCESS_SESSION_ID",
+    "state_env": "ONBOARDING_ASSET_ACCESS_STATE_ROOT",
+    "scenario_env": "ONBOARDING_ASSET_ACCESS_SCENARIO_ID",
+    "default_scenario_id": "onboarding_asset_access_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "allocate-equipment",
+      "action": "allocate_equipment",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--asset-tag",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "assign-system-access",
+      "action": "assign_system_access",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--pack-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-email-profile",
+      "action": "create_email_profile",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-contract",
+      "action": "get_contract",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-contracts",
+      "action": "list_contracts",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "post-welcome-message",
+      "action": "post_welcome_message",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {
+    "onboarding_asset_access_q2_2026": [
+      "get_contract",
+      "create_email_profile",
+      "assign_system_access",
+      "allocate_equipment",
+      "post_welcome_message"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions",
+    "target_employee_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "onboarding_asset_access_q2_2026"
+  ]
+}

@@ -1,0 +1,6 @@
+task_name: wp_offboarding_recovery_env__034
+asset: wp_offboarding_recovery_env__034
+prompt_path: tasks/prompts/wp_offboarding_recovery_env__034.md
+runtime:
+  cwd: assets/wp_offboarding_recovery_env__034
+  python: "3.10"

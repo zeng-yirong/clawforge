@@ -1,0 +1,4 @@
+asset: wp_post_mails__024
+prompt: tasks/prompts/wp_post_mails__024.md
+runtime:
+  python: "3.10"

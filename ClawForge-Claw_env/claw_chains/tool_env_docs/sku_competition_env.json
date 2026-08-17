@@ -1,0 +1,436 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "extract_brand_catalog",
+  "description": "Extract all SKU selling points, ingredients, and pricing for a brand into cache.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brand_id": {
+     "type": "string",
+     "description": "Identifier of the brand."
+    },
+    "price_book_id": {
+     "type": "string",
+     "description": "Identifier of the price book."
+    }
+   },
+   "required": [
+    "brand_id",
+    "price_book_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_category_report",
+  "description": "Generate a same-category competitor comparison report and store it in cache.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brand_id": {
+     "type": "string",
+     "description": "Identifier of the brand."
+    },
+    "price_book_id": {
+     "type": "string",
+     "description": "Identifier of the price book."
+    },
+    "category_id": {
+     "type": "string",
+     "description": "Identifier of the category."
+    }
+   },
+   "required": [
+    "brand_id",
+    "price_book_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_brand",
+  "description": "Get detailed brand information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brand_id": {
+     "type": "string",
+     "description": "Identifier of the brand."
+    }
+   },
+   "required": [
+    "brand_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_cache_entry",
+  "description": "Get one cached extract or report by entry id.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_id": {
+     "type": "string",
+     "description": "Identifier of the cache entry."
+    }
+   },
+   "required": [
+    "entry_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_price_book",
+  "description": "Get the full content of a price book.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "price_book_id": {
+     "type": "string",
+     "description": "Identifier of the price book."
+    }
+   },
+   "required": [
+    "price_book_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_sku",
+  "description": "Get detailed SKU information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sku_id": {
+     "type": "string",
+     "description": "Identifier of the SKU."
+    }
+   },
+   "required": [
+    "sku_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_attachments",
+  "description": "List supporting attachments.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_brands",
+  "description": "List brands in the catalog.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for brand name.",
+     "default": ""
+    },
+    "category_id": {
+     "type": "string",
+     "description": "Filter by category ID."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_cache",
+  "description": "List cache entries created during the session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "entry_type": {
+     "type": "string",
+     "description": "Filter by entry type."
+    },
+    "cache_key": {
+     "type": "string",
+     "description": "Filter by cache key."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_price_books",
+  "description": "List available price books.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "Filter by status (e.g., active)."
+    },
+    "current_only": {
+     "type": "boolean",
+     "description": "Only current price books."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_skus",
+  "description": "List SKUs with optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brand_id": {
+     "type": "string",
+     "description": "Filter by brand ID."
+    },
+    "category_id": {
+     "type": "string",
+     "description": "Filter by category ID."
+    },
+    "query": {
+     "type": "string",
+     "description": "Search query for SKU name.",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by status.",
+     "default": "active"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read an attachment used by the scenario.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_path": {
+     "type": "string",
+     "description": "Path to the attachment file."
+    }
+   },
+   "required": [
+    "attachment_path"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

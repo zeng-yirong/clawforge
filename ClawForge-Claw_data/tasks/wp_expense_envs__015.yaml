@@ -1,0 +1,9 @@
+name: wp_expense_envs__015
+description: Expense over-budget analysis for a specific employee trip
+asset: wp_expense_envs__015
+prompt: tasks/prompts/wp_expense_envs__015.md
+runtime:
+  image: python:3.10-slim
+  working_dir: /home/user/workplace
+  commands:
+    - python3 /scripts/verify_workplace.py /home/user/workplace

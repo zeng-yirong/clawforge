@@ -1,0 +1,7 @@
+asset: wp_excel_data_envs__038
+type: workplace
+prompt: tasks/prompts/wp_excel_data_envs__038.md
+runtime:
+  cwd: assets/wp_excel_data_envs__038
+  interval: 0.5
+  timeout: 30

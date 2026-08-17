@@ -1,0 +1,12 @@
+task_id: wp_travel_policy_envs__025
+asset: wp_travel_policy_envs__025
+prompt_path: tasks/prompts/wp_travel_policy_envs__025.md
+runtime:
+  cwd: assets/wp_travel_policy_envs__025
+  allowed_commands: []
+  forbidden_commands:
+    - rm
+    - mv
+    - curl
+    - wget
+    - python3 -m

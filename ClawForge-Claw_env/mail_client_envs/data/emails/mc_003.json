@@ -1,0 +1,15 @@
+{
+  "id": "mc_003",
+  "thread_id": "th_project",
+  "folder": "inbox",
+  "sender_id": "c_colleague",
+  "subject": "Code Review Request - Feature Branch",
+  "timestamp": "2026-06-17T11:00:00+00:00",
+  "importance": "normal",
+  "labels": ["work"],
+  "has_read": false,
+  "body": "Hi, I've completed the implementation of the new authentication feature. Could you please review my PR when you have time? The changes include: OAuth2 integration, token refresh mechanism, and improved session handling. Link to PR: github.com/company/repo/pull/123",
+  "attachments": [],
+  "auto_classify_suggestion": "work",
+  "auto_archive_candidates": []
+}

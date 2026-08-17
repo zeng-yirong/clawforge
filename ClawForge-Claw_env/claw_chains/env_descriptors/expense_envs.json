@@ -1,0 +1,134 @@
+{
+  "env_name": "expense_envs",
+  "rel_path": "expense_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "department",
+        "employee_id",
+        "level",
+        "policy_tier",
+        "preferred_currency",
+        "profile_name"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/consumption_records.json",
+      "kind": "collection",
+      "wrapper_key": "consumption_records",
+      "record_key": "record_id",
+      "count": 12,
+      "fields": [
+        {
+          "name": "record_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "record_id (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "accommodation",
+            "communication",
+            "flight",
+            "food",
+            "metro",
+            "misc",
+            "taxi"
+          ],
+          "desc": "category (str)"
+        },
+        {
+          "name": "date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "date (str)"
+        },
+        {
+          "name": "amount",
+          "type": "float",
+          "required": true,
+          "desc": "amount (float)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "desc": "description (str)"
+        },
+        {
+          "name": "receipt",
+          "type": "bool",
+          "required": true,
+          "desc": "receipt (bool)"
+        },
+        {
+          "name": "vendor",
+          "type": "str",
+          "required": true,
+          "desc": "vendor (str)"
+        },
+        {
+          "name": "nights",
+          "type": "int",
+          "required": false,
+          "desc": "nights (int)"
+        }
+      ],
+      "desc": "collection file data/consumption_records.json"
+    },
+    {
+      "path": "data/travel_policies.json",
+      "kind": "collection",
+      "wrapper_key": "categories",
+      "record_key": "category_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "category_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "category_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "住宿",
+            "其他杂费",
+            "出租车",
+            "地铁公交",
+            "机票",
+            "火车票",
+            "通讯费",
+            "餐饮"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "reimbursable",
+          "type": "bool",
+          "required": true,
+          "desc": "reimbursable (bool)"
+        }
+      ],
+      "desc": "collection file data/travel_policies.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

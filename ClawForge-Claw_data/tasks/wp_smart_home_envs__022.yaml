@@ -1,0 +1,8 @@
+asset: wp_smart_home_envs__022
+prompt_path: tasks/prompts/wp_smart_home_envs__022.md
+runtime:
+  timeout_seconds: 120
+  supported_actions:
+    - read_file
+    - write_file
+    - list_directory

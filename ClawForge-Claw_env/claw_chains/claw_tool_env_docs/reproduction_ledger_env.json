@@ -1,0 +1,217 @@
+{
+  "env_name": "reproduction_ledger_env",
+  "rel_path": "without_skill/reproduction_ledger_env",
+  "cli_module": "without_skill.reproduction_ledger_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "REPRODUCTION_LEDGER_SESSION_ID",
+    "state_env": "REPRODUCTION_LEDGER_STATE_ROOT",
+    "scenario_env": "REPRODUCTION_LEDGER_SCENARIO_ID",
+    "default_scenario_id": "reproduction_ledger_langgraph_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "archive-reproduction-ledger",
+      "action": "archive_reproduction_ledger",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--project-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--steps",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--result",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-project-doc",
+      "action": "get_project_doc",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--doc-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-knowledge-entries",
+      "action": "list_knowledge_entries",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-project-docs",
+      "action": "list_project_docs",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-project-docs",
+      "dst": "get-project-doc",
+      "weight": 0.8,
+      "relationship": "produces_doc_id_for"
+    },
+    {
+      "src": "list-project-docs",
+      "dst": "archive-reproduction-ledger",
+      "weight": 0.8,
+      "relationship": "produces_project_id_for"
+    },
+    {
+      "src": "get-project-doc",
+      "dst": "archive-reproduction-ledger",
+      "weight": 0.8,
+      "relationship": "produces_project_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "reproduction_ledger_langgraph_q2_2026": [
+      "get_project_doc",
+      "archive_reproduction_ledger"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions",
+    "required_doc_id",
+    "target_project_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "reproduction_ledger_langgraph_q2_2026"
+  ]
+}

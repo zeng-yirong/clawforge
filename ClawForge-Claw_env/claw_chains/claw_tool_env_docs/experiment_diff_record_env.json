@@ -1,0 +1,216 @@
+{
+  "env_name": "experiment_diff_record_env",
+  "rel_path": "without_skill/experiment_diff_record_env",
+  "cli_module": "without_skill.experiment_diff_record_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "EXPERIMENT_DIFF_RECORD_SESSION_ID",
+    "state_env": "EXPERIMENT_DIFF_RECORD_STATE_ROOT",
+    "scenario_env": "EXPERIMENT_DIFF_RECORD_SCENARIO_ID",
+    "default_scenario_id": "experiment_diff_record_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-diff-record",
+      "action": "generate_diff_record",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--batch-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-batch",
+      "action": "get_batch",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--batch-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-record",
+      "action": "get_record",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--record-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-experiment-batches",
+      "action": "list_experiment_batches",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-records",
+      "action": "list_records",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-experiment-batches",
+      "dst": "get-batch",
+      "weight": 0.8,
+      "relationship": "produces_batch_id_for"
+    },
+    {
+      "src": "generate-diff-record",
+      "dst": "get-record",
+      "weight": 0.8,
+      "relationship": "produces_record_id_for"
+    },
+    {
+      "src": "list-records",
+      "dst": "get-record",
+      "weight": 0.8,
+      "relationship": "produces_record_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "experiment_diff_record_q2_2026": [
+      "get_batch",
+      "generate_diff_record"
+    ]
+  },
+  "anchor_keys": [
+    "expected_diff",
+    "required_actions",
+    "target_batch_ids"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "experiment_diff_record_q2_2026"
+  ]
+}

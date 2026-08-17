@@ -1,0 +1,6 @@
+name: wp_flight_delay_envs__009
+asset: wp_flight_delay_envs__009
+prompt_path: tasks/prompts/wp_flight_delay_envs__009.md
+runtime:
+  language: python
+  version: "3.10"

@@ -1,0 +1,15 @@
+task_name: wp_experiment_diff_record_env__018
+asset: wp_experiment_diff_record_env__018
+prompt_path: tasks/prompts/wp_experiment_diff_record_env__018.md
+runtime:
+  python_version: "3.10"
+  allowed_modules:
+    - json
+    - csv
+    - os
+    - sys
+    - pathlib
+    - math
+    - statistics
+  max_file_operations: 100
+  max_runtime_seconds: 120

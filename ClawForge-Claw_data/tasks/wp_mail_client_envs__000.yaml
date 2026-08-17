@@ -1,0 +1,6 @@
+task_id: wp_mail_client_envs__000
+prompt: tasks/prompts/wp_mail_client_envs__000.md
+asset: wp_mail_client_envs__000
+runtime:
+  max_steps: 30
+  working_directory: assets/wp_mail_client_envs__000

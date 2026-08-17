@@ -1,0 +1,12 @@
+task_name: wp_fault_postmortem_kb_env__035
+asset: wp_fault_postmortem_kb_env__035
+prompt_path: tasks/prompts/wp_fault_postmortem_kb_env__035.md
+runtime:
+  workdir: assets/wp_fault_postmortem_kb_env__035
+  allowed_actions:
+    - read
+    - write
+    - list
+    - delete
+  forbidden_actions: []
+  timeout_seconds: 300

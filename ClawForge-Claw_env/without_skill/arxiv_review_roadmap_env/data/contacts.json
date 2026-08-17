@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "research_dir_001",
+      "name": "Kai Shen",
+      "role": "Research Director",
+      "email": "kai.shen@northstar.example.com"
+    }
+  ]
+}

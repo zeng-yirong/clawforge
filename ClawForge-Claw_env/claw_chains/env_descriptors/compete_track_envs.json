@@ -1,0 +1,585 @@
+{
+  "env_name": "compete_track_envs",
+  "rel_path": "compete_track_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/competitors/<record_id>.json",
+      "dir": "data/competitors",
+      "kind": "per_record",
+      "record_key": "competitor_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "competitor_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "competitor_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "CloudMajor",
+            "DataFlow AI",
+            "SmartSaaS",
+            "TechCorp"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        },
+        {
+          "name": "sector",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "AI/ML",
+            "Cloud Computing",
+            "Consumer SaaS",
+            "Enterprise Software"
+          ],
+          "desc": "sector (str)"
+        },
+        {
+          "name": "market_cap",
+          "type": "int",
+          "required": true,
+          "desc": "market_cap (int)"
+        },
+        {
+          "name": "market_share",
+          "type": "float",
+          "required": true,
+          "desc": "market_share (float)"
+        },
+        {
+          "name": "revenue",
+          "type": "int",
+          "required": true,
+          "desc": "revenue (int)"
+        },
+        {
+          "name": "user_count",
+          "type": "int",
+          "required": true,
+          "desc": "user_count (int)"
+        },
+        {
+          "name": "growth_rate",
+          "type": "float",
+          "required": true,
+          "desc": "growth_rate (float)"
+        },
+        {
+          "name": "financials",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "debt_to_equity",
+            "pe_ratio",
+            "profit_margin",
+            "quarterly_earnings",
+            "revenue_growth_yoy"
+          ],
+          "desc": "financials (dict)"
+        },
+        {
+          "name": "products",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "products (list)"
+        },
+        {
+          "name": "news",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "news (list)"
+        }
+      ],
+      "examples": [
+        "comp_001",
+        "comp_002",
+        "comp_003",
+        "comp_004"
+      ],
+      "desc": "per_record file data/competitors/<record_id>.json"
+    },
+    {
+      "path": "data/policies/<record_id>.json",
+      "dir": "data/policies",
+      "kind": "per_record",
+      "record_key": "policy_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "policy_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "policy_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "EU Digital Markets Act Compliance",
+            "Global Data Privacy Framework",
+            "US AI Transparency Act"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        },
+        {
+          "name": "policy_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ai_regulation",
+            "antitrust",
+            "privacy"
+          ],
+          "desc": "policy_type (str)"
+        },
+        {
+          "name": "jurisdiction",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "EU",
+            "Global",
+            "US"
+          ],
+          "desc": "jurisdiction (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "active",
+            "proposed"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "impact_level",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "medium"
+          ],
+          "desc": "impact_level (str)"
+        },
+        {
+          "name": "full_text",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "full_text (str)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "impact",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "affected_competitors",
+            "compliance_cost_estimate",
+            "deadline",
+            "key_requirements"
+          ],
+          "desc": "impact (dict)"
+        },
+        {
+          "name": "changes",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "changes (list)"
+        }
+      ],
+      "examples": [
+        "pol_001",
+        "pol_002",
+        "pol_003"
+      ],
+      "desc": "per_record file data/policies/<record_id>.json"
+    },
+    {
+      "path": "data/users/<record_id>.json",
+      "dir": "data/users",
+      "kind": "per_record",
+      "record_key": "user_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "user_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice Johnson",
+            "Bob Williams",
+            "Carol Martinez",
+            "David Lee",
+            "Emma Brown"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "alice.j@enterprise.com",
+            "bob.w@startup.io",
+            "carol.m@cloudco.com",
+            "david.lee@retail.net",
+            "emma.b@saas.co"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "competitor_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "competitor_id (str)"
+        },
+        {
+          "name": "tier",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "basic",
+            "enterprise",
+            "premium"
+          ],
+          "desc": "tier (str)"
+        },
+        {
+          "name": "cohort",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "cohort_q1_2025",
+            "cohort_q1_2026",
+            "cohort_q2_2025",
+            "cohort_q3_2024",
+            "cohort_q4_2025"
+          ],
+          "desc": "cohort (str)"
+        },
+        {
+          "name": "acquisition_source",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "organic",
+            "paid_ads",
+            "referral",
+            "social"
+          ],
+          "desc": "acquisition_source (str)"
+        },
+        {
+          "name": "acquisition_campaign",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "brand_awareness",
+            "content_marketing",
+            "linkedin_awareness",
+            "partner_program",
+            "spring_promo"
+          ],
+          "desc": "acquisition_campaign (str)"
+        },
+        {
+          "name": "acquisition_date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "acquisition_date (str)"
+        },
+        {
+          "name": "acquisition_cost",
+          "type": "int",
+          "required": true,
+          "desc": "acquisition_cost (int)"
+        },
+        {
+          "name": "initial_channel",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "blog",
+            "google_ads",
+            "linkedin",
+            "partner",
+            "website"
+          ],
+          "desc": "initial_channel (str)"
+        },
+        {
+          "name": "lifetime_value",
+          "type": "int",
+          "required": true,
+          "desc": "lifetime_value (int)"
+        },
+        {
+          "name": "churned",
+          "type": "bool",
+          "required": true,
+          "desc": "churned (bool)"
+        },
+        {
+          "name": "engagement",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "features_used",
+            "monthly_active_days",
+            "score"
+          ],
+          "desc": "engagement (dict)"
+        },
+        {
+          "name": "activity_history",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "activity_history (list)"
+        },
+        {
+          "name": "churn_date",
+          "type": "str",
+          "required": false,
+          "free_text": true,
+          "desc": "churn_date (str)"
+        }
+      ],
+      "examples": [
+        "user_001",
+        "user_002",
+        "user_003",
+        "user_004",
+        "user_005"
+      ],
+      "desc": "per_record file data/users/<record_id>.json"
+    },
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "team",
+          "type": "str",
+          "required": true,
+          "desc": "team (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "David Kim",
+            "Emily Zhang",
+            "Jennifer Wu",
+            "Michael Roberts",
+            "Sarah Chen"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "dkim@regtech.com",
+            "emily.zhang@smartsaas.com",
+            "jwu@dataflow.ai",
+            "mroberts@cloudmajor.io",
+            "sarah.chen@techcorp.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "CEO",
+            "CTO",
+            "Compliance Director",
+            "Head of Growth",
+            "VP Product"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Engineering",
+            "Executive",
+            "Legal",
+            "Marketing",
+            "Product"
+          ],
+          "desc": "team (str)"
+        },
+        {
+          "name": "social_handle",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "@davidkim",
+            "@emilyzhang",
+            "@jenniferwu",
+            "@mroberts",
+            "@sarahchen"
+          ],
+          "desc": "social_handle (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "competitor_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/competitors/<record_id>.json",
+          "record_key": "competitor_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "policy_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/policies/<record_id>.json",
+          "record_key": "policy_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "user_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/users/<record_id>.json",
+          "record_key": "user_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

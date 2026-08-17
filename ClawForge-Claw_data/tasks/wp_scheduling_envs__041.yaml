@@ -1,0 +1,8 @@
+task_id: wp_scheduling_envs__041
+prompt: tasks/prompts/wp_scheduling_envs__041.md
+asset: wp_scheduling_envs__041
+runtime:
+  image: python:3.11
+  commands: []
+  environment:
+    WORKSPACE: /workspace

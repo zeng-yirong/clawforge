@@ -1,0 +1,224 @@
+{
+  "env_name": "fault_postmortem_kb_env",
+  "rel_path": "without_skill/fault_postmortem_kb_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_repair_plan",
+    "expected_root_cause",
+    "required_actions",
+    "required_attachment_path",
+    "target_fault_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/postmortem_template.md",
+      "kind": "markdown_attachment",
+      "title": "Postmortem Template",
+      "bytes": 70,
+      "desc": "markdown_attachment file data/attachments/postmortem_template.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 1,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/faults/fault_cases.json",
+      "kind": "collection",
+      "wrapper_key": "fault_cases",
+      "record_key": "fault_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "fault_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "fault_id (str)"
+        },
+        {
+          "name": "service_name",
+          "type": "str",
+          "required": true,
+          "desc": "service_name (str)"
+        },
+        {
+          "name": "severity",
+          "type": "str",
+          "required": true,
+          "desc": "severity (str)"
+        },
+        {
+          "name": "stack_trace",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "stack_trace (str)"
+        },
+        {
+          "name": "call_chain",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "call_chain (str)"
+        },
+        {
+          "name": "root_cause_hint",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "root_cause_hint (str)"
+        },
+        {
+          "name": "repair_plan_hint",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "repair_plan_hint (str)"
+        }
+      ],
+      "desc": "collection file data/faults/fault_cases.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "fault_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/faults/fault_cases.json",
+          "record_key": "fault_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_fault_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/faults/fault_cases.json",
+          "record_key": "fault_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "energy_aware_climate",
+  "title": "Energy-Aware Climate Control",
+  "task_prompt": "Your smart home needs to maintain optimal comfort while minimizing energy costs. Consider:\n\n1. Current weather conditions (temperature, humidity)\n2. Time-of-use electricity pricing (off-peak vs peak hours)\n3. User health profile and specific needs\n4. Device efficiency and power consumption\n\nConfigure the air conditioner, humidifier, and smart plugs to achieve the best balance of comfort, health, and energy savings. Prioritize operations during off-peak hours when possible.",
+  "current_time": "2026-06-15T08:00:00+00:00",
+  "workspace_account_id": "acc_home_manager",
+  "weather_id": "default_weather",
+  "user_ids": ["user_001"],
+  "device_ids": ["ac_living", "humidifier_bedroom", "plug_tv", "plug_lamp"],
+  "comfort_weight": 0.4,
+  "energy_weight": 0.3,
+  "health_weight": 0.3
+}

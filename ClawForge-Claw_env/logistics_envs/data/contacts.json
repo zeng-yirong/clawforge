@@ -1,0 +1,60 @@
+{
+  "contacts": [
+    {
+      "contact_id": "c_customer_001",
+      "name": "Alice Chen",
+      "email": "alice.chen@email.com",
+      "phone": "+1-555-0101",
+      "type": "customer"
+    },
+    {
+      "contact_id": "c_customer_002",
+      "name": "Bob Martinez",
+      "email": "bob.martinez@email.com",
+      "phone": "+1-555-0102",
+      "type": "customer"
+    },
+    {
+      "contact_id": "c_customer_003",
+      "name": "Carol White",
+      "email": "carol.white@email.com",
+      "phone": "+1-555-0103",
+      "type": "customer"
+    },
+    {
+      "contact_id": "c_customer_004",
+      "name": "David Kim",
+      "email": "david.kim@email.com",
+      "phone": "+1-555-0104",
+      "type": "customer"
+    },
+    {
+      "contact_id": "c_cs_rep_001",
+      "name": "Eve Wilson",
+      "email": "eve.wilson@logiflow.example.com",
+      "phone": "+1-555-0201",
+      "type": "cs_rep"
+    },
+    {
+      "contact_id": "c_warehouse_mgr_001",
+      "name": "Frank Zhao",
+      "email": "frank.zhao@logiflow.example.com",
+      "phone": "+1-555-0301",
+      "type": "warehouse_manager"
+    },
+    {
+      "contact_id": "c_finance_001",
+      "name": "Grace Liu",
+      "email": "grace.liu@logiflow.example.com",
+      "phone": "+1-555-0401",
+      "type": "finance"
+    },
+    {
+      "contact_id": "c_vendor_001",
+      "name": "Apex Supply Co.",
+      "email": "orders@apexsupply.example.com",
+      "phone": "+1-555-0501",
+      "type": "vendor"
+    }
+  ]
+}

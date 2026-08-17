@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "mapping_lead_001",
+      "name": "Eva Lin",
+      "role": "Research Mapping Lead",
+      "email": "eva.lin@northstar.example.com"
+    }
+  ]
+}

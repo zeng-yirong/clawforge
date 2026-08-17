@@ -1,0 +1,10 @@
+{
+  "scenario_id": "offboarding_recovery_q2_2026",
+  "title": "Complete approved offboarding recovery flow",
+  "task_prompt": "Verify the approved offboarding request, revoke the employee's system access, reclaim equipment assignments, and write the handover checklist to the environment record store.",
+  "current_time": "2026-06-23T12:30:00Z",
+  "workspace_account_id": "hr_offboarding_ops",
+  "employee_ids": ["emp_ops_001"],
+  "target_employee_id": "emp_ops_001",
+  "required_actions": ["get_exit_request", "revoke_system_access", "reclaim_equipment", "generate_handover_checklist"]
+}

@@ -1,0 +1,40 @@
+{
+  "flights": [
+    {
+      "flight_id": "flight_ua123",
+      "flight_number": "UA123",
+      "airline": "United Airlines",
+      "origin": "SFO",
+      "destination": "JFK",
+      "departure_time": "2026-06-15T08:00:00+00:00",
+      "arrival_time": "2026-06-15T16:30:00+00:00",
+      "status": "delayed",
+      "delay_minutes": 120,
+      "gate": "B22"
+    },
+    {
+      "flight_id": "flight_aa456",
+      "flight_number": "AA456",
+      "airline": "American Airlines",
+      "origin": "LAX",
+      "destination": "ORD",
+      "departure_time": "2026-06-15T09:00:00+00:00",
+      "arrival_time": "2026-06-15T15:00:00+00:00",
+      "status": "on_time",
+      "delay_minutes": 0,
+      "gate": "C15"
+    },
+    {
+      "flight_id": "flight_dl789",
+      "flight_number": "DL789",
+      "airline": "Delta Airlines",
+      "origin": "ATL",
+      "destination": "BOS",
+      "departure_time": "2026-06-15T10:00:00+00:00",
+      "arrival_time": "2026-06-15T14:00:00+00:00",
+      "status": "on_time",
+      "delay_minutes": 0,
+      "gate": "A10"
+    }
+  ]
+}

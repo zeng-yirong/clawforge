@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_001",
+      "account_name": "Primary Security Account",
+      "location": "123 Main Street",
+      "zones": ["zone_lobby", "zone_backyard", "zone_garage", "zone_office", "zone_basement"],
+      "emergency_contacts": ["contact_001", "contact_002", "contact_004"]
+    }
+  ]
+}

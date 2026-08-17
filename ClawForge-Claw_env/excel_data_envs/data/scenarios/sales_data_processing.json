@@ -1,0 +1,70 @@
+{
+  "scenario_id": "sales_data_processing",
+  "title": "Sales Data Deduplication and Analysis",
+  "task_prompt": "You have received a raw sales dataset that needs to be cleaned, deduplicated, and analyzed. The data contains duplicate transactions, missing customer information, and inconsistent formatting.\n\nYour tasks:\n1. Read the raw sales data and identify duplicate transactions (same transaction_id)\n2. Remove duplicate transactions, keeping only the first occurrence\n3. Fill in missing customer information where possible based on transaction patterns\n4. Create a cleaned dataset with all duplicates removed\n5. Generate a pivot table summarizing total sales by category and region\n6. Create a pivot table showing total sales by salesperson\n7. Generate a pivot table showing average order value by city\n8. Create at least 2 meaningful charts showing sales insights\n9. Add calculation formulas to the output showing: total revenue, average order value, total transactions after deduplication\n\nReturn the cleaned data, pivot tables, chart specifications, and calculation formulas.",
+  "current_time": "2026-01-31T12:00:00+00:00",
+  "workspace_account_id": "acc_data_analyst",
+  "raw_data_ids": ["sales_raw"],
+  "expected_outputs": {
+    "deduplicated_data": {
+      "description": "Cleaned data with duplicates removed"
+    },
+    "pivot_by_category_region": {
+      "description": "Total sales by category and region",
+      "rows": ["category", "region"],
+      "values": ["sales_amount"],
+      "aggregation": "sum"
+    },
+    "pivot_by_salesperson": {
+      "description": "Total sales by salesperson",
+      "rows": ["salesperson_name"],
+      "values": ["sales_amount"],
+      "aggregation": "sum"
+    },
+    "pivot_by_city": {
+      "description": "Average order value by city",
+      "rows": ["city"],
+      "values": ["sales_amount"],
+      "aggregation": "average"
+    },
+    "charts": [
+      {
+        "chart_id": "sales_by_category",
+        "type": "bar",
+        "title": "Total Sales by Category",
+        "x_axis": "category",
+        "y_axis": "sales_amount"
+      },
+      {
+        "chart_id": "sales_by_region",
+        "type": "pie",
+        "title": "Sales Distribution by Region",
+        "labels": "region",
+        "values": "sales_amount"
+      }
+    ],
+    "formulas": [
+      {
+        "name": "Total Revenue",
+        "expression": "SUM(sales_amount)",
+        "description": "Sum of all sales after deduplication"
+      },
+      {
+        "name": "Average Order Value",
+        "expression": "AVERAGE(sales_amount)",
+        "description": "Average sales amount per transaction"
+      },
+      {
+        "name": "Total Transactions",
+        "expression": "COUNT(transaction_id)",
+        "description": "Count of unique transactions after deduplication"
+      }
+    ]
+  },
+  "evaluation_criteria": {
+    "deduplication_score": 0.25,
+    "pivot_completeness_score": 0.30,
+    "chart_quality_score": 0.20,
+    "formula_accuracy_score": 0.25
+  }
+}

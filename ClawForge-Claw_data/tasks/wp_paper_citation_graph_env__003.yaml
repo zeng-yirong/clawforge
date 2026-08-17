@@ -1,0 +1,7 @@
+name: Reproduce Citation Graph Snapshot
+asset: wp_paper_citation_graph_env__003
+prompt: tasks/prompts/wp_paper_citation_graph_env__003.md
+runtime:
+  python: "3.10"
+files:
+  - cache/citation_graph.json

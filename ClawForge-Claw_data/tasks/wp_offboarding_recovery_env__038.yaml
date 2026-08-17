@@ -1,0 +1,5 @@
+path: tasks/wp_offboarding_recovery_env__038
+prompt: tasks/prompts/wp_offboarding_recovery_env__038.md
+asset: wp_offboarding_recovery_env__038
+runtime:
+  cwd: assets/wp_offboarding_recovery_env__038

@@ -1,0 +1,1 @@
+嘿，小刘，刚才 Global Partners 那边的 John 火急火燎地给我打了个电话，说他们好几个重要客户的生日都快到了，可系统里一个提醒都没发出来。我查了下后台，咱们 `data/contacts.json` 里确实有这些人的记录，公司是“Global Partners LLC”。但 `data/reminders/reminders.json` 里好像缺了不少生日提醒，你帮我仔细核对一下，看看哪些联系人还没设 birthday 提醒，把他们找出来列个单子。我怕直接动数据会搞乱，你就在工作区根目录下新建一个 `ops/` 文件夹，把结果存成 `pending_birthdays.json` 给我，我下周批量加一下。对了，注意有些记录可能不完整，比如公司对不上或者联系人不存在的，别把它们算进去。

@@ -1,0 +1,135 @@
+{
+  "env_name": "experiment_diff_record_env",
+  "rel_path": "without_skill/experiment_diff_record_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_diff",
+    "required_actions",
+    "target_batch_ids"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/experiments/experiment_results.csv",
+      "kind": "csv",
+      "columns": [
+        {
+          "name": "batch_id",
+          "type": "str",
+          "desc": "batch_id (str)"
+        },
+        {
+          "name": "group_id",
+          "type": "str",
+          "desc": "group_id (str)"
+        },
+        {
+          "name": "accuracy",
+          "type": "float",
+          "desc": "accuracy (float)"
+        },
+        {
+          "name": "latency_ms",
+          "type": "float",
+          "desc": "latency_ms (float)"
+        },
+        {
+          "name": "cost_usd",
+          "type": "float",
+          "desc": "cost_usd (float)"
+        }
+      ],
+      "rows": 2,
+      "desc": "csv file data/experiments/experiment_results.csv"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

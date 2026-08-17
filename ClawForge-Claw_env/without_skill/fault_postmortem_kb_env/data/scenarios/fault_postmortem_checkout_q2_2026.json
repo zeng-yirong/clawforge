@@ -1,0 +1,14 @@
+{
+  "scenario_id": "fault_postmortem_checkout_q2_2026",
+  "title": "Archive checkout fault postmortem",
+  "task_prompt": "Inspect the checkout fault case, read the postmortem template, and archive the generated root cause plus repair plan into the environment knowledge-base field.",
+  "current_time": "2026-06-23T15:00:00Z",
+  "workspace_account_id": "sre_postmortem_ops",
+  "fault_ids": ["fault_checkout_001"],
+  "attachment_paths": ["postmortem_template.md"],
+  "target_fault_id": "fault_checkout_001",
+  "required_attachment_path": "postmortem_template.md",
+  "expected_root_cause": "A null payment token propagated from the card-token-service after a schema mismatch.",
+  "expected_repair_plan": "Deploy the schema fix, add null-guard validation in checkout-api, and replay failed payment intents.",
+  "required_actions": ["get_fault_case", "read_attachment", "generate_postmortem"]
+}

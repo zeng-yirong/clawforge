@@ -1,0 +1,7 @@
+asset: wp_privilege_export_guard_env__003
+prompt: tasks/prompts/wp_privilege_export_guard_env__003.md
+runtime:
+  language: python3
+  sandbox: true
+  network: false
+  max_timeout: 300

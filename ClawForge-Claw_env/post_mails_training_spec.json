@@ -1,0 +1,1036 @@
+{
+  "format_version": "1.0",
+  "name": "post_mails",
+  "default_scenario_id": "orbital_launch",
+  "env_des": "This is the launch communications environment, named 'post_mails'. It simulates a company communications workflow where the agent must inspect a noisy mailbox, find the latest approved launch brief, publish official messages to X and Reddit, and reply to selected public discussions using only approved facts. The trainer binds the rollout session automatically, so the training data should focus on business state rather than runtime-managed session identifiers.",
+  "state_generation_policy": {
+    "business_state_only": true,
+    "omit_runtime_fields": [
+      "session_id",
+      "created_at",
+      "meta.base_time",
+      "meta.action_index",
+      "state_root"
+    ],
+    "tool_grouping": [
+      "task_context",
+      "mailbox",
+      "social",
+      "workspace_tools"
+    ]
+  },
+  "state_des": "Based on the instructions below, synthesize a complex and realistic initial business state for the Post Mails environment. Do not generate runtime-managed session fields. The generated state must include scenario and task context, a hydrated workspace account, a noisy mailbox with both relevant and irrelevant emails, hydrated email senders, realistic attachments, public social posts, and empty agent-generated output lists. Facts that are safe to publish must be recoverable from approved mail attachments. Public social posts may contain incomplete or incorrect claims, so the mailbox and attachments should be the authoritative source. The result must be JSON-compatible and must strictly follow the schema below.",
+  "state_schema": {
+    "required_root_keys": [
+      {
+        "name": "scenario_id",
+        "type": "string",
+        "description": "Identifier of the scenario loaded into the business state."
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "description": "Human-readable title of the current task."
+      },
+      {
+        "name": "task_prompt",
+        "type": "string",
+        "description": "Detailed instructions visible to the agent for the current launch workflow."
+      },
+      {
+        "name": "workspace_account",
+        "type": "dict",
+        "description": "Official company account profile used for publishing and replying."
+      },
+      {
+        "name": "mail",
+        "type": "dict",
+        "description": "Mailbox state containing hydrated email records."
+      },
+      {
+        "name": "social",
+        "type": "dict",
+        "description": "Public social platform state, including seed posts and agent-created output."
+      },
+      {
+        "name": "actions",
+        "type": "list[dict]",
+        "description": "Business-level action log. For an initial state this should usually start empty."
+      }
+    ],
+    "workspace_account_required_fields": [
+      {
+        "name": "account_id",
+        "type": "string"
+      },
+      {
+        "name": "display_name",
+        "type": "string"
+      },
+      {
+        "name": "brand_name",
+        "type": "string"
+      },
+      {
+        "name": "x_handle",
+        "type": "string"
+      },
+      {
+        "name": "reddit_profile",
+        "type": "string"
+      },
+      {
+        "name": "default_reddit_community",
+        "type": "string"
+      },
+      {
+        "name": "voice",
+        "type": "list[string]"
+      },
+      {
+        "name": "cta",
+        "type": "string"
+      },
+      {
+        "name": "compliance_notes",
+        "type": "list[string]"
+      }
+    ],
+    "mail_required_structure": {
+      "emails": "list[dict]"
+    },
+    "email_required_fields": [
+      {
+        "name": "id",
+        "type": "string"
+      },
+      {
+        "name": "thread_id",
+        "type": "string"
+      },
+      {
+        "name": "folder",
+        "type": "string"
+      },
+      {
+        "name": "subject",
+        "type": "string"
+      },
+      {
+        "name": "timestamp",
+        "type": "string",
+        "description": "ISO-8601 timestamp."
+      },
+      {
+        "name": "importance",
+        "type": "string"
+      },
+      {
+        "name": "labels",
+        "type": "list[string]"
+      },
+      {
+        "name": "body",
+        "type": "string"
+      },
+      {
+        "name": "sender",
+        "type": "dict"
+      },
+      {
+        "name": "read",
+        "type": "boolean"
+      },
+      {
+        "name": "opened_at",
+        "type": "string|null"
+      },
+      {
+        "name": "attachments",
+        "type": "list[dict]"
+      }
+    ],
+    "email_sender_required_fields": [
+      {
+        "name": "contact_id",
+        "type": "string"
+      },
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string"
+      },
+      {
+        "name": "team",
+        "type": "string"
+      }
+    ],
+    "attachment_required_fields": [
+      {
+        "name": "attachment_id",
+        "type": "string"
+      },
+      {
+        "name": "file_name",
+        "type": "string"
+      },
+      {
+        "name": "mime_type",
+        "type": "string"
+      },
+      {
+        "name": "relative_path",
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "type": "list[string]"
+      },
+      {
+        "name": "read",
+        "type": "boolean"
+      },
+      {
+        "name": "read_at",
+        "type": "string|null"
+      }
+    ],
+    "social_required_structure": {
+      "seed_posts": "list[dict]",
+      "agent_posts": "list[dict]",
+      "agent_replies": "list[dict]"
+    },
+    "social_post_required_fields": [
+      {
+        "name": "post_id",
+        "type": "string"
+      },
+      {
+        "name": "platform",
+        "type": "string",
+        "description": "Supported values are typically 'x' or 'reddit'."
+      },
+      {
+        "name": "author",
+        "type": "string"
+      },
+      {
+        "name": "author_handle",
+        "type": "string|null"
+      },
+      {
+        "name": "title",
+        "type": "string|null"
+      },
+      {
+        "name": "community",
+        "type": "string|null"
+      },
+      {
+        "name": "content",
+        "type": "string"
+      },
+      {
+        "name": "timestamp",
+        "type": "string"
+      },
+      {
+        "name": "tags",
+        "type": "list[string]"
+      },
+      {
+        "name": "needs_response",
+        "type": "boolean"
+      },
+      {
+        "name": "created_by_agent",
+        "type": "boolean"
+      },
+      {
+        "name": "replies",
+        "type": "list[dict]"
+      }
+    ],
+    "reply_required_fields": [
+      {
+        "name": "reply_id",
+        "type": "string"
+      },
+      {
+        "name": "parent_post_id",
+        "type": "string"
+      },
+      {
+        "name": "platform",
+        "type": "string"
+      },
+      {
+        "name": "author",
+        "type": "string"
+      },
+      {
+        "name": "content",
+        "type": "string"
+      },
+      {
+        "name": "timestamp",
+        "type": "string"
+      },
+      {
+        "name": "created_by_agent",
+        "type": "boolean"
+      }
+    ],
+    "action_required_fields": [
+      {
+        "name": "action_index",
+        "type": "integer"
+      },
+      {
+        "name": "timestamp",
+        "type": "string"
+      },
+      {
+        "name": "action_type",
+        "type": "string"
+      },
+      {
+        "name": "details",
+        "type": "dict"
+      }
+    ],
+    "initialization_guidance": [
+      "At initialization, actions should usually be an empty list.",
+      "At initialization, agent_posts should usually be an empty list.",
+      "At initialization, agent_replies should usually be an empty list.",
+      "Most emails should start unread unless the scenario explicitly requires otherwise.",
+      "Most attachments should start unread unless the scenario explicitly requires otherwise.",
+      "The mailbox should contain both authoritative launch material and realistic distractor noise.",
+      "Social seed posts may contain rumors, partial facts, or questions that require official clarification."
+    ]
+  },
+  "initial_state_template": {
+    "scenario_id": "orbital_launch",
+    "title": "Find the approved Orbital Note brief and ship launch messaging",
+    "task_prompt": "You are covering launch communications for Aurora Labs. Search the inbox to find the latest approved brief for Orbital Note, then publish one X post and one Reddit post about the launch. After the official posts are live, reply to the selected public threads using only approved facts. Do not rely on stale draft material.",
+    "workspace_account": {
+      "account_id": "aurora_marketing",
+      "display_name": "Aurora Labs Marketing",
+      "brand_name": "Aurora Labs",
+      "x_handle": "@AuroraLabsHQ",
+      "reddit_profile": "u/AuroraLabsOfficial",
+      "default_reddit_community": "r/productivity",
+      "voice": [
+        "concise",
+        "confident",
+        "practical"
+      ],
+      "cta": "join the waitlist",
+      "compliance_notes": [
+        "Do not promise unsupported platform launches.",
+        "Do not use outdated pricing from leaked material."
+      ]
+    },
+    "mail": {
+      "emails": []
+    },
+    "social": {
+      "seed_posts": [],
+      "agent_posts": [],
+      "agent_replies": []
+    },
+    "actions": []
+  },
+  "tool_groups": {
+    "task_context": [
+      {
+        "name": "list_scenarios",
+        "description": "List the available scenarios in the post_mails environment. This is optional when the trainer has already bound one scenario to the rollout.",
+        "parameters": {
+          "type": "dict",
+          "properties": {},
+          "required": []
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "scenarios": {
+              "type": "array",
+              "description": "A list of scenario summaries, each containing scenario_id, title, and task_prompt."
+            }
+          }
+        }
+      },
+      {
+        "name": "get_task",
+        "description": "Return the current task brief for the active rollout, including the scenario title, task prompt, workspace account context, and unread email count.",
+        "parameters": {
+          "type": "dict",
+          "properties": {},
+          "required": []
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "task_prompt": {
+              "type": "string"
+            },
+            "workspace_account": {
+              "type": "dict"
+            },
+            "unread_email_count": {
+              "type": "integer"
+            }
+          }
+        }
+      },
+      {
+        "name": "session_summary",
+        "description": "Return a compact business summary of the current rollout state without exposing runtime-only session internals.",
+        "parameters": {
+          "type": "dict",
+          "properties": {},
+          "required": []
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "scenario_id": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            },
+            "workspace_account": {
+              "type": "dict"
+            },
+            "unread_email_count": {
+              "type": "integer"
+            },
+            "attachments_read": {
+              "type": "array",
+              "description": "Sorted list of attachment IDs that have already been opened."
+            },
+            "agent_post_count": {
+              "type": "integer"
+            },
+            "agent_reply_count": {
+              "type": "integer"
+            },
+            "action_count": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    ],
+    "mailbox": [
+      {
+        "name": "list_emails",
+        "description": "List email summaries from the mailbox, optionally filtering by query, unread status, folder, or limit.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Free-text query applied to subject, body, sender metadata, and labels.",
+              "default": ""
+            },
+            "unread_only": {
+              "type": "boolean",
+              "description": "Return only unread emails when true.",
+              "default": false
+            },
+            "folder": {
+              "type": "string",
+              "description": "Optional folder filter such as inbox or sent."
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Optional maximum number of emails to return."
+            }
+          },
+          "required": []
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "emails": {
+              "type": "array",
+              "description": "List of email summary records. Each summary contains id, thread_id, folder, sender, subject, timestamp, importance, labels, read, and attachment_count."
+            }
+          }
+        }
+      },
+      {
+        "name": "read_email",
+        "description": "Open one email by ID, return the full hydrated email record, and mark it as read.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "email_id": {
+              "type": "string",
+              "description": "Identifier of the email to open."
+            }
+          },
+          "required": [
+            "email_id"
+          ]
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "thread_id": {
+              "type": "string"
+            },
+            "folder": {
+              "type": "string"
+            },
+            "subject": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "importance": {
+              "type": "string"
+            },
+            "labels": {
+              "type": "array"
+            },
+            "body": {
+              "type": "string"
+            },
+            "sender": {
+              "type": "dict"
+            },
+            "read": {
+              "type": "boolean"
+            },
+            "opened_at": {
+              "type": "string|null"
+            },
+            "attachments": {
+              "type": "array"
+            }
+          }
+        }
+      },
+      {
+        "name": "read_attachment",
+        "description": "Open one attachment by ID, return its content, and mark it as read.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "attachment_id": {
+              "type": "string",
+              "description": "Identifier of the attachment to open."
+            }
+          },
+          "required": [
+            "attachment_id"
+          ]
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "attachment_id": {
+              "type": "string"
+            },
+            "file_name": {
+              "type": "string"
+            },
+            "mime_type": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array"
+            },
+            "content": {
+              "type": "string"
+            },
+            "source_email_id": {
+              "type": "string"
+            },
+            "source_email_subject": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "social": [
+      {
+        "name": "list_posts",
+        "description": "List public social posts visible to the agent, optionally filtering by query, platform, response need, or result limit.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Free-text query applied to title, content, author, and tags.",
+              "default": ""
+            },
+            "platform": {
+              "type": "string",
+              "description": "Optional platform filter such as x or reddit."
+            },
+            "needs_response_only": {
+              "type": "boolean",
+              "description": "Return only posts marked as needing an official response when true.",
+              "default": false
+            },
+            "limit": {
+              "type": "integer",
+              "description": "Optional maximum number of posts to return."
+            }
+          },
+          "required": []
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "posts": {
+              "type": "array",
+              "description": "List of post summary records. Each summary contains post_id, platform, community, author, title, content, timestamp, needs_response, tags, reply_count, and created_by_agent."
+            }
+          }
+        }
+      },
+      {
+        "name": "view_post",
+        "description": "Return the full content of one public post or thread by ID.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "post_id": {
+              "type": "string",
+              "description": "Identifier of the post to inspect."
+            }
+          },
+          "required": [
+            "post_id"
+          ]
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "post_id": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "author": {
+              "type": "string"
+            },
+            "author_handle": {
+              "type": "string|null"
+            },
+            "title": {
+              "type": "string|null"
+            },
+            "community": {
+              "type": "string|null"
+            },
+            "content": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array"
+            },
+            "needs_response": {
+              "type": "boolean"
+            },
+            "created_by_agent": {
+              "type": "boolean"
+            },
+            "replies": {
+              "type": "array"
+            }
+          }
+        }
+      },
+      {
+        "name": "publish_post",
+        "description": "Publish one official post to X or Reddit using approved information only.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "platform": {
+              "type": "string",
+              "description": "Target platform. Supported values are x and reddit."
+            },
+            "content": {
+              "type": "string",
+              "description": "Main content body of the post."
+            },
+            "title": {
+              "type": "string",
+              "description": "Optional title. Required in practice for reddit posts."
+            },
+            "community": {
+              "type": "string",
+              "description": "Optional community target. Primarily used for reddit."
+            },
+            "author": {
+              "type": "string",
+              "description": "Optional author override. Defaults to the workspace account display name."
+            }
+          },
+          "required": [
+            "platform",
+            "content"
+          ]
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "post_id": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "community": {
+              "type": "string|null"
+            },
+            "author": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string|null"
+            },
+            "content": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "tags": {
+              "type": "array"
+            },
+            "needs_response": {
+              "type": "boolean"
+            },
+            "created_by_agent": {
+              "type": "boolean"
+            },
+            "replies": {
+              "type": "array"
+            }
+          }
+        }
+      },
+      {
+        "name": "reply_to_post",
+        "description": "Reply to one public post using only approved and scenario-consistent facts.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "post_id": {
+              "type": "string",
+              "description": "Identifier of the target post."
+            },
+            "content": {
+              "type": "string",
+              "description": "Reply content."
+            },
+            "author": {
+              "type": "string",
+              "description": "Optional author override. Defaults to the workspace account display name."
+            }
+          },
+          "required": [
+            "post_id",
+            "content"
+          ]
+        },
+        "response": {
+          "type": "dict",
+          "properties": {
+            "reply_id": {
+              "type": "string"
+            },
+            "parent_post_id": {
+              "type": "string"
+            },
+            "platform": {
+              "type": "string"
+            },
+            "author": {
+              "type": "string"
+            },
+            "content": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "created_by_agent": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    ],
+    "workspace_tools": [
+      {
+        "name": "edit",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\edit",
+        "description": "Edit a file by replacing an existing string with a new string. By default the old string must match exactly once. Use replace_all=true to replace every occurrence.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Path to the file to edit."
+            },
+            "old_str": {
+              "type": "string",
+              "description": "Exact text to replace in the file."
+            },
+            "new_str": {
+              "type": "string",
+              "description": "Replacement text."
+            },
+            "replace_all": {
+              "type": "boolean",
+              "description": "Whether to replace all occurrences instead of requiring a unique match.",
+              "default": false
+            }
+          },
+          "required": [
+            "path",
+            "old_str",
+            "new_str"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text status output. On success it reports the edited file, the number of replacements, and a numbered snippet around the edited lines."
+        }
+      },
+      {
+        "name": "execute_bash",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\execute_bash",
+        "description": "Execute a bash command in the terminal. The underlying runtime blocks certain commands such as git, ipython, jupyter, and nohup.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "The command to execute."
+            }
+          },
+          "required": [
+            "command"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text command output. On success it prints [STDOUT] and [STDERR] sections. On failure it prints an error header and exits non-zero."
+        }
+      },
+      {
+        "name": "find",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\find",
+        "runtime_name": "uni-agent-find",
+        "description": "Find files in the workspace using a glob pattern. Returns matching paths relative to the search root. Use include_dirs=true when you also want matching directories.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "glob": {
+              "type": "string",
+              "description": "Glob pattern to match, such as **/*.py or docs/*.md."
+            },
+            "path": {
+              "type": "string",
+              "description": "Directory to search from. Defaults to the current workspace directory.",
+              "default": "."
+            },
+            "include_dirs": {
+              "type": "boolean",
+              "description": "Whether matching directories should also be returned.",
+              "default": false
+            },
+            "max_results": {
+              "type": "integer",
+              "description": "Maximum number of matching paths to return.",
+              "default": 500
+            }
+          },
+          "required": [
+            "glob"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text listing of matching relative paths, preceded by a summary line showing how many paths were found and displayed."
+        }
+      },
+      {
+        "name": "grep",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\grep",
+        "runtime_name": "uni-agent-grep",
+        "description": "Search workspace file contents with a regular expression. Returns matching lines with file paths and line numbers. Use glob to limit which files are searched.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "pattern": {
+              "type": "string",
+              "description": "Regular expression to search for in file contents."
+            },
+            "path": {
+              "type": "string",
+              "description": "Directory or file path to search from. Defaults to the current workspace directory.",
+              "default": "."
+            },
+            "glob": {
+              "type": "string",
+              "description": "Glob pattern that filters which files are searched, relative to path.",
+              "default": "**/*"
+            },
+            "case_sensitive": {
+              "type": "boolean",
+              "description": "Whether the regular expression match is case-sensitive.",
+              "default": true
+            },
+            "max_results": {
+              "type": "integer",
+              "description": "Maximum number of matching lines to return.",
+              "default": 200
+            }
+          },
+          "required": [
+            "pattern"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text search output. It reports the number of searched files and matching lines, then prints matches as path:line_number: line."
+        }
+      },
+      {
+        "name": "ls",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\ls",
+        "runtime_name": "uni-agent-ls",
+        "description": "List directory contents in the workspace. Shows files and directories in sorted order. Use recursive=true to descend into subdirectories.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Directory path to list. Defaults to the current workspace directory.",
+              "default": "."
+            },
+            "recursive": {
+              "type": "boolean",
+              "description": "Whether to recursively list subdirectories.",
+              "default": false
+            },
+            "show_hidden": {
+              "type": "boolean",
+              "description": "Whether to include hidden files and directories.",
+              "default": false
+            },
+            "max_depth": {
+              "type": "integer",
+              "description": "Maximum recursion depth below the top-level directory when recursive=true.",
+              "default": 2
+            },
+            "max_entries": {
+              "type": "integer",
+              "description": "Maximum number of entries to return.",
+              "default": 500
+            }
+          },
+          "required": []
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text directory listing. It starts with the target directory path and prints entries as [DIR] or [FILE], optionally followed by a truncation notice."
+        }
+      },
+      {
+        "name": "read",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\read",
+        "description": "Read a file from the runtime workspace. Optionally read only a selected line range. If the path points to a directory, list its non-hidden entries.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Path to the file or directory to read."
+            },
+            "start_line": {
+              "type": "integer",
+              "description": "Optional 1-based first line to show when reading a file. Defaults to 1."
+            },
+            "end_line": {
+              "type": "integer",
+              "description": "Optional 1-based last line to show when reading a file. Use -1 to read to the end."
+            }
+          },
+          "required": [
+            "path"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text output. For files it shows the file path, line range, and numbered lines. For directories it shows a non-hidden listing."
+        }
+      },
+      {
+        "name": "write",
+        "source": "C:\\work\\uni-agent\\uni_agent\\tools\\write",
+        "description": "Write text content to a file in the runtime workspace. Creates parent directories when needed. Use append=true to append instead of overwriting.",
+        "parameters": {
+          "type": "dict",
+          "properties": {
+            "path": {
+              "type": "string",
+              "description": "Path to the file to write."
+            },
+            "content": {
+              "type": "string",
+              "description": "Text content to write into the file."
+            },
+            "append": {
+              "type": "boolean",
+              "description": "Whether to append to the file instead of overwriting it.",
+              "default": false
+            }
+          },
+          "required": [
+            "path",
+            "content"
+          ]
+        },
+        "response": {
+          "type": "string",
+          "description": "Plain-text status output describing whether the file was written or appended to and how many characters were written."
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+name: "wp_scheduling_envs__020"
+description: "Identify a problematic device schedule from home automation data"
+asset: "wp_scheduling_envs__020"
+prompt: "tasks/prompts/wp_scheduling_envs__020.md"
+runtime:
+  type: workplace
+  environment: {}

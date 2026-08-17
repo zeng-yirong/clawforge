@@ -1,0 +1,9 @@
+name: wp_server_fault_supabase_env__026
+asset: wp_server_fault_supabase_env__026
+prompt: tasks/prompts/wp_server_fault_supabase_env__026.md
+runtime:
+  cwd: assets/wp_server_fault_supabase_env__026
+  shell: /bin/bash
+  environment:
+    - name: WORKSPACE
+      value: "."

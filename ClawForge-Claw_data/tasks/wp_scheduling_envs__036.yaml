@@ -1,0 +1,4 @@
+asset: wp_scheduling_envs__036
+prompt: tasks/prompts/wp_scheduling_envs__036.md
+runtime:
+  workdir: .

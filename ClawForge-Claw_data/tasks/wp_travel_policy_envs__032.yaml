@@ -1,0 +1,6 @@
+name: wp_travel_policy_envs__032
+prompt: tasks/prompts/wp_travel_policy_envs__032.md
+asset: wp_travel_policy_envs__032
+runtime:
+  python_version: "3.11"
+  dependencies: []

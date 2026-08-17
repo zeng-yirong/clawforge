@@ -1,0 +1,6 @@
+prompt: tasks/prompts/wp_excel_data_envs__043.md
+asset: wp_excel_data_envs__043
+runtime:
+  workspace_type: file
+  allow_file_ops: true
+  allow_command: false

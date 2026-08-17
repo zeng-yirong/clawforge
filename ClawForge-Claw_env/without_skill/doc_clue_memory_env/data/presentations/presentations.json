@@ -1,0 +1,51 @@
+{
+  "presentations": [
+    {
+      "presentation_id": "deck_001",
+      "title": "Asteron Systems Series C Product Narrative",
+      "owner": "strategy_team",
+      "updated_at": "2026-06-08",
+      "tags": [
+        "fundraising",
+        "edge ai",
+        "product narrative"
+      ],
+      "summary": "Deck notes place HelioSync Edge Inference Fabric between sensor buses and on-box model runners for industrial inspection.",
+      "solution_aliases": [
+        "HelioSync Edge Inference Fabric",
+        "HSEF"
+      ],
+      "deck_notes": "Slide 9 names HelioSync Edge Inference Fabric as the switching substrate between camera buses, thermal monitors, and local model runners. Slide 11 claims the fabric preserves deterministic handoff during model swaps in industrial inspection cabinets."
+    },
+    {
+      "presentation_id": "deck_002",
+      "title": "PhotonDock Partner Enablement Deck",
+      "owner": "partner_marketing",
+      "updated_at": "2026-05-14",
+      "tags": [
+        "partner",
+        "gateway",
+        "edge"
+      ],
+      "summary": "References Helio Fabric Gateway, a partner gateway product that is not the target solution.",
+      "solution_aliases": [
+        "Helio Fabric Gateway"
+      ],
+      "deck_notes": "The deck describes Helio Fabric Gateway as a protocol bridge for remote fleet updates. It does not describe HelioSync Edge Inference Fabric or HSEF."
+    },
+    {
+      "presentation_id": "deck_003",
+      "title": "North Arc Computer Vision Market Map",
+      "owner": "research_design",
+      "updated_at": "2026-04-30",
+      "tags": [
+        "market map",
+        "vision",
+        "research"
+      ],
+      "summary": "A broad market landscape without a direct target solution match.",
+      "solution_aliases": [],
+      "deck_notes": "The market map groups vendors by camera hardware, orchestration, and model tooling. No direct HelioSync references are annotated."
+    }
+  ]
+}

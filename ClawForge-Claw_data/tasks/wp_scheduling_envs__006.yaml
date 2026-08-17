@@ -1,0 +1,6 @@
+task_id: wp_scheduling_envs__006
+prompt: prompts/wp_scheduling_envs__006.md
+asset: wp_scheduling_envs__006
+runtime:
+  cwd: assets/wp_scheduling_envs__006
+  env_builder: tasks/wp_scheduling_envs__006/env_builder.py

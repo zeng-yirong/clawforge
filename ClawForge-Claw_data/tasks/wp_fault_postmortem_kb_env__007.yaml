@@ -1,0 +1,17 @@
+name: "Fault Postmortem Knowledge Base – Root Cause Analysis"
+description: "Agent must analyse a critical fault case from the knowledge base, correlate its attachments, and generate a structured postmortem report."
+asset: "wp_fault_postmortem_kb_env__007"
+prompt: "tasks/prompts/wp_fault_postmortem_kb_env__007.md"
+runtime:
+  python: "3.10"
+environment:
+  cwd: "assets/wp_fault_postmortem_kb_env__007"
+  files:
+    - "data/faults/fault_cases.json"
+    - "data/attachments.json"
+    - "data/attachments/deadlock_info.txt"
+    - "data/attachments/slow_query.log"
+    - "data/attachments/error_log.txt"
+    - "data/accounts.json"
+    - "data/contacts.json"
+    - "ops/postmortem/example.json"

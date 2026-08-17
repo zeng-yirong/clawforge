@@ -1,0 +1,6 @@
+task_id: wp_experiment_diff_record_env__037
+asset: wp_experiment_diff_record_env__037
+prompt_path: tasks/prompts/wp_experiment_diff_record_env__037.md
+runtime:
+  python_version: "3.10"
+  packages: []

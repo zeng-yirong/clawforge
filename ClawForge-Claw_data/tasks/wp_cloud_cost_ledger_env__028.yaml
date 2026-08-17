@@ -1,0 +1,6 @@
+asset: wp_cloud_cost_ledger_env__028
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__028.md
+runtime:
+  cwd: assets/wp_cloud_cost_ledger_env__028
+  requirements: []
+  timeout: 120

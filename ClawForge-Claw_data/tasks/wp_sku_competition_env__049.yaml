@@ -1,0 +1,11 @@
+id: wp_sku_competition_env__049
+prompt_path: tasks/prompts/wp_sku_competition_env__049.md
+asset: wp_sku_competition_env__049
+runtime:
+  cwd: assets/wp_sku_competition_env__049
+  allowed_actions:
+    - file_read
+    - file_write
+    - file_delete
+    - directory_list
+    - directory_create

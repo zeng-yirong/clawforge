@@ -1,0 +1,24 @@
+{
+  "user_id": "user_001",
+  "name": "Alice Johnson",
+  "email": "alice.j@enterprise.com",
+  "competitor_id": "comp_001",
+  "tier": "enterprise",
+  "cohort": "cohort_q1_2025",
+  "acquisition_source": "organic",
+  "acquisition_campaign": "brand_awareness",
+  "acquisition_date": "2025-01-15",
+  "acquisition_cost": 0,
+  "initial_channel": "website",
+  "lifetime_value": 125000,
+  "churned": false,
+  "engagement": {
+    "score": 85,
+    "monthly_active_days": 22,
+    "features_used": ["analytics", "ai_assistant", "collaboration"]
+  },
+  "activity_history": [
+    {"date": "2025-01-15", "action": "signup", "duration_minutes": 5},
+    {"date": "2025-02-01", "action": "first_project", "duration_minutes": 45}
+  ]
+}

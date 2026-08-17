@@ -1,0 +1,133 @@
+{
+  "env_name": "excel_data_envs",
+  "rel_path": "excel_data_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_outputs"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.csv",
+      "kind": "csv",
+      "columns": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "desc": "email (str)"
+        }
+      ],
+      "rows": 1,
+      "desc": "csv file data/accounts.csv"
+    },
+    {
+      "path": "data/raw_data/sales_raw.csv",
+      "kind": "csv",
+      "columns": [
+        {
+          "name": "transaction_id",
+          "type": "str",
+          "desc": "transaction_id (str)"
+        },
+        {
+          "name": "date",
+          "type": "str",
+          "desc": "date (str)"
+        },
+        {
+          "name": "product_id",
+          "type": "str",
+          "desc": "product_id (str)"
+        },
+        {
+          "name": "product_name",
+          "type": "str",
+          "desc": "product_name (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "desc": "category (str)"
+        },
+        {
+          "name": "subcategory",
+          "type": "str",
+          "desc": "subcategory (str)"
+        },
+        {
+          "name": "region",
+          "type": "str",
+          "desc": "region (str)"
+        },
+        {
+          "name": "city",
+          "type": "str",
+          "desc": "city (str)"
+        },
+        {
+          "name": "customer_id",
+          "type": "str",
+          "desc": "customer_id (str)"
+        },
+        {
+          "name": "customer_name",
+          "type": "str",
+          "desc": "customer_name (str)"
+        },
+        {
+          "name": "sales_amount",
+          "type": "float",
+          "desc": "sales_amount (float)"
+        },
+        {
+          "name": "quantity",
+          "type": "int",
+          "desc": "quantity (int)"
+        },
+        {
+          "name": "discount",
+          "type": "int",
+          "desc": "discount (int)"
+        },
+        {
+          "name": "payment_method",
+          "type": "str",
+          "desc": "payment_method (str)"
+        },
+        {
+          "name": "salesperson_id",
+          "type": "str",
+          "desc": "salesperson_id (str)"
+        },
+        {
+          "name": "salesperson_name",
+          "type": "str",
+          "desc": "salesperson_name (str)"
+        },
+        {
+          "name": "channel",
+          "type": "str",
+          "desc": "channel (str)"
+        }
+      ],
+      "rows": 61,
+      "desc": "csv file data/raw_data/sales_raw.csv"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

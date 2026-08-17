@@ -1,0 +1,7 @@
+task_id: wp_flight_delay_envs__018
+name: Flight Delay Cascade - Transport Reschedule
+prompt_path: tasks/prompts/wp_flight_delay_envs__018.md
+asset: wp_flight_delay_envs__018
+runtime:
+  cwd: assets/wp_flight_delay_envs__018
+  environment: {}

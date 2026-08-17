@@ -1,0 +1,13 @@
+[
+  {
+    "account_id": "acc_001",
+    "company_name": "Acme Corp",
+    "travel_budget": 500000,
+    "currency": "USD",
+    "approvers": [
+      {"name": "John Manager", "email": "john.manager@acme.com", "role": "manager"},
+      {"name": "Sarah Director", "email": "sarah.director@acme.com", "role": "director"},
+      {"name": "Mike VP", "email": "mike.vp@acme.com", "role": "vp"}
+    ]
+  }
+]

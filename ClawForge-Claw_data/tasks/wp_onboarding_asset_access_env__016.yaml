@@ -1,0 +1,9 @@
+name: wp_onboarding_asset_access_env__016
+description: "新员工入职资产与访问配置任务"
+asset: wp_onboarding_asset_access_env__016
+prompt_path: prompts/wp_onboarding_asset_access_env__016.md
+env_builder: env_builder.py
+verify_script: scripts/wp_onboarding_asset_access_env__016/verify_workplace.py
+runtime:
+  language: python
+  version: "3.10"

@@ -1,0 +1,16 @@
+{
+  "attachments": [
+    {
+      "path": "solution_matching_notes.md",
+      "title": "Solution Matching Notes",
+      "kind": "matching_guide",
+      "description": "Canonical solution name, aliases, and common false positives."
+    },
+    {
+      "path": "temp_record_guidelines.md",
+      "title": "Temporary Record Guidelines",
+      "kind": "record_schema",
+      "description": "Required fields for clue lists saved into temporary records."
+    }
+  ]
+}

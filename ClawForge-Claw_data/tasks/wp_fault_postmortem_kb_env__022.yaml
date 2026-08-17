@@ -1,0 +1,8 @@
+name: wp_fault_postmortem_kb_env__022
+asset: wp_fault_postmortem_kb_env__022
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__022.md
+runtime:
+  python: "3.10"
+  workspace: "/workspace"
+  entrypoint: null
+  timeout: 300

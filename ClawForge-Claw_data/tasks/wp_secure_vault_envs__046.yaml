@@ -1,0 +1,6 @@
+task_id: wp_secure_vault_envs__046
+type: workplace
+asset: wp_secure_vault_envs__046
+prompt_path: tasks/prompts/wp_secure_vault_envs__046.md
+runtime:
+  python: "3.10"

@@ -1,0 +1,354 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_policy",
+    "description": "Ingest a company travel policy document into the pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique policy identifier (e.g. 'q3_travel_policy')."
+        },
+        "source": {
+          "type": "string",
+          "description": "File path or URL of the policy document (e.g. 'policy_v4.pdf')."
+        },
+        "data_type": {
+          "type": "string",
+          "description": "Type of policy source. Must be one of: policy_pdf, policy_url. Defaults to 'policy_pdf'."
+        }
+      },
+      "required": [
+        "name",
+        "source"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_policy",
+    "description": "Parse an ingested policy document to extract compliance rules.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "The job ID returned by ingest_policy()."
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_policies",
+    "description": "List all registered travel policy documents.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "active_only": {
+          "type": "boolean",
+          "description": "If True, return only successfully parsed and active policies. Defaults to False."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_platform",
+    "description": "Register a new flight booking platform for price search.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique platform identifier (e.g. 'tongcheng')."
+        },
+        "platform_type": {
+          "type": "string",
+          "description": "Platform category (e.g. 'ota', 'direct', 'corporate')."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the platform. Defaults to ''."
+        }
+      },
+      "required": [
+        "name",
+        "platform_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_platforms",
+    "description": "List registered flight booking platforms, optionally filtered by type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform_type": {
+          "type": "string",
+          "description": "[Optional] Filter by platform type (e.g. 'ota', 'direct')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_flights",
+    "description": "Search for flight prices across multiple booking platforms.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "IATA departure airport code (e.g. 'PEK', 'SHA')."
+        },
+        "destination": {
+          "type": "string",
+          "description": "IATA arrival airport code (e.g. 'CAN', 'CTU')."
+        },
+        "departure_date": {
+          "type": "string",
+          "description": "Departure date in YYYY-MM-DD format."
+        },
+        "cabin_class": {
+          "type": "string",
+          "description": "Requested cabin class. Must be one of: economy, premium_economy, business, first. Defaults to 'economy'."
+        },
+        "platforms": {
+          "type": "array",
+          "description": "[Optional] Platform names to search. Defaults to all active platforms."
+        },
+        "params": {
+          "type": "dict",
+          "description": "[Optional] Additional search parameters: - max_results (int): Max results per platform. Defaults to 5. - return_date (str): Return date for round-trip search. - passengers (int): Number of passengers. Defaults to 1."
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "departure_date"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_compliance",
+    "description": "Check flight search results against the active travel policy rules.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "integer",
+          "description": "Job ID of a completed search_flights job."
+        },
+        "policy_name": {
+          "type": "string",
+          "description": "Name of the active policy to check against."
+        },
+        "traveler_id": {
+          "type": "string",
+          "description": "Employee or traveler identifier (e.g. 'EMP-001')."
+        },
+        "trip_purpose": {
+          "type": "string",
+          "description": "Business purpose of the trip (e.g. 'client meeting Q3'). Defaults to ''."
+        }
+      },
+      "required": [
+        "job_id",
+        "policy_name",
+        "traveler_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_approval",
+    "description": "Submit an approval request for a selected flight option.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "compliance_job_id": {
+          "type": "integer",
+          "description": "Job ID of a completed check_compliance job."
+        },
+        "selected_option_id": {
+          "type": "string",
+          "description": "The flight option ID chosen by the traveler (from compliance check result options)."
+        },
+        "approver_id": {
+          "type": "string",
+          "description": "Employee ID of the designated approver (e.g. 'MGR-042')."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional justification or notes for the approval request. Defaults to ''."
+        }
+      },
+      "required": [
+        "compliance_job_id",
+        "selected_option_id",
+        "approver_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "resolve_approval",
+    "description": "Resolve a pending approval request with an approve or reject decision.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approval_id": {
+          "type": "integer",
+          "description": "The approval ID returned by submit_approval()."
+        },
+        "decision": {
+          "type": "string",
+          "description": "Resolution decision. Must be one of: 'approved', 'rejected', 'escalated'."
+        },
+        "resolver_id": {
+          "type": "string",
+          "description": "Employee ID of the person resolving the approval."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Explanation for the decision. Defaults to ''."
+        }
+      },
+      "required": [
+        "approval_id",
+        "decision",
+        "resolver_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_approvals",
+    "description": "List all approval requests, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by approval status. Must be one of: pending, approved, rejected, escalated."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "book_flight",
+    "description": "Confirm a flight booking for an approved travel request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approval_id": {
+          "type": "integer",
+          "description": "The approval ID with status 'approved'."
+        },
+        "passenger_name": {
+          "type": "string",
+          "description": "Full name of the passenger as on ID document."
+        },
+        "passenger_id": {
+          "type": "string",
+          "description": "Passport or national ID number of the passenger."
+        },
+        "contact_email": {
+          "type": "string",
+          "description": "Contact email for booking confirmation and itinerary."
+        },
+        "params": {
+          "type": "dict",
+          "description": "[Optional] Additional booking parameters: - seat_preference (str): Preferred seat type (e.g. 'window', 'aisle'). - meal_preference (str): Meal preference code (e.g. 'VGML', 'HNML'). - loyalty_number (str): Frequent flyer number."
+        }
+      },
+      "required": [
+        "approval_id",
+        "passenger_name",
+        "passenger_id",
+        "contact_email"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_booking",
+    "description": "Cancel a confirmed flight booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "booking_id": {
+          "type": "integer",
+          "description": "The booking ID to cancel."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for cancellation. Defaults to ''."
+        }
+      },
+      "required": [
+        "booking_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,592 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_media_sample",
+      "required_args": [
+        "--sample-id"
+      ],
+      "id": "get-media-sample"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_presentation",
+      "required_args": [
+        "--presentation-id"
+      ],
+      "id": "get-presentation"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_report",
+      "required_args": [
+        "--report-id"
+      ],
+      "id": "get-report"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_temp_record",
+      "required_args": [
+        "--record-id"
+      ],
+      "id": "get-temp-record"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_media_samples",
+      "required_args": [],
+      "id": "list-media-samples"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_presentations",
+      "required_args": [],
+      "id": "list-presentations"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_reports",
+      "required_args": [],
+      "id": "list-reports"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_temp_records",
+      "required_args": [],
+      "id": "list-temp-records"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "save_clue_list",
+      "required_args": [
+        "--solution-id",
+        "--solution-name",
+        "--document-ids",
+        "--clues-json",
+        "--summary"
+      ],
+      "id": "save-clue-list"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "search_library",
+      "required_args": [
+        "--query"
+      ],
+      "id": "search-library"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "save-clue-list"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "save-clue-list"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::tech_solution_signal_trace_q2_2026",
+      "tier": "gold",
+      "source": "get-media-sample",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-media-sample",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-media-sample",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::tech_solution_signal_trace_q2_2026",
+      "tier": "gold",
+      "source": "get-presentation",
+      "target": "get-media-sample"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-presentation",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-presentation",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::tech_solution_signal_trace_q2_2026",
+      "tier": "gold",
+      "source": "get-report",
+      "target": "get-presentation"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-report",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-report",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after report, list attachments",
+      "tier": "llm_weak",
+      "source": "get-report",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-temp-record",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-temp-record",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_sample_id_for",
+      "tier": "dataflow",
+      "source": "list-media-samples",
+      "target": "get-media-sample"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-media-samples",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-media-samples",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_presentation_id_for",
+      "tier": "dataflow",
+      "source": "list-presentations",
+      "target": "get-presentation"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-presentations",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-presentations",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_report_id_for",
+      "tier": "dataflow",
+      "source": "list-reports",
+      "target": "get-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reports",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reports",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_record_id_for",
+      "tier": "dataflow",
+      "source": "list-temp-records",
+      "target": "get-temp-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-temp-records",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-temp-records",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::tech_solution_signal_trace_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "save-clue-list"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "save-clue-list",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "save-clue-list",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "save-clue-list",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after saving clue list, check temp records",
+      "tier": "llm_weak",
+      "source": "save-clue-list",
+      "target": "list-temp-records"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::tech_solution_signal_trace_q2_2026",
+      "tier": "gold",
+      "source": "search-library",
+      "target": "get-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-library",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-library",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after search, retrieve presentation",
+      "tier": "llm_weak",
+      "source": "search-library",
+      "target": "get-presentation"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after search, retrieve media sample",
+      "tier": "llm_weak",
+      "source": "search-library",
+      "target": "get-media-sample"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after summary, save clue list",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "save-clue-list"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "search-library"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-media-sample"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-presentation"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-report"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-temp-record"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-media-samples"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-presentations"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-reports"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-temp-records"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

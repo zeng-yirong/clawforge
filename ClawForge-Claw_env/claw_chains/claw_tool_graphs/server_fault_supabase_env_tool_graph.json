@@ -1,0 +1,559 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "batch_remediate",
+      "required_args": [
+        "--incident-ids",
+        "--remediation-mode",
+        "--operator-note"
+      ],
+      "id": "batch-remediate"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_audit_log",
+      "required_args": [
+        "--audit-id"
+      ],
+      "id": "get-audit-log"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_incident",
+      "required_args": [
+        "--incident-id"
+      ],
+      "id": "get-incident"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_supabase_row",
+      "required_args": [
+        "--row-id"
+      ],
+      "id": "get-supabase-row"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_audit_logs",
+      "required_args": [],
+      "id": "list-audit-logs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_incidents",
+      "required_args": [],
+      "id": "list-incidents"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_supabase_rows",
+      "required_args": [],
+      "id": "list-supabase-rows"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "remediate_incident",
+      "required_args": [
+        "--incident-id",
+        "--remediation-mode",
+        "--operator-note"
+      ],
+      "id": "remediate-incident"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "screen_risk_incidents",
+      "required_args": [
+        "--categories"
+      ],
+      "id": "screen-risk-incidents"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "write_supabase_resolution",
+      "required_args": [
+        "--incident-id"
+      ],
+      "id": "write-supabase-resolution"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::server_fault_triage_q2_2026",
+      "tier": "gold",
+      "source": "batch-remediate",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after batch remediation, you might check session progress",
+      "tier": "llm_weak",
+      "source": "batch-remediate",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-audit-log",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-audit-log",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-incident",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-incident",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing incident details, you often want to see attachments",
+      "tier": "llm_weak",
+      "source": "get-incident",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-supabase-row",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-supabase-row",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_audit_id_for",
+      "tier": "dataflow",
+      "source": "list-audit-logs",
+      "target": "get-audit-log"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-audit-logs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-audit-logs",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "list-incidents",
+      "target": "get-incident"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "list-incidents",
+      "target": "remediate-incident"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "list-incidents",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-incidents",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-incidents",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing incidents, you often screen for risk tickets",
+      "tier": "llm_weak",
+      "source": "list-incidents",
+      "target": "screen-risk-incidents"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_row_id_for",
+      "tier": "dataflow",
+      "source": "list-supabase-rows",
+      "target": "get-supabase-row"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-supabase-rows",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-supabase-rows",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::server_fault_triage_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "batch-remediate"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after remediation, you write the resolution to Supabase",
+      "tier": "llm_weak",
+      "source": "remediate-incident",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "screen-risk-incidents",
+      "target": "get-incident"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "screen-risk-incidents",
+      "target": "remediate-incident"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for",
+      "tier": "dataflow",
+      "source": "screen-risk-incidents",
+      "target": "write-supabase-resolution"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::server_fault_triage_q2_2026",
+      "tier": "gold",
+      "source": "screen-risk-incidents",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::server_fault_triage_q2_2026",
+      "tier": "gold",
+      "source": "task",
+      "target": "screen-risk-incidents"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-audit-log"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-incident"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-supabase-row"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-audit-logs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-incidents"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-supabase-rows"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::server_fault_triage_q2_2026",
+      "tier": "gold",
+      "source": "write-supabase-resolution",
+      "target": "list-audit-logs"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "write-supabase-resolution",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "write-supabase-resolution",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write-supabase-resolution",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after writing, you may verify the stored rows",
+      "tier": "llm_weak",
+      "source": "write-supabase-resolution",
+      "target": "list-supabase-rows"
+    }
+  ]
+}

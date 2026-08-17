@@ -1,0 +1,7 @@
+prompt: tasks/prompts/wp_mail_client_envs__045.md
+asset: wp_mail_client_envs__045
+runtime:
+  base_image: python:3.11
+  resource_limit:
+    cpu: 2
+    memory: 4GB

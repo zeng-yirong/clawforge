@@ -1,0 +1,6 @@
+task_id: wp_offboarding_recovery_env__023
+prompt_path: tasks/prompts/wp_offboarding_recovery_env__023.md
+asset: wp_offboarding_recovery_env__023
+runtime:
+  workspace: .
+  output_dir: workspace

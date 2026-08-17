@@ -1,0 +1,6 @@
+asset: wp_logistics_envs__002
+prompt_path: tasks/prompts/wp_logistics_envs__002.md
+runtime:
+  type: simple
+  base_image: python:3.11-slim
+  entrypoint: ""

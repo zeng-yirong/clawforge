@@ -1,0 +1,31 @@
+name: "Post Mails: Launch Brief & Social Posts"
+asset: wp_post_mails__026
+prompt: "tasks/prompts/wp_post_mails__026.md"
+environment_type: "workplace"
+runtime:
+  cwd: "assets/wp_post_mails__026/"
+  max_time_seconds: 600
+  allowed_commands:
+    - "cat"
+    - "ls"
+    - "find"
+    - "cp"
+    - "mv"
+    - "mkdir"
+    - "rm"
+    - "python3"
+    - "jq"
+    - "head"
+    - "tail"
+    - "wc"
+    - "grep"
+    - "sort"
+    - "uniq"
+  disallowed_commands:
+    - "openai"
+    - "curl"
+    - "wget"
+    - "ssh"
+    - "sudo"
+    - "apt"
+    - "pip"

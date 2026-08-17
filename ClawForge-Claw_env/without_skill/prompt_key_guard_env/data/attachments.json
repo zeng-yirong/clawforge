@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "vault_access_policy.md",
+      "title": "Encrypted Vault Access Policy",
+      "kind": "security_policy",
+      "description": "Rules for prompt and API key vault access."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+id: wp_car_navi_envs__000
+asset: wp_car_navi_envs__000
+prompt: tasks/prompts/wp_car_navi_envs__000.md
+runtime:
+  image: python:3.11-slim
+  entrypoint: python
+  command: ["-c", "import sys; exec(open('prompt').read())"]
+  environment:
+    WORKSPACE: /workspace

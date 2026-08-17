@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "iam_mgr_001",
+      "name": "Rina Wu",
+      "role": "IAM Manager",
+      "email": "rina.wu@northstar.example.com"
+    }
+  ]
+}

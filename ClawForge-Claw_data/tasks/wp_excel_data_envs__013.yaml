@@ -1,0 +1,7 @@
+name: wp_excel_data_envs__013
+asset: wp_excel_data_envs__013
+prompt: tasks/prompts/wp_excel_data_envs__013.md
+runtime:
+  type: workplace
+  entrypoint: python
+  command: [ "-c", "import sys; sys.exit(0)" ]

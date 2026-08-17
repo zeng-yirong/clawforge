@@ -1,0 +1,5 @@
+task_id: wp_finance_envs__021
+asset: wp_finance_envs__021
+prompt_path: tasks/prompts/wp_finance_envs__021.md
+runtime:
+  cwd: assets/wp_finance_envs__021

@@ -1,0 +1,6 @@
+name: wp_cloud_cost_ledger_env__002
+asset: wp_cloud_cost_ledger_env__002
+prompt_path: tasks/prompts/wp_cloud_cost_ledger_env__002.md
+runtime:
+  max_steps: 25
+  return_code: 0

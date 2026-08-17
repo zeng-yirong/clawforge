@@ -1,0 +1,135 @@
+{
+  "scenario_id": "itinerary_planning_001",
+  "title": "差旅行程规划与对比",
+  "description": "基于离线地图数据，自动规划差旅的出行路线、中转方案、时间节点，对比不同交通方式的耗时与成本，生成详细行程单",
+  "task_prompt": "你是一位差旅行程规划助理。请根据用户的需求，完成以下任务：\n\n1. **加载城市数据**：加载出发地和目的地的城市信息\n2. **路线规划**：搜索两地之间的直飞或中转方案\n3. **交通方式对比**：对比高铁、飞机等不同交通方式的耗时与成本\n4. **时间节点规划**：规划各段行程的时间节点\n5. **生成行程单**：生成完整的差旅行程单\n6. **方案优化建议**：根据偏好提供最优方案建议\n\n请确保行程规划符合差旅需求，提供时间成本最优方案。",
+  "base_time": "2024-06-20T10:00:00Z",
+  "workspace_account_id": "acc_001",
+  "expected_actions": [
+    {
+      "action_type": "load_cities",
+      "description": "加载城市数据",
+      "examples": [
+        "加载城市列表",
+        "查看上海的信息",
+        "获取城市坐标"
+      ],
+      "required_parameters": ["city_id"]
+    },
+    {
+      "action_type": "search_routes",
+      "description": "搜索路线",
+      "examples": [
+        "从上海到北京有什么方案",
+        "搜索上海到西安的路线",
+        "查看经过南京的方案"
+      ],
+      "required_parameters": ["origin", "destination"]
+    },
+    {
+      "action_type": "compare_transport",
+      "description": "对比交通方式",
+      "examples": [
+        "对比高铁和飞机的优劣",
+        "哪个方案最快最便宜",
+        "高铁和飞机差多少"
+      ],
+      "required_parameters": ["route_id"]
+    },
+    {
+      "action_type": "plan_transfer",
+      "description": "规划中转方案",
+      "examples": [
+        "从上海到成都怎么中转",
+        "有没有经停武汉的方案",
+        "设计一个多站式行程"
+      ],
+      "required_parameters": ["origin", "destination", "waypoints"]
+    },
+    {
+      "action_type": "generate_itinerary",
+      "description": "生成行程单",
+      "examples": [
+        "生成详细行程单",
+        "输出完整出行计划",
+        "给我一个行程表"
+      ],
+      "required_parameters": ["route_options"]
+    },
+    {
+      "action_type": "optimize_route",
+      "description": "优化路线建议",
+      "examples": [
+        "最优方案是什么",
+        "最省钱的路线",
+        "最快的路线推荐"
+      ],
+      "required_parameters": ["criteria"]
+    }
+  ],
+  "scoring_rules": {
+    "dimensions": [
+      {
+        "dimension": "city_loading",
+        "weight": 0.10,
+        "description": "城市数据加载的准确性",
+        "evaluation_criteria": [
+          "正确加载城市信息",
+          "坐标数据准确"
+        ]
+      },
+      {
+        "dimension": "route_search",
+        "weight": 0.20,
+        "description": "路线搜索的完整性",
+        "evaluation_criteria": [
+          "找到所有可用路线",
+          "提供直飞和中转方案",
+          "数据准确"
+        ]
+      },
+      {
+        "dimension": "transport_comparison",
+        "weight": 0.20,
+        "description": "交通方式对比的准确性",
+        "evaluation_criteria": [
+          "耗时对比准确",
+          "成本对比准确",
+          "优劣分析合理"
+        ]
+      },
+      {
+        "dimension": "transfer_planning",
+        "weight": 0.20,
+        "description": "中转方案规划的合理性",
+        "evaluation_criteria": [
+          "中转节点选择合理",
+          "时间衔接可行",
+          "成本优化"
+        ]
+      },
+      {
+        "dimension": "itinerary_generation",
+        "weight": 0.20,
+        "description": "行程单生成的完整性",
+        "evaluation_criteria": [
+          "时间节点清晰",
+          "包含所有行程段",
+          "总耗时总成本准确"
+        ]
+      },
+      {
+        "dimension": "route_optimization",
+        "weight": 0.10,
+        "description": "路线优化的合理性",
+        "evaluation_criteria": [
+          "符合用户偏好",
+          "方案确实最优",
+          "理由充分"
+        ]
+      }
+    ],
+    "passing_score": 0.80,
+    "excellent_score": 0.90
+  }
+}

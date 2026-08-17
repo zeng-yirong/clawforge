@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_001",
+      "account_name": "Primary Scheduling Account",
+      "location": "Smart Home",
+      "devices": ["light_001", "light_002", "ac_001", "humidifier_001", "plug_001", "plug_002"],
+      "schedules": []
+    }
+  ]
+}

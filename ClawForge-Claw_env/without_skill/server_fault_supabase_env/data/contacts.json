@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "contact_id": "noc_001",
+      "name": "Harper Zhou",
+      "role": "NOC Lead",
+      "email": "harper.zhou@northstar.example.com"
+    },
+    {
+      "contact_id": "fac_001",
+      "name": "Nikhil Rao",
+      "role": "Facilities Power Coordinator",
+      "email": "nikhil.rao@northstar.example.com"
+    },
+    {
+      "contact_id": "dbops_001",
+      "name": "Lena Park",
+      "role": "Database Reliability Engineer",
+      "email": "lena.park@northstar.example.com"
+    }
+  ]
+}

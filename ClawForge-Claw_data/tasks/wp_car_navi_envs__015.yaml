@@ -1,0 +1,7 @@
+id: wp_car_navi_envs__015
+asset: wp_car_navi_envs__015
+prompt: tasks/prompts/wp_car_navi_envs__015.md
+runtime:
+  cwd: assets/wp_car_navi_envs__015
+  max_steps: 10
+  timeout_seconds: 120

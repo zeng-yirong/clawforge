@@ -1,0 +1,9 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "车主助手",
+  "preferred_language": "中文",
+  "default_route_preference": "fastest",
+  "ev_mode": true,
+  "battery_capacity": 80,
+  "current_charge": 65
+}

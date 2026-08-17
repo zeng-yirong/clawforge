@@ -1,0 +1,6 @@
+name: "Customer Tier Label Update"
+description: "Recompute customer tier labels from consumption and activity logs"
+prompt: "tasks/prompts/wp_customer_tier_label_env__028.md"
+asset: "wp_customer_tier_label_env__028"
+runtime:
+  cwd: "assets/wp_customer_tier_label_env__028"

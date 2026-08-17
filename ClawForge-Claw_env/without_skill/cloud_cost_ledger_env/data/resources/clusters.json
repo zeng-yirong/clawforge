@@ -1,0 +1,68 @@
+{
+  "clusters": [
+    {
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "business_service": "Storefront and order orchestration",
+      "domain": "commerce",
+      "environment": "production",
+      "region": "ap-southeast-1",
+      "owner_team": "Commerce Platform",
+      "cluster_role": "business",
+      "service_tier": "tier_1",
+      "workload_tags": [
+        "customer-facing",
+        "transactional",
+        "stateful"
+      ]
+    },
+    {
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "business_service": "Ads ranking and campaign inference",
+      "domain": "marketing",
+      "environment": "production",
+      "region": "ap-southeast-1",
+      "owner_team": "Growth Engineering",
+      "cluster_role": "business",
+      "service_tier": "tier_1",
+      "workload_tags": [
+        "gpu",
+        "inference",
+        "latency-sensitive"
+      ]
+    },
+    {
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "business_service": "Lakehouse analytics and finance marts",
+      "domain": "data",
+      "environment": "production",
+      "region": "ap-southeast-1",
+      "owner_team": "Data Platform",
+      "cluster_role": "business",
+      "service_tier": "tier_2",
+      "workload_tags": [
+        "batch",
+        "analytics",
+        "warehouse"
+      ]
+    },
+    {
+      "cluster_id": "cluster_shared_ops",
+      "cluster_name": "shared-ops",
+      "business_service": "Shared CI and platform tooling",
+      "domain": "infrastructure",
+      "environment": "production",
+      "region": "ap-southeast-1",
+      "owner_team": "Cloud Foundations",
+      "cluster_role": "shared_platform",
+      "service_tier": "tier_2",
+      "workload_tags": [
+        "shared",
+        "internal",
+        "tooling"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "scenario_id": "resume_scheduler_ml_platform_q2_2026",
+  "title": "Schedule interview for best-matched ML platform candidate",
+  "task_prompt": "Read the candidate resume pool and job requirement pool, confirm the strongest match, and create both the interview invite record and reminder entry.",
+  "current_time": "2026-06-23T14:00:00Z",
+  "workspace_account_id": "talent_ops",
+  "candidate_ids": ["cand_ml_001"],
+  "job_ids": ["job_ml_platform"],
+  "attachment_paths": ["interview_invite_guideline.md"],
+  "target_candidate_id": "cand_ml_001",
+  "target_job_id": "job_ml_platform",
+  "required_actions": ["match_candidate", "schedule_interview"]
+}

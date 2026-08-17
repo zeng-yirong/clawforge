@@ -1,0 +1,39 @@
+{
+  "rates": [
+    {
+      "period": "off_peak",
+      "start_hour": 0,
+      "end_hour": 7,
+      "rate_per_kwh": 0.08,
+      "label": "Off-Peak"
+    },
+    {
+      "period": "mid_peak",
+      "start_hour": 7,
+      "end_hour": 11,
+      "rate_per_kwh": 0.12,
+      "label": "Mid-Peak"
+    },
+    {
+      "period": "peak",
+      "start_hour": 11,
+      "end_hour": 17,
+      "rate_per_kwh": 0.18,
+      "label": "Peak"
+    },
+    {
+      "period": "high_peak",
+      "start_hour": 17,
+      "end_hour": 21,
+      "rate_per_kwh": 0.22,
+      "label": "High-Peak"
+    },
+    {
+      "period": "mid_peak_evening",
+      "start_hour": 21,
+      "end_hour": 24,
+      "rate_per_kwh": 0.12,
+      "label": "Mid-Peak"
+    }
+  ]
+}

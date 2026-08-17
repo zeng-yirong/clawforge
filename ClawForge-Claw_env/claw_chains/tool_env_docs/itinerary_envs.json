@@ -1,0 +1,297 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "compare_transport",
+  "description": "Compare transport options",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "route_result": {
+     "type": "string",
+     "description": "Route result to compare"
+    }
+   },
+   "required": [
+    "route_result"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_itinerary",
+  "description": "Generate detailed itinerary",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "routes": {
+     "type": "string",
+     "description": "Routes to include in itinerary"
+    },
+    "preference": {
+     "type": "string",
+     "description": "User preference for itinerary",
+     "default": "balanced"
+    }
+   },
+   "required": [
+    "routes"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_cities",
+  "description": "List all cities",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "load_city",
+  "description": "Load a specific city",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "city_id": {
+     "type": "string",
+     "description": "ID of the city to load"
+    }
+   },
+   "required": [
+    "city_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "optimize_route",
+  "description": "Optimize route based on criteria",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "criteria": {
+     "type": "string",
+     "description": "Criteria for optimization",
+     "default": "balanced"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "plan_transfer",
+  "description": "Plan multi-stop transfer",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "origin": {
+     "type": "string",
+     "description": "Starting location"
+    },
+    "destination": {
+     "type": "string",
+     "description": "End location"
+    },
+    "waypoints": {
+     "type": "string",
+     "description": "Intermediate stops",
+     "default": ""
+    }
+   },
+   "required": [
+    "origin",
+    "destination"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "search_routes",
+  "description": "Search routes between cities",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "origin": {
+     "type": "string",
+     "description": "Starting city"
+    },
+    "destination": {
+     "type": "string",
+     "description": "Ending city"
+    }
+   },
+   "required": [
+    "origin",
+    "destination"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Get session summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

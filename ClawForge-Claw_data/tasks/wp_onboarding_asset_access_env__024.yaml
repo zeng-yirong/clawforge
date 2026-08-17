@@ -1,0 +1,7 @@
+task_id: wp_onboarding_asset_access_env__024
+prompt: tasks/prompts/wp_onboarding_asset_access_env__024.md
+asset: wp_onboarding_asset_access_env__024
+runtime:
+  workspace_type: file
+  sandbox: default
+  environment_variables: {}

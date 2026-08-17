@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://nanoclaw.schemas.dev/workplace.yaml
+type: workplace
+asset: wp_customer_tier_label_env__026
+prompt: tasks/prompts/wp_customer_tier_label_env__026.md
+runtime:
+  max_steps: 30
+  allow_network: false
+  allow_shell: true

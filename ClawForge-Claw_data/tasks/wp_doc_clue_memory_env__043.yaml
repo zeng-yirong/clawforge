@@ -1,0 +1,10 @@
+task_id: wp_doc_clue_memory_env__043
+asset: wp_doc_clue_memory_env__043
+prompt: tasks/prompts/wp_doc_clue_memory_env__043.md
+runtime:
+  cwd: assets/wp_doc_clue_memory_env__043
+  allowed_actions:
+    - read
+    - write
+    - list
+    - edit

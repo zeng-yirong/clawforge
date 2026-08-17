@@ -1,0 +1,35 @@
+hydra:
+  searchpath:
+    - file://verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+
+data:
+  train_files: /path/to/source_env_train.jsonl
+  val_files: /path/to/source_env_val.jsonl
+  prompt_key: prompt
+  allow_missing_prompt_key: True
+  max_prompt_length: 2048
+  max_response_length: 2048
+  train_batch_size: 256
+  return_raw_chat: True
+
+actor_rollout_ref:
+  hybrid_engine: True
+  rollout:
+    name: sglang
+    agent:
+      default_agent_loop: source_env_agent
+      source_env_dir: /path/to/source_env
+      # Optional. If omitted, the loop falls back to runtime introspection.
+      env_docs_file: /path/to/env_docs.json
+      # Optional. If omitted, the loop falls back to runtime introspection.
+      tool_docs_dir: /path/to/tool_env_docs
+      use_validation_reward: True
+    multi_turn:
+      enable: True
+      # Global source-env interaction budget; individual plan steps share it.
+      max_agent_turns: 24
+      max_user_turns: 16

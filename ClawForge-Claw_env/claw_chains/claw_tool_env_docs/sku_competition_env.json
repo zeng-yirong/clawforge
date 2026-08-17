@@ -1,0 +1,512 @@
+{
+  "env_name": "sku_competition_env",
+  "rel_path": "without_skill/sku_competition_env",
+  "cli_module": "without_skill.sku_competition_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "WITHOUT_SKILL_SESSION_ID",
+    "state_env": "WITHOUT_SKILL_STATE_ROOT",
+    "scenario_env": "WITHOUT_SKILL_SCENARIO_ID",
+    "default_scenario_id": "sku_competition_report_apac_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "extract-brand-catalog",
+      "action": "extract_brand_catalog",
+      "role": "other",
+      "help": "Extract all SKU selling points, ingredients, and pricing for a brand into cache.",
+      "args": [
+        {
+          "name": "--brand-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--price-book-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-category-report",
+      "action": "generate_category_report",
+      "role": "produce",
+      "help": "Generate a same-category competitor comparison report and store it in cache.",
+      "args": [
+        {
+          "name": "--brand-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--price-book-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-brand",
+      "action": "get_brand",
+      "role": "read",
+      "help": "Get detailed brand information.",
+      "args": [
+        {
+          "name": "--brand-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-cache-entry",
+      "action": "get_cache_entry",
+      "role": "read",
+      "help": "Get one cached extract or report by entry id.",
+      "args": [
+        {
+          "name": "--entry-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-price-book",
+      "action": "get_price_book",
+      "role": "read",
+      "help": "Get the full content of a price book.",
+      "args": [
+        {
+          "name": "--price-book-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-sku",
+      "action": "get_sku",
+      "role": "read",
+      "help": "Get detailed SKU information.",
+      "args": [
+        {
+          "name": "--sku-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-attachments",
+      "action": "list_attachments",
+      "role": "read",
+      "help": "List supporting attachments.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-brands",
+      "action": "list_brands",
+      "role": "read",
+      "help": "List brands in the catalog.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-cache",
+      "action": "list_cache",
+      "role": "read",
+      "help": "List cache entries created during the session.",
+      "args": [
+        {
+          "name": "--entry-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cache-key",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-price-books",
+      "action": "list_price_books",
+      "role": "read",
+      "help": "List available price books.",
+      "args": [
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-skus",
+      "action": "list_skus",
+      "role": "read",
+      "help": "List SKUs with optional filters.",
+      "args": [
+        {
+          "name": "--brand-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": true,
+          "default": "active",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment used by the scenario.",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-brands",
+      "dst": "get-brand",
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for"
+    },
+    {
+      "src": "list-brands",
+      "dst": "extract-brand-catalog",
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for"
+    },
+    {
+      "src": "list-brands",
+      "dst": "generate-category-report",
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for"
+    },
+    {
+      "src": "list-skus",
+      "dst": "get-sku",
+      "weight": 0.8,
+      "relationship": "produces_sku_id_for"
+    },
+    {
+      "src": "list-price-books",
+      "dst": "get-price-book",
+      "weight": 0.8,
+      "relationship": "produces_price-book_id_for"
+    },
+    {
+      "src": "list-price-books",
+      "dst": "extract-brand-catalog",
+      "weight": 0.8,
+      "relationship": "produces_price-book_id_for"
+    },
+    {
+      "src": "list-price-books",
+      "dst": "generate-category-report",
+      "weight": 0.8,
+      "relationship": "produces_price-book_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "sku_competition_report_apac_q2_2026": [
+      "task",
+      "list_brands",
+      "list_skus",
+      "list_price_books",
+      "get_price_book",
+      "read_attachment",
+      "extract_brand_catalog",
+      "generate_category_report"
+    ]
+  },
+  "anchor_keys": [
+    "expected_competitor_brand_ids",
+    "expected_target_sku_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "target_brand_id",
+    "target_category_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "sku_competition_report_apac_q2_2026"
+  ]
+}

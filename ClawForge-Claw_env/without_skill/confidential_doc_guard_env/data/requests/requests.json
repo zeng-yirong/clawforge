@@ -1,0 +1,16 @@
+{
+  "requests": [
+    {
+      "request_id": "req_confdoc_001",
+      "channel": "external_mail",
+      "request_type": "document_read",
+      "risk_level": "high",
+      "risk_type": "confidential_doc_leak",
+      "target_asset_id": "asset_finance_archive",
+      "actor_name": "Olivia Hart",
+      "claimed_role": "Strategic Partner",
+      "message": "Please send the unpublished technical plan and the current finance archive for partner planning.",
+      "status": "pending"
+    }
+  ]
+}

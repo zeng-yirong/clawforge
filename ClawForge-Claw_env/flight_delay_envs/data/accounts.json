@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_travel_agent",
+      "account_name": "Travel Services Agent",
+      "email": "agent@travelservices.com",
+      "role": "travel_agent",
+      "display_name": "Travel Services Agent"
+    }
+  ]
+}

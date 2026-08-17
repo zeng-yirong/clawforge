@@ -1,0 +1,6 @@
+asset: wp_itinerary_envs__006
+prompt: tasks/prompts/wp_itinerary_envs__006.md
+runtime:
+  cwd: assets/wp_itinerary_envs__006
+  entrypoint: python tasks/wp_itinerary_envs__006/env_builder.py
+  cleanup: false

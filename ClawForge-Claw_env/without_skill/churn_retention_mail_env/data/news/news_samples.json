@@ -1,0 +1,18 @@
+{
+  "news_samples": [
+    {
+      "news_id": "news_fin_001",
+      "industry": "fintech",
+      "headline": "Regional banks increase spend on automation resilience",
+      "tone": "opportunity",
+      "summary": "Automation resilience is becoming a top budget line item across regional banking operations."
+    },
+    {
+      "news_id": "news_fin_002",
+      "industry": "fintech",
+      "headline": "Fintech compliance teams demand faster audit workflows",
+      "tone": "pain_point",
+      "summary": "Compliance leaders are prioritizing tooling that shortens audit evidence collection cycles."
+    }
+  ]
+}

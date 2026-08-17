@@ -1,0 +1,23 @@
+{
+  "user_id": "user_002",
+  "name": "Bob Williams",
+  "email": "bob.w@startup.io",
+  "competitor_id": "comp_003",
+  "tier": "premium",
+  "cohort": "cohort_q2_2025",
+  "acquisition_source": "paid_ads",
+  "acquisition_campaign": "spring_promo",
+  "acquisition_date": "2025-04-20",
+  "acquisition_cost": 150,
+  "initial_channel": "google_ads",
+  "lifetime_value": 4500,
+  "churned": false,
+  "engagement": {
+    "score": 72,
+    "monthly_active_days": 15,
+    "features_used": ["ml_platform", "automl"]
+  },
+  "activity_history": [
+    {"date": "2025-04-20", "action": "signup", "duration_minutes": 8}
+  ]
+}

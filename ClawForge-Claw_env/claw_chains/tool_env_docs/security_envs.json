@@ -1,0 +1,680 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "acknowledge",
+  "description": "Acknowledge an alert",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "alerts",
+  "description": "Alert management commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "arm",
+  "description": "Arm a zone",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "arm_all",
+  "description": "Arm all zones",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check",
+  "description": "Check for intrusion",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "clip",
+  "description": "Capture motion clip",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "camera": {
+     "type": "string",
+     "description": "Camera ID"
+    },
+    "zone": {
+     "type": "string",
+     "description": "Zone ID"
+    },
+    "duration": {
+     "type": "integer",
+     "description": "Duration in seconds",
+     "default": 30
+    }
+   },
+   "required": [
+    "camera",
+    "zone"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "closed_loop",
+  "description": "Run closed-loop response",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "compose",
+  "description": "Compose intrusion notification",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "recipient": {
+     "type": "string",
+     "description": "Recipient name"
+    },
+    "contact": {
+     "type": "string",
+     "description": "Recipient contact"
+    },
+    "alert_id": {
+     "type": "string",
+     "description": "Alert ID"
+    }
+   },
+   "required": [
+    "recipient",
+    "contact",
+    "alert_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "contacts",
+  "description": "Get emergency contacts",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create",
+  "description": "Create notification",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Notification type"
+    },
+    "zone": {
+     "type": "string",
+     "description": "Zone ID"
+    },
+    "description": {
+     "type": "string",
+     "description": "Description"
+    },
+    "severity": {
+     "type": "string",
+     "description": "Severity"
+    },
+    "source": {
+     "type": "string",
+     "description": "Source"
+    },
+    "recipient": {
+     "type": "string",
+     "description": "Recipient name"
+    },
+    "contact": {
+     "type": "string",
+     "description": "Recipient contact"
+    },
+    "subject": {
+     "type": "string",
+     "description": "Subject"
+    },
+    "body": {
+     "type": "string",
+     "description": "Body"
+    },
+    "priority": {
+     "type": "string",
+     "description": "Priority",
+     "default": "normal"
+    }
+   },
+   "required": [
+    "type",
+    "zone",
+    "description",
+    "severity",
+    "source",
+    "type",
+    "recipient",
+    "contact",
+    "subject",
+    "body"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "dial",
+  "description": "Dial emergency",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Call type (police/fire/ambulance)"
+    },
+    "description": {
+     "type": "string",
+     "description": "Description"
+    },
+    "location": {
+     "type": "string",
+     "description": "Location"
+    }
+   },
+   "required": [
+    "type",
+    "description",
+    "location"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "disarm",
+  "description": "Disarm a zone",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "doors",
+  "description": "Door control commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "emergency",
+  "description": "Emergency call commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "evidence",
+  "description": "Evidence capture commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "info",
+  "description": "Show environment info",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list",
+  "description": "List pending notifications",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "verbose": {
+     "type": "boolean",
+     "description": "Verbose output"
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by status"
+    },
+    "query": {
+     "type": "string",
+     "description": "Search query"
+    },
+    "call_type": {
+     "type": "string",
+     "description": "Filter by call type"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Result limit",
+     "default": 10
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "lock",
+  "description": "Lock a door",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "lock_all",
+  "description": "Lock all doors",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "zone": {
+     "type": "string",
+     "description": "Filter by zone ID"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "notifications",
+  "description": "Notification commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reset",
+  "description": "Reset environment",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "resolve",
+  "description": "Resolve an alert",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "resolution": {
+     "type": "string",
+     "description": "Resolution"
+    }
+   },
+   "required": [
+    "resolution"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "save",
+  "description": "Save evidence",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Evidence type"
+    },
+    "description": {
+     "type": "string",
+     "description": "Description"
+    },
+    "source": {
+     "type": "string",
+     "description": "Source"
+    },
+    "metadata": {
+     "type": "string",
+     "description": "Metadata JSON"
+    }
+   },
+   "required": [
+    "type",
+    "description",
+    "source"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "send",
+  "description": "Send notification",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "sensors",
+  "description": "Check zone sensors",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "snapshot",
+  "description": "Capture camera snapshot",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "camera": {
+     "type": "string",
+     "description": "Camera ID"
+    },
+    "zone": {
+     "type": "string",
+     "description": "Zone ID"
+    }
+   },
+   "required": [
+    "camera",
+    "zone"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "status",
+  "description": "Get security status",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "unlock",
+  "description": "Unlock a door",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "zones",
+  "description": "Zone management commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

@@ -1,0 +1,25 @@
+{
+  "warehouses": [
+    {
+      "warehouse_id": "wh_001",
+      "name": "East Distribution Center",
+      "location": "Newark, NJ",
+      "capacity": 50000,
+      "current_utilization": 34500
+    },
+    {
+      "warehouse_id": "wh_002",
+      "name": "West Distribution Center",
+      "location": "Los Angeles, CA",
+      "capacity": 45000,
+      "current_utilization": 28900
+    },
+    {
+      "warehouse_id": "wh_003",
+      "name": "Central Fulfillment Hub",
+      "location": "Chicago, IL",
+      "capacity": 60000,
+      "current_utilization": 41200
+    }
+  ]
+}

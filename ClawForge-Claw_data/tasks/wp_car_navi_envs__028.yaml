@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_car_navi_envs__028.md
+asset: wp_car_navi_envs__028
+runtime:
+  type: workplace
+  cwd: assets/wp_car_navi_envs__028

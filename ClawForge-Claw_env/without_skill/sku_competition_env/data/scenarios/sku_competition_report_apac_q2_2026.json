@@ -1,0 +1,64 @@
+{
+  "scenario_id": "sku_competition_report_apac_q2_2026",
+  "title": "Generate a cached same-category competitor report for LuminaSkin hydration serum",
+  "task_prompt": "You are a category intelligence analyst at Northstar Commerce Intelligence. Pull the product catalog for LuminaSkin, retrieve all SKUs for the brand, extract selling points, ingredients, and current pricing data, then generate a same-category competitor comparison report and store both artifacts in the session cache. Use the current approved APAC price book, not the archived one. The final cached report should compare LuminaSkin hydration serums against AquaPulse, DermVeil, and PureLattice.",
+  "current_time": "2026-06-16T09:00:00+00:00",
+  "workspace_account_id": "commerce_intel_team",
+  "brand_ids": [
+    "brand_luminaskin",
+    "brand_aquapulse",
+    "brand_dermveil",
+    "brand_purelattice",
+    "brand_solaroat"
+  ],
+  "sku_ids": [
+    "sku_lum_001",
+    "sku_lum_002",
+    "sku_lum_003",
+    "sku_aqp_001",
+    "sku_aqp_002",
+    "sku_drv_001",
+    "sku_drv_002",
+    "sku_plt_001",
+    "sku_plt_002",
+    "sku_sol_001"
+  ],
+  "price_book_ids": [
+    "pb_apac_q2_2026_live",
+    "pb_apac_q1_2026_archive"
+  ],
+  "attachment_paths": [
+    "current_pricebook_notice.md",
+    "category_review_template.md"
+  ],
+  "target_brand_id": "brand_luminaskin",
+  "target_category_id": "cat_hydration_serum",
+  "active_price_book_id": "pb_apac_q2_2026_live",
+  "stale_price_book_ids": [
+    "pb_apac_q1_2026_archive"
+  ],
+  "expected_target_sku_ids": [
+    "sku_lum_001",
+    "sku_lum_002",
+    "sku_lum_003"
+  ],
+  "expected_competitor_brand_ids": [
+    "brand_aquapulse",
+    "brand_dermveil",
+    "brand_purelattice"
+  ],
+  "required_attachment_paths": [
+    "current_pricebook_notice.md",
+    "category_review_template.md"
+  ],
+  "required_actions": [
+    "task",
+    "list_brands",
+    "list_skus",
+    "list_price_books",
+    "get_price_book",
+    "read_attachment",
+    "extract_brand_catalog",
+    "generate_category_report"
+  ]
+}

@@ -1,0 +1,12 @@
+id: "wp_server_fault_supabase_env__019"
+description: "Infrastructure power failure triage – identify critical UPS & service-down incidents from a fault pool and map each to a remediation action based on the on-call runbook."
+prompt: "tasks/prompts/wp_server_fault_supabase_env__019.md"
+asset: "wp_server_fault_supabase_env__019"
+runtime:
+  cwd: "assets/wp_server_fault_supabase_env__019"
+  allowed_tools:
+    - read
+    - write
+    - list
+    - scan
+  max_agent_steps: 30

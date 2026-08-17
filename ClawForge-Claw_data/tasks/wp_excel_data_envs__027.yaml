@@ -1,0 +1,4 @@
+task_id: wp_excel_data_envs__027
+prompt: tasks/prompts/wp_excel_data_envs__027.md
+asset: wp_excel_data_envs__027
+runtime: python3

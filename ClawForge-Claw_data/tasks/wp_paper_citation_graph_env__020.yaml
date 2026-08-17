@@ -1,0 +1,6 @@
+task_id: wp_paper_citation_graph_env__020
+prompt: tasks/prompts/wp_paper_citation_graph_env__020.md
+asset: wp_paper_citation_graph_env__020
+runtime:
+  python: "3.10"
+  tools: []

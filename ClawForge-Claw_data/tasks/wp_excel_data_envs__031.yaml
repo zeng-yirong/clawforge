@@ -1,0 +1,9 @@
+asset: wp_excel_data_envs__031
+prompt: tasks/prompts/wp_excel_data_envs__031.md
+runtime:
+  environment: python:3.11
+  workspace_files:
+    - data/sales_raw.csv
+    - data/backup/old_sales.csv
+    - data/readme.txt
+    - analysis/  # initially empty, agent creates output here

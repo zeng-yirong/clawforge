@@ -1,0 +1,7 @@
+task:
+  asset: wp_music_player_envs__003
+  prompt_path: tasks/prompts/wp_music_player_envs__003.md
+  runtime:
+    type: shell
+    image: python:3.12
+    timeout: 120

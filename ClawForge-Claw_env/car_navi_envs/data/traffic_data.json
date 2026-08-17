@@ -1,0 +1,15 @@
+{
+  "traffic_conditions": [
+    {"condition_id": "smooth", "name": "畅通", "description": "道路畅通无拥堵"},
+    {"condition_id": "slow", "name": "缓慢", "description": "车流量较大，通行缓慢"},
+    {"condition_id": "congested", "name": "拥堵", "description": "交通拥堵严重"},
+    {"condition_id": "blocked", "name": "封闭", "description": "道路封闭无法通行"}
+  ],
+  "road_segments": [
+    {"segment_id": "seg_001", "name": "陆家嘴环路", "condition": "smooth", "congestion_level": 0},
+    {"segment_id": "seg_002", "name": "延安高架路", "condition": "slow", "congestion_level": 2},
+    {"segment_id": "seg_003", "name": "沪渝高速", "condition": "smooth", "congestion_level": 0},
+    {"segment_id": "seg_004", "name": "中环路", "condition": "congested", "congestion_level": 3},
+    {"segment_id": "seg_005", "name": "外环高速", "condition": "slow", "congestion_level": 1}
+  ]
+}

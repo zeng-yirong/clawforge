@@ -1,0 +1,341 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "define_personality",
+    "description": "Define a new personality template for assistants.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Personality name (e.g., \"gentle_secretary\", \"gruff_bro\")."
+        },
+        "primary_trait": {
+          "type": "string",
+          "description": "Primary personality trait."
+        },
+        "secondary_traits": {
+          "type": "array",
+          "description": "[Optional] Additional traits."
+        },
+        "communication_style": {
+          "type": "string",
+          "description": "Style of communication."
+        },
+        "responsiveness": {
+          "type": "integer",
+          "description": "1-10 scale, higher = more responsive."
+        },
+        "flexibility": {
+          "type": "integer",
+          "description": "1-10 scale, higher = more flexible."
+        }
+      },
+      "required": [
+        "name",
+        "primary_trait"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_personality",
+    "description": "Retrieve a personality template by ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "personality_id": {
+          "type": "string",
+          "description": "Personality ID."
+        }
+      },
+      "required": [
+        "personality_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_personality_trait",
+    "description": "Update a specific trait or attribute of a personality.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "personality_id": {
+          "type": "string",
+          "description": "Personality ID."
+        },
+        "trait_type": {
+          "type": "string",
+          "description": "Field to update ('primary_trait', 'responsiveness', etc.)."
+        },
+        "new_value": {
+          "type": "string|integer",
+          "description": "New value for the trait."
+        }
+      },
+      "required": [
+        "personality_id",
+        "trait_type",
+        "new_value"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_assistant",
+    "description": "Register a new assistant with a specific personality.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Assistant display name."
+        },
+        "personality_id": {
+          "type": "string",
+          "description": "Personality template ID."
+        },
+        "capabilities": {
+          "type": "array",
+          "description": "List of tasks assistant can perform."
+        },
+        "availability": {
+          "type": "array",
+          "description": "[Optional] Available time slots."
+        }
+      },
+      "required": [
+        "name",
+        "personality_id",
+        "capabilities"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_assistant_availability",
+    "description": "Update the available time slots for an assistant.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID."
+        },
+        "time_slots": {
+          "type": "array",
+          "description": "New available time slots."
+        }
+      },
+      "required": [
+        "assistant_id",
+        "time_slots"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_assistants_by_trait",
+    "description": "List assistants filtered by personality trait and optionally status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "trait": {
+          "type": "string",
+          "description": "Personality trait to filter by."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Assistant status ('available', 'busy')."
+        }
+      },
+      "required": [
+        "trait"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_schedule",
+    "description": "Create a new schedule with multiple tasks.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Schedule name."
+        },
+        "tasks": {
+          "type": "array",
+          "description": "List of task definitions. Each task requires: - task_id (str): Unique task identifier. - description (str): Task description. - required_capability (str): Required assistant capability. - preferred_trait (str): Preferred assistant personality. - time_slot (str): Desired time slot. - duration (int): Duration in hours."
+        },
+        "priority": {
+          "type": "string",
+          "description": "Schedule priority ('low', 'medium', 'high')."
+        },
+        "conflict_resolution": {
+          "type": "string",
+          "description": "How to handle conflicts."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "assign_task",
+    "description": "Assign an assistant to a specific task within a schedule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "schedule_id": {
+          "type": "string",
+          "description": "Schedule ID."
+        },
+        "task_id": {
+          "type": "string",
+          "description": "Task ID within the schedule."
+        },
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID to assign."
+        }
+      },
+      "required": [
+        "schedule_id",
+        "task_id",
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "execute_schedule",
+    "description": "Execute all tasks in a schedule, respecting time slots and assignments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "schedule_id": {
+          "type": "string",
+          "description": "Schedule ID."
+        }
+      },
+      "required": [
+        "schedule_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "resolve_conflict",
+    "description": "Resolve a scheduling conflict for a specific task.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "schedule_id": {
+          "type": "string",
+          "description": "Schedule ID."
+        },
+        "task_id": {
+          "type": "string",
+          "description": "Task ID with conflict."
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Resolution method ('reschedule', 'override', 'skip')."
+        },
+        "new_time_slot": {
+          "type": "string",
+          "description": "[Optional] New time slot for rescheduling."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_schedule_summary",
+    "description": "Get a comprehensive summary of a schedule's status and assignments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "schedule_id": {
+          "type": "string",
+          "description": "Schedule ID."
+        }
+      },
+      "required": [
+        "schedule_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_assistant_performance",
+    "description": "Get performance metrics for a specific assistant.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID."
+        }
+      },
+      "required": [
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,6 @@
+asset: wp_mail_client_envs__032
+prompt: tasks/prompts/wp_mail_client_envs__032.md
+runtime:
+  cwd: assets/wp_mail_client_envs__032
+  requirements:
+    - python3

@@ -1,0 +1,11 @@
+{
+  "scenario_id": "reproduction_ledger_langgraph_q2_2026",
+  "title": "Archive open-source project reproduction ledger",
+  "task_prompt": "Read the preset open-source project documentation sample, record the local simulated reproduction steps plus the experiment result, and archive the reproduction ledger to the research knowledge-base field.",
+  "current_time": "2026-06-23T15:30:00Z",
+  "workspace_account_id": "research_repro_ops",
+  "doc_ids": ["doc_langgraph_readme"],
+  "required_doc_id": "doc_langgraph_readme",
+  "target_project_id": "proj_langgraph_sim",
+  "required_actions": ["get_project_doc", "archive_reproduction_ledger"]
+}

@@ -1,0 +1,8 @@
+asset: wp_smart_home_envs__046
+prompt: tasks/prompts/wp_smart_home_envs__046.md
+runtime:
+  os: linux
+  python: "3.10"
+  cwd: assets/wp_smart_home_envs__046
+  memory_mb: 512
+  timeout_seconds: 120

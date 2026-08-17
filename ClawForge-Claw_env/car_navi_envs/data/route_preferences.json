@@ -1,0 +1,10 @@
+{
+  "preferences": [
+    {"preference_id": "fastest", "name": "最快路线", "description": "优先选择时间最短的路线"},
+    {"preference_id": "shortest", "name": "最短路线", "description": "优先选择距离最短的路线"},
+    {"preference_id": "avoid_highway", "name": "避开高速", "description": "优先选择不上高速的路线"},
+    {"preference_id": "avoid_congestion", "name": "避开拥堵", "description": "优先选择交通畅通的路线"},
+    {"preference_id": "eco", "name": "经济路线", "description": "优先选择能耗最低的路线"},
+    {"preference_id": " Scenic", "name": "风景路线", "description": "优先选择风景优美的路线"}
+  ]
+}

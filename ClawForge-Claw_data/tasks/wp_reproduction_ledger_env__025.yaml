@@ -1,0 +1,7 @@
+task:
+  asset: wp_reproduction_ledger_env__025
+  prompt: tasks/prompts/wp_reproduction_ledger_env__025.md
+  runtime: {}
+  environment:
+    image: python:3.11-slim
+    commands: []

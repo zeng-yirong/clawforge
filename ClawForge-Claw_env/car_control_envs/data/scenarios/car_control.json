@@ -1,0 +1,157 @@
+{
+  "scenario_id": "in_car_control",
+  "title": "In-Car Vehicle Control Assistant",
+  "description": "车内车辆控制助手，帮助驾驶员通过语音或触控控制车内各项设备",
+  "task_prompt": "你是一位智能车载助手。请根据用户的需求，帮助控制车内各项设备，包括：\n\n1. **空调控制**：开关空调、调节温度、切换风速模式、改变风向、内循环/外循环切换、启用除雾/除霜功能\n\n2. **座椅控制**：调节座椅前后位置、靠背角度、腰托力度、启用座椅加热/通风功能\n\n3. **车窗/天窗控制**：开关各车窗、天窗/全景天窗、调节天窗开合程度\n\n4. **灯光控制**：调节氛围灯颜色和亮度、控制阅读灯、雾灯开关\n\n5. **驾驶模式**：切换驾驶模式（节能/舒适/运动/个性化）\n\n6. **车辆状态查询**：查询胎压、续航里程、当前油耗/电耗、机油状态\n\n7. **多媒体控制**：播放音乐、调节音量、切换电台、导航目的地设置、电话接听\n\n请使用自然语言与用户交互，准确理解用户需求并执行相应操作。",
+  "base_time": "2024-06-11T08:30:00Z",
+  "workspace_account_id": "acc_001",
+  "expected_actions": [
+    {
+      "action_type": "ac_control",
+      "description": "空调控制",
+      "examples": [
+        "打开空调",
+        "把温度调到24度",
+        "切换到外循环",
+        "开启除雾模式",
+        "把风速调小"
+      ],
+      "required_parameters": ["action", "target"]
+    },
+    {
+      "action_type": "seat_control",
+      "description": "座椅控制",
+      "examples": [
+        "打开座椅加热",
+        "把驾驶座靠背调低一点",
+        "开启座椅通风"
+      ],
+      "required_parameters": ["action", "target", "zone"]
+    },
+    {
+      "action_type": "window_control",
+      "description": "车窗/天窗控制",
+      "examples": [
+        "打开天窗",
+        "关闭右后车窗",
+        "把天窗打开一半"
+      ],
+      "required_parameters": ["action", "target"]
+    },
+    {
+      "action_type": "light_control",
+      "description": "灯光控制",
+      "examples": [
+        "把氛围灯换成蓝色",
+        "打开阅读灯",
+        "关闭氛围灯"
+      ],
+      "required_parameters": ["action", "target", "color"]
+    },
+    {
+      "action_type": "driving_mode",
+      "description": "驾驶模式切换",
+      "examples": [
+        "切换到运动模式",
+        "切换到节能模式",
+        "开启个性化模式"
+      ],
+      "required_parameters": ["mode"]
+    },
+    {
+      "action_type": "status_query",
+      "description": "车辆状态查询",
+      "examples": [
+        "当前胎压是多少",
+        "还剩多少续航里程",
+        "当前电耗多少"
+      ],
+      "required_parameters": ["query_type"]
+    },
+    {
+      "action_type": "multimedia",
+      "description": "多媒体控制",
+      "examples": [
+        "播放音乐",
+        "把音量调大一点",
+        "切换到下一首歌",
+        "导航到机场"
+      ],
+      "required_parameters": ["action", "target"]
+    }
+  ],
+  "scoring_rules": {
+    "dimensions": [
+      {
+        "dimension": "climate_control",
+        "weight": 0.25,
+        "description": "空调控制的准确性和完整性",
+        "evaluation_criteria": [
+          "正确识别空调控制意图",
+          "正确设置温度、风速、模式等参数",
+          "正确执行内/外循环切换",
+          "正确启用除雾/除霜功能"
+        ]
+      },
+      {
+        "dimension": "seat_control",
+        "weight": 0.15,
+        "description": "座椅控制的准确性和完整性",
+        "evaluation_criteria": [
+          "正确识别座椅控制意图",
+          "正确识别目标座位区域",
+          "正确执行加热/通风/位置调节"
+        ]
+      },
+      {
+        "dimension": "window_control",
+        "weight": 0.15,
+        "description": "车窗/天窗控制的准确性",
+        "evaluation_criteria": [
+          "正确识别车窗/天窗控制意图",
+          "正确识别目标窗户",
+          "正确执行开关和开合程度调节"
+        ]
+      },
+      {
+        "dimension": "light_control",
+        "weight": 0.10,
+        "description": "灯光控制的准确性",
+        "evaluation_criteria": [
+          "正确识别氛围灯控制意图",
+          "正确识别目标颜色",
+          "正确执行颜色/亮度调节"
+        ]
+      },
+      {
+        "dimension": "driving_mode",
+        "weight": 0.15,
+        "description": "驾驶模式切换的准确性",
+        "evaluation_criteria": [
+          "正确识别驾驶模式切换意图",
+          "正确切换到目标模式"
+        ]
+      },
+      {
+        "dimension": "status_query",
+        "weight": 0.10,
+        "description": "状态查询的准确性",
+        "evaluation_criteria": [
+          "正确识别查询类型",
+          "提供准确的车辆状态信息"
+        ]
+      },
+      {
+        "dimension": "multimedia",
+        "weight": 0.10,
+        "description": "多媒体控制的准确性",
+        "evaluation_criteria": [
+          "正确识别多媒体控制意图",
+          "正确执行播放/音量/导航等操作"
+        ]
+      }
+    ],
+    "passing_score": 0.80,
+    "excellent_score": 0.90
+  }
+}

@@ -1,0 +1,4 @@
+asset: wp_auditor_impersonation_guard_env__014
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__014.md
+runtime:
+  workspace: .

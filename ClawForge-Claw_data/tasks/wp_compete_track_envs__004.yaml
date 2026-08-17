@@ -1,0 +1,6 @@
+task_id: wp_compete_track_envs__004
+prompt: tasks/prompts/wp_compete_track_envs__004.md
+asset: wp_compete_track_envs__004
+runtime:
+  image: python:3.11-slim
+  command: []

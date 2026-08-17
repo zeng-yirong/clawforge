@@ -1,0 +1,7 @@
+asset: wp_offboarding_recovery_env__036
+prompt: tasks/prompts/wp_offboarding_recovery_env__036.md
+runtime:
+  image: python:3.11-slim
+  entrypoint: python
+  memory: 256
+  timeout: 120

@@ -1,0 +1,8 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "车主助手",
+  "preferred_language": "中文",
+  "default_player": "local",
+  "default_play_mode": "repeat_all",
+  "volume_level": 15
+}

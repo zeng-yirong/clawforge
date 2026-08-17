@@ -1,0 +1,11 @@
+task_id: wp_server_fault_supabase_env__013
+name: "Server Fault Triage – Kill Long Transactions"
+type: task
+prompt: tasks/prompts/wp_server_fault_supabase_env__013.md
+asset: wp_server_fault_supabase_env__013
+environment:
+  type: filesystem
+  cwd: .
+runtime:
+  timeout: 300
+  max_retries: 0

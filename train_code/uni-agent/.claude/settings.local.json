@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep -l \"_target_.*[Aa]gent[Ll]oop\\\\|name:.*agent\")",
+      "Bash(python -c \"import json;d=json.load\\(open\\('claw_envs/claw_chains/tool_env_docs/post_mails.json'\\)\\);print\\(type\\(d\\)\\);print\\(json.dumps\\(d[:2],indent=2,ensure_ascii=False\\)\\);print\\('...total',len\\(d\\)\\)\")",
+      "Bash(python -m py_compile uni_agent/reward/claw.py claw_envs/post_mails/verify.py examples/data_preprocess/claw_envs.py examples/claw_envs/smoke_test.py)",
+      "Bash(python -c ' *)",
+      "Bash(python *)",
+      "Bash(ruff check *)"
+    ]
+  }
+}

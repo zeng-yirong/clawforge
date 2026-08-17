@@ -1,0 +1,8 @@
+asset: wp_crm_envs__045
+prompt: tasks/prompts/wp_crm_envs__045.md
+env_builder: tasks/wp_crm_envs__045/env_builder.py
+verifier: scripts/wp_crm_envs__045/verify_workplace.py
+runtime:
+  image: python:3.11-slim
+  commands:
+    - pip install --quiet --no-cache-dir -r /utils/requirements.txt

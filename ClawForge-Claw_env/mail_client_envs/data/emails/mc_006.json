@@ -1,0 +1,15 @@
+{
+  "id": "mc_006",
+  "thread_id": "th_personal",
+  "folder": "inbox",
+  "sender_id": "c_friend",
+  "subject": "Re: Lunch next week?",
+  "timestamp": "2026-06-15T19:30:00+00:00",
+  "importance": "low",
+  "labels": ["personal"],
+  "has_read": false,
+  "body": "Hey! Long time no see. Want to grab lunch next Thursday? There's a new Italian place near the office. Let me know if that works for you!",
+  "attachments": [],
+  "auto_classify_suggestion": "personal",
+  "auto_archive_candidates": ["personal"]
+}

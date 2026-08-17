@@ -1,0 +1,136 @@
+{
+  "inventory": [
+    {
+      "sku": "SKU-1001",
+      "name": "Wireless Bluetooth Headphones",
+      "category": "electronics",
+      "unit_cost": 45.00,
+      "list_price": 79.99,
+      "stock_level": 150,
+      "reserved": 12,
+      "available": 138,
+      "reorder_point": 50,
+      "warehouse_id": "wh_001"
+    },
+    {
+      "sku": "SKU-1002",
+      "name": "USB-C Charging Cable",
+      "category": "accessories",
+      "unit_cost": 5.00,
+      "list_price": 12.99,
+      "stock_level": 500,
+      "reserved": 25,
+      "available": 475,
+      "reorder_point": 100,
+      "warehouse_id": "wh_001"
+    },
+    {
+      "sku": "SKU-2001",
+      "name": "Ergonomic Keyboard",
+      "category": "electronics",
+      "unit_cost": 85.00,
+      "list_price": 149.99,
+      "stock_level": 45,
+      "reserved": 8,
+      "available": 37,
+      "reorder_point": 20,
+      "warehouse_id": "wh_002"
+    },
+    {
+      "sku": "SKU-3001",
+      "name": "4K Monitor 27-inch",
+      "category": "electronics",
+      "unit_cost": 220.00,
+      "list_price": 349.99,
+      "stock_level": 30,
+      "reserved": 5,
+      "available": 25,
+      "reorder_point": 15,
+      "warehouse_id": "wh_003"
+    },
+    {
+      "sku": "SKU-3002",
+      "name": "Monitor Stand",
+      "category": "accessories",
+      "unit_cost": 25.00,
+      "list_price": 49.99,
+      "stock_level": 80,
+      "reserved": 3,
+      "available": 77,
+      "reorder_point": 25,
+      "warehouse_id": "wh_003"
+    },
+    {
+      "sku": "SKU-4001",
+      "name": "Portable SSD 1TB",
+      "category": "electronics",
+      "unit_cost": 75.00,
+      "list_price": 129.99,
+      "stock_level": 60,
+      "reserved": 10,
+      "available": 50,
+      "reorder_point": 30,
+      "warehouse_id": "wh_001"
+    },
+    {
+      "sku": "SKU-5001",
+      "name": "Webcam HD 1080p",
+      "category": "electronics",
+      "unit_cost": 38.00,
+      "list_price": 69.99,
+      "stock_level": 95,
+      "reserved": 15,
+      "available": 80,
+      "reorder_point": 40,
+      "warehouse_id": "wh_002"
+    },
+    {
+      "sku": "SKU-6001",
+      "name": "Mechanical Keyboard Switches",
+      "category": "parts",
+      "unit_cost": 12.00,
+      "list_price": 24.99,
+      "stock_level": 200,
+      "reserved": 20,
+      "available": 180,
+      "reorder_point": 50,
+      "warehouse_id": "wh_003"
+    },
+    {
+      "sku": "SKU-7001",
+      "name": "Laptop Stand Aluminum",
+      "category": "accessories",
+      "unit_cost": 48.00,
+      "list_price": 89.99,
+      "stock_level": 55,
+      "reserved": 7,
+      "available": 48,
+      "reorder_point": 20,
+      "warehouse_id": "wh_002"
+    },
+    {
+      "sku": "SKU-8001",
+      "name": "USB Hub 7-Port",
+      "category": "accessories",
+      "unit_cost": 22.00,
+      "list_price": 45.99,
+      "stock_level": 120,
+      "reserved": 10,
+      "available": 110,
+      "reorder_point": 35,
+      "warehouse_id": "wh_001"
+    },
+    {
+      "sku": "SKU-9001",
+      "name": "Wireless Mouse",
+      "category": "electronics",
+      "unit_cost": 18.00,
+      "list_price": 35.99,
+      "stock_level": 200,
+      "reserved": 18,
+      "available": 182,
+      "reorder_point": 60,
+      "warehouse_id": "wh_003"
+    }
+  ]
+}

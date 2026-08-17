@@ -1,0 +1,7 @@
+name: wp_post_mails__047
+description: "Orbital Launch – Retrieve the latest approved brief and publish official X/Reddit posts with replies."
+asset: wp_post_mails__047
+prompt: tasks/prompts/wp_post_mails__047.md
+runtime:
+  type: python
+  version: "3.10"

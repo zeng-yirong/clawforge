@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "external_disclosure_policy.md",
+      "title": "External Disclosure Policy",
+      "kind": "security_policy",
+      "description": "Policy for unpublished technical and finance document access."
+    }
+  ]
+}

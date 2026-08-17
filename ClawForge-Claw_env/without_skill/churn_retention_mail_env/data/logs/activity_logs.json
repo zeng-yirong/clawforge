@@ -1,0 +1,18 @@
+{
+  "activity_logs": [
+    {
+      "customer_id": "cust_fin_001",
+      "risk_level": "high",
+      "last_active_days": 19,
+      "usage_trend": "down",
+      "ticket_sentiment": "negative"
+    },
+    {
+      "customer_id": "cust_retail_001",
+      "risk_level": "low",
+      "last_active_days": 3,
+      "usage_trend": "stable",
+      "ticket_sentiment": "neutral"
+    }
+  ]
+}

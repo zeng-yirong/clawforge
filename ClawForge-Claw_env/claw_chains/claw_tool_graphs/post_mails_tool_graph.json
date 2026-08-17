@@ -1,0 +1,439 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_emails",
+      "required_args": [],
+      "id": "list-emails"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_posts",
+      "required_args": [],
+      "id": "list-posts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "publish_post",
+      "required_args": [
+        "--platform",
+        "--content"
+      ],
+      "id": "publish-post"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-id"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_email",
+      "required_args": [
+        "--email-id"
+      ],
+      "id": "read-email"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "reply_post",
+      "required_args": [
+        "--post-id",
+        "--content"
+      ],
+      "id": "reply-post"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "view_post",
+      "required_args": [
+        "--post-id"
+      ],
+      "id": "view-post"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "publish-post"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "reply-post"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "publish-post"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "reply-post"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_email_id_for",
+      "tier": "dataflow",
+      "source": "list-emails",
+      "target": "read-email"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-emails",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-emails",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "list-emails",
+      "target": "list-posts"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_post_id_for",
+      "tier": "dataflow",
+      "source": "list-posts",
+      "target": "view-post"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_post_id_for",
+      "tier": "dataflow",
+      "source": "list-posts",
+      "target": "reply-post"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-posts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-posts",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "list-posts",
+      "target": "list-emails"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_post_id_for",
+      "tier": "dataflow",
+      "source": "publish-post",
+      "target": "view-post"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_post_id_for",
+      "tier": "dataflow",
+      "source": "publish-post",
+      "target": "reply-post"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "publish-post",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "publish-post",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "publish-post",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "publish-post",
+      "target": "list-posts"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-email",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-email",
+      "target": "find"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reply-post",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reply-post",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "reply-post",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "reply-post",
+      "target": "list-posts"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-emails"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-posts"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-email"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "view-post"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "view-post",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "view-post",
+      "target": "find"
+    }
+  ]
+}

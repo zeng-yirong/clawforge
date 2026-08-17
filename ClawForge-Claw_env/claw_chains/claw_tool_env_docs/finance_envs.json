@@ -1,0 +1,768 @@
+{
+  "env_name": "finance_envs",
+  "rel_path": "finance_envs",
+  "cli_module": "finance_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "FINANCE_SESSION_ID",
+    "state_env": "FINANCE_STATE_ROOT",
+    "scenario_env": "FINANCE_SCENARIO_ID",
+    "default_scenario_id": "multi_dim_brief_tech_sector"
+  },
+  "visible_verbs": [
+    {
+      "verb": "create-brief",
+      "action": "create_brief",
+      "role": "produce",
+      "help": "Create a new investment brief.",
+      "args": [
+        {
+          "name": "--ticker",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--brief-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--summary",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--investment-rationale",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--risks",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--valuation-methodology",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--key-metrics",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "JSON string",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-earnings-summary",
+      "action": "create_earnings_summary",
+      "role": "produce",
+      "help": "Create earnings summary for multiple tickers.",
+      "args": [
+        {
+          "name": "--symbols",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated tickers",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-sector-overview",
+      "action": "generate_sector_overview",
+      "role": "produce",
+      "help": "Generate sector overview report.",
+      "args": [
+        {
+          "name": "--sector",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-brief",
+      "action": "get_brief",
+      "role": "read",
+      "help": "Get detailed brief content.",
+      "args": [
+        {
+          "name": "--brief-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-earnings",
+      "action": "get_earnings",
+      "role": "read",
+      "help": "Get detailed earnings information.",
+      "args": [
+        {
+          "name": "--earnings-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-news",
+      "action": "get_news",
+      "role": "read",
+      "help": "Get full news article content.",
+      "args": [
+        {
+          "name": "--news-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-stock",
+      "action": "get_stock",
+      "role": "read",
+      "help": "Get detailed stock information.",
+      "args": [
+        {
+          "name": "--symbol",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-briefs",
+      "action": "list_briefs",
+      "role": "read",
+      "help": "List investment briefs.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--ticker",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--brief-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-earnings",
+      "action": "list_earnings",
+      "role": "read",
+      "help": "List earnings records.",
+      "args": [
+        {
+          "name": "--symbol",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--beat-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-news",
+      "action": "list_news",
+      "role": "read",
+      "help": "List financial news articles.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--symbol",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-stocks",
+      "action": "list_stocks",
+      "role": "read",
+      "help": "List available stocks.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sector",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-market-cap",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "provide-recommendations",
+      "action": "provide_recommendations",
+      "role": "other",
+      "help": "Get investment recommendations for tickers.",
+      "args": [
+        {
+          "name": "--symbols",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated tickers",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "review-brief",
+      "action": "review_brief",
+      "role": "other",
+      "help": "Review a submitted brief.",
+      "args": [
+        {
+          "name": "--brief-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--decision",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "approve",
+            "reject",
+            "request_changes"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--comments",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "screen-stocks",
+      "action": "screen_stocks",
+      "role": "other",
+      "help": "Screen stocks by criteria.",
+      "args": [
+        {
+          "name": "--sector",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-market-cap",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--max-pe-ratio",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-revenue-growth",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-dividend-yield",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sort-by",
+          "required": false,
+          "has_default": true,
+          "default": "market_cap",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "submit-brief",
+      "action": "submit_brief",
+      "role": "other",
+      "help": "Submit brief for review.",
+      "args": [
+        {
+          "name": "--brief-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "update-brief",
+      "action": "update_brief",
+      "role": "produce",
+      "help": "Update brief content.",
+      "args": [
+        {
+          "name": "--brief-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--updates",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "JSON string",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-news",
+      "dst": "get-news",
+      "weight": 0.8,
+      "relationship": "produces_news_id_for"
+    },
+    {
+      "src": "list-earnings",
+      "dst": "get-earnings",
+      "weight": 0.8,
+      "relationship": "produces_earnings_id_for"
+    },
+    {
+      "src": "create-earnings-summary",
+      "dst": "get-earnings",
+      "weight": 0.8,
+      "relationship": "produces_earnings_id_for"
+    },
+    {
+      "src": "list-briefs",
+      "dst": "get-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "list-briefs",
+      "dst": "update-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "list-briefs",
+      "dst": "submit-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "list-briefs",
+      "dst": "review-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "create-brief",
+      "dst": "get-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "create-brief",
+      "dst": "update-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "create-brief",
+      "dst": "submit-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    },
+    {
+      "src": "create-brief",
+      "dst": "review-brief",
+      "weight": 0.8,
+      "relationship": "produces_brief_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "multi_dim_brief_tech_sector": [
+      "list_stocks",
+      "get_stock",
+      "list_news",
+      "list_earnings",
+      "screen_stocks",
+      "create_brief",
+      "update_brief"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "multi_dim_brief_tech_sector"
+  ]
+}

@@ -1,0 +1,8 @@
+name: wp_cloud_cost_ledger_env__045
+description: Generate monthly cost report from resource ledger and pricing catalog
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__045.md
+asset: wp_cloud_cost_ledger_env__045
+runtime:
+  type: python
+  workdir: assets/wp_cloud_cost_ledger_env__045
+  timeout: 120

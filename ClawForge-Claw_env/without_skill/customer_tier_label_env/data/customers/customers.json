@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "customer_id": "cust_fin_001",
+      "customer_name": "LedgerFlow",
+      "industry": "fintech",
+      "tier": "mid_market",
+      "labels": [],
+      "owner_name": "Nora Yi"
+    },
+    {
+      "customer_id": "cust_health_001",
+      "customer_name": "CarePulse",
+      "industry": "healthcare",
+      "tier": "enterprise",
+      "labels": [],
+      "owner_name": "Nora Yi"
+    }
+  ]
+}

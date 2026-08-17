@@ -1,0 +1,302 @@
+{
+  "env_name": "car_navi_envs",
+  "rel_path": "car_navi_envs",
+  "cli_module": "car_navi_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "CAR_NAVI_SESSION_ID",
+    "state_env": "CAR_NAVI_STATE_ROOT",
+    "scenario_env": "CAR_NAVI_SCENARIO_ID",
+    "default_scenario_id": "in_car_navigation"
+  },
+  "visible_verbs": [
+    {
+      "verb": "add-waypoint",
+      "action": "add_waypoint",
+      "role": "other",
+      "help": "Add a waypoint",
+      "args": [
+        {
+          "name": "--poi-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "arrive-destination",
+      "action": "arrive_destination",
+      "role": "other",
+      "help": "Confirm arrival at destination",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "arrive-waypoint",
+      "action": "arrive_waypoint",
+      "role": "other",
+      "help": "Confirm arrival at waypoint",
+      "args": [
+        {
+          "name": "--waypoint-index",
+          "required": false,
+          "has_default": true,
+          "default": 0,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "cancel-nav",
+      "action": "cancel_nav",
+      "role": "other",
+      "help": "Cancel navigation",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "charging-plan",
+      "action": "charging_plan",
+      "role": "other",
+      "help": "Plan EV charging",
+      "args": [
+        {
+          "name": "--target-charge",
+          "required": false,
+          "has_default": true,
+          "default": 80,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--max-stops",
+          "required": false,
+          "has_default": true,
+          "default": 3,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "remove-waypoint",
+      "action": "remove_waypoint",
+      "role": "other",
+      "help": "Remove a waypoint",
+      "args": [
+        {
+          "name": "--waypoint-index",
+          "required": false,
+          "has_default": true,
+          "default": 0,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reroute",
+      "action": "reroute",
+      "role": "other",
+      "help": "Recalculate route",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "route-preference",
+      "action": "route_preference",
+      "role": "other",
+      "help": "Set route preference",
+      "args": [
+        {
+          "name": "--preference",
+          "required": false,
+          "has_default": true,
+          "default": "fastest",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "search-poi",
+      "action": "search_poi",
+      "role": "read",
+      "help": "Search for POIs",
+      "args": [
+        {
+          "name": "--category",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--keyword",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "start-nav",
+      "action": "start_nav",
+      "role": "other",
+      "help": "Start navigation to a destination",
+      "args": [
+        {
+          "name": "--poi-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "traffic",
+      "action": "traffic",
+      "role": "other",
+      "help": "Query traffic information",
+      "args": [
+        {
+          "name": "--query-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "search-poi",
+      "dst": "start-nav",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    },
+    {
+      "src": "search-poi",
+      "dst": "add-waypoint",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    },
+    {
+      "src": "remove-waypoint",
+      "dst": "start-nav",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    },
+    {
+      "src": "remove-waypoint",
+      "dst": "add-waypoint",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    },
+    {
+      "src": "arrive-waypoint",
+      "dst": "start-nav",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    },
+    {
+      "src": "arrive-waypoint",
+      "dst": "add-waypoint",
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "in_car_navigation",
+    "in_navigation"
+  ]
+}

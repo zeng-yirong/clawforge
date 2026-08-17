@@ -1,0 +1,788 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "acknowledge_alert",
+  "description": "Acknowledge an alert to mark it as handled.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "alert_id": {
+     "type": "string",
+     "description": "ID of the alert to acknowledge."
+    },
+    "acknowledged_by": {
+     "type": "string",
+     "description": "Person or system acknowledging the alert."
+    },
+    "notes": {
+     "type": "string",
+     "description": "Optional notes about the acknowledgment."
+    }
+   },
+   "required": [
+    "alert_id",
+    "acknowledged_by"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "analyze_acquisition_sources",
+  "description": "Analyze acquisition sources.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "compare_competitors",
+  "description": "Compare competitors.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_ids": {
+     "type": "string",
+     "description": "Comma-separated list"
+    },
+    "metrics": {
+     "type": "string",
+     "description": "Comma-separated list"
+    }
+   },
+   "required": [
+    "competitor_ids"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_alert",
+  "description": "Create a new alert for monitoring.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "alert_type": {
+     "type": "string",
+     "description": "Type of alert (e.g., regulatory change)."
+    },
+    "title": {
+     "type": "string",
+     "description": "Short title for the alert."
+    },
+    "description": {
+     "type": "string",
+     "description": "Detailed description of the alert."
+    },
+    "severity": {
+     "type": "string",
+     "description": "Severity level (e.g., low, medium, high)."
+    },
+    "related_competitor_id": {
+     "type": "string",
+     "description": "ID of related competitor, if any."
+    },
+    "related_policy_id": {
+     "type": "string",
+     "description": "ID of related policy, if any."
+    }
+   },
+   "required": [
+    "alert_type",
+    "title",
+    "description",
+    "severity"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_market_report",
+  "description": "Create a new market analysis report.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "title": {
+     "type": "string",
+     "description": "Title of the report."
+    },
+    "report_type": {
+     "type": "string",
+     "description": "Type of report (e.g., competitive analysis)."
+    },
+    "competitor_ids": {
+     "type": "string",
+     "description": "List of competitor IDs to include."
+    },
+    "include_sections": {
+     "type": "string",
+     "description": "Sections to include in the report."
+    },
+    "findings": {
+     "type": "string",
+     "description": "Key findings or data for the report."
+    }
+   },
+   "required": [
+    "title",
+    "report_type",
+    "competitor_ids",
+    "include_sections",
+    "findings"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "filter_policies_by_competitor",
+  "description": "Filter regulatory policies by a specific competitor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_id": {
+     "type": "string",
+     "description": "ID of the competitor to filter by."
+    },
+    "impact_level": {
+     "type": "string",
+     "description": "Minimum impact level to filter."
+    }
+   },
+   "required": [
+    "competitor_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finalize_report",
+  "description": "Finalize a report to make it read-only.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "report_id": {
+     "type": "string",
+     "description": "ID of the report to finalize."
+    }
+   },
+   "required": [
+    "report_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_competitive_landscape",
+  "description": "Generate competitive landscape.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_ids": {
+     "type": "string",
+     "description": "Comma-separated list"
+    }
+   },
+   "required": [
+    "competitor_ids"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_regulatory_summary",
+  "description": "Generate a summary of regulatory impacts.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_ids": {
+     "type": "string",
+     "description": "List of competitor IDs to consider."
+    },
+    "impact_filter": {
+     "type": "string",
+     "description": "Filter by impact level (e.g., high)."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_user_acquisition_analysis",
+  "description": "Generate analysis of user acquisition cohorts.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "cohort_filter": {
+     "type": "string",
+     "description": "Filter criteria for user cohorts."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_competitor",
+  "description": "Get detailed information about a competitor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_id": {
+     "type": "string",
+     "description": "ID of the competitor to retrieve."
+    }
+   },
+   "required": [
+    "competitor_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_policy",
+  "description": "Get detailed information about a regulatory policy.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "policy_id": {
+     "type": "string",
+     "description": "ID of the policy to retrieve."
+    }
+   },
+   "required": [
+    "policy_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_policy_impact",
+  "description": "Get impact analysis of a specific policy.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "policy_id": {
+     "type": "string",
+     "description": "ID of the policy to analyze."
+    },
+    "competitor_ids": {
+     "type": "string",
+     "description": "List of competitor IDs to include."
+    }
+   },
+   "required": [
+    "policy_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_regulatory_risks",
+  "description": "Get regulatory risks for a competitor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "competitor_id": {
+     "type": "string",
+     "description": "ID of the competitor to assess."
+    },
+    "min_impact_level": {
+     "type": "string",
+     "description": "Minimum impact level to include.",
+     "default": "medium"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_user",
+  "description": "Get detailed information about a user.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "ID of the user to retrieve."
+    }
+   },
+   "required": [
+    "user_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_alerts",
+  "description": "List alerts with optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "alert_type": {
+     "type": "string",
+     "description": "Filter by alert type."
+    },
+    "severity": {
+     "type": "string",
+     "description": "Filter by severity level."
+    },
+    "acknowledged": {
+     "type": "string",
+     "description": "Filter by acknowledged status (boolean).",
+     "enum": [
+      "true",
+      "false"
+     ]
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of alerts to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_competitors",
+  "description": "List competitors with search and filter options.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for competitor name.",
+     "default": ""
+    },
+    "sector": {
+     "type": "string",
+     "description": "Filter by sector."
+    },
+    "min_market_share": {
+     "type": "number",
+     "description": "Minimum market share percentage."
+    },
+    "sort_by": {
+     "type": "string",
+     "description": "Sort field (e.g., market_share).",
+     "default": "market_cap"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_policies",
+  "description": "List regulatory policies with filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for policy title or description.",
+     "default": ""
+    },
+    "policy_type": {
+     "type": "string",
+     "description": "Filter by policy type."
+    },
+    "jurisdiction": {
+     "type": "string",
+     "description": "Filter by jurisdiction."
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by policy status (e.g., active)."
+    },
+    "impact_level": {
+     "type": "string",
+     "description": "Filter by impact level."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of policies to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_reports",
+  "description": "List reports with optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "report_type": {
+     "type": "string",
+     "description": "Filter by report type."
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by report status (e.g., draft)."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of reports to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_users",
+  "description": "List users with search and filter options.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query for user name or email.",
+     "default": ""
+    },
+    "acquisition_source": {
+     "type": "string",
+     "description": "Filter by acquisition source."
+    },
+    "user_tier": {
+     "type": "string",
+     "description": "Filter by user tier."
+    },
+    "cohort": {
+     "type": "string",
+     "description": "Filter by cohort."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of users to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "screen_competitors",
+  "description": "Screen competitors by financial and market criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "min_market_cap": {
+     "type": "integer",
+     "description": "Minimum market capitalization."
+    },
+    "max_market_cap": {
+     "type": "integer",
+     "description": "Maximum market capitalization."
+    },
+    "min_market_share": {
+     "type": "number",
+     "description": "Minimum market share percentage."
+    },
+    "min_revenue_growth": {
+     "type": "number",
+     "description": "Minimum annual revenue growth."
+    },
+    "sectors": {
+     "type": "string",
+     "description": "List of sectors to include."
+    },
+    "sort_by": {
+     "type": "string",
+     "description": "Sort field (e.g., market_cap).",
+     "default": "market_cap"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "screen_users",
+  "description": "Screen users by engagement and value criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "min_lifetime_value": {
+     "type": "number",
+     "description": "Minimum lifetime value of the user."
+    },
+    "min_engagement_score": {
+     "type": "number",
+     "description": "Minimum engagement score."
+    },
+    "user_tiers": {
+     "type": "string",
+     "description": "List of user tiers to include."
+    },
+    "acquisition_sources": {
+     "type": "string",
+     "description": "List of acquisition sources to include."
+    },
+    "sort_by": {
+     "type": "string",
+     "description": "Sort field (e.g., lifetime_value).",
+     "default": "lifetime_value"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "update_user_tier",
+  "description": "Update a user's tier assignment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "ID of the user to update."
+    },
+    "new_tier": {
+     "type": "string",
+     "description": "New tier level (e.g., premium)."
+    },
+    "reason": {
+     "type": "string",
+     "description": "Reason for the tier change."
+    }
+   },
+   "required": [
+    "user_id",
+    "new_tier",
+    "reason"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

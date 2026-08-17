@@ -1,0 +1,44 @@
+{
+  "contacts": [
+    {
+      "contact_id": "contact_001",
+      "name": "Sarah Chen",
+      "email": "sarah.chen@techcorp.com",
+      "role": "VP Product",
+      "team": "Product",
+      "social_handle": "@sarahchen"
+    },
+    {
+      "contact_id": "contact_002",
+      "name": "Michael Roberts",
+      "email": "mroberts@cloudmajor.io",
+      "role": "CEO",
+      "team": "Executive",
+      "social_handle": "@mroberts"
+    },
+    {
+      "contact_id": "contact_003",
+      "name": "Jennifer Wu",
+      "email": "jwu@dataflow.ai",
+      "role": "CTO",
+      "team": "Engineering",
+      "social_handle": "@jenniferwu"
+    },
+    {
+      "contact_id": "contact_004",
+      "name": "David Kim",
+      "email": "dkim@regtech.com",
+      "role": "Compliance Director",
+      "team": "Legal",
+      "social_handle": "@davidkim"
+    },
+    {
+      "contact_id": "contact_005",
+      "name": "Emily Zhang",
+      "email": "emily.zhang@smartsaas.com",
+      "role": "Head of Growth",
+      "team": "Marketing",
+      "social_handle": "@emilyzhang"
+    }
+  ]
+}

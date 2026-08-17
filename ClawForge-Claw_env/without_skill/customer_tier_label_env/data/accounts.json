@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "crm_ops_segmentation",
+      "display_name": "CRM Segmentation Ops",
+      "department": "CRM Operations",
+      "email": "crm-segmentation@northstar.example.com",
+      "permissions": ["view_customers", "read_rules", "update_customer_labels"]
+    }
+  ]
+}

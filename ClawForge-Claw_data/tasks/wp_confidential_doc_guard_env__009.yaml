@@ -1,0 +1,6 @@
+task_name: wp_confidential_doc_guard_env__009
+prompt_path: tasks/prompts/wp_confidential_doc_guard_env__009.md
+asset: wp_confidential_doc_guard_env__009
+runtime:
+  workspace: wp_confidential_doc_guard_env__009
+  timeout: 300

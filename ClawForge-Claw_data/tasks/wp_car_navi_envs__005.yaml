@@ -1,0 +1,6 @@
+version: '1.0'
+asset: wp_car_navi_envs__005
+prompt: tasks/prompts/wp_car_navi_envs__005.md
+runtime:
+  workdir: ./asset
+  python: 3.10

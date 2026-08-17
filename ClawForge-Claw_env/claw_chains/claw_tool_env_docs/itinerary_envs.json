@@ -1,0 +1,230 @@
+{
+  "env_name": "itinerary_envs",
+  "rel_path": "itinerary_envs",
+  "cli_module": "itinerary_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "ITINERARY_SESSION_ID",
+    "state_env": "ITINERARY_STATE_ROOT",
+    "scenario_env": "ITINERARY_SCENARIO_ID",
+    "default_scenario_id": "itinerary_scenario"
+  },
+  "visible_verbs": [
+    {
+      "verb": "compare-transport",
+      "action": "compare_transport",
+      "role": "other",
+      "help": "Compare transport options",
+      "args": [
+        {
+          "name": "--route-result",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-itinerary",
+      "action": "generate_itinerary",
+      "role": "produce",
+      "help": "Generate detailed itinerary",
+      "args": [
+        {
+          "name": "--routes",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--preference",
+          "required": false,
+          "has_default": true,
+          "default": "balanced",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-cities",
+      "action": "list_cities",
+      "role": "read",
+      "help": "List all cities",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "load-city",
+      "action": "load_city",
+      "role": "other",
+      "help": "Load a specific city",
+      "args": [
+        {
+          "name": "--city-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "optimize-route",
+      "action": "optimize_route",
+      "role": "other",
+      "help": "Optimize route based on criteria",
+      "args": [
+        {
+          "name": "--criteria",
+          "required": false,
+          "has_default": true,
+          "default": "balanced",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "plan-transfer",
+      "action": "plan_transfer",
+      "role": "other",
+      "help": "Plan multi-stop transfer",
+      "args": [
+        {
+          "name": "--origin",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--destination",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--waypoints",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "search-routes",
+      "action": "search_routes",
+      "role": "read",
+      "help": "Search routes between cities",
+      "args": [
+        {
+          "name": "--origin",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--destination",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "itinerary_planning_001"
+  ]
+}

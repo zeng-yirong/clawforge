@@ -1,0 +1,6 @@
+name: wp_smart_home_envs__007
+asset: wp_smart_home_envs__007
+prompt: tasks/prompts/wp_smart_home_envs__007.md
+runtime:
+  cwd: .
+  timeout: 300

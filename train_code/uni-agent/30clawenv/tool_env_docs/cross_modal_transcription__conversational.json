@@ -1,0 +1,454 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_source",
+    "description": "Register a new audio/video source for processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_url": {
+          "type": "string",
+          "description": "URL or path to the source file (YouTube URL or .m4a path)."
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Type of source - \"audio_m4a\", \"video_youtube\", etc."
+        },
+        "title": {
+          "type": "string",
+          "description": "Display title for the source."
+        },
+        "duration": {
+          "type": "integer",
+          "description": "[Optional] Duration in seconds."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional metadata: - language (str): Primary language code. - speakers (List[str]): Names of known speakers. - topics (List[str]): Expected topic tags. - quality (str): \"low\", \"medium\", or \"high\"."
+        }
+      },
+      "required": [
+        "source_url",
+        "source_type",
+        "title"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_sources",
+    "description": "List all registered sources, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by source status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "start_transcription",
+    "description": "Start a transcription task for a registered source.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "The source to transcribe."
+        },
+        "language": {
+          "type": "string",
+          "description": "[Optional] Override language for transcription."
+        },
+        "speaker_diarization": {
+          "type": "boolean",
+          "description": "Whether to identify different speakers."
+        },
+        "timestamping": {
+          "type": "boolean",
+          "description": "Whether to generate word-level timestamps."
+        }
+      },
+      "required": [
+        "source_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_transcription_status",
+    "description": "Update the status of a transcription task.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The transcription task to update."
+        },
+        "status": {
+          "type": "string",
+          "description": "New status - must be valid."
+        },
+        "progress": {
+          "type": "number",
+          "description": "[Optional] Progress percentage (0-100)."
+        },
+        "error_message": {
+          "type": "string",
+          "description": "[Optional] Error details if failed."
+        }
+      },
+      "required": [
+        "task_id",
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_transcription_result",
+    "description": "Submit the completed transcription result.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The completed transcription task."
+        },
+        "transcript_text": {
+          "type": "string",
+          "description": "Full transcript text."
+        },
+        "segments": {
+          "type": "array",
+          "description": "[Optional] Timestamped segments."
+        },
+        "word_timestamps": {
+          "type": "array",
+          "description": "[Optional] Word-level timestamps."
+        },
+        "speaker_labels": {
+          "type": "Dict",
+          "description": "[Optional] Speaker identification data."
+        },
+        "confidence_scores": {
+          "type": "Dict",
+          "description": "[Optional] Confidence metrics."
+        }
+      },
+      "required": [
+        "task_id",
+        "transcript_text"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_transcription_result",
+    "description": "Retrieve transcription result by task ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "The transcription task ID."
+        }
+      },
+      "required": [
+        "task_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_community_discussions",
+    "description": "Add community discussions related to topics from transcribed sources.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Main topic of the discussions."
+        },
+        "discussions": {
+          "type": "array",
+          "description": "List of discussion entries, each with: - content (str): Discussion text. - source (str): Where it came from. - relevance_score (float): 0-1 relevance to topic. - sentiment (str): \"positive\", \"negative\", or \"neutral\"."
+        },
+        "source_ids": {
+          "type": "array",
+          "description": "[Optional] Source IDs this relates to."
+        }
+      },
+      "required": [
+        "topic",
+        "discussions"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_community_context",
+    "description": "Retrieve community discussions for a topic with relevance filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "topic": {
+          "type": "string",
+          "description": "Topic to get discussions for."
+        },
+        "min_relevance": {
+          "type": "number",
+          "description": "Minimum relevance score (0-1)."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of discussions to return."
+        }
+      },
+      "required": [
+        "topic"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "start_summarization_job",
+    "description": "Start a summarization job for a transcribed source with community context.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "string",
+          "description": "Transcription task to summarize."
+        },
+        "summary_format": {
+          "type": "string",
+          "description": "Output format - \"bulleted\", \"paragraph\", etc."
+        },
+        "include_community_context": {
+          "type": "boolean",
+          "description": "Whether to incorporate community discussions."
+        },
+        "extract_entities": {
+          "type": "boolean",
+          "description": "Whether to extract named entities."
+        },
+        "max_length": {
+          "type": "integer",
+          "description": "[Optional] Maximum summary length in words."
+        },
+        "custom_prompt": {
+          "type": "string",
+          "description": "[Optional] Custom instructions for summarization."
+        }
+      },
+      "required": [
+        "task_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_summarization_status",
+    "description": "Update the status of a summarization job.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "description": "The summarization job to update."
+        },
+        "status": {
+          "type": "string",
+          "description": "New status - must be valid."
+        },
+        "progress": {
+          "type": "number",
+          "description": "[Optional] Progress percentage (0-100)."
+        },
+        "error_message": {
+          "type": "string",
+          "description": "[Optional] Error details if failed."
+        }
+      },
+      "required": [
+        "job_id",
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_summarization_result",
+    "description": "Submit the completed summarization result.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "description": "The completed summarization job."
+        },
+        "summary_text": {
+          "type": "string",
+          "description": "Generated summary text."
+        },
+        "key_points": {
+          "type": "array",
+          "description": "Key points extracted."
+        },
+        "entities": {
+          "type": "array",
+          "description": "[Optional] Extracted named entities."
+        },
+        "community_insights": {
+          "type": "array",
+          "description": "[Optional] Insights from community discussions."
+        },
+        "metadata": {
+          "type": "Dict",
+          "description": "[Optional] Additional metadata about the summarization."
+        }
+      },
+      "required": [
+        "job_id",
+        "summary_text",
+        "key_points"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_summarization_result",
+    "description": "Retrieve summarization result by job ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "job_id": {
+          "type": "string",
+          "description": "The summarization job ID."
+        }
+      },
+      "required": [
+        "job_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_comprehensive_report",
+    "description": "Generate a comprehensive report for a source including transcription and summary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "The source to report on."
+        }
+      },
+      "required": [
+        "source_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "query_knowledge_base",
+    "description": "Query the accumulated knowledge base for information.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Search query string."
+        },
+        "entity_type": {
+          "type": "string",
+          "description": "[Optional] Filter by entity type."
+        },
+        "min_confidence": {
+          "type": "number",
+          "description": "[Optional] Minimum confidence for entities."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "[Optional] Maximum results to return."
+        }
+      },
+      "required": [
+        "query"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_knowledge_stats",
+    "description": "Get statistics about the accumulated knowledge base.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_server_fault_supabase_env__004.md
+asset: wp_server_fault_supabase_env__004
+runtime:
+  python: "3.10"
+  timeout: 60

@@ -1,0 +1,5 @@
+prompt_path: tasks/prompts/wp_customer_tier_label_env__018.md
+asset: wp_customer_tier_label_env__018
+runtime:
+  timeout_seconds: 300
+  max_file_ops: 200

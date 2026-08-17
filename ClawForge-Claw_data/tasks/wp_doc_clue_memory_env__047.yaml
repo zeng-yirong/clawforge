@@ -1,0 +1,9 @@
+asset: wp_doc_clue_memory_env__047
+prompt: tasks/prompts/wp_doc_clue_memory_env__047.md
+runtime:
+  cwd: assets/wp_doc_clue_memory_env__047
+  shell: /bin/bash
+  env:
+    - DOC_CLUE_MEMORY_SESSION_ID: "session-047"
+    - DOC_CLUE_MEMORY_STATE_ROOT: "/tmp/dcm_state_root"
+    - DOC_CLUE_MEMORY_SCENARIO_ID: "tech_solution_signal_trace_q2_2026"

@@ -1,0 +1,16 @@
+{
+  "attachments": [
+    {
+      "path": "cost_accounting_rules.md",
+      "title": "Cloud Cost Accounting Rules",
+      "kind": "accounting_policy",
+      "description": "Defines the current approved pricing catalog, hourly baseline, and which clusters belong in the monthly report."
+    },
+    {
+      "path": "report_schema.md",
+      "title": "Monthly Cost Report Schema",
+      "kind": "report_schema",
+      "description": "Lists the minimum fields that must appear in the generated cost detail report."
+    }
+  ]
+}

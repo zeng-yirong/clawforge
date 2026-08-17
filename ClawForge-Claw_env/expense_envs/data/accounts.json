@@ -1,0 +1,9 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "张三",
+  "employee_id": "EMP001",
+  "department": "技术研发部",
+  "level": "P6",
+  "policy_tier": "standard",
+  "preferred_currency": "CNY"
+}

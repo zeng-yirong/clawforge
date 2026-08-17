@@ -1,0 +1,34 @@
+{
+  "zones": [
+    {
+      "zone_id": "front_left",
+      "name": "左前",
+      "position": "front_left",
+      "seat_type": "ventilated"
+    },
+    {
+      "zone_id": "front_right",
+      "name": "右前",
+      "position": "front_right",
+      "seat_type": "heated"
+    },
+    {
+      "zone_id": "rear_left",
+      "name": "左后",
+      "position": "rear_left",
+      "seat_type": "heated"
+    },
+    {
+      "zone_id": "rear_right",
+      "name": "右后",
+      "position": "rear_right",
+      "seat_type": "heated"
+    },
+    {
+      "zone_id": "rear_center",
+      "name": "后排中间",
+      "position": "rear_center",
+      "seat_type": "standard"
+    }
+  ]
+}

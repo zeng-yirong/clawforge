@@ -1,0 +1,12 @@
+task_name: wp_confidential_doc_guard_env__031
+asset: wp_confidential_doc_guard_env__031
+prompt_path: tasks/prompts/wp_confidential_doc_guard_env__031.md
+env_builder: tasks/wp_confidential_doc_guard_env__031/env_builder.py
+verify_script: scripts/wp_confidential_doc_guard_env__031/verify_workplace.py
+runtime:
+  cwd: assets/wp_confidential_doc_guard_env__031
+  allowed_actions:
+    - read
+    - write
+    - list
+    - finish

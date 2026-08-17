@@ -1,0 +1,5 @@
+asset: wp_itinerary_envs__000
+prompt_path: prompts/wp_itinerary_envs__000.md
+runtime:
+  type: python
+  version: "3.11"

@@ -1,0 +1,46 @@
+{
+  "ambient_lights": [
+    {
+      "color_id": "blue",
+      "name": "蓝色",
+      "hex_color": "#0066CC",
+      "effect": "冷静舒适"
+    },
+    {
+      "color_id": "green",
+      "name": "绿色",
+      "hex_color": "#00CC66",
+      "effect": "自然放松"
+    },
+    {
+      "color_id": "red",
+      "name": "红色",
+      "hex_color": "#CC3333",
+      "effect": "运动激情"
+    },
+    {
+      "color_id": "orange",
+      "name": "橙色",
+      "hex_color": "#FF9933",
+      "effect": "温暖活力"
+    },
+    {
+      "color_id": "purple",
+      "name": "紫色",
+      "hex_color": "#9933CC",
+      "effect": "浪漫优雅"
+    },
+    {
+      "color_id": "white",
+      "name": "白色",
+      "hex_color": "#FFFFFF",
+      "effect": "简约明亮"
+    },
+    {
+      "color_id": "off",
+      "name": "关闭",
+      "hex_color": "#000000",
+      "effect": "氛围灯关闭"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+asset: wp_excel_data_envs__019
+prompt: tasks/prompts/wp_excel_data_envs__019.md
+runtime:
+  image: python:3.10-slim
+  resource: small
+  timeout: 600

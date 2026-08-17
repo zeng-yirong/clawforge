@@ -1,0 +1,13 @@
+{
+  "accounts": [
+    {
+      "account_id": "research_team",
+      "name": "Competitive Intelligence Team",
+      "display_name": "CI Analyst",
+      "role": "competitive_analyst",
+      "email": "ci-analyst@company.com",
+      "team": "Strategy",
+      "permissions": ["read_competitors", "read_policies", "read_users", "write_reports"]
+    }
+  ]
+}

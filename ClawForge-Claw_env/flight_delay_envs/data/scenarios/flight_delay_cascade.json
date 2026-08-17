@@ -1,0 +1,19 @@
+{
+  "scenario_id": "flight_delay_cascade",
+  "title": "Flight Delay Cascade Response",
+  "task_prompt": "UA Flight 123 from SFO to JFK has been delayed by 2 hours. You need to:\n\n1. Identify all affected downstream bookings (hotels, transports)\n2. Adjust hotel check-in times to accommodate the new arrival\n3. Reschedule airport pickup services\n4. Send delay notification emails to all affected conference attendees\n\nThe conference (Tech Summit 2026) starts the next day, and attendees are traveling from various locations to JFK. Your goal is to ensure all travelers are informed and their arrangements are properly adjusted.",
+  "current_time": "2026-06-15T10:00:00+00:00",
+  "workspace_account_id": "acc_travel_agent",
+  "flight_ids": ["flight_ua123", "flight_aa456", "flight_dl789"],
+  "hotel_booking_ids": [],
+  "transport_booking_ids": [],
+  "conference_ids": ["conf_tech2026"],
+  "required_actions": [
+    "check_flight_status",
+    "get_affected_connections",
+    "adjust_hotel_booking",
+    "reschedule_transport_booking",
+    "compose_delay_notification",
+    "send_notification"
+  ]
+}

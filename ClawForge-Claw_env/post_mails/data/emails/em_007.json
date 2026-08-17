@@ -1,0 +1,15 @@
+{
+  "id": "em_007",
+  "thread_id": "th_vendor_invoice",
+  "folder": "inbox",
+  "sender_id": "c_finance",
+  "subject": "Design vendor invoice approved",
+  "timestamp": "2026-06-17T09:20:00+00:00",
+  "importance": "low",
+  "labels": [
+    "finance",
+    "noise"
+  ],
+  "body": "The design vendor invoice is approved. No action needed from marketing today.",
+  "attachments": []
+}

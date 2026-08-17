@@ -1,0 +1,34 @@
+{
+  "hotels": [
+    {
+      "hotel_id": "hotel_marriott_jfk",
+      "hotel_name": "Marriott JFK Airport",
+      "city": "New York",
+      "address": "123 Airport Rd, Jamaica, NY 11430",
+      "star_rating": 4,
+      "price_per_night": 189.0,
+      "available_rooms": 5,
+      "amenities": ["Free WiFi", "Airport Shuttle", "Fitness Center", "Restaurant"]
+    },
+    {
+      "hotel_id": "hotel_hilton_manhattan",
+      "hotel_name": "Hilton Manhattan",
+      "city": "New York",
+      "address": "456 Fashion Ave, New York, NY 10018",
+      "star_rating": 5,
+      "price_per_night": 329.0,
+      "available_rooms": 3,
+      "amenities": ["Free WiFi", "Business Center", "Gym", "Rooftop Bar", "Concierge"]
+    },
+    {
+      "hotel_id": "hotel_westin_ord",
+      "hotel_name": "Westin O'Hare",
+      "city": "Chicago",
+      "address": "789 Transit Rd, Rosemont, IL 60018",
+      "star_rating": 4,
+      "price_per_night": 159.0,
+      "available_rooms": 8,
+      "amenities": ["Free WiFi", "Airport Shuttle", "Indoor Pool", "Spa"]
+    }
+  ]
+}

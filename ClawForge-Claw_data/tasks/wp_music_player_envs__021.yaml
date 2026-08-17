@@ -1,0 +1,6 @@
+task_id: wp_music_player_envs__021
+prompt: tasks/prompts/wp_music_player_envs__021.md
+asset: wp_music_player_envs__021
+runtime:
+  entrypoint: python
+  workdir: assets/wp_music_player_envs__021

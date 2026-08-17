@@ -1,0 +1,212 @@
+{
+  "env_name": "fault_postmortem_kb_env",
+  "rel_path": "without_skill/fault_postmortem_kb_env",
+  "cli_module": "without_skill.fault_postmortem_kb_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "FAULT_POSTMORTEM_KB_SESSION_ID",
+    "state_env": "FAULT_POSTMORTEM_KB_STATE_ROOT",
+    "scenario_env": "FAULT_POSTMORTEM_KB_SCENARIO_ID",
+    "default_scenario_id": "fault_postmortem_checkout_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-postmortem",
+      "action": "generate_postmortem",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--fault-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-fault-case",
+      "action": "get_fault_case",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--fault-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-fault-cases",
+      "action": "list_fault_cases",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-knowledge-entries",
+      "action": "list_knowledge_entries",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-fault-cases",
+      "dst": "get-fault-case",
+      "weight": 0.8,
+      "relationship": "produces_fault_id_for"
+    },
+    {
+      "src": "list-fault-cases",
+      "dst": "generate-postmortem",
+      "weight": 0.8,
+      "relationship": "produces_fault_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "fault_postmortem_checkout_q2_2026": [
+      "get_fault_case",
+      "read_attachment",
+      "generate_postmortem"
+    ]
+  },
+  "anchor_keys": [
+    "expected_repair_plan",
+    "expected_root_cause",
+    "required_actions",
+    "required_attachment_path",
+    "target_fault_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "fault_postmortem_checkout_q2_2026"
+  ]
+}

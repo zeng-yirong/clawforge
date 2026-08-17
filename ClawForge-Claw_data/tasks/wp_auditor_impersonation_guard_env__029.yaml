@@ -1,0 +1,12 @@
+id: wp_auditor_impersonation_guard_env__029
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__029.md
+asset: wp_auditor_impersonation_guard_env__029
+runtime:
+  cwd: assets/wp_auditor_impersonation_guard_env__029
+  max_iterations: 30
+  allowed_actions:
+    - read
+    - write
+    - edit
+    - find
+    - grep

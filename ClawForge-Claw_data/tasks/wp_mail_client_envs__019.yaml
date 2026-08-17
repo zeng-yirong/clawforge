@@ -1,0 +1,6 @@
+name: wp_mail_client_envs__019
+prompt: tasks/prompts/wp_mail_client_envs__019.md
+asset: wp_mail_client_envs__019
+runtime:
+  image: python:3.11
+  workspace: assets/wp_mail_client_envs__019

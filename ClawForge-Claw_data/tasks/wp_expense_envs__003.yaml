@@ -1,0 +1,7 @@
+version: 1
+asset: wp_expense_envs__003
+type: file_workplace
+prompt: tasks/prompts/wp_expense_envs__003.md
+runtime:
+  language: python
+  entry: tasks/wp_expense_envs__003/env_builder.py

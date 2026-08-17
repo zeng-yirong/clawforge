@@ -1,0 +1,9 @@
+prompt: tasks/prompts/wp_expense_envs__007.md
+asset: wp_expense_envs__007
+runtime:
+  image: python:3.11-slim
+  entrypoint: /bin/bash
+  timeout: 120
+resources:
+  cpu: 1
+  memory: 512Mi

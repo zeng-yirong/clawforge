@@ -1,0 +1,8 @@
+task_id: "wp_performance_review_env__033"
+asset: "wp_performance_review_env__033"
+prompt_path: "tasks/prompts/wp_performance_review_env__033.md"
+runtime:
+  timeout: 300
+  max_iterations: 50
+  entrypoint: ""
+  environment_variables: {}

@@ -1,0 +1,8 @@
+task_name: wp_churn_retention_mail_env__024
+prompt_path: tasks/prompts/wp_churn_retention_mail_env__024.md
+asset: wp_churn_retention_mail_env__024
+runtime_config:
+  timeout: 300
+  workdir_relative: true
+  allowed_tools: []
+  max_steps: 50

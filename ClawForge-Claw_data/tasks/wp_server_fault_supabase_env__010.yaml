@@ -1,0 +1,7 @@
+workflow: standalone
+prompt: tasks/prompts/wp_server_fault_supabase_env__010.md
+asset: wp_server_fault_supabase_env__010
+runtime:
+  python: "3.10"
+  working_directory: assets/wp_server_fault_supabase_env__010
+  entrypoint: tasks/wp_server_fault_supabase_env__010/env_builder.py

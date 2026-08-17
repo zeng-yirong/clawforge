@@ -1,0 +1,17 @@
+{
+  "scenarios": [
+    {
+      "scenario_id": "sensor_monitoring",
+      "name": "Sensor Monitoring Scenario",
+      "description": "Real-time monitoring of temperature, humidity, air quality, and energy consumption with anomaly detection and reporting",
+      "initial_state": {
+        "meta": {
+          "current_time": "2026-06-10T00:00:00"
+        }
+      },
+      "report_weight": 0.4,
+      "anomaly_weight": 0.3,
+      "notification_weight": 0.3
+    }
+  ]
+}

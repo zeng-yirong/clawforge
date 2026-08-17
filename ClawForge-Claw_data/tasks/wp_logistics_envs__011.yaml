@@ -1,0 +1,6 @@
+asset: wp_logistics_envs__011
+prompt_path: tasks/prompts/wp_logistics_envs__011.md
+runtime:
+  language: python
+  version: "3.10"
+  cwd: assets/wp_logistics_envs__011

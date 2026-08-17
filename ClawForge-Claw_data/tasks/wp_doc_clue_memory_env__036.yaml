@@ -1,0 +1,11 @@
+name: wp_doc_clue_memory_env__036
+asset: wp_doc_clue_memory_env__036
+prompt: tasks/prompts/wp_doc_clue_memory_env__036.md
+runtime:
+  cwd: "."
+  entrypoint: dummy_entrypoint
+  shell: bash
+  timeout_seconds: 120
+  allow_network: false
+  files:
+    - "clues/clue_list.json"

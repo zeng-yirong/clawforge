@@ -1,0 +1,1 @@
+嘿，工程师，我的车载音乐系统出问题了。我正在“夜驾驶”歌单上听着歌，想切到下一首，但系统总报错说找不到文件。我怀疑歌单里有几个歌曲ID是无效的。我已经把当前播放的歌曲ID记录到了 `current_song.txt`，歌单数据在 `data/playlists/playlists.json`，歌曲库在 `data/songs/songs.json`。你帮我做件事：找出在“夜驾驶”歌单中，当前歌曲后面那首真正能播放的歌曲（跳过那些无效的ID），然后把它的ID写到 `ops/next_song.json` 里。格式很简单：`{"next_song_id": "xxx"}`。我等着用。

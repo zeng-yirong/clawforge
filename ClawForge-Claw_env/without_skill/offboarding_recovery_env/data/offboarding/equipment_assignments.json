@@ -1,0 +1,14 @@
+{
+  "equipment_assignments": [
+    {
+      "employee_id": "emp_ops_001",
+      "asset_tag": "LT-2041",
+      "status": "assigned"
+    },
+    {
+      "employee_id": "emp_ops_001",
+      "asset_tag": "BG-8821",
+      "status": "assigned"
+    }
+  ]
+}

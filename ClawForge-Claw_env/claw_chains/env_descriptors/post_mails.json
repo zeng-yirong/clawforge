@@ -1,0 +1,414 @@
+{
+  "env_name": "post_mails",
+  "rel_path": "post_mails",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_attachment_ids",
+    "required_posts",
+    "required_replies"
+  ],
+  "files": [
+    {
+      "path": "data/emails/<record_id>.json",
+      "dir": "data/emails",
+      "kind": "per_record",
+      "record_key": "id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "id (str)"
+        },
+        {
+          "name": "thread_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "thread_id (str)"
+        },
+        {
+          "name": "folder",
+          "type": "str",
+          "required": true,
+          "desc": "folder (str)"
+        },
+        {
+          "name": "sender_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "sender_id (str)"
+        },
+        {
+          "name": "subject",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "subject (str)"
+        },
+        {
+          "name": "timestamp",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "timestamp (str)"
+        },
+        {
+          "name": "importance",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "low",
+            "medium"
+          ],
+          "desc": "importance (str)"
+        },
+        {
+          "name": "labels",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "labels (list)"
+        },
+        {
+          "name": "body",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "body (str)"
+        },
+        {
+          "name": "attachments",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "attachments (list)"
+        }
+      ],
+      "examples": [
+        "em_001",
+        "em_002",
+        "em_003",
+        "em_004",
+        "em_005"
+      ],
+      "desc": "per_record file data/emails/<record_id>.json"
+    },
+    {
+      "path": "data/social/<record_id>.json",
+      "dir": "data/social",
+      "kind": "per_record",
+      "record_key": "post_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "post_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "post_id (str)"
+        },
+        {
+          "name": "platform",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "reddit",
+            "x"
+          ],
+          "desc": "platform (str)"
+        },
+        {
+          "name": "author_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "author_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "community",
+          "type": "str",
+          "required": true,
+          "desc": "community (str)"
+        },
+        {
+          "name": "content",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "content (str)"
+        },
+        {
+          "name": "timestamp",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "timestamp (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "needs_response",
+          "type": "bool",
+          "required": true,
+          "desc": "needs_response (bool)"
+        },
+        {
+          "name": "replies",
+          "type": "list",
+          "required": true,
+          "desc": "replies (list)"
+        }
+      ],
+      "examples": [
+        "rdt_001",
+        "rdt_002",
+        "x_001",
+        "x_002",
+        "x_003"
+      ],
+      "desc": "per_record file data/social/<record_id>.json"
+    },
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "brand_name",
+          "type": "str",
+          "required": true,
+          "desc": "brand_name (str)"
+        },
+        {
+          "name": "x_handle",
+          "type": "str",
+          "required": true,
+          "desc": "x_handle (str)"
+        },
+        {
+          "name": "reddit_profile",
+          "type": "str",
+          "required": true,
+          "desc": "reddit_profile (str)"
+        },
+        {
+          "name": "default_reddit_community",
+          "type": "str",
+          "required": true,
+          "desc": "default_reddit_community (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        },
+        {
+          "name": "cta",
+          "type": "str",
+          "required": true,
+          "desc": "cta (str)"
+        },
+        {
+          "name": "compliance_notes",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "compliance_notes (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/orbital_note_brief_v1.md",
+      "kind": "markdown_attachment",
+      "title": "Orbital Note Launch Brief v1",
+      "bytes": 246,
+      "desc": "markdown_attachment file data/attachments/orbital_note_brief_v1.md"
+    },
+    {
+      "path": "data/attachments/orbital_note_brief_v3.md",
+      "kind": "markdown_attachment",
+      "title": "Orbital Note Launch Brief v3",
+      "bytes": 571,
+      "desc": "markdown_attachment file data/attachments/orbital_note_brief_v3.md"
+    },
+    {
+      "path": "data/attachments/orbital_note_faq.md",
+      "kind": "markdown_attachment",
+      "title": "Orbital Note External FAQ",
+      "bytes": 337,
+      "desc": "markdown_attachment file data/attachments/orbital_note_faq.md"
+    },
+    {
+      "path": "data/attachments/social_guardrails.md",
+      "kind": "markdown_attachment",
+      "title": "Social Guardrails",
+      "bytes": 365,
+      "desc": "markdown_attachment file data/attachments/social_guardrails.md"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Ava Price",
+            "Jon Bell",
+            "Mia Hart",
+            "Mira Chen",
+            "Nina Santos",
+            "Owen Park",
+            "Priya Dev",
+            "Rafael Moore"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ava@example.com",
+            "jon@example.com",
+            "mia@example.com",
+            "mira.chen@auroralabs.com",
+            "nina.santos@auroralabs.com",
+            "owen.park@auroralabs.com",
+            "priya.dev@auroralabs.com",
+            "rafael.moore@auroralabs.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Community Lead",
+            "Creator",
+            "Finance Director",
+            "Founder",
+            "Legal Counsel",
+            "Power User",
+            "Product Marketing Lead",
+            "Support Manager"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Community",
+            "External",
+            "Finance",
+            "Legal",
+            "Marketing",
+            "Support"
+          ],
+          "desc": "team (str)"
+        },
+        {
+          "name": "social_handle",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "@avapractical",
+            "@jonbellops",
+            "@mirachen_legal",
+            "@ninasantos_pm",
+            "@owen_builds",
+            "@priyadev_ops",
+            "@rafaelmoore",
+            "mia_hart"
+          ],
+          "desc": "social_handle (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "email_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/emails/<record_id>.json",
+          "record_key": "id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "social_post_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/social/<record_id>.json",
+          "record_key": "post_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

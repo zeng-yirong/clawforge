@@ -1,0 +1,7 @@
+id: wp_onboarding_asset_access_env__044
+asset: wp_onboarding_asset_access_env__044
+prompt: tasks/prompts/wp_onboarding_asset_access_env__044.md
+runtime:
+  cwd: assets/wp_onboarding_asset_access_env__044
+  entrypoint: python
+  timeout: 60

@@ -1,0 +1,8 @@
+task_id: wp_fault_postmortem_kb_env__043
+asset: wp_fault_postmortem_kb_env__043
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__043.md
+verify: scripts/wp_fault_postmortem_kb_env__043/verify_workplace.py
+runtime:
+  image: python:3.11-slim
+  working_dir: /workspace
+  entrypoint: python -c "from env_builder import build_env; build_env()"

@@ -1,0 +1,8 @@
+name: wp_resume_interview_scheduler_env__027
+description: "Match resume to job, schedule interview and create reminder entries"
+asset: wp_resume_interview_scheduler_env__027
+workspace_env: wp_resume_interview_scheduler_env__027
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__027.md
+runtime:
+  timeout: 300
+  max_steps: 50

@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "bulk_export_policy.md",
+      "title": "Bulk Export Policy",
+      "kind": "security_policy",
+      "description": "Restrictions for high-volume export requests."
+    }
+  ]
+}

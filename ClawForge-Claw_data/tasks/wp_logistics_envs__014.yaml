@@ -1,0 +1,8 @@
+task_id: wp_logistics_envs__014
+name: "Logistics: process returns, shipments, inventory, and reconciliation report"
+description: "Agent must analyze return, shipment, and inventory data; approve/check returns, update shipment status, adjust inventory, and generate a reconciliation report."
+asset: wp_logistics_envs__014
+prompt_path: tasks/prompts/wp_logistics_envs__014.md
+runtime:
+  python_version: "3.10"
+  working_directory: assets/wp_logistics_envs__014

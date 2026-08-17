@@ -1,0 +1,627 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "analyze_health_conflicts",
+  "description": "Assess conflicts between health and comfort settings.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "User identifier"
+    },
+    "current_temp": {
+     "type": "number",
+     "description": "Current temperature"
+    },
+    "current_humidity": {
+     "type": "number",
+     "description": "Current humidity"
+    }
+   },
+   "required": [
+    "user_id",
+    "current_temp",
+    "current_humidity"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "analyze_weather_comfort",
+  "description": "Evaluate comfort level based on weather conditions.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "temperature": {
+     "type": "number",
+     "description": "Temperature value"
+    },
+    "humidity": {
+     "type": "number",
+     "description": "Humidity value"
+    }
+   },
+   "required": [
+    "temperature",
+    "humidity"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "calculate_power_consumption",
+  "description": "Compute power usage for a device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    },
+    "hours": {
+     "type": "number",
+     "description": "Number of hours"
+    }
+   },
+   "required": [
+    "device_id",
+    "hours"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check_cost_saving",
+  "description": "Identify potential cost savings on devices.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_type": {
+     "type": "string",
+     "description": "Type of device"
+    },
+    "current_setting": {
+     "type": "string",
+     "description": "Current setting value"
+    }
+   },
+   "required": [
+    "device_type",
+    "current_setting"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check_extreme_weather",
+  "description": "Check for extreme weather conditions.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check_health_alerts",
+  "description": "Check for health-related alerts.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "User identifier"
+    },
+    "current_temp": {
+     "type": "number",
+     "description": "Current temperature"
+    },
+    "current_humidity": {
+     "type": "number",
+     "description": "Current humidity"
+    }
+   },
+   "required": [
+    "user_id",
+    "current_temp",
+    "current_humidity"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_all_devices",
+  "description": "Get all devices.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_daily_rate_schedule",
+  "description": "Get daily electricity rate schedule.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_device_status",
+  "description": "Retrieve current status of a device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    }
+   },
+   "required": [
+    "device_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_devices_by_type",
+  "description": "List all devices of a given type.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_type": {
+     "type": "string",
+     "description": "Device type"
+    }
+   },
+   "required": [
+    "device_type"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_electricity_rate",
+  "description": "Fetch current electricity pricing.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "timestamp": {
+     "type": "string",
+     "description": "Time of rate query"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_health_recommendations",
+  "description": "Provide health-focused recommendations.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "User identifier"
+    }
+   },
+   "required": [
+    "user_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_optimal_window",
+  "description": "Determine best time window for operation.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "duration_hours": {
+     "type": "number",
+     "description": "Desired duration in hours"
+    },
+    "preferred_start": {
+     "type": "string",
+     "description": "Preferred start time"
+    }
+   },
+   "required": [
+    "duration_hours"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_recommended_temperature",
+  "description": "Suggest ideal temperature for comfort.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "current_temp": {
+     "type": "number",
+     "description": "Current temperature"
+    },
+    "current_humidity": {
+     "type": "number",
+     "description": "Current humidity"
+    },
+    "user_health_priority": {
+     "type": "boolean",
+     "description": "Health priority level"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_user_health",
+  "description": "Retrieve health profile for a user.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "user_id": {
+     "type": "string",
+     "description": "User identifier"
+    }
+   },
+   "required": [
+    "user_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_weather",
+  "description": "Fetch current weather data.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "timestamp": {
+     "type": "string",
+     "description": "Time for weather data"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_weather_forecast",
+  "description": "Obtain weather forecast for future.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "hours_ahead": {
+     "type": "integer",
+     "description": "Hours ahead to forecast",
+     "default": 24
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "set_air_conditioner",
+  "description": "Configure air conditioner parameters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    },
+    "temperature": {
+     "type": "number",
+     "description": "Target temperature"
+    },
+    "mode": {
+     "type": "string",
+     "description": "Operation mode",
+     "default": "auto"
+    },
+    "fan_speed": {
+     "type": "string",
+     "description": "Fan speed setting",
+     "default": "auto"
+    }
+   },
+   "required": [
+    "device_id",
+    "temperature"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "set_humidifier",
+  "description": "Configure humidifier parameters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    },
+    "humidity_level": {
+     "type": "integer",
+     "description": "Target humidity"
+    },
+    "mode": {
+     "type": "string",
+     "description": "Operation mode",
+     "default": "auto"
+    }
+   },
+   "required": [
+    "device_id",
+    "humidity_level"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "set_smart_plug",
+  "description": "Control smart plug power state.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    },
+    "power_state": {
+     "type": "string",
+     "description": "On/off state"
+    }
+   },
+   "required": [
+    "device_id",
+    "power_state"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "turn_off_device",
+  "description": "Power off a specified device.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "device_id": {
+     "type": "string",
+     "description": "Device identifier"
+    }
+   },
+   "required": [
+    "device_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

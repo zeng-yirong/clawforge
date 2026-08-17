@@ -1,0 +1,1 @@
+嘿，SRE 老兄，刚被 pager 炸醒，fault_007 这破事还没关。我把环境和附件都扔在 `data/` 和 `attachments/` 里了，你赶紧看看它的堆栈和调用链——就在 `data/faults/fault_cases.json` 里。帮我整一份事后分析报告塞到 `ops/` 目录下，文件名就叫 `postmortem_report.json`。报告里把根因和修法写清楚，另外这个故障是哪个服务的？找出负责这服务的人，把名字也带上。别废话，我直接拿报告去开会用。

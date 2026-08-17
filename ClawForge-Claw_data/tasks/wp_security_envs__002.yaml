@@ -1,0 +1,11 @@
+task_id: wp_security_envs__002
+asset: wp_security_envs__002
+type: workplace
+prompt: tasks/prompts/wp_security_envs__002.md
+runtime:
+  base_image: python:3.11-slim
+  working_directory: /workspace
+  env:
+    SECURITY_SESSION_ID: "session-002"
+    SECURITY_STATE_ROOT: /workspace
+    SECURITY_SCENARIO_ID: "intrusion_response"

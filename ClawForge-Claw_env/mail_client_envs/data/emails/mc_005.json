@@ -1,0 +1,15 @@
+{
+  "id": "mc_005",
+  "thread_id": "th_newsletter",
+  "folder": "inbox",
+  "sender_id": "c_newsletter",
+  "subject": "Tech Weekly Newsletter - Issue #42",
+  "timestamp": "2026-06-16T08:00:00+00:00",
+  "importance": "low",
+  "labels": ["newsletter"],
+  "has_read": false,
+  "body": "This week's top stories: 1) AI advances in healthcare, 2) New programming languages to watch, 3) Remote work productivity tips. Read more at our website. To unsubscribe, click here.",
+  "attachments": [],
+  "auto_classify_suggestion": "newsletter",
+  "auto_archive_candidates": ["newsletter"]
+}

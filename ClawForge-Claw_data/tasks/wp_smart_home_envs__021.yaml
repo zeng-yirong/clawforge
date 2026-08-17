@@ -1,0 +1,6 @@
+task_name: smart_home_climate_analysis
+asset: wp_smart_home_envs__021
+prompt_path: tasks/prompts/wp_smart_home_envs__021.md
+runtime:
+  type: none
+  config: {}

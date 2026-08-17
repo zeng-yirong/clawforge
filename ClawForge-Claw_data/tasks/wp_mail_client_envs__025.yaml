@@ -1,0 +1,5 @@
+prompt_path: tasks/prompts/wp_mail_client_envs__025.md
+asset: wp_mail_client_envs__025
+runtime:
+  cwd: assets/wp_mail_client_envs__025
+  allowed_tools: []

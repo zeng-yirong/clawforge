@@ -1,0 +1,8 @@
+name: wp_reproduction_ledger_env__000
+asset: wp_reproduction_ledger_env__000
+prompt: tasks/prompts/wp_reproduction_ledger_env__000.md
+runtime:
+  cwd: assets/wp_reproduction_ledger_env__000
+  entrypoint: ''
+  max_steps: 30
+  user_message: ''

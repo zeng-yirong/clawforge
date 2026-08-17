@@ -1,0 +1,6 @@
+name: wp_post_mails__028
+prompt: tasks/prompts/wp_post_mails__028.md
+asset: wp_post_mails__028
+runtime:
+  python: 3.9+
+timeout: 120

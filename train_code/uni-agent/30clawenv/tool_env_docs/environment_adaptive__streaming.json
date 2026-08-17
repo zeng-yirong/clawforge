@@ -1,0 +1,546 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_environment",
+    "description": "Define a new environmental zone for adaptive control.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Environment name (e.g., 'living_room', 'bedroom')."
+        },
+        "env_type": {
+          "type": "string",
+          "description": "Environment type - 'indoor', 'outdoor', or 'hybrid'."
+        },
+        "area_m2": {
+          "type": "number",
+          "description": "Area in square meters."
+        },
+        "target_temperature": {
+          "type": "number",
+          "description": "Comfort target temperature in Celsius."
+        },
+        "target_humidity": {
+          "type": "number",
+          "description": "Comfort target humidity percentage."
+        },
+        "occupants": {
+          "type": "integer",
+          "description": "Number of occupants in the environment."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_environments",
+    "description": "List all defined environments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_environment_state",
+    "description": "Get the full state of an environment including recent adjustments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Environment ID."
+        }
+      },
+      "required": [
+        "environment_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_device",
+    "description": "Register an adaptive device to an environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Target environment ID."
+        },
+        "device_type": {
+          "type": "string",
+          "description": "Device type - 'air_conditioner', 'humidifier', or 'smart_plug'."
+        },
+        "name": {
+          "type": "string",
+          "description": "Device name/identifier."
+        },
+        "min_value": {
+          "type": "number",
+          "description": "Minimum operational value (e.g., temperature in °C or humidity %)."
+        },
+        "max_value": {
+          "type": "number",
+          "description": "Maximum operational value."
+        },
+        "default_value": {
+          "type": "number",
+          "description": "Default operational value."
+        },
+        "power_rating_w": {
+          "type": "number",
+          "description": "Power rating in watts."
+        }
+      },
+      "required": [
+        "environment_id",
+        "device_type",
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_devices",
+    "description": "List registered devices, optionally filtered by environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by environment ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_device_status",
+    "description": "Update device operational status and current value.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "device_id": {
+          "type": "integer",
+          "description": "Device ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "New status - 'off', 'standby', 'active', or 'error'."
+        },
+        "current_value": {
+          "type": "number",
+          "description": "[Optional] New current value if changing."
+        }
+      },
+      "required": [
+        "device_id",
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "subscribe_environment_factor",
+    "description": "Subscribe to an environmental factor for adaptive control notifications.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Target environment ID."
+        },
+        "factor_type": {
+          "type": "string",
+          "description": "Factor to monitor - 'temperature', 'humidity', 'price', or 'health'."
+        },
+        "threshold_min": {
+          "type": "number",
+          "description": "[Optional] Lower bound threshold."
+        },
+        "threshold_max": {
+          "type": "number",
+          "description": "[Optional] Upper bound threshold."
+        },
+        "adjustment_mode": {
+          "type": "string",
+          "description": "Adjustment mode - 'auto', 'manual', or 'scheduled'."
+        },
+        "severity_level": {
+          "type": "string",
+          "description": "Severity for threshold breaches - 'low', 'medium', 'high', 'critical'."
+        }
+      },
+      "required": [
+        "environment_id",
+        "factor_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unsubscribe",
+    "description": "Cancel an active subscription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID to cancel."
+        }
+      },
+      "required": [
+        "subscription_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_subscriptions",
+    "description": "List subscriptions, optionally filtered by environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by environment ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_notifications",
+    "description": "Get pending notifications for a subscription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID."
+        }
+      },
+      "required": [
+        "subscription_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "acknowledge_notification",
+    "description": "Acknowledge receipt of a notification.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID."
+        },
+        "notification_id": {
+          "type": "integer",
+          "description": "Notification ID to acknowledge."
+        }
+      },
+      "required": [
+        "subscription_id",
+        "notification_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "push_weather_data",
+    "description": "Push weather data to an environment. Triggers subscription checks.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Target environment ID."
+        },
+        "temperature": {
+          "type": "number",
+          "description": "Temperature in Celsius."
+        },
+        "humidity": {
+          "type": "number",
+          "description": "Humidity percentage."
+        },
+        "pressure": {
+          "type": "number",
+          "description": "Atmospheric pressure in hPa."
+        }
+      },
+      "required": [
+        "environment_id",
+        "temperature",
+        "humidity"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "push_price_data",
+    "description": "Push electricity pricing data. Triggers subscription checks.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "price_tier": {
+          "type": "string",
+          "description": "Pricing tier identifier."
+        },
+        "price_per_kwh": {
+          "type": "number",
+          "description": "Price per kWh in local currency."
+        },
+        "time_block": {
+          "type": "string",
+          "description": "Time period - 'off_peak', 'mid', or 'peak'."
+        }
+      },
+      "required": [
+        "price_tier",
+        "price_per_kwh"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "push_health_data",
+    "description": "Push user health data for adaptive comfort optimization.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Target environment ID."
+        },
+        "heart_rate": {
+          "type": "integer",
+          "description": "Heart rate in BPM."
+        },
+        "respiratory_rate": {
+          "type": "integer",
+          "description": "Respiratory rate in breaths per minute."
+        },
+        "thermal_comfort": {
+          "type": "number",
+          "description": "Thermal comfort score (0-10)."
+        }
+      },
+      "required": [
+        "environment_id",
+        "heart_rate",
+        "respiratory_rate",
+        "thermal_comfort"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "adjust_device",
+    "description": "Adjust a device's target value based on multi-factor optimization.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "device_id": {
+          "type": "integer",
+          "description": "Device ID to adjust."
+        },
+        "target_value": {
+          "type": "number",
+          "description": "New target value."
+        },
+        "adjustment_reason": {
+          "type": "string",
+          "description": "Reason for adjustment."
+        }
+      },
+      "required": [
+        "device_id",
+        "target_value"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "compute_optimal_adjustment",
+    "description": "Compute optimal device adjustments based on current multi-factor state.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Environment ID."
+        },
+        "include_price": {
+          "type": "boolean",
+          "description": "Whether to consider electricity pricing."
+        },
+        "include_health": {
+          "type": "boolean",
+          "description": "Whether to consider health data."
+        }
+      },
+      "required": [
+        "environment_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_weather_history",
+    "description": "Retrieve weather history, optionally filtered by environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by environment ID."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of records to return."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_price_history",
+    "description": "Retrieve electricity pricing history.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of records to return."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_health_history",
+    "description": "Retrieve health data history, optionally filtered by environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by environment ID."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of records to return."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_adjustment_history",
+    "description": "Retrieve adjustment history for an environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "environment_id": {
+          "type": "integer",
+          "description": "Environment ID."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of records to return."
+        }
+      },
+      "required": [
+        "environment_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

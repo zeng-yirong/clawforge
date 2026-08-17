@@ -1,0 +1,27 @@
+{
+  "id": "em_002",
+  "thread_id": "th_orbital_draft",
+  "folder": "inbox",
+  "sender_id": "c_nina",
+  "subject": "Early draft: Orbital Note launch brief v1",
+  "timestamp": "2026-06-15T09:05:00+00:00",
+  "importance": "medium",
+  "labels": [
+    "launch",
+    "brief",
+    "draft"
+  ],
+  "body": "Sharing the first draft for Orbital Note. This one is already stale in a few places, especially the launch date and pricing assumptions, but I am sending it so legal can diff later edits.",
+  "attachments": [
+    {
+      "attachment_id": "att_orbital_brief_v1",
+      "file_name": "orbital_note_brief_v1.md",
+      "mime_type": "text/markdown",
+      "relative_path": "orbital_note_brief_v1.md",
+      "tags": [
+        "brief",
+        "outdated"
+      ]
+    }
+  ]
+}

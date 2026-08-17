@@ -1,0 +1,343 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "load_policy",
+    "description": "Load and register a company travel policy (simulating PDF document parsing).",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "document_name": {
+          "type": "string",
+          "description": "Source document name, e.g. '2024_travel_policy.pdf'."
+        },
+        "max_economy_fare": {
+          "type": "number",
+          "description": "Maximum allowed fare (CNY) for economy class tickets."
+        },
+        "max_business_fare": {
+          "type": "number",
+          "description": "Maximum allowed fare (CNY) for business class tickets."
+        },
+        "allowed_cabin_classes": {
+          "type": "array",
+          "description": "Permitted cabin classes, subset of ['economy', 'premium_economy', 'business', 'first']."
+        },
+        "advance_booking_days": {
+          "type": "integer",
+          "description": "Minimum days in advance required for booking. Defaults to 3."
+        },
+        "max_trip_duration_days": {
+          "type": "integer",
+          "description": "Maximum allowed trip duration in days. Defaults to 30."
+        },
+        "requires_approval_above": {
+          "type": "number",
+          "description": "Fare threshold (CNY) above which manager approval is mandatory. 0.0 means approval always required. Defaults to 0.0."
+        },
+        "approver_roles": {
+          "type": "array",
+          "description": "[Optional] Roles authorized to approve requests, e.g. ['line_manager', 'finance_director']."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional policy notes or special conditions."
+        }
+      },
+      "required": [
+        "document_name",
+        "max_economy_fare",
+        "max_business_fare",
+        "allowed_cabin_classes"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_policies",
+    "description": "List all loaded travel policies.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_flights",
+    "description": "Search and compare flight prices across multiple booking platforms.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "Departure city or airport code, e.g. 'PEK' or 'Beijing'."
+        },
+        "destination": {
+          "type": "string",
+          "description": "Arrival city or airport code, e.g. 'SHA' or 'Shanghai'."
+        },
+        "departure_date": {
+          "type": "string",
+          "description": "Departure date in 'YYYY-MM-DD' format."
+        },
+        "cabin_class": {
+          "type": "string",
+          "description": "Desired cabin class. One of 'economy', 'premium_economy', 'business', 'first'. Defaults to 'economy'."
+        },
+        "traveler_name": {
+          "type": "string",
+          "description": "Name of the traveler for this search session."
+        },
+        "platforms": {
+          "type": "array",
+          "description": "[Optional] Platforms to query. Subset of ['ctrip', 'fliggy', 'qunar', 'direct']. Defaults to all platforms."
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "departure_date"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_search_results",
+    "description": "Retrieve a previous flight search session by ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "search_id": {
+          "type": "integer",
+          "description": "The search session ID returned by search_flights."
+        }
+      },
+      "required": [
+        "search_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_compliance",
+    "description": "Validate a selected flight option against the company travel policy.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "policy_id": {
+          "type": "integer",
+          "description": "The policy to validate against."
+        },
+        "search_id": {
+          "type": "integer",
+          "description": "The flight search session containing the selected option."
+        },
+        "selected_platform": {
+          "type": "string",
+          "description": "The platform whose offer to validate (e.g. 'ctrip', 'fliggy', 'qunar', 'direct')."
+        },
+        "booking_date": {
+          "type": "string",
+          "description": "The date the booking is being made ('YYYY-MM-DD'), used to compute advance booking days."
+        }
+      },
+      "required": [
+        "policy_id",
+        "search_id",
+        "selected_platform",
+        "booking_date"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_approval",
+    "description": "Submit a travel booking approval request to the designated approver.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "policy_id": {
+          "type": "integer",
+          "description": "The policy governing this booking."
+        },
+        "search_id": {
+          "type": "integer",
+          "description": "The flight search session for the trip."
+        },
+        "selected_platform": {
+          "type": "string",
+          "description": "The platform and fare being requested for approval."
+        },
+        "traveler_name": {
+          "type": "string",
+          "description": "Full name of the traveler."
+        },
+        "requester_name": {
+          "type": "string",
+          "description": "Name of the person submitting the request (may differ from traveler, e.g. an assistant)."
+        },
+        "business_justification": {
+          "type": "string",
+          "description": "Reason for the trip and any policy exceptions."
+        },
+        "approver": {
+          "type": "string",
+          "description": "Name or role of the designated approver."
+        }
+      },
+      "required": [
+        "policy_id",
+        "search_id",
+        "selected_platform",
+        "traveler_name",
+        "requester_name",
+        "business_justification",
+        "approver"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_approval",
+    "description": "Process (approve or reject) a pending travel approval request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approval_id": {
+          "type": "integer",
+          "description": "The approval request ID to process."
+        },
+        "decision": {
+          "type": "string",
+          "description": "Approval decision: 'approved' or 'rejected'."
+        },
+        "approver_comment": {
+          "type": "string",
+          "description": "[Optional] Comment or reason from the approver."
+        }
+      },
+      "required": [
+        "approval_id",
+        "decision"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_approvals",
+    "description": "List approval requests, optionally filtered by status or traveler.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by approval status. One of 'pending', 'approved', 'rejected', 'cancelled'."
+        },
+        "traveler_name": {
+          "type": "string",
+          "description": "[Optional] Filter by traveler name (case-insensitive)."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "book_flight",
+    "description": "Complete a flight booking after approval has been granted.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approval_id": {
+          "type": "integer",
+          "description": "The approved approval request ID to book against."
+        },
+        "contact_email": {
+          "type": "string",
+          "description": "Traveler contact email for booking confirmation."
+        },
+        "contact_phone": {
+          "type": "string",
+          "description": "Traveler contact phone number."
+        },
+        "payment_method": {
+          "type": "string",
+          "description": "Payment method to use. Defaults to 'corporate_account'."
+        },
+        "special_requests": {
+          "type": "string",
+          "description": "Any special service requests (e.g. meal preference)."
+        }
+      },
+      "required": [
+        "approval_id",
+        "contact_email",
+        "contact_phone"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_booking",
+    "description": "Cancel an existing confirmed booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "booking_id": {
+          "type": "integer",
+          "description": "The booking ID to cancel."
+        },
+        "reason": {
+          "type": "string",
+          "description": "[Optional] Reason for cancellation."
+        }
+      },
+      "required": [
+        "booking_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

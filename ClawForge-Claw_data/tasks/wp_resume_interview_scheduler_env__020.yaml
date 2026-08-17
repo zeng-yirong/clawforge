@@ -1,0 +1,11 @@
+task_id: wp_resume_interview_scheduler_env__020
+prompt_path: tasks/prompts/wp_resume_interview_scheduler_env__020.md
+asset: wp_resume_interview_scheduler_env__020
+runtime:
+  cwd: assets/wp_resume_interview_scheduler_env__020
+  allowed_actions:
+    - file_read
+    - file_write
+    - file_delete
+    - directory_list
+    - directory_create

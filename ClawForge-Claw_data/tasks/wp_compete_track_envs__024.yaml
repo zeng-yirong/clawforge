@@ -1,0 +1,7 @@
+task_id: wp_compete_track_envs__024
+asset: wp_compete_track_envs__024
+prompt_path: tasks/prompts/wp_compete_track_envs__024.md
+runtime:
+  language: python
+  version: "3.10"
+  cwd: assets/wp_compete_track_envs__024

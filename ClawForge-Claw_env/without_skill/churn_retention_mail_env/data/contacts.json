@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "csm_001",
+      "name": "Amy Luo",
+      "role": "Senior CSM",
+      "email": "amy.luo@northstar.example.com"
+    }
+  ]
+}

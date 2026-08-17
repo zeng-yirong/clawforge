@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""
+Description: List workspace directory contents.
+
+Parameters:
+  --path (string, optional): Directory path to list.
+  --recursive (bool, optional): Whether to recursively list subdirectories.
+  --show_hidden (bool, optional): Whether to include hidden files and directories.
+  --max_depth (int, optional): Maximum recursion depth when recursive is enabled.
+  --max_entries (int, optional): Maximum number of entries to return.
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def parse_bool(value: str) -> bool:
+    lowered = value.strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
+
+
+def is_hidden_name(name: str) -> bool:
+    return name.startswith(".")
+
+
+def format_entry(entry: Path, rel: Path) -> str:
+    kind = "[DIR]" if entry.is_dir() else "[FILE]"
+    display = rel.as_posix() if rel.as_posix() else "."
+    return f"{kind} {display}"
+
+
+def list_entries(path: Path, recursive: bool, show_hidden: bool, max_depth: int, max_entries: int) -> list[str]:
+    results: list[str] = []
+
+    def visit(current: Path, depth: int) -> None:
+        nonlocal results
+        try:
+            entries = sorted(current.iterdir(), key=lambda item: (not item.is_dir(), item.name.lower(), item.name))
+        except Exception:
+            return
+
+        for entry in entries:
+            if not show_hidden and is_hidden_name(entry.name):
+                continue
+            rel = entry.relative_to(path)
+            results.append(format_entry(entry, rel))
+            if len(results) >= max_entries:
+                return
+            if recursive and entry.is_dir() and depth < max_depth:
+                visit(entry, depth + 1)
+                if len(results) >= max_entries:
+                    return
+
+    visit(path, depth=0)
+    return results
+
+
+def main():
+    parser = argparse.ArgumentParser(description="List workspace directory contents.")
+    parser.add_argument("--path", default=".", type=str, help="Directory path to list.")
+    parser.add_argument("--recursive", type=parse_bool, default=False, help="Recursively list subdirectories.")
+    parser.add_argument("--show_hidden", type=parse_bool, default=False, help="Include hidden files and directories.")
+    parser.add_argument("--max_depth", type=int, default=2, help="Maximum recursion depth when recursive=true.")
+    parser.add_argument("--max_entries", type=int, default=500, help="Maximum number of entries to return.")
+    args = parser.parse_args()
+
+    target = Path(args.path)
+    if not target.exists():
+        print(f"Path does not exist: {target}")
+        sys.exit(1)
+    if not target.is_dir():
+        print(f"Path is not a directory: {target}")
+        sys.exit(1)
+    if args.max_depth < 0:
+        print("max_depth must be >= 0.")
+        sys.exit(1)
+    if args.max_entries < 1:
+        print("max_entries must be >= 1.")
+        sys.exit(1)
+
+    entries = list_entries(
+        path=target,
+        recursive=args.recursive,
+        show_hidden=args.show_hidden,
+        max_depth=args.max_depth,
+        max_entries=args.max_entries,
+    )
+    if not entries:
+        print(f"Directory: {target}\n<empty directory>")
+        return
+
+    print(f"Directory: {target}")
+    for entry in entries:
+        print(entry)
+    if len(entries) >= args.max_entries:
+        print(f"<truncated at max_entries={args.max_entries}>")
+
+
+if __name__ == "__main__":
+    main()

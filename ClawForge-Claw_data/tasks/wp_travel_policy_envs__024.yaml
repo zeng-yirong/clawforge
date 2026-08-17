@@ -1,0 +1,5 @@
+asset: wp_travel_policy_envs__024
+prompt_path: tasks/prompts/wp_travel_policy_envs__024.md
+runtime:
+  timeout: 300
+  max_turns: 20

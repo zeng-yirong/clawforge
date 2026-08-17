@@ -1,0 +1,6 @@
+task_id: wp_mail_client_envs__012
+prompt_path: tasks/prompts/wp_mail_client_envs__012.md
+asset: wp_mail_client_envs__012
+runtime:
+  image: python:3.10-slim
+  working_directory: /workspace

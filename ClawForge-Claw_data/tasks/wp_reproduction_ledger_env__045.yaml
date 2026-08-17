@@ -1,0 +1,11 @@
+name: wp_reproduction_ledger_env__045
+asset: wp_reproduction_ledger_env__045
+prompt: tasks/prompts/wp_reproduction_ledger_env__045.md
+runtime:
+  workspace: ./
+  entrypoint: ""
+  environment:
+    - PYTHONUNBUFFERED=1
+  resources:
+    disk: 50
+    memory: 256

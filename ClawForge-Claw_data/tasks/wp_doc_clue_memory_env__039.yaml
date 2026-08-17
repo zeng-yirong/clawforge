@@ -1,0 +1,6 @@
+version: 1
+task:
+  asset: wp_doc_clue_memory_env__039
+  prompt: tasks/prompts/wp_doc_clue_memory_env__039.md
+  runtime:
+    cwd: assets/wp_doc_clue_memory_env__039

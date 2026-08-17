@@ -1,0 +1,12 @@
+id: wp_offboarding_recovery_env__030
+prompt: tasks/prompts/wp_offboarding_recovery_env__030.md
+asset: wp_offboarding_recovery_env__030
+runtime:
+  cwd: assets/wp_offboarding_recovery_env__030
+  allowed_tools:
+    - read
+    - write
+    - edit
+    - find
+    - grep
+    - finish

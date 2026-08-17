@@ -1,0 +1,6 @@
+name: wp_excel_data_envs__030
+prompt: tasks/prompts/wp_excel_data_envs__030.md
+asset: wp_excel_data_envs__030
+runtime:
+  timeout: 300
+  memory: 512

@@ -1,0 +1,20 @@
+{
+  "platform_id": "flightpro",
+  "name": "FlightPro",
+  "region": "Europe",
+  "is_active": true,
+  "transaction_fee": 0.025,
+  "service_fee": 12.5,
+  "payment_methods": ["Credit Card", "SEPA Direct Debit", "PayPal"],
+  "cancellation_policy": "75% refund if cancelled 48+ hours before departure",
+  "discounts": [
+    {"code": "EU15", "description": "15% EU corporate discount", "min_booking": 300},
+    {"code": "WEEKEND10", "description": "10% weekend bookings", "min_booking": 0}
+  ],
+  "promotions": [],
+  "loyalty_program": {
+    "name": "FlightPro Plus",
+    "points_per_dollar": 1.5,
+    "redemption_rate": 0.012
+  }
+}

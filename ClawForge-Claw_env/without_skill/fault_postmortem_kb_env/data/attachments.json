@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "postmortem_template.md",
+      "title": "Postmortem Template",
+      "kind": "template",
+      "description": "Template sections for root cause and repair plan."
+    }
+  ]
+}

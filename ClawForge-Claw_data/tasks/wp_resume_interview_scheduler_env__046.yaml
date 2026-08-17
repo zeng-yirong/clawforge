@@ -1,0 +1,6 @@
+asset: wp_resume_interview_scheduler_env__046
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__046.md
+runtime:
+  runner: direct
+  timeout: 300
+  workdir: .

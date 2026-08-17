@@ -1,0 +1,13 @@
+schema_version: "1.0"
+id: wp_auditor_impersonation_guard_env__022
+name: "Auditor Impersonation Guard"
+description: "Identify and reject access requests that impersonate Internal Security Auditors."
+prompt_path: "tasks/prompts/wp_auditor_impersonation_guard_env__022.md"
+asset: "wp_auditor_impersonation_guard_env__022"
+runtime_config:
+  cwd: "assets/wp_auditor_impersonation_guard_env__022"
+  allowed_actions:
+    - read
+    - write
+    - grep
+    - find

@@ -1,0 +1,447 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_media_sample",
+  "description": "Retrieve a specific media sample by its ID.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sample_id": {
+     "type": "string",
+     "description": "ID of the media sample."
+    }
+   },
+   "required": [
+    "sample_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_presentation",
+  "description": "Retrieve the full notes for a presentation.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "presentation_id": {
+     "type": "string",
+     "description": "ID of the presentation."
+    }
+   },
+   "required": [
+    "presentation_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_report",
+  "description": "Retrieve the full content of a report.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "report_id": {
+     "type": "string",
+     "description": "ID of the report."
+    }
+   },
+   "required": [
+    "report_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_temp_record",
+  "description": "Retrieve a specific temporary record by its ID.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "record_id": {
+     "type": "string",
+     "description": "ID of the temporary record."
+    }
+   },
+   "required": [
+    "record_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_attachments",
+  "description": "List supporting attachments.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_media_samples",
+  "description": "List media samples matching query, channel, and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query string.",
+     "default": ""
+    },
+    "channel": {
+     "type": "string",
+     "description": "Media channel filter."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_presentations",
+  "description": "List presentations matching query, owner, and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query string.",
+     "default": ""
+    },
+    "owner": {
+     "type": "string",
+     "description": "Owner filter."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_reports",
+  "description": "List reports matching query, sector, and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query string.",
+     "default": ""
+    },
+    "sector": {
+     "type": "string",
+     "description": "Industry sector filter."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_temp_records",
+  "description": "List temporary records filtered by type and limit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "record_type": {
+     "type": "string",
+     "description": "Type of records to list."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read the content of a specified attachment file.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_path": {
+     "type": "string",
+     "description": "File path of the attachment."
+    }
+   },
+   "required": [
+    "attachment_path"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "save_clue_list",
+  "description": "Save a clue list with solution details and supporting evidence.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "solution_id": {
+     "type": "string",
+     "description": "Unique identifier for the solution."
+    },
+    "solution_name": {
+     "type": "string",
+     "description": "Name of the solution."
+    },
+    "document_ids": {
+     "type": "string",
+     "description": "IDs of relevant documents."
+    },
+    "clues_json": {
+     "type": "string",
+     "description": "JSON containing clue data."
+    },
+    "summary": {
+     "type": "string",
+     "description": "Summary of the solution."
+    },
+    "confidence": {
+     "type": "string",
+     "description": "Confidence level (e.g., 0-100).",
+     "default": "medium"
+    }
+   },
+   "required": [
+    "solution_id",
+    "solution_name",
+    "document_ids",
+    "clues_json",
+    "summary"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "search_library",
+  "description": "Search all library sources for matching content.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query string."
+    },
+    "source_type": {
+     "type": "string",
+     "description": "Type of source to search."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": [
+    "query"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

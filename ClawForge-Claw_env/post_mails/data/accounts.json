@@ -1,0 +1,22 @@
+{
+  "accounts": [
+    {
+      "account_id": "aurora_marketing",
+      "display_name": "Aurora Labs Marketing",
+      "brand_name": "Aurora Labs",
+      "x_handle": "@AuroraLabsHQ",
+      "reddit_profile": "u/AuroraLabsOfficial",
+      "default_reddit_community": "r/productivity",
+      "voice": [
+        "concise",
+        "confident",
+        "practical"
+      ],
+      "cta": "join the waitlist",
+      "compliance_notes": [
+        "Do not promise unsupported platform launches.",
+        "Do not use outdated pricing from leaked material."
+      ]
+    }
+  ]
+}

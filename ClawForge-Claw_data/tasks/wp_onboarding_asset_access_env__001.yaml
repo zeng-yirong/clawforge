@@ -1,0 +1,8 @@
+name: wp_onboarding_asset_access_env__001
+asset: wp_onboarding_asset_access_env__001
+prompt: tasks/prompts/wp_onboarding_asset_access_env__001.md
+runtime:
+  cwd: assets/wp_onboarding_asset_access_env__001
+  env:
+    - name: WORKSPACE
+      value: "."

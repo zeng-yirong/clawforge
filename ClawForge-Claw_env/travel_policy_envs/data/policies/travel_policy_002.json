@@ -1,0 +1,38 @@
+{
+  "policy_id": "travel_policy_002",
+  "name": "Acme Corp Executive Travel Policy",
+  "version": "2026.1",
+  "max_cost_per_booking": 10000,
+  "max_single_booking_cost": 15000,
+  "allowed_cabin_classes": ["economy", "premium_economy", "business", "first"],
+  "min_advance_booking_days": 3,
+  "requires_approval_above": 3000,
+  "preferred_vendors": ["skybook", "flightpro", "aerocheap"],
+  "restricted_routes": [],
+  "required_documents": ["Receipt"],
+  "no_refund_cabin_classes": [],
+  "approval_levels": {
+    "level1": {
+      "threshold": 3000,
+      "role": "director",
+      "approver": "Sarah Director",
+      "email": "sarah.director@acme.com"
+    },
+    "level2": {
+      "threshold": 7000,
+      "role": "vp",
+      "approver": "Mike VP",
+      "email": "mike.vp@acme.com"
+    }
+  },
+  "max_daily_limit": 5000,
+  "max_monthly_limit": 50000,
+  "max_trips_per_month": 20,
+  "requires_receipt_above": 25,
+  "allow_upgrade_at_company_cost": true,
+  "domestic_max_cost": 8000,
+  "domestic_approval_threshold": 2000,
+  "international_max_cost": 10000,
+  "international_approval_threshold": 3000,
+  "international_requirements": []
+}

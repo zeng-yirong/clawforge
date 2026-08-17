@@ -1,0 +1,1 @@
+早上好！刚才销售总监冲过来跟我说，CarePulse 这个月消费额又创了新高，但他们的客户成功经理反馈说最近活跃度好像有点掉。我们不是有一套分层规则嘛，运营手册就放在工作区的 `data/attachments/segment_rules.txt` 里，你帮我对照着仔细核一下。所有的消费和活动数据都在 `data/logs/` 下，客户档案在 `data/customers/customers.json`。如果 CarePulse 符合升级条件，直接更新他们的标签。另一个大客户 LedgerFlow 也顺便看一眼，不过销售那边没提，按规则走就行。改完直接保存回 `data/customers/customers.json`，我回头要用。辛苦了！

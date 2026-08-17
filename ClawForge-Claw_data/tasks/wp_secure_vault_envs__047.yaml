@@ -1,0 +1,6 @@
+asset: wp_secure_vault_envs__047
+tasks:
+  - prompt: tasks/prompts/wp_secure_vault_envs__047.md
+runtime:
+  workplace: true
+  cwd: assets/wp_secure_vault_envs__047

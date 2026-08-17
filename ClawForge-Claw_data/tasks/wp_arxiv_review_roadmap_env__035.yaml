@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__035.md
+asset: wp_arxiv_review_roadmap_env__035
+runtime:
+  cwd: .

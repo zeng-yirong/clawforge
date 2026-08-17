@@ -1,0 +1,25 @@
+task_id: wp_sku_competition_env__035
+asset: wp_sku_competition_env__035
+prompt: tasks/prompts/wp_sku_competition_env__035.md
+runtime:
+  type: workplace
+  max_seconds: 120
+  requirements:
+    - python3
+    - json
+    - os
+    - sys
+    - pathlib
+    - csv
+    - re
+    - math
+    - decimal
+    - statistics
+  workspace_root: "."
+  env:
+    - name: WITHOUT_SKILL_SESSION_ID
+      value: "session_035"
+    - name: WITHOUT_SKILL_STATE_ROOT
+      value: "."
+    - name: WITHOUT_SKILL_SCENARIO_ID
+      value: "sku_competition_report_apac_q2_2026"

@@ -1,0 +1,114 @@
+{
+  "sensors": [
+    {
+      "sensor_id": "temp_001",
+      "sensor_name": "Lobby Temperature Sensor",
+      "sensor_type": "temperature",
+      "location_id": "loc_lobby",
+      "unit": "celsius",
+      "threshold_low": 18.0,
+      "threshold_high": 28.0,
+      "current_value": 22.5,
+      "status": "active"
+    },
+    {
+      "sensor_id": "temp_002",
+      "sensor_name": "Office Temperature Sensor",
+      "sensor_type": "temperature",
+      "location_id": "loc_office",
+      "unit": "celsius",
+      "threshold_low": 18.0,
+      "threshold_high": 26.0,
+      "current_value": 23.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "temp_003",
+      "sensor_name": "Server Room Temperature Sensor",
+      "sensor_type": "temperature",
+      "location_id": "loc_server_room",
+      "unit": "celsius",
+      "threshold_low": 18.0,
+      "threshold_high": 22.0,
+      "current_value": 21.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "humidity_001",
+      "sensor_name": "Lobby Humidity Sensor",
+      "sensor_type": "humidity",
+      "location_id": "loc_lobby",
+      "unit": "percent",
+      "threshold_low": 30.0,
+      "threshold_high": 60.0,
+      "current_value": 45.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "humidity_002",
+      "sensor_name": "Office Humidity Sensor",
+      "sensor_type": "humidity",
+      "location_id": "loc_office",
+      "unit": "percent",
+      "threshold_low": 30.0,
+      "threshold_high": 55.0,
+      "current_value": 50.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "air_001",
+      "sensor_name": "Office Air Quality Sensor",
+      "sensor_type": "air_quality",
+      "location_id": "loc_office",
+      "unit": "aqi",
+      "threshold_low": 0.0,
+      "threshold_high": 100.0,
+      "current_value": 35.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "air_002",
+      "sensor_name": "Server Room Air Quality Sensor",
+      "sensor_type": "air_quality",
+      "location_id": "loc_server_room",
+      "unit": "aqi",
+      "threshold_low": 0.0,
+      "threshold_high": 50.0,
+      "current_value": 25.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "energy_001",
+      "sensor_name": "Building Energy Meter",
+      "sensor_type": "energy",
+      "location_id": "loc_lobby",
+      "unit": "kwh",
+      "threshold_low": 0.0,
+      "threshold_high": 1000.0,
+      "current_value": 450.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "energy_002",
+      "sensor_name": "Office Energy Meter",
+      "sensor_type": "energy",
+      "location_id": "loc_office",
+      "unit": "kwh",
+      "threshold_low": 0.0,
+      "threshold_high": 500.0,
+      "current_value": 280.0,
+      "status": "active"
+    },
+    {
+      "sensor_id": "energy_003",
+      "sensor_name": "Warehouse Energy Meter",
+      "sensor_type": "energy",
+      "location_id": "loc_warehouse",
+      "unit": "kwh",
+      "threshold_low": 0.0,
+      "threshold_high": 800.0,
+      "current_value": 320.0,
+      "status": "active"
+    }
+  ]
+}

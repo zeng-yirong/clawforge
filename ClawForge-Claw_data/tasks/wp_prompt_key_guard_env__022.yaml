@@ -1,0 +1,8 @@
+task_name: wp_prompt_key_guard_env__022
+asset: wp_prompt_key_guard_env__022
+prompt_path: tasks/prompts/wp_prompt_key_guard_env__022.md
+runtime:
+  max_seconds: 120
+  docker_image: "python:3.11-slim"
+  memory_mb: 256
+verify_script: scripts/wp_prompt_key_guard_env__022/verify_workplace.py

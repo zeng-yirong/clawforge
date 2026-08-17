@@ -1,0 +1,622 @@
+{
+  "env_name": "crm_envs",
+  "rel_path": "crm_envs",
+  "cli_module": "crm_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "CRM_SESSION_ID",
+    "state_env": "CRM_STATE_ROOT",
+    "scenario_env": "CRM_SCENARIO_ID",
+    "default_scenario_id": "crm_contact_management"
+  },
+  "visible_verbs": [
+    {
+      "verb": "add-tags",
+      "action": "add_tags",
+      "role": "other",
+      "help": "Add tags to contact.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tags",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated tags",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "archive-contact",
+      "action": "archive_contact",
+      "role": "produce",
+      "help": "Archive a contact.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "classify-contact",
+      "action": "classify_contact",
+      "role": "other",
+      "help": "Classify contact into folder with tags.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tags",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated tags",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-birthday-reminder",
+      "action": "create_birthday_reminder",
+      "role": "produce",
+      "help": "Create birthday reminder for contact.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--days-before",
+          "required": false,
+          "has_default": true,
+          "default": 7,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "disable-reminder",
+      "action": "disable_reminder",
+      "role": "other",
+      "help": "Disable a reminder.",
+      "args": [
+        {
+          "name": "--reminder-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "enable-reminder",
+      "action": "enable_reminder",
+      "role": "other",
+      "help": "Enable a reminder.",
+      "args": [
+        {
+          "name": "--reminder-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-contact",
+      "action": "get_contact",
+      "role": "read",
+      "help": "Get contact details.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-or-create-tag",
+      "action": "get_or_create_tag",
+      "role": "read",
+      "help": "Get or create a tag.",
+      "args": [
+        {
+          "name": "--tag-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-contacts",
+      "action": "list_contacts",
+      "role": "read",
+      "help": "List contacts with optional filters.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--contact-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tag",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-reminders",
+      "action": "list_reminders",
+      "role": "read",
+      "help": "List reminders.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--reminder-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--upcoming-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-tags",
+      "action": "list_tags",
+      "role": "read",
+      "help": "List available tag definitions.",
+      "args": [
+        {
+          "name": "--category",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "remove-tags",
+      "action": "remove_tags",
+      "role": "other",
+      "help": "Remove tags from contact.",
+      "args": [
+        {
+          "name": "--contact-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tags",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated tags",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "search-contacts",
+      "action": "search_contacts",
+      "role": "read",
+      "help": "Search contacts by various criteria.",
+      "args": [
+        {
+          "name": "--name-query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--email-query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--company-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tag",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-contacts",
+      "dst": "get-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-contacts",
+      "dst": "classify-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-contacts",
+      "dst": "add-tags",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-contacts",
+      "dst": "remove-tags",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-contacts",
+      "dst": "archive-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-contacts",
+      "dst": "create-birthday-reminder",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "get-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "classify-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "add-tags",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "remove-tags",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "archive-contact",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "search-contacts",
+      "dst": "create-birthday-reminder",
+      "weight": 0.8,
+      "relationship": "produces_contact_id_for"
+    },
+    {
+      "src": "list-reminders",
+      "dst": "enable-reminder",
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for"
+    },
+    {
+      "src": "list-reminders",
+      "dst": "disable-reminder",
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for"
+    },
+    {
+      "src": "create-birthday-reminder",
+      "dst": "enable-reminder",
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for"
+    },
+    {
+      "src": "create-birthday-reminder",
+      "dst": "disable-reminder",
+      "weight": 0.8,
+      "relationship": "produces_reminder_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_archive",
+    "required_classifications",
+    "required_reminders"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "crm_contact_management"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "vehicle_id": "veh_001",
+  "model": "智联新能源SUV",
+  "has_offline_maps": true,
+  "has_traffic_live": true,
+  "has_ev_support": true,
+  "battery_capacity_kwh": 80,
+  "max_charge_rate_kw": 120
+}

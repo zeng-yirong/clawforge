@@ -1,0 +1,7 @@
+schema_version: "1.0"
+prompt_path: "tasks/prompts/wp_prompt_key_guard_env__017.md"
+asset: "wp_prompt_key_guard_env__017"
+runtime:
+  cwd: "assets/wp_prompt_key_guard_env__017"
+  max_steps: 30
+  timeout_seconds: 600

@@ -1,0 +1,17 @@
+{
+  "scenario_id": "business_markdown_report_weekly_q2_2026",
+  "title": "Generate weekly business markdown report",
+  "task_prompt": "Read the customer, product, and operations ledgers for the target weekly period, aggregate the metrics, and store a standardized Markdown report in cache.",
+  "current_time": "2026-06-23T13:00:00Z",
+  "workspace_account_id": "biz_ops_reporting",
+  "expected_ledgers": ["customer_ledger", "product_ledger", "ops_ledger"],
+  "expected_metrics": {
+    "active_customers": 120.0,
+    "gmv_kusd": 560.0,
+    "ops_hours": 96.0,
+    "orders_processed": 340.0,
+    "renewal_tickets": 18.0,
+    "resolved_incidents": 28.0
+  },
+  "required_actions": ["list_ledgers", "preview_ledger", "generate_markdown_report"]
+}

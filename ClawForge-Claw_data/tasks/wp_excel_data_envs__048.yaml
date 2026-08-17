@@ -1,0 +1,7 @@
+name: wp_excel_data_envs__048
+type: workplace
+asset: wp_excel_data_envs__048
+prompt_path: tasks/prompts/wp_excel_data_envs__048.md
+runtime:
+  python: "3.10"
+  cwd: assets/wp_excel_data_envs__048

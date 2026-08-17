@@ -1,0 +1,733 @@
+{
+  "env_name": "excel_data_envs",
+  "rel_path": "excel_data_envs",
+  "cli_module": "excel_data_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "EXCEL_DATA_SESSION_ID",
+    "state_env": "EXCEL_DATA_STATE_ROOT",
+    "scenario_env": "EXCEL_DATA_SCENARIO_ID",
+    "default_scenario_id": "sales_data_processing"
+  },
+  "visible_verbs": [
+    {
+      "verb": "create-average-order",
+      "action": "create_average_order",
+      "role": "produce",
+      "help": "Create average order value formula.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-bar-chart",
+      "action": "create_bar_chart",
+      "role": "produce",
+      "help": "Create a bar chart.",
+      "args": [
+        {
+          "name": "--chart-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--x-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--y-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--aggregation",
+          "required": false,
+          "has_default": true,
+          "default": "sum",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-column-chart",
+      "action": "create_column_chart",
+      "role": "produce",
+      "help": "Create a column chart.",
+      "args": [
+        {
+          "name": "--chart-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--x-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--y-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--aggregation",
+          "required": false,
+          "has_default": true,
+          "default": "sum",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-formula",
+      "action": "create_formula",
+      "role": "produce",
+      "help": "Create a calculation formula.",
+      "args": [
+        {
+          "name": "--name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--expression",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-line-chart",
+      "action": "create_line_chart",
+      "role": "produce",
+      "help": "Create a line chart.",
+      "args": [
+        {
+          "name": "--chart-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--x-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--y-axis",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--aggregation",
+          "required": false,
+          "has_default": true,
+          "default": "sum",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-pie-chart",
+      "action": "create_pie_chart",
+      "role": "produce",
+      "help": "Create a pie chart.",
+      "args": [
+        {
+          "name": "--chart-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--label-column",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--value-column",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--aggregation",
+          "required": false,
+          "has_default": true,
+          "default": "sum",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-pivot",
+      "action": "create_pivot",
+      "role": "produce",
+      "help": "Create a custom pivot table.",
+      "args": [
+        {
+          "name": "--row-dimensions",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated dimension columns",
+          "hidden": false
+        },
+        {
+          "name": "--value-column",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--aggregation",
+          "required": false,
+          "has_default": true,
+          "default": "sum",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-pivot-category-region",
+      "action": "create_pivot_category_region",
+      "role": "produce",
+      "help": "Create pivot by category and region.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-pivot-city",
+      "action": "create_pivot_city",
+      "role": "produce",
+      "help": "Create pivot by city.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-pivot-salesperson",
+      "action": "create_pivot_salesperson",
+      "role": "produce",
+      "help": "Create pivot by salesperson.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-total-revenue",
+      "action": "create_total_revenue",
+      "role": "produce",
+      "help": "Create total revenue formula.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-total-transactions",
+      "action": "create_total_transactions",
+      "role": "produce",
+      "help": "Create total transactions formula.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "deduplicate",
+      "action": "deduplicate",
+      "role": "other",
+      "help": "Remove duplicate transactions.",
+      "args": [
+        {
+          "name": "--data-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--key-column",
+          "required": false,
+          "has_default": true,
+          "default": "transaction_id",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "fill-missing",
+      "action": "fill_missing",
+      "role": "other",
+      "help": "Fill missing customer data.",
+      "args": [
+        {
+          "name": "--data-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-chart",
+      "action": "get_chart",
+      "role": "read",
+      "help": "Get a specific chart.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-chart-details",
+      "action": "get_chart_details",
+      "role": "read",
+      "help": "Get chart details.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-charts",
+      "action": "get_charts",
+      "role": "read",
+      "help": "List all created charts.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-cleaned-data",
+      "action": "get_cleaned_data",
+      "role": "read",
+      "help": "Get cleaned deduplicated data.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-data-summary",
+      "action": "get_data_summary",
+      "role": "read",
+      "help": "Get data summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-formulas",
+      "action": "get_formulas",
+      "role": "read",
+      "help": "List all created formulas.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-pivots",
+      "action": "get_pivots",
+      "role": "read",
+      "help": "List all created pivot tables.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-raw-data",
+      "action": "list_raw_data",
+      "role": "read",
+      "help": "List available raw datasets.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "read-raw-data",
+      "action": "read_raw_data",
+      "role": "read",
+      "help": "Read raw dataset info.",
+      "args": [
+        {
+          "name": "--data-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-raw-data",
+      "dst": "read-raw-data",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "list-raw-data",
+      "dst": "deduplicate",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "list-raw-data",
+      "dst": "fill-missing",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-cleaned-data",
+      "dst": "read-raw-data",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-cleaned-data",
+      "dst": "deduplicate",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-cleaned-data",
+      "dst": "fill-missing",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-data-summary",
+      "dst": "read-raw-data",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-data-summary",
+      "dst": "deduplicate",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-data-summary",
+      "dst": "fill-missing",
+      "weight": 0.8,
+      "relationship": "produces_data_id_for"
+    },
+    {
+      "src": "get-charts",
+      "dst": "create-bar-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-charts",
+      "dst": "create-pie-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-charts",
+      "dst": "create-line-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-charts",
+      "dst": "create-column-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart",
+      "dst": "create-bar-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart",
+      "dst": "create-pie-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart",
+      "dst": "create-line-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart",
+      "dst": "create-column-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart-details",
+      "dst": "create-bar-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart-details",
+      "dst": "create-pie-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart-details",
+      "dst": "create-line-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    },
+    {
+      "src": "get-chart-details",
+      "dst": "create-column-chart",
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_outputs"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "sales_data_processing"
+  ]
+}

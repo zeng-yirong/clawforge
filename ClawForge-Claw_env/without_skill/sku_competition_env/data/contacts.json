@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "contact_id": "ctg_mgr_001",
+      "name": "Mira Tan",
+      "role": "Category Director",
+      "email": "mira.tan@northstar.example.com"
+    },
+    {
+      "contact_id": "pricing_ops_001",
+      "name": "Jonas Li",
+      "role": "Pricing Operations Lead",
+      "email": "jonas.li@northstar.example.com"
+    },
+    {
+      "contact_id": "merch_ops_001",
+      "name": "Alina Bose",
+      "role": "Merchandising Ops",
+      "email": "alina.bose@northstar.example.com"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "accounts": [
+    {
+      "account_id": "commerce_intel_team",
+      "display_name": "Northstar Commerce Intelligence",
+      "department": "Category Strategy",
+      "email": "category-intel@northstar.example.com",
+      "permissions": [
+        "view_brands",
+        "view_skus",
+        "view_price_books",
+        "read_attachments",
+        "extract_catalog",
+        "generate_competition_reports",
+        "view_cache"
+      ],
+      "default_region": "APAC",
+      "voice": [
+        "precise",
+        "comparative",
+        "evidence-backed"
+      ]
+    }
+  ]
+}

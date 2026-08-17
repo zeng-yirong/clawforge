@@ -1,0 +1,3 @@
+batch_id,group_id,accuracy,latency_ms,cost_usd
+batch_alpha,group_a,0.882,142.0,32.50
+batch_beta,group_b,0.901,155.0,35.10

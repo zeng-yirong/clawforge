@@ -1,0 +1,5 @@
+asset: wp_compete_track_envs__005
+prompt: tasks/prompts/wp_compete_track_envs__005.md
+runtime:
+  image: python:3.10-slim
+  working_dir: /workspace

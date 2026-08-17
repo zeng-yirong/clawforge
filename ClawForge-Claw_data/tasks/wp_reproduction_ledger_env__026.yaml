@@ -1,0 +1,11 @@
+prompt_path: tasks/prompts/wp_reproduction_ledger_env__026.md
+asset: wp_reproduction_ledger_env__026
+runtime:
+  cwd: assets/wp_reproduction_ledger_env__026
+  actions:
+    - read
+    - write
+    - edit
+    - list
+    - mkdir
+    - delete

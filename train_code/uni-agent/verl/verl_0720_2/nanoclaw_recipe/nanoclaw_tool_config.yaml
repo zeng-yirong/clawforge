@@ -1,0 +1,184 @@
+nanoclaw_tool_defaults: &nanoclaw_tool_defaults
+  type: native
+  temp_root: /tmp/verl_nanoclaw_workspaces
+  list_limit: 200
+  read_limit: 8000
+  grep_limit: 200
+  find_limit: 200
+  bash_timeout: 20
+  allow_bash: true
+
+tools:
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: list_dir
+        description: List files or directories inside the current Nanoclaw workspace.
+        parameters:
+          type: object
+          properties:
+            path:
+              type: string
+              description: Workspace-relative directory or file path. Defaults to '.'.
+            recursive:
+              type: boolean
+              description: Whether to list entries recursively.
+            limit:
+              type: integer
+              description: Maximum number of entries to return.
+          required: []
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: read_file
+        description: Read a UTF-8 text file from the current Nanoclaw workspace.
+        parameters:
+          type: object
+          properties:
+            path:
+              type: string
+              description: Workspace-relative file path to read.
+            limit:
+              type: integer
+              description: Maximum number of characters to return.
+          required: [path]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: write_file
+        description: Write a UTF-8 text file in the current Nanoclaw workspace.
+        parameters:
+          type: object
+          properties:
+            path:
+              type: string
+              description: Workspace-relative file path to write.
+            content:
+              type: string
+              description: Complete file content to write.
+          required: [path, content]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: edit_file
+        description: Replace exact text inside a workspace file.
+        parameters:
+          type: object
+          properties:
+            path:
+              type: string
+              description: Workspace-relative file path to edit.
+            old_text:
+              type: string
+              description: Exact text to replace.
+            new_text:
+              type: string
+              description: Replacement text.
+            replace_all:
+              type: boolean
+              description: Replace all occurrences instead of requiring exactly one match.
+          required: [path, old_text, new_text]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: apply_patch
+        description: Apply several exact text replacements. Provide changes_json as a JSON array of objects with path, old_text, new_text, and optional replace_all.
+        parameters:
+          type: object
+          properties:
+            changes_json:
+              type: string
+              description: JSON array of edit objects, for example [{"path":"a.txt","old_text":"old","new_text":"new"}].
+          required: [changes_json]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: grep
+        description: Search workspace text files using a Python regular expression.
+        parameters:
+          type: object
+          properties:
+            pattern:
+              type: string
+              description: Python regular expression to search for.
+            glob:
+              type: string
+              description: Workspace-relative glob to restrict files. Defaults to '**/*'.
+            limit:
+              type: integer
+              description: Maximum number of matching lines to return.
+          required: [pattern]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: find
+        description: Find files in the workspace using a workspace-relative glob.
+        parameters:
+          type: object
+          properties:
+            pattern:
+              type: string
+              description: Glob pattern such as '**/*.py'. Defaults to '**/*'.
+            limit:
+              type: integer
+              description: Maximum number of files to return.
+          required: []
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: mkdir
+        description: Create a directory inside the current Nanoclaw workspace.
+        parameters:
+          type: object
+          properties:
+            path:
+              type: string
+              description: Workspace-relative directory path to create.
+          required: [path]
+
+  - class_name: nanoclaw_recipe.nanoclaw.NanoclawWorkspaceTool
+    config: *nanoclaw_tool_defaults
+    tool_schema:
+      type: function
+      function:
+        name: bash
+        description: Run a restricted bash command or workspace-local script from the workspace root. Useful commands include find, ls, wc, head, tail, grep, sed, awk, sort, uniq, cut, and python3 for inspecting large files or running small analysis scripts. Only simple whitelisted commands and workspace-relative paths are allowed.
+        parameters:
+          type: object
+          properties:
+            command:
+              type: string
+              description: Restricted bash command to run from the workspace root.
+            script:
+              type: string
+              description: Restricted bash script content to run from a temporary workspace-local script.
+            path:
+              type: string
+              description: Workspace-relative path to an existing bash script to run.
+            timeout:
+              type: number
+              description: Timeout in seconds.
+          required: []

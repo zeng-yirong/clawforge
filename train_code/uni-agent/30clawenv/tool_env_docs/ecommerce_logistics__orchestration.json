@@ -1,0 +1,462 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_worker",
+    "description": "Register a new worker that can execute pipeline stages.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Worker display name."
+        },
+        "role": {
+          "type": "string",
+          "description": "Functional role (e.g. 'customer_service', 'warehouse_manager', 'logistics_coordinator')."
+        },
+        "capabilities": {
+          "type": "array",
+          "description": "[Optional] List of operation types this worker can execute."
+        }
+      },
+      "required": [
+        "name",
+        "role"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unregister_worker",
+    "description": "Remove a worker from the orchestration system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "worker_id": {
+          "type": "string",
+          "description": "ID of the worker to remove."
+        }
+      },
+      "required": [
+        "worker_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_workers",
+    "description": "List registered workers, optionally filtered by role or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "[Optional] Filter by role."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "define_pipeline",
+    "description": "Define a new pipeline with an ordered list of stages.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Pipeline name."
+        },
+        "stages": {
+          "type": "array",
+          "description": "Ordered list of stage definitions. Each stage must contain: - stage_id (str): Unique stage identifier within this pipeline. - name (str): Human-readable stage name. - action (str): Type of operation to perform. - params (Dict): Parameters for the operation. - on_failure (str): [Optional] 'abort', 'skip', or 'retry'. Defaults to 'abort'. - max_retries (int): [Optional] Maximum retry count when on_failure='retry'. Defaults to 1. - depends_on (List[str]): [Optional] List of other stage IDs that must complete first. - assigned_worker (str): [Optional] Worker ID assigned to this stage."
+        },
+        "mode": {
+          "type": "string",
+          "description": "Execution mode -- 'sequential' or 'parallel'. Defaults to 'sequential'."
+        }
+      },
+      "required": [
+        "name",
+        "stages"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_pipeline",
+    "description": "Retrieve the full state of a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        }
+      },
+      "required": [
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_pipelines",
+    "description": "List all pipelines, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by pipeline status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "assign_stage",
+    "description": "Assign a worker to a specific stage in a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID within the pipeline."
+        },
+        "worker_id": {
+          "type": "string",
+          "description": "Worker ID to assign."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id",
+        "worker_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "execute_stage",
+    "description": "Execute a single stage within a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID to execute."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "execute_pipeline",
+    "description": "Execute all pending stages in a pipeline sequentially or in parallel.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        }
+      },
+      "required": [
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "query_logistics_status",
+    "description": "Query the logistics status of a specified tracking number.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "tracking_number": {
+          "type": "string",
+          "description": "The tracking number to query."
+        }
+      },
+      "required": [
+        "tracking_number"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_return_request",
+    "description": "Submit a return/exchange request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Order ID."
+        },
+        "product_id": {
+          "type": "string",
+          "description": "Product ID."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Return/exchange reason."
+        }
+      },
+      "required": [
+        "order_id",
+        "product_id",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_return_request",
+    "description": "Process a return/exchange request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "return_id": {
+          "type": "string",
+          "description": "Return/exchange request ID."
+        },
+        "action": {
+          "type": "string",
+          "description": "Processing action -- 'approve' or 'reject'."
+        },
+        "notes": {
+          "type": "string",
+          "description": "[Optional] Processing notes."
+        }
+      },
+      "required": [
+        "return_id",
+        "action"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reconcile_inventory",
+    "description": "Reconcile inventory for a specified product.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "Product ID."
+        },
+        "actual_count": {
+          "type": "integer",
+          "description": "Actual inventory quantity."
+        }
+      },
+      "required": [
+        "product_id",
+        "actual_count"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "adjust_inventory",
+    "description": "Adjust the inventory quantity of a specified product.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "product_id": {
+          "type": "string",
+          "description": "Product ID."
+        },
+        "adjustment": {
+          "type": "integer",
+          "description": "Adjustment amount (positive increases, negative decreases)."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for adjustment."
+        }
+      },
+      "required": [
+        "product_id",
+        "adjustment",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "rollback_stage",
+    "description": "Roll back a completed stage by executing its compensation action.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID to roll back."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "retry_stage",
+    "description": "Re-execute a failed stage if it has remaining retry attempts.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID to retry."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "collect_results",
+    "description": "Collect aggregated results from all completed stages in a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        }
+      },
+      "required": [
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "send_message",
+    "description": "Send a message from one worker to another in the orchestration context.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "from_worker_id": {
+          "type": "string",
+          "description": "Sender worker ID."
+        },
+        "to_worker_id": {
+          "type": "string",
+          "description": "Receiver worker ID."
+        },
+        "content": {
+          "type": "string",
+          "description": "Message content."
+        }
+      },
+      "required": [
+        "from_worker_id",
+        "to_worker_id",
+        "content"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

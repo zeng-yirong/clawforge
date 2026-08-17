@@ -1,0 +1,1 @@
+嘿，智能家居助手，我是物业管理员小张。刚刚Jane Smith打电话来说她哮喘又有点不舒服，觉得卧室又干又热。她的健康档案在 `health/health.json` 里，你查一下她的温湿偏好。卧室当前的环境读数在 `session/current.json` 里，注意只看bedroom那组数据。电价表在 `electricity/rates.json`，室外天气参考 `weather/weather.json`。你赶紧分析一下，卧室的空调和加湿器该怎么调才最合适。把最终调整方案写到 `ops/adjustments.json`，格式你自己定，让我一看就知道要对哪个设备设多少。别管客厅那些，只处理卧室！

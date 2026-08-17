@@ -1,0 +1,52 @@
+{
+  "policy_version": "2024.03",
+  "effective_date": "2024-01-01",
+  "currency": "CNY",
+  "tiers": {
+    "standard": {
+      "name": "标准差旅",
+      "daily_food_budget": 200,
+      "daily_accommodation_budget": 500,
+      "transport_local_budget": 150,
+      "flight_class": "economy",
+      "train_class": "second_class",
+      "taxi_limit_per_day": 100,
+      "misc_limit_per_day": 50
+    },
+    "senior": {
+      "name": "高级差旅",
+      "daily_food_budget": 300,
+      "daily_accommodation_budget": 800,
+      "transport_local_budget": 200,
+      "flight_class": "business",
+      "train_class": "first_class",
+      "taxi_limit_per_day": 150,
+      "misc_limit_per_day": 80
+    },
+    "executive": {
+      "name": "高管差旅",
+      "daily_food_budget": 500,
+      "daily_accommodation_budget": 1500,
+      "transport_local_budget": 300,
+      "flight_class": "first_class",
+      "train_class": "business",
+      "taxi_limit_per_day": 200,
+      "misc_limit_per_day": 150
+    }
+  },
+  "categories": [
+    {"category_id": "flight", "name": "机票", "reimbursable": true},
+    {"category_id": "train", "name": "火车票", "reimbursable": true},
+    {"category_id": "taxi", "name": "出租车", "reimbursable": true},
+    {"category_id": "metro", "name": "地铁公交", "reimbursable": true},
+    {"category_id": "accommodation", "name": "住宿", "reimbursable": true},
+    {"category_id": "food", "name": "餐饮", "reimbursable": true},
+    {"category_id": "communication", "name": "通讯费", "reimbursable": true},
+    {"category_id": "misc", "name": "其他杂费", "reimbursable": true}
+  ],
+  "reimbursement_rules": {
+    "meal_included_deduction": 80,
+    "receipt_required_above": 100,
+    "foreign_currency_rate": 7.25
+  }
+}

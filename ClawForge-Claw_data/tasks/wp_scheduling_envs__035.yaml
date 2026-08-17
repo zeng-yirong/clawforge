@@ -1,0 +1,21 @@
+prompt: tasks/prompts/wp_scheduling_envs__035.md
+asset: wp_scheduling_envs__035
+runtime:
+  cwd: assets/wp_scheduling_envs__035
+  allowed_commands:
+    - list-devices
+    - get-device
+    - turn-on-device
+    - turn-off-device
+    - control-light
+    - control-ac
+    - control-humidifier
+    - control-plug
+    - list-schedules
+    - get-schedule
+    - create-schedule
+    - upcoming-tasks
+    - scaffold-read
+    - scaffold-finish
+  workspace_type: file
+  verifier: scripts/wp_scheduling_envs__035/verify_workplace.py

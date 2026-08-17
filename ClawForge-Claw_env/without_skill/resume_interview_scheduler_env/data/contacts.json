@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "recruiter_001",
+      "name": "Lena Hu",
+      "role": "Recruiter",
+      "email": "lena.hu@northstar.example.com"
+    }
+  ]
+}

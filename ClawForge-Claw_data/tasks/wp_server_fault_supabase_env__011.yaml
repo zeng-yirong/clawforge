@@ -1,0 +1,5 @@
+name: "Server Fault Supabase Environment - UPS Recovery"
+prompt_path: "tasks/prompts/wp_server_fault_supabase_env__011.md"
+asset: "wp_server_fault_supabase_env__011"
+timeout: 600
+max_retries: 2

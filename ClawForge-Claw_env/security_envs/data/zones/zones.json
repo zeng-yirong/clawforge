@@ -1,0 +1,34 @@
+{
+  "zones": [
+    {
+      "zone_id": "zone_lobby",
+      "zone_name": "Main Lobby",
+      "sensors": ["motion_sensor_001", "door_sensor_001"],
+      "intrusion_detected": false
+    },
+    {
+      "zone_id": "zone_backyard",
+      "zone_name": "Backyard",
+      "sensors": ["motion_sensor_002", "door_sensor_002", "camera_001"],
+      "intrusion_detected": false
+    },
+    {
+      "zone_id": "zone_garage",
+      "zone_name": "Garage",
+      "sensors": ["motion_sensor_003", "door_sensor_003"],
+      "intrusion_detected": false
+    },
+    {
+      "zone_id": "zone_office",
+      "zone_name": "Office Room",
+      "sensors": ["motion_sensor_004", "camera_002"],
+      "intrusion_detected": false
+    },
+    {
+      "zone_id": "zone_basement",
+      "zone_name": "Basement",
+      "sensors": ["motion_sensor_005", "door_sensor_005"],
+      "intrusion_detected": false
+    }
+  ]
+}

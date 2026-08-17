@@ -1,0 +1,8 @@
+# @nanoclaw
+asset: wp_smart_home_envs__000
+prompt: tasks/prompts/wp_smart_home_envs__000.md
+runtime:
+  image: python:3.12-slim
+  entrypoint: python
+  requirements: []
+  timeout_seconds: 600

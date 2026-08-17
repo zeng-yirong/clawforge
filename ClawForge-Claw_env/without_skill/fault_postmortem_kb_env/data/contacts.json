@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "sre_lead_001",
+      "name": "Victor Yao",
+      "role": "SRE Lead",
+      "email": "victor.yao@northstar.example.com"
+    }
+  ]
+}

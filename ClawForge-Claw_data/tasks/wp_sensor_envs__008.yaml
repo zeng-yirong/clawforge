@@ -1,0 +1,6 @@
+task_id: wp_sensor_envs__008
+asset: wp_sensor_envs__008
+prompt: tasks/prompts/wp_sensor_envs__008.md
+runtime:
+  python: "3.11"
+  cwd: assets/wp_sensor_envs__008

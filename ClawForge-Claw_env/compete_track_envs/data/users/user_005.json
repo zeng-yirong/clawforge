@@ -1,0 +1,23 @@
+{
+  "user_id": "user_005",
+  "name": "Emma Brown",
+  "email": "emma.b@saas.co",
+  "competitor_id": "comp_004",
+  "tier": "premium",
+  "cohort": "cohort_q1_2026",
+  "acquisition_source": "social",
+  "acquisition_campaign": "linkedin_awareness",
+  "acquisition_date": "2026-01-25",
+  "acquisition_cost": 85,
+  "initial_channel": "linkedin",
+  "lifetime_value": 1200,
+  "churned": false,
+  "engagement": {
+    "score": 68,
+    "monthly_active_days": 18,
+    "features_used": ["productivity", "chat", "video"]
+  },
+  "activity_history": [
+    {"date": "2026-01-25", "action": "signup", "duration_minutes": 6}
+  ]
+}

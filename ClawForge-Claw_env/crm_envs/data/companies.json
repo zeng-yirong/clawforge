@@ -1,0 +1,82 @@
+{
+  "companies": [
+    {
+      "company_id": "co_001",
+      "name": "TechCorp Industries",
+      "industry": "Technology",
+      "size": "enterprise",
+      "website": "https://techcorp.com",
+      "address": "100 Tech Boulevard, San Francisco, CA 94105",
+      "phone": "+1-555-1000",
+      "tags": ["tech", "enterprise", "priority"],
+      "annual_revenue": "100M+",
+      "customer_since": "2023-01-15",
+      "account_manager": "ct_001"
+    },
+    {
+      "company_id": "co_002",
+      "name": "ClientCo Operations",
+      "industry": "Manufacturing",
+      "size": "mid_market",
+      "website": "https://clientco.com",
+      "address": "200 Industrial Way, Chicago, IL 60601",
+      "phone": "+1-555-2000",
+      "tags": ["manufacturing", "mid_market"],
+      "annual_revenue": "25M-50M",
+      "customer_since": "2025-03-15",
+      "account_manager": "ct_002"
+    },
+    {
+      "company_id": "co_003",
+      "name": "StartupIO",
+      "industry": "Technology",
+      "size": "small",
+      "website": "https://startup.io",
+      "address": "50 Innovation Drive, Austin, TX 78701",
+      "phone": "+1-555-3000",
+      "tags": ["tech", "startup", "growth"],
+      "annual_revenue": "5M-10M",
+      "customer_since": "2025-06-01",
+      "account_manager": "ct_003"
+    },
+    {
+      "company_id": "co_004",
+      "name": "Global Partners LLC",
+      "industry": "Consulting",
+      "size": "enterprise",
+      "website": "https://globalpartners.com",
+      "address": "300 Business Center, New York, NY 10001",
+      "phone": "+1-555-4000",
+      "tags": ["consulting", "enterprise", "strategic"],
+      "annual_revenue": "50M-100M",
+      "customer_since": "2024-02-01",
+      "account_manager": "ct_005"
+    },
+    {
+      "company_id": "co_005",
+      "name": "OldClient Services",
+      "industry": "Logistics",
+      "size": "small",
+      "website": "https://oldclient.com",
+      "address": "400 Storage Road, Seattle, WA 98101",
+      "phone": "+1-555-5000",
+      "tags": ["logistics", "former_client"],
+      "annual_revenue": "1M-5M",
+      "customer_since": "2022-05-15",
+      "account_manager": null
+    },
+    {
+      "company_id": "co_006",
+      "name": "VendorCo Supplies",
+      "industry": "Retail",
+      "size": "small",
+      "website": "https://vendorco.com",
+      "address": "500 Retail Street, Denver, CO 80201",
+      "phone": "+1-555-6000",
+      "tags": ["retail", "vendor"],
+      "annual_revenue": "1M-5M",
+      "customer_since": "2025-08-01",
+      "account_manager": "ct_007"
+    }
+  ]
+}

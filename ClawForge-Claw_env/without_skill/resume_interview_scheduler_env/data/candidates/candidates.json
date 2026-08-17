@@ -1,0 +1,9 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "cand_ml_001",
+      "candidate_name": "Ivy Cao",
+      "skills": ["python", "mlops", "kubernetes", "feature stores"]
+    }
+  ]
+}

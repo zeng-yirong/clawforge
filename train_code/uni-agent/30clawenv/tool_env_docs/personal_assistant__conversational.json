@@ -1,0 +1,440 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_persona",
+    "description": "Create a new persona configuration template.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "persona_type": {
+          "type": "string",
+          "description": "Persona type, must be one of VALID_PERSONA_TYPES."
+        },
+        "name": {
+          "type": "string",
+          "description": "Persona name (e.g. \"Gentle Secretary\")"
+        },
+        "description": {
+          "type": "string",
+          "description": "Persona description, at least 10 characters."
+        },
+        "behavior_params": {
+          "type": "dict",
+          "description": "[Optional] Specific behavior parameters: - patience_level (int): Patience level 1-10 - formality (int): Formality level 1-10 - verbosity (int): Verbosity level 1-10 - humor_level (int): Humor level 0-10 - allowed_conflict_types (List[str]): Allowed schedule conflict types - auto_reschedule_threshold (int): Auto-reschedule threshold (minutes)"
+        }
+      },
+      "required": [
+        "persona_type",
+        "name",
+        "description"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "edit_persona",
+    "description": "Edit an existing persona configuration.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "persona_id": {
+          "type": "string",
+          "description": "Persona ID to edit"
+        },
+        "name": {
+          "type": "string",
+          "description": "[Optional] New name"
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] New description"
+        },
+        "behavior_params_updates": {
+          "type": "dict",
+          "description": "[Optional] Behavior parameters to update"
+        }
+      },
+      "required": [
+        "persona_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_personas",
+    "description": "List all available persona configurations.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "persona_type": {
+          "type": "string",
+          "description": "[Optional] Filter by type"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_assistant",
+    "description": "Create a new assistant instance using a specified persona.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "persona_id": {
+          "type": "string",
+          "description": "Persona ID to use"
+        },
+        "assistant_name": {
+          "type": "string",
+          "description": "Assistant instance name"
+        },
+        "schedule_preferences": {
+          "type": "dict",
+          "description": "[Optional] Assistant-specific schedule preferences: - work_hours (Dict): Work hours, e.g. {\"start\": \"09:00\", \"end\": \"18:00\"} - preferred_break_times (List[str]): Preferred break times - max_events_per_day (int): Max events per day - min_gap_between_events (int): Min gap between events (minutes)"
+        }
+      },
+      "required": [
+        "persona_id",
+        "assistant_name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "activate_assistant",
+    "description": "Activate a deactivated assistant instance.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID to activate"
+        }
+      },
+      "required": [
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "deactivate_assistant",
+    "description": "Deactivate an assistant instance (preserving its schedule data).",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID to deactivate"
+        }
+      },
+      "required": [
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_assistants",
+    "description": "List all assistant instances.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "active_only": {
+          "type": "boolean",
+          "description": "Whether to list only activated assistants"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "schedule_event",
+    "description": "Schedule a new event through the assistant.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID responsible for scheduling"
+        },
+        "title": {
+          "type": "string",
+          "description": "Event title"
+        },
+        "start_time": {
+          "type": "string",
+          "description": "Start time (ISO format or YYYY-MM-DD HH:MM)"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "description": "Duration in minutes"
+        },
+        "event_type": {
+          "type": "string",
+          "description": "Event type, must be one of VALID_EVENT_TYPES"
+        },
+        "priority": {
+          "type": "string",
+          "description": "Priority, must be one of VALID_PRIORITIES"
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Event description"
+        },
+        "recurrence": {
+          "type": "dict",
+          "description": "[Optional] Recurrence rules: - frequency (str): \"daily\", \"weekly\", \"monthly\" - interval (int): Interval - days_of_week (List[str]): Days of the week - end_date (str): End date"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "title",
+        "start_time",
+        "duration_minutes"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reschedule_event",
+    "description": "Reschedule an existing event.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "event_id": {
+          "type": "string",
+          "description": "Event ID to reschedule"
+        },
+        "new_start_time": {
+          "type": "string",
+          "description": "New start time"
+        },
+        "reason": {
+          "type": "string",
+          "description": "[Optional] Reason for rescheduling"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "event_id",
+        "new_start_time"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_event",
+    "description": "Cancel a scheduled event.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "event_id": {
+          "type": "string",
+          "description": "Event ID to cancel"
+        },
+        "reason": {
+          "type": "string",
+          "description": "[Optional] Cancellation reason"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "event_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_schedule",
+    "description": "Get the assistant's schedule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "date": {
+          "type": "string",
+          "description": "[Optional] Filter by specific date (YYYY-MM-DD)"
+        },
+        "event_type": {
+          "type": "string",
+          "description": "[Optional] Filter by event type"
+        }
+      },
+      "required": [
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_reminders",
+    "description": "Check and return upcoming reminders.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "current_time": {
+          "type": "string",
+          "description": "Current time"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "current_time"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "suggest_optimal_time",
+    "description": "Suggest optimal scheduling times.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "date": {
+          "type": "string",
+          "description": "Target date (YYYY-MM-DD)"
+        },
+        "duration_minutes": {
+          "type": "integer",
+          "description": "Required duration"
+        },
+        "preferred_times": {
+          "type": "array",
+          "description": "[Optional] List of preferred time slots"
+        },
+        "event_type": {
+          "type": "string",
+          "description": "Event type"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "date",
+        "duration_minutes"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_assistant_summary",
+    "description": "Get comprehensive assistant summary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        }
+      },
+      "required": [
+        "assistant_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "talk_to_assistant",
+    "description": "Converse with the assistant.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "assistant_id": {
+          "type": "string",
+          "description": "Assistant ID"
+        },
+        "message": {
+          "type": "string",
+          "description": "User message"
+        },
+        "user_mood": {
+          "type": "string",
+          "description": "User's current mood"
+        }
+      },
+      "required": [
+        "assistant_id",
+        "message"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

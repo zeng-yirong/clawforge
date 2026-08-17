@@ -1,0 +1,6 @@
+id: wp_travel_policy_envs__027
+asset: wp_travel_policy_envs__027
+prompt: tasks/prompts/wp_travel_policy_envs__027.md
+runtime:
+  cwd: assets/wp_travel_policy_envs__027
+  entrypoint: python -c "from tasks.wp_travel_policy_envs__027.env_builder import build_env; build_env()"

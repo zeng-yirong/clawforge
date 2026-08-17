@@ -1,0 +1,6 @@
+task_id: wp_reproduction_ledger_env__008
+prompt: tasks/prompts/wp_reproduction_ledger_env__008.md
+asset: wp_reproduction_ledger_env__008
+runtime:
+  python: 3.10
+timeout: 300

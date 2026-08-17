@@ -1,0 +1,6 @@
+asset: wp_security_envs__014
+prompt: tasks/prompts/wp_security_envs__014.md
+runtime:
+  cwd: assets/wp_security_envs__014
+  env:
+    SECURITY_ENV: intrusion_response

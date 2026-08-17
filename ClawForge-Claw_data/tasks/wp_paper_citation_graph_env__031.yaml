@@ -1,0 +1,7 @@
+name: "Paper Citation Graph Extraction"
+description: "Extract valid citation relationships from paper abstracts and generate a graph snapshot."
+asset: "wp_paper_citation_graph_env__031"
+prompt: "tasks/prompts/wp_paper_citation_graph_env__031.md"
+runtime:
+  cwd: "assets/wp_paper_citation_graph_env__031"
+  tools: ["read", "write", "list", "json_parse"]

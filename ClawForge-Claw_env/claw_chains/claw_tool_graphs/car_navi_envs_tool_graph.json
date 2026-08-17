@@ -1,0 +1,284 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "add_waypoint",
+      "required_args": [
+        "--poi-id"
+      ],
+      "id": "add-waypoint"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "arrive_destination",
+      "required_args": [],
+      "id": "arrive-destination"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "arrive_waypoint",
+      "required_args": [],
+      "id": "arrive-waypoint"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "cancel_nav",
+      "required_args": [],
+      "id": "cancel-nav"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "charging_plan",
+      "required_args": [],
+      "id": "charging-plan"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "remove_waypoint",
+      "required_args": [],
+      "id": "remove-waypoint"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reroute",
+      "required_args": [],
+      "id": "reroute"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "route_preference",
+      "required_args": [],
+      "id": "route-preference"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "search_poi",
+      "required_args": [],
+      "id": "search-poi"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "start_nav",
+      "required_args": [
+        "--poi-id"
+      ],
+      "id": "start-nav"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "traffic",
+      "required_args": [],
+      "id": "traffic"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "arrive-waypoint",
+      "target": "start-nav"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "arrive-waypoint",
+      "target": "add-waypoint"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after arriving at waypoint, user may remove it",
+      "tier": "llm_weak",
+      "source": "arrive-waypoint",
+      "target": "remove-waypoint"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after canceling, user may start a new navigation",
+      "tier": "llm_weak",
+      "source": "cancel-nav",
+      "target": "start-nav"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after canceling, user may want trip summary",
+      "tier": "llm_weak",
+      "source": "cancel-nav",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after planning charging, user may navigate to charger",
+      "tier": "llm_weak",
+      "source": "charging-plan",
+      "target": "start-nav"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "remove-waypoint",
+      "target": "start-nav"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "remove-waypoint",
+      "target": "add-waypoint"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after rerouting, user may check traffic on new route",
+      "tier": "llm_weak",
+      "source": "reroute",
+      "target": "traffic"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "search-poi",
+      "target": "start-nav"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_poi_id_for",
+      "tier": "dataflow",
+      "source": "search-poi",
+      "target": "add-waypoint"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-poi",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-poi",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after seeing traffic, user may reroute to avoid congestion",
+      "tier": "llm_weak",
+      "source": "traffic",
+      "target": "reroute"
+    }
+  ]
+}

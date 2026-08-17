@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "customer_id": "cust_fin_001",
+      "customer_name": "LedgerFlow",
+      "industry": "fintech",
+      "tier": "mid_market",
+      "labels": ["expansion_watch"],
+      "owner_name": "Amy Luo"
+    },
+    {
+      "customer_id": "cust_retail_001",
+      "customer_name": "ShelfCloud",
+      "industry": "retail",
+      "tier": "enterprise",
+      "labels": ["healthy"],
+      "owner_name": "Amy Luo"
+    }
+  ]
+}

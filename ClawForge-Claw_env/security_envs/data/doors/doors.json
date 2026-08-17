@@ -1,0 +1,34 @@
+{
+  "doors": [
+    {
+      "door_id": "door_001",
+      "door_name": "Front Door",
+      "location": "Main Entrance",
+      "zone_id": "zone_lobby"
+    },
+    {
+      "door_id": "door_002",
+      "door_name": "Back Door",
+      "location": "Rear Entrance",
+      "zone_id": "zone_backyard"
+    },
+    {
+      "door_id": "door_003",
+      "door_name": "Garage Door",
+      "location": "Garage",
+      "zone_id": "zone_garage"
+    },
+    {
+      "door_id": "door_004",
+      "door_name": "Office Door",
+      "location": "Office Room",
+      "zone_id": "zone_office"
+    },
+    {
+      "door_id": "door_005",
+      "door_name": "Basement Door",
+      "location": "Basement",
+      "zone_id": "zone_basement"
+    }
+  ]
+}

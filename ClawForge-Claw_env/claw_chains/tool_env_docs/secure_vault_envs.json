@@ -1,0 +1,315 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check_strength",
+  "description": "Evaluate password strength against a policy for secure vault.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "password": {
+     "type": "string",
+     "description": "The password string to evaluate"
+    },
+    "policy": {
+     "type": "string",
+     "description": "Policy name or rules to apply",
+     "default": "{}"
+    }
+   },
+   "required": [
+    "password"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "classify_credential",
+  "description": "Assign a category to an existing credential in secure vault.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "credential_id": {
+     "type": "string",
+     "description": "Unique identifier of credential"
+    },
+    "category_id": {
+     "type": "string",
+     "description": "Unique identifier of category"
+    }
+   },
+   "required": [
+    "credential_id",
+    "category_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_password",
+  "description": "Generate a random password according to length and charset.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "length": {
+     "type": "integer",
+     "description": "Number of characters in password",
+     "default": 16
+    },
+    "charset": {
+     "type": "string",
+     "description": "Character set to use for generation",
+     "default": "alphanumeric"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_credentials",
+  "description": "List all credentials",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "retrieve_credential",
+  "description": "Fetch a stored credential for a given platform from secure vault.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "platform": {
+     "type": "string",
+     "description": "Name of the platform or service"
+    }
+   },
+   "required": [
+    "platform"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Get session summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "setup_autofill",
+  "description": "Configure automatic form filling for a specific platform in secure vault.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "platform": {
+     "type": "string",
+     "description": "Target platform for autofill"
+    },
+    "field_mappings": {
+     "type": "string",
+     "description": "Field name to credential attribute mapping",
+     "default": "{}"
+    }
+   },
+   "required": [
+    "platform"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "store_credential",
+  "description": "Save a new credential in the secure vault with provided details.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "platform": {
+     "type": "string",
+     "description": "Name of platform/service"
+    },
+    "username": {
+     "type": "string",
+     "description": "Username for the credential"
+    },
+    "password": {
+     "type": "string",
+     "description": "Password for the credential"
+    },
+    "category_id": {
+     "type": "string",
+     "description": "Category assignment for credential"
+    },
+    "url": {
+     "type": "string",
+     "description": "URL associated with the credential"
+    }
+   },
+   "required": [
+    "platform",
+    "username",
+    "password"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

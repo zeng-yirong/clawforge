@@ -1,0 +1,63 @@
+{
+  "scenario_id": "tech_solution_signal_trace_q2_2026",
+  "title": "Trace target technology solution signals across reports, decks, and media memory samples",
+  "task_prompt": "You are a technology narrative analyst at Northstar Signal Research. Traverse the preset industry reports, presentation decks, and media copy memory sample library to locate documents that match the target solution HelioSync Edge Inference Fabric. Associate the relevant document identifiers, organize a clue list grounded in the matched materials, and save it into the environment temporary records. Use the canonical solution id and avoid similarly named false positives such as HelioStream Runtime or Helio Fabric Gateway.",
+  "current_time": "2026-06-17T09:00:00+00:00",
+  "workspace_account_id": "signal_research_team",
+  "report_ids": [
+    "rep_001",
+    "rep_002",
+    "rep_003",
+    "rep_004"
+  ],
+  "presentation_ids": [
+    "deck_001",
+    "deck_002",
+    "deck_003"
+  ],
+  "media_sample_ids": [
+    "media_001",
+    "media_002",
+    "media_003"
+  ],
+  "attachment_paths": [
+    "solution_matching_notes.md",
+    "temp_record_guidelines.md"
+  ],
+  "target_solution_id": "sol_heliosync_fabric",
+  "target_solution_name": "HelioSync Edge Inference Fabric",
+  "target_solution_aliases": [
+    "HelioSync fabric",
+    "HSEF"
+  ],
+  "expected_document_ids": [
+    "rep_001",
+    "rep_003",
+    "deck_001",
+    "media_001"
+  ],
+  "forbidden_document_ids": [
+    "rep_002",
+    "deck_002",
+    "media_002"
+  ],
+  "required_attachment_paths": [
+    "solution_matching_notes.md",
+    "temp_record_guidelines.md"
+  ],
+  "required_source_types": [
+    "report",
+    "presentation",
+    "media_sample"
+  ],
+  "minimum_clue_count": 4,
+  "required_actions": [
+    "task",
+    "search_library",
+    "get_report",
+    "get_presentation",
+    "get_media_sample",
+    "read_attachment",
+    "save_clue_list"
+  ]
+}

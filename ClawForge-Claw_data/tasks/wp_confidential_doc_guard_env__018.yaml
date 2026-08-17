@@ -1,0 +1,7 @@
+task_id: wp_confidential_doc_guard_env__018
+prompt_path: tasks/prompts/wp_confidential_doc_guard_env__018.md
+asset: wp_confidential_doc_guard_env__018
+runtime:
+  max_iterations: 30
+  workspace_mount: assets/wp_confidential_doc_guard_env__018/
+  env_builder: tasks/wp_confidential_doc_guard_env__018/env_builder.py

@@ -1,0 +1,4 @@
+scenario_id: wp_business_markdown_report_env__009
+asset: wp_business_markdown_report_env__009
+prompt: tasks/prompts/wp_business_markdown_report_env__009.md
+runtime: python

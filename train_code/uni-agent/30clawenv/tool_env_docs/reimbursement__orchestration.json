@@ -1,0 +1,345 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "upload_receipt",
+    "description": "Upload a new receipt for OCR processing and reconciliation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "file_name": {
+          "type": "string",
+          "description": "Receipt file name (e.g., 'receipt_001.jpg')."
+        },
+        "upload_date": {
+          "type": "string",
+          "description": "Date when the receipt was uploaded (ISO format)."
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "Employee ID who submitted the receipt."
+        },
+        "category": {
+          "type": "string",
+          "description": "[Optional] Expense category (e.g., 'travel', 'meals', 'office_supplies')."
+        }
+      },
+      "required": [
+        "file_name",
+        "upload_date",
+        "employee_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_ocr",
+    "description": "Process OCR on an uploaded receipt to extract structured information.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_id": {
+          "type": "string",
+          "description": "Receipt ID to process."
+        }
+      },
+      "required": [
+        "receipt_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_receipts",
+    "description": "List all receipts, optionally filtered by employee or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by receipt status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "import_bank_transaction",
+    "description": "Import a bank card transaction record for matching with receipts.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "transaction_date": {
+          "type": "string",
+          "description": "Transaction date (ISO format)."
+        },
+        "amount": {
+          "type": "number",
+          "description": "Transaction amount."
+        },
+        "merchant": {
+          "type": "string",
+          "description": "Merchant name from bank statement."
+        },
+        "card_last_four": {
+          "type": "string",
+          "description": "Last four digits of the card used."
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "Employee ID associated with the card."
+        }
+      },
+      "required": [
+        "transaction_date",
+        "amount",
+        "merchant",
+        "card_last_four",
+        "employee_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_transactions",
+    "description": "List all bank transactions, optionally filtered by employee or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by transaction status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "match_receipt_to_transaction",
+    "description": "Match a receipt to a bank transaction and validate amount consistency.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_id": {
+          "type": "string",
+          "description": "Receipt ID to match."
+        },
+        "transaction_id": {
+          "type": "string",
+          "description": "Transaction ID to match against."
+        },
+        "tolerance": {
+          "type": "number",
+          "description": "[Optional] Acceptable amount difference ratio. Defaults to 0.01 (1%)."
+        }
+      },
+      "required": [
+        "receipt_id",
+        "transaction_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "auto_match_all",
+    "description": "Automatically match all unmatched receipts and transactions for an employee.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "Employee ID to process."
+        },
+        "tolerance": {
+          "type": "number",
+          "description": "[Optional] Acceptable amount difference ratio. Defaults to 0.01 (1%)."
+        }
+      },
+      "required": [
+        "employee_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_reimbursement_form",
+    "description": "Create a reimbursement form from matched receipts.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "Employee ID submitting the form."
+        },
+        "receipt_ids": {
+          "type": "array",
+          "description": "List of receipt IDs to include in the form."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Additional description or notes."
+        }
+      },
+      "required": [
+        "employee_id",
+        "receipt_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_reimbursement_form",
+    "description": "Submit a reimbursement form for review and approval.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Form ID to submit."
+        }
+      },
+      "required": [
+        "form_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "approve_reimbursement_form",
+    "description": "Approve a reimbursement form for payment processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Form ID to approve."
+        },
+        "approver_id": {
+          "type": "string",
+          "description": "ID of the approving manager or finance officer."
+        }
+      },
+      "required": [
+        "form_id",
+        "approver_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reject_reimbursement_form",
+    "description": "Reject a reimbursement form with a reason.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Form ID to reject."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Rejection reason."
+        }
+      },
+      "required": [
+        "form_id",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_reimbursement_forms",
+    "description": "List all reimbursement forms, optionally filtered by employee or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by form status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "analyze_discrepancies",
+    "description": "Analyze all discrepancies across receipts and transactions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,314 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_strength",
+      "required_args": [
+        "--password"
+      ],
+      "id": "check-strength"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "classify_credential",
+      "required_args": [
+        "--credential-id",
+        "--category-id"
+      ],
+      "id": "classify-credential"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_password",
+      "required_args": [],
+      "id": "generate-password"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_credentials",
+      "required_args": [],
+      "id": "list-credentials"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "retrieve_credential",
+      "required_args": [
+        "--platform"
+      ],
+      "id": "retrieve-credential"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "setup_autofill",
+      "required_args": [
+        "--platform"
+      ],
+      "id": "setup-autofill"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "store_credential",
+      "required_args": [
+        "--platform",
+        "--username",
+        "--password"
+      ],
+      "id": "store-credential"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-password"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "store-credential"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-password"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "store-credential"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::credential_management_001",
+      "tier": "gold",
+      "source": "classify-credential",
+      "target": "setup-autofill"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::credential_management_001",
+      "tier": "gold",
+      "source": "generate-password",
+      "target": "store-credential"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-password",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-password",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-password",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "check strength of generated password",
+      "tier": "llm_weak",
+      "source": "generate-password",
+      "target": "check-strength"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_credential_id_for",
+      "tier": "dataflow",
+      "source": "list-credentials",
+      "target": "classify-credential"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-credentials",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-credentials",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, setup autofill",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "setup-autofill"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_credential_id_for",
+      "tier": "dataflow",
+      "source": "retrieve-credential",
+      "target": "classify-credential"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "retrieve old then generate new",
+      "tier": "llm_weak",
+      "source": "retrieve-credential",
+      "target": "generate-password"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_credential_id_for",
+      "tier": "gold",
+      "source": "store-credential",
+      "target": "classify-credential"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "store-credential",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "store-credential",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "store-credential",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after storing credential, setup autofill for platform",
+      "tier": "llm_weak",
+      "source": "store-credential",
+      "target": "setup-autofill"
+    }
+  ]
+}

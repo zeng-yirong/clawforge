@@ -1,0 +1,6 @@
+task_id: wp_music_player_envs__020
+prompt_path: tasks/prompts/wp_music_player_envs__020.md
+asset: wp_music_player_envs__020
+runtime:
+  timeout: 300
+  working_directory: assets/wp_music_player_envs__020

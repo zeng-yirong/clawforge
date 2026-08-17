@@ -1,0 +1,439 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_zone",
+    "description": "Create a new security zone to monitor.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique name for the zone (e.g., 'main_entrance', 'office_floor2')."
+        },
+        "zone_type": {
+          "type": "string",
+          "description": "Type of zone — must be one of: entrance, office, corridor, storage, outdoor, parking."
+        },
+        "access_level": {
+          "type": "string",
+          "description": "Access restriction level — public, restricted, private. Defaults to 'public'."
+        },
+        "has_door_lock": {
+          "type": "boolean",
+          "description": "Whether this zone has an electronic door lock that can be controlled remotely. Defaults to False."
+        }
+      },
+      "required": [
+        "name",
+        "zone_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_zones",
+    "description": "List all configured security zones.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_type": {
+          "type": "string",
+          "description": "[Optional] Filter by zone type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_zone",
+    "description": "Update properties of an existing zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the zone to update."
+        },
+        "updates": {
+          "type": "dict",
+          "description": "Fields to change. Allowed keys: access_level, has_door_lock."
+        }
+      },
+      "required": [
+        "name",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "deploy_sensor",
+    "description": "Deploy a security sensor in a specific zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "Name of the zone where sensor will be deployed."
+        },
+        "sensor_type": {
+          "type": "string",
+          "description": "Type of sensor — motion, door, window, camera, glass_break, smoke."
+        },
+        "location": {
+          "type": "string",
+          "description": "Specific location description within the zone."
+        }
+      },
+      "required": [
+        "zone_name",
+        "sensor_type",
+        "location"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_sensors",
+    "description": "List deployed sensors with optional filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "[Optional] Filter by zone name."
+        },
+        "sensor_type": {
+          "type": "string",
+          "description": "[Optional] Filter by sensor type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_sensor_status",
+    "description": "Update the operational status of a sensor.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sensor_id": {
+          "type": "string",
+          "description": "ID of the sensor to update."
+        },
+        "status": {
+          "type": "string",
+          "description": "New status — active, inactive, maintenance."
+        }
+      },
+      "required": [
+        "sensor_id",
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_rule",
+    "description": "Create a security automation rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable rule name."
+        },
+        "trigger_type": {
+          "type": "string",
+          "description": "Event type that triggers evaluation — intrusion_detected, unauthorized_entry, motion_alert, door_forced, window_break, after_hours_activity."
+        },
+        "condition_field": {
+          "type": "string",
+          "description": "Field in the event payload to evaluate."
+        },
+        "condition_op": {
+          "type": "string",
+          "description": "Comparison operator — eq, neq, gt, lt, gte, lte, contains, matches."
+        },
+        "condition_value": {
+          "type": "string",
+          "description": "Value to compare against."
+        },
+        "actions": {
+          "type": "array",
+          "description": "Ordered list of actions to execute when condition is met. Each action has 'type' (lock_door, call_police, capture_video, send_sms, sound_alarm, notify_security, activate_lights) and 'params'."
+        },
+        "zone_filter": {
+          "type": "string",
+          "description": "[Optional] Only trigger for events in this specific zone."
+        },
+        "priority": {
+          "type": "string",
+          "description": "Rule priority level — low, normal, high, critical. Defaults to 'normal'."
+        }
+      },
+      "required": [
+        "name",
+        "trigger_type",
+        "condition_field",
+        "condition_op",
+        "condition_value",
+        "actions"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_rule",
+    "description": "Update fields of an existing security rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to update."
+        },
+        "updates": {
+          "type": "dict",
+          "description": "Fields to change. Allowed keys: name, enabled, trigger_type, condition, actions, zone_filter, priority."
+        }
+      },
+      "required": [
+        "rule_id",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "delete_rule",
+    "description": "Delete a security automation rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to delete."
+        }
+      },
+      "required": [
+        "rule_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_rules",
+    "description": "List all configured security rules with optional filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "enabled_only": {
+          "type": "boolean",
+          "description": "If True, return only enabled rules. Defaults to False."
+        },
+        "priority": {
+          "type": "string",
+          "description": "[Optional] Filter by priority level."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "inject_event",
+    "description": "Inject a simulated security event. The environment evaluates all matching rules",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "Name of the zone where the event occurred."
+        },
+        "event_type": {
+          "type": "string",
+          "description": "Type of the security event (must match a valid trigger_type)."
+        },
+        "payload": {
+          "type": "dict",
+          "description": "Arbitrary key-value data describing the event (e.g., severity, threat_level, person_count, time_of_day)."
+        },
+        "sensor_id": {
+          "type": "string",
+          "description": "[Optional] ID of the sensor that detected the event."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_event_log",
+    "description": "Retrieve filtered security event history.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "[Optional] Filter by zone name."
+        },
+        "event_type": {
+          "type": "string",
+          "description": "[Optional] Filter by event type."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum events to return. Defaults to 20."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_action_log",
+    "description": "Retrieve history of executed security actions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "description": "[Optional] Filter by action type."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum actions to return. Defaults to 50."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "set_security_status",
+    "description": "Manually set the overall security status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "New security status — normal, alert, lockdown."
+        }
+      },
+      "required": [
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_security_status",
+    "description": "Get the current overall security status and zone summary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "lock_zone_door",
+    "description": "Manually lock the door of a specific zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "Name of the zone to lock."
+        }
+      },
+      "required": [
+        "zone_name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unlock_zone_door",
+    "description": "Manually unlock the door of a specific zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_name": {
+          "type": "string",
+          "description": "Name of the zone to unlock."
+        }
+      },
+      "required": [
+        "zone_name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

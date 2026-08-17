@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "segmentation_rules.md",
+      "title": "Segmentation Rules",
+      "kind": "rules",
+      "description": "Preset rules for customer segmentation labels."
+    }
+  ]
+}

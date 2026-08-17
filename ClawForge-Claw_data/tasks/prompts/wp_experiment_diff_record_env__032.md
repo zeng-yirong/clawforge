@@ -1,0 +1,1 @@
+嘿，昨晚 AB 测试跑完了两个批次，alpha 和 beta，但是结果看起来有点不对劲。我把原始实验数据扔在 `data/experiments/experiment_results.csv` 里了，你帮我看下每个分组在两个批次之间的具体差异。我手头要一份精确的差异记录，格式就按：每个分组一行，字段是 group_id、accuracy_diff、latency_diff、cost_diff，差值统一用 beta 减去 alpha，保留两位小数。直接放到 `ops/batch_diff.json` 里，我待会要拿去跟训练组对线。谢了。

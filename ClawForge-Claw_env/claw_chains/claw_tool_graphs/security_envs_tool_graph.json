@@ -1,0 +1,388 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "acknowledge",
+      "required_args": [],
+      "id": "acknowledge"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "alerts",
+      "required_args": [],
+      "id": "alerts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "arm",
+      "required_args": [],
+      "id": "arm"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "arm_all",
+      "required_args": [],
+      "id": "arm-all"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check",
+      "required_args": [],
+      "id": "check"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "clip",
+      "required_args": [
+        "--camera",
+        "--zone"
+      ],
+      "id": "clip"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "closed_loop",
+      "required_args": [],
+      "id": "closed-loop"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compose",
+      "required_args": [
+        "--recipient",
+        "--contact",
+        "--alert-id"
+      ],
+      "id": "compose"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "contacts",
+      "required_args": [],
+      "id": "contacts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "create",
+      "required_args": [
+        "--type",
+        "--zone",
+        "--description",
+        "--severity",
+        "--source",
+        "--type",
+        "--recipient",
+        "--contact",
+        "--subject",
+        "--body"
+      ],
+      "id": "create"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "dial",
+      "required_args": [
+        "--type",
+        "--description",
+        "--location"
+      ],
+      "id": "dial"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "disarm",
+      "required_args": [],
+      "id": "disarm"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "doors",
+      "required_args": [],
+      "id": "doors"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "emergency",
+      "required_args": [],
+      "id": "emergency"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "evidence",
+      "required_args": [],
+      "id": "evidence"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "info",
+      "required_args": [],
+      "id": "info"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "list",
+      "required_args": [],
+      "id": "list"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "lock",
+      "required_args": [],
+      "id": "lock"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "lock_all",
+      "required_args": [],
+      "id": "lock-all"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "notifications",
+      "required_args": [],
+      "id": "notifications"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reset",
+      "required_args": [],
+      "id": "reset"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "resolve",
+      "required_args": [
+        "--resolution"
+      ],
+      "id": "resolve"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "save",
+      "required_args": [
+        "--type",
+        "--description",
+        "--source"
+      ],
+      "id": "save"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "send",
+      "required_args": [],
+      "id": "send"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "sensors",
+      "required_args": [],
+      "id": "sensors"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "snapshot",
+      "required_args": [
+        "--camera",
+        "--zone"
+      ],
+      "id": "snapshot"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "status",
+      "required_args": [],
+      "id": "status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "unlock",
+      "required_args": [],
+      "id": "unlock"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "zones",
+      "required_args": [],
+      "id": "zones"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for",
+      "tier": "dataflow",
+      "source": "alerts",
+      "target": "compose"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after arming a zone, check status.",
+      "tier": "llm_weak",
+      "source": "arm",
+      "target": "status"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after intrusion check, capture motion clip.",
+      "tier": "llm_weak",
+      "source": "check",
+      "target": "clip"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after intrusion check, capture camera snapshot.",
+      "tier": "llm_weak",
+      "source": "check",
+      "target": "snapshot"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after capturing clip, save evidence.",
+      "tier": "llm_weak",
+      "source": "clip",
+      "target": "save"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after creating notification, send it.",
+      "tier": "llm_weak",
+      "source": "create",
+      "target": "send"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after sending notification, list pending.",
+      "tier": "llm_weak",
+      "source": "send",
+      "target": "list"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after capturing snapshot, save evidence.",
+      "tier": "llm_weak",
+      "source": "snapshot",
+      "target": "save"
+    }
+  ]
+}

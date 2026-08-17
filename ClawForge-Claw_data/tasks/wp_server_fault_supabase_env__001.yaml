@@ -1,0 +1,14 @@
+name: wp_server_fault_supabase_env__001
+version: "1.0"
+type: workplace
+asset: wp_server_fault_supabase_env__001
+prompt_path: tasks/prompts/wp_server_fault_supabase_env__001.md
+env_builder: tasks/wp_server_fault_supabase_env__001/env_builder.py
+verify_script: scripts/wp_server_fault_supabase_env__001/verify_workplace.py
+runtime:
+  timeout: 300
+  env:
+    - key: SERVER_FAULT_SUPABASE_SESSION_ID
+      value: "session-001"
+    - key: SERVER_FAULT_SUPABASE_STATE_ROOT
+      value: "."

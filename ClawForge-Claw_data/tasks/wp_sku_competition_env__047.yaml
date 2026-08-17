@@ -1,0 +1,6 @@
+task_id: wp_sku_competition_env__047
+prompt_path: tasks/prompts/wp_sku_competition_env__047.md
+asset: wp_sku_competition_env__047
+runtime:
+  python: "3.10"
+  workdir: "."

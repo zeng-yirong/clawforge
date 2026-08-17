@@ -1,0 +1,8 @@
+id: wp_business_markdown_report_env__005
+asset: wp_business_markdown_report_env__005
+prompt: tasks/prompts/wp_business_markdown_report_env__005.md
+runtime:
+  cwd: assets/wp_business_markdown_report_env__005
+  env:
+    - name: WORKSPACE
+      value: "."

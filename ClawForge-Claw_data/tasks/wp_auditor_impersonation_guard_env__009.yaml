@@ -1,0 +1,11 @@
+task_id: wp_auditor_impersonation_guard_env__009
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__009.md
+asset: wp_auditor_impersonation_guard_env__009
+runtime:
+  cwd: assets/wp_auditor_impersonation_guard_env__009
+  allowed_actions:
+    - read
+    - write
+    - find
+    - grep
+    - list

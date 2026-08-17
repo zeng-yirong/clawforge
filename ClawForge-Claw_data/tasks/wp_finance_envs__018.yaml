@@ -1,0 +1,8 @@
+asset: wp_finance_envs__018
+prompts:
+  - tasks/prompts/wp_finance_envs__018.md
+runtime:
+  entrypoint: python
+  args: []
+  env:
+    WORKSPACE: .

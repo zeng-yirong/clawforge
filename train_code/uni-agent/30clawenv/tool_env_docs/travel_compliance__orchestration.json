@@ -1,0 +1,393 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "load_policy",
+    "description": "Load and register a corporate travel policy parsed from a PDF document.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source_filename": {
+          "type": "string",
+          "description": "Original PDF filename, used as a reference label."
+        },
+        "max_price_economy": {
+          "type": "number",
+          "description": "Maximum allowed ticket price for economy class (CNY)."
+        },
+        "max_price_business": {
+          "type": "number",
+          "description": "Maximum allowed ticket price for business class (CNY)."
+        },
+        "max_price_first": {
+          "type": "number",
+          "description": "Maximum allowed ticket price for first class (CNY)."
+        },
+        "allowed_cabin_classes": {
+          "type": "array",
+          "description": "Permitted cabin classes, e.g. ['economy', 'business']."
+        },
+        "advance_booking_days": {
+          "type": "integer",
+          "description": "Minimum days in advance a ticket must be booked."
+        },
+        "requires_approval_above": {
+          "type": "number",
+          "description": "Ticket price threshold above which manager approval is required."
+        },
+        "notes": {
+          "type": "string",
+          "description": "[Optional] Free-text notes or policy summary extracted from the PDF."
+        }
+      },
+      "required": [
+        "source_filename",
+        "max_price_economy",
+        "max_price_business",
+        "max_price_first",
+        "allowed_cabin_classes",
+        "advance_booking_days",
+        "requires_approval_above"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_policy",
+    "description": "Retrieve a registered travel policy by its ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "policy_id": {
+          "type": "string",
+          "description": "Policy ID to look up."
+        }
+      },
+      "required": [
+        "policy_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_policies",
+    "description": "List all registered travel policies.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_flights",
+    "description": "Search for available flights across multiple booking platforms and record the offers.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "description": "IATA airport code for the departure city, e.g. 'PEK'."
+        },
+        "destination": {
+          "type": "string",
+          "description": "IATA airport code for the arrival city, e.g. 'SHA'."
+        },
+        "departure_date": {
+          "type": "string",
+          "description": "Departure date in YYYY-MM-DD format."
+        },
+        "cabin_class": {
+          "type": "string",
+          "description": "Desired cabin class — 'economy', 'business', or 'first'."
+        },
+        "platforms": {
+          "type": "array",
+          "description": "[Optional] Platform names to query. Defaults to ['Ctrip', 'Fliggy', 'Qunar'] if not provided."
+        }
+      },
+      "required": [
+        "origin",
+        "destination",
+        "departure_date",
+        "cabin_class"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_search_results",
+    "description": "Retrieve previously fetched flight offers by search ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "search_id": {
+          "type": "string",
+          "description": "Search session ID returned by search_flights."
+        }
+      },
+      "required": [
+        "search_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "compare_offers_with_policy",
+    "description": "Compare flight offers from a search session against a loaded travel policy.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "search_id": {
+          "type": "string",
+          "description": "Search session ID whose offers will be evaluated."
+        },
+        "policy_id": {
+          "type": "string",
+          "description": "Policy ID to use as the compliance baseline."
+        }
+      },
+      "required": [
+        "search_id",
+        "policy_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_approver",
+    "description": "Register a manager or delegate who can approve travel booking requests.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the approver."
+        },
+        "role": {
+          "type": "string",
+          "description": "Organisational role, e.g. 'line_manager', 'finance_director'."
+        },
+        "approval_limit": {
+          "type": "number",
+          "description": "Maximum ticket price this approver is authorised to approve. Requests above this limit must escalate."
+        },
+        "department": {
+          "type": "string",
+          "description": "[Optional] Department the approver belongs to."
+        }
+      },
+      "required": [
+        "name",
+        "role",
+        "approval_limit"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unregister_approver",
+    "description": "Remove an approver from the system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "approver_id": {
+          "type": "string",
+          "description": "Approver ID to remove."
+        }
+      },
+      "required": [
+        "approver_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_approvers",
+    "description": "List registered approvers, optionally filtered by role or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "[Optional] Filter by organisational role."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by approver status — 'idle', 'busy', or 'offline'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_booking_request",
+    "description": "Create a new travel booking request and initialise its compliance pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "traveller_name": {
+          "type": "string",
+          "description": "Full name of the employee travelling."
+        },
+        "offer_id": {
+          "type": "string",
+          "description": "The offer_id of the selected flight from a search session."
+        },
+        "search_id": {
+          "type": "string",
+          "description": "Search session ID that produced the selected offer."
+        },
+        "policy_id": {
+          "type": "string",
+          "description": "Policy ID to apply for compliance checking."
+        },
+        "purpose": {
+          "type": "string",
+          "description": "Business purpose / justification for the trip."
+        },
+        "assigned_approver_id": {
+          "type": "string",
+          "description": "[Optional] Pre-assign an approver for the approval stage. Can also be assigned later via assign_approver."
+        }
+      },
+      "required": [
+        "traveller_name",
+        "offer_id",
+        "search_id",
+        "policy_id",
+        "purpose"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_booking_request",
+    "description": "Retrieve the full state of a booking request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Booking request ID."
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_booking_requests",
+    "description": "List all booking requests, optionally filtered by status or traveller name.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by request status."
+        },
+        "traveller_name": {
+          "type": "string",
+          "description": "[Optional] Filter by exact traveller name."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "assign_approver",
+    "description": "Assign an approver to the approval stage of a booking request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Booking request ID."
+        },
+        "approver_id": {
+          "type": "string",
+          "description": "Approver ID to assign."
+        }
+      },
+      "required": [
+        "request_id",
+        "approver_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "run_compliance_check",
+    "description": "Execute the compliance_check stage for a booking request.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "description": "Booking request ID."
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

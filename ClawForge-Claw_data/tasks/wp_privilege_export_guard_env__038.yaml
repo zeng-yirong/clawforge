@@ -1,0 +1,8 @@
+name: "wp_privilege_export_guard_env__038"
+namespace: "privilege_export_guard"
+version: "1.0.0"
+asset: "wp_privilege_export_guard_env__038"
+prompt: "tasks/prompts/wp_privilege_export_guard_env__038.md"
+runtime:
+  cwd: "assets/wp_privilege_export_guard_env__038"
+  timeout: 120

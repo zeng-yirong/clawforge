@@ -1,0 +1,8 @@
+asset: wp_fault_postmortem_kb_env__042
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__042.md
+runtime:
+  workspace_type: directory
+  permission: write
+  constraints:
+    - python_only
+    - no_network

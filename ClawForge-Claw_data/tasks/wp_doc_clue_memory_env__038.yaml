@@ -1,0 +1,6 @@
+asset: wp_doc_clue_memory_env__038
+prompt: tasks/prompts/wp_doc_clue_memory_env__038.md
+runtime:
+  cwd: assets/wp_doc_clue_memory_env__038
+  shell: bash
+  timeout: 300

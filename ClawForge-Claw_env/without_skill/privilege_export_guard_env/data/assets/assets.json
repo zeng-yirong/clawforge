@@ -1,0 +1,20 @@
+{
+  "assets": [
+    {
+      "asset_id": "asset_customer_master",
+      "asset_name": "Customer Master Ledger",
+      "asset_type": "customer_data",
+      "classification": "restricted",
+      "owner_team": "CRM Platform",
+      "read_policy": "tiered_export_only"
+    },
+    {
+      "asset_id": "asset_architecture_docs",
+      "asset_name": "Architecture Memory Repository",
+      "asset_type": "architecture_data",
+      "classification": "restricted",
+      "owner_team": "Architecture Office",
+      "read_policy": "tiered_export_only"
+    }
+  ]
+}

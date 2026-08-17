@@ -1,0 +1,31 @@
+{
+  "transports": [
+    {
+      "transport_id": "trans_supershuttle",
+      "transport_type": "shuttle",
+      "service_provider": "SuperShuttle",
+      "service_area": "New York",
+      "vehicle_type": "van",
+      "base_price": 25.0,
+      "next_available": "2026-06-15T17:00:00+00:00"
+    },
+    {
+      "transport_id": "trans_blacklane",
+      "transport_type": "limousine",
+      "service_provider": "Blacklane",
+      "service_area": "New York",
+      "vehicle_type": "luxury",
+      "base_price": 150.0,
+      "next_available": "2026-06-15T17:00:00+00:00"
+    },
+    {
+      "transport_id": "trans_uber",
+      "transport_type": "suv",
+      "service_provider": "Uber",
+      "service_area": "New York",
+      "vehicle_type": "premium",
+      "base_price": 75.0,
+      "next_available": "2026-06-15T17:00:00+00:00"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+task_id: wp_compete_track_envs__023
+name: "SmartSaaS Insight Report"
+description: "Analyze competitor SmartSaaS data and generate a concise insight report"
+asset: wp_compete_track_envs__023
+prompt: tasks/prompts/wp_compete_track_envs__023.md
+runtime:
+  base_image: "python:3.11-slim"
+  workdir: "/home/user/workplace"
+  command: []

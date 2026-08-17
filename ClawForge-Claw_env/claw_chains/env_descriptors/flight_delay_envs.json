@@ -1,0 +1,450 @@
+{
+  "env_name": "flight_delay_envs",
+  "rel_path": "flight_delay_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "account_name",
+          "type": "str",
+          "required": true,
+          "desc": "account_name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/conferences/conferences.json",
+      "kind": "collection",
+      "wrapper_key": "conferences",
+      "record_key": "conference_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "conference_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "conference_id (str)"
+        },
+        {
+          "name": "conference_name",
+          "type": "str",
+          "required": true,
+          "desc": "conference_name (str)"
+        },
+        {
+          "name": "organizer",
+          "type": "str",
+          "required": true,
+          "desc": "organizer (str)"
+        },
+        {
+          "name": "start_date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "start_date (str)"
+        },
+        {
+          "name": "end_date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "end_date (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "location (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "desc": "status (str)"
+        },
+        {
+          "name": "sessions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "sessions (list)"
+        },
+        {
+          "name": "attendees",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "attendees (list)"
+        }
+      ],
+      "desc": "collection file data/conferences/conferences.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Jane Doe",
+            "John Smith",
+            "Mike Johnson"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "jane.doe@example.com",
+            "john.smith@example.com",
+            "mike.johnson@example.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "phone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "+1-555-0101",
+            "+1-555-0102",
+            "+1-555-0103"
+          ],
+          "desc": "phone (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/flights/flights.json",
+      "kind": "collection",
+      "wrapper_key": "flights",
+      "record_key": "flight_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "flight_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "flight_id (str)"
+        },
+        {
+          "name": "flight_number",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "AA456",
+            "DL789",
+            "UA123"
+          ],
+          "desc": "flight_number (str)"
+        },
+        {
+          "name": "airline",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "American Airlines",
+            "Delta Airlines",
+            "United Airlines"
+          ],
+          "desc": "airline (str)"
+        },
+        {
+          "name": "origin",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ATL",
+            "LAX",
+            "SFO"
+          ],
+          "desc": "origin (str)"
+        },
+        {
+          "name": "destination",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "BOS",
+            "JFK",
+            "ORD"
+          ],
+          "desc": "destination (str)"
+        },
+        {
+          "name": "departure_time",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "departure_time (str)"
+        },
+        {
+          "name": "arrival_time",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "arrival_time (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "delayed",
+            "on_time"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "delay_minutes",
+          "type": "int",
+          "required": true,
+          "desc": "delay_minutes (int)"
+        },
+        {
+          "name": "gate",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "A10",
+            "B22",
+            "C15"
+          ],
+          "desc": "gate (str)"
+        }
+      ],
+      "desc": "collection file data/flights/flights.json"
+    },
+    {
+      "path": "data/hotels/hotels.json",
+      "kind": "collection",
+      "wrapper_key": "hotels",
+      "record_key": "hotel_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "hotel_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "hotel_id (str)"
+        },
+        {
+          "name": "hotel_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Hilton Manhattan",
+            "Marriott JFK Airport",
+            "Westin O'Hare"
+          ],
+          "desc": "hotel_name (str)"
+        },
+        {
+          "name": "city",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Chicago",
+            "New York"
+          ],
+          "desc": "city (str)"
+        },
+        {
+          "name": "address",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "123 Airport Rd, Jamaica, NY 11430",
+            "456 Fashion Ave, New York, NY 10018",
+            "789 Transit Rd, Rosemont, IL 60018"
+          ],
+          "desc": "address (str)"
+        },
+        {
+          "name": "star_rating",
+          "type": "int",
+          "required": true,
+          "desc": "star_rating (int)"
+        },
+        {
+          "name": "price_per_night",
+          "type": "float",
+          "required": true,
+          "desc": "price_per_night (float)"
+        },
+        {
+          "name": "available_rooms",
+          "type": "int",
+          "required": true,
+          "desc": "available_rooms (int)"
+        },
+        {
+          "name": "amenities",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "amenities (list)"
+        }
+      ],
+      "desc": "collection file data/hotels/hotels.json"
+    },
+    {
+      "path": "data/transports/transports.json",
+      "kind": "collection",
+      "wrapper_key": "transports",
+      "record_key": "transport_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "transport_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "transport_id (str)"
+        },
+        {
+          "name": "transport_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "limousine",
+            "shuttle",
+            "suv"
+          ],
+          "desc": "transport_type (str)"
+        },
+        {
+          "name": "service_provider",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Blacklane",
+            "SuperShuttle",
+            "Uber"
+          ],
+          "desc": "service_provider (str)"
+        },
+        {
+          "name": "service_area",
+          "type": "str",
+          "required": true,
+          "desc": "service_area (str)"
+        },
+        {
+          "name": "vehicle_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "luxury",
+            "premium",
+            "van"
+          ],
+          "desc": "vehicle_type (str)"
+        },
+        {
+          "name": "base_price",
+          "type": "float",
+          "required": true,
+          "desc": "base_price (float)"
+        },
+        {
+          "name": "next_available",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "next_available (str)"
+        }
+      ],
+      "desc": "collection file data/transports/transports.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "flight_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/flights/flights.json",
+          "record_key": "flight_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "conference_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/conferences/conferences.json",
+          "record_key": "conference_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

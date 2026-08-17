@@ -1,0 +1,109 @@
+{
+  "incidents": [
+    {
+      "incident_id": "inc_ups_001",
+      "title": "Rack A12 UPS discharge triggered edge cluster brownout",
+      "category": "ups_outage",
+      "severity": "critical",
+      "status": "open",
+      "assigned_team": "power_ops",
+      "ticket_type": "risk_work_order",
+      "service": "edge-cluster-a12",
+      "opened_at": "2026-06-16T08:10:00+00:00",
+      "updated_at": "2026-06-16T08:10:00+00:00",
+      "description": "UPS runtime collapsed during a facility transfer test. Edge cluster A12 dropped power and requires recovery validation.",
+      "tags": [
+        "ups",
+        "power",
+        "cluster"
+      ],
+      "risk_flags": [
+        "power-loss",
+        "customer-impact"
+      ]
+    },
+    {
+      "incident_id": "inc_srv_001",
+      "title": "Billing API service down after hot patch rollout",
+      "category": "service_down",
+      "severity": "critical",
+      "status": "open",
+      "assigned_team": "app_ops",
+      "ticket_type": "risk_work_order",
+      "service": "billing-api",
+      "opened_at": "2026-06-16T08:25:00+00:00",
+      "updated_at": "2026-06-16T08:25:00+00:00",
+      "description": "Readiness probes failed after a hot patch rollout. Billing API is unreachable and needs restart plus health validation.",
+      "tags": [
+        "service-down",
+        "api",
+        "customer-impact"
+      ],
+      "risk_flags": [
+        "revenue-risk",
+        "customer-impact"
+      ]
+    },
+    {
+      "incident_id": "inc_srv_003",
+      "title": "Inference worker service crashed on failover node",
+      "category": "service_down",
+      "severity": "high",
+      "status": "triaged",
+      "assigned_team": "ml_platform",
+      "ticket_type": "risk_work_order",
+      "service": "inference-worker",
+      "opened_at": "2026-06-16T09:05:00+00:00",
+      "updated_at": "2026-06-16T09:12:00+00:00",
+      "description": "Failover node accepted traffic but worker processes crashed after model cache warmup. Restart and post-checks required.",
+      "tags": [
+        "service-down",
+        "ml",
+        "failover"
+      ],
+      "risk_flags": [
+        "latency-risk"
+      ]
+    },
+    {
+      "incident_id": "inc_net_002",
+      "title": "Spine uplink packet loss in zone west-4",
+      "category": "network_degradation",
+      "severity": "high",
+      "status": "open",
+      "assigned_team": "network_ops",
+      "ticket_type": "risk_work_order",
+      "service": "west4-spine-uplink",
+      "opened_at": "2026-06-16T07:55:00+00:00",
+      "updated_at": "2026-06-16T07:55:00+00:00",
+      "description": "Packet loss remains elevated but this incident is not in the UPS/service-down target categories for the scenario.",
+      "tags": [
+        "network",
+        "packet-loss"
+      ],
+      "risk_flags": [
+        "degradation"
+      ]
+    },
+    {
+      "incident_id": "inc_db_004",
+      "title": "Replica lag warning on analytics mirror",
+      "category": "db_replica_lag",
+      "severity": "medium",
+      "status": "open",
+      "assigned_team": "db_ops",
+      "ticket_type": "watchlist",
+      "service": "analytics-mirror",
+      "opened_at": "2026-06-16T06:45:00+00:00",
+      "updated_at": "2026-06-16T06:45:00+00:00",
+      "description": "Replica lag exceeds threshold but the incident is a watchlist item rather than a target risk work order.",
+      "tags": [
+        "database",
+        "replica"
+      ],
+      "risk_flags": [
+        "watchlist"
+      ]
+    }
+  ]
+}

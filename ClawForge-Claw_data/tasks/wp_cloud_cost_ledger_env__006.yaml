@@ -1,0 +1,8 @@
+task_id: wp_cloud_cost_ledger_env__006
+asset: wp_cloud_cost_ledger_env__006
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__006.md
+runtime:
+  base_image: python:3.11-slim
+  workdir: /workspace
+  init_commands:
+    - pip install --no-cache-dir -r /workspace/requirements.txt 2>/dev/null || true

@@ -1,0 +1,8 @@
+task_id: wp_arxiv_review_roadmap_env__022
+description: "Generate an ArXiv review and roadmap for efficient vision research."
+asset: wp_arxiv_review_roadmap_env__022
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__022.md
+runtime:
+  python: "3.10"
+  tools: []
+  max_steps: 50

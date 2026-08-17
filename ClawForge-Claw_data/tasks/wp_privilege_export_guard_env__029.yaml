@@ -1,0 +1,18 @@
+task:
+  prompt: tasks/prompts/wp_privilege_export_guard_env__029.md
+  asset: wp_privilege_export_guard_env__029
+  runtime:
+    timeout: 120
+    max_turns: 30
+    allow_finish: true
+    tools:
+      - name: read_file
+        group: scaffold
+      - name: write_file
+        group: scaffold
+      - name: list_dir
+        group: scaffold
+    mounts:
+      - type: bind
+        source: "{{.Workspace}}"
+        target: /assets/wp_privilege_export_guard_env__029

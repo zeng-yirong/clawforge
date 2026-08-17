@@ -1,0 +1,1 @@
+Hey，我是运营Jenny。昨天没给几个大客户发生日祝福，被投诉了。我查了一下，发现好多business联系人的生日提醒根本就没设——我们系统里的提醒列表和联系人名单对不上。我把最新的原始数据放在 `data/contacts.json` 和 `data/reminders/reminders.json` 里了，你帮我盘一下哪些业务联系人（folder 是 business 的那些）还没有对应的生日提醒记录。把他们的 `contact_id` 和 `full_name` 整理成一个 JSON 数组，存到 `ops/missing_bday_reminders.json` 里，我直接丢进批量处理工具里补上。拜托了，越快越好！

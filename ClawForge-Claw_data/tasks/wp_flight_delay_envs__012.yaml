@@ -1,0 +1,6 @@
+id: wp_flight_delay_envs__012
+asset: wp_flight_delay_envs__012
+prompt: tasks/prompts/wp_flight_delay_envs__012.md
+runtime:
+  workspace: ./
+  python_version: ">=3.9"

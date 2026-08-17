@@ -1,0 +1,3 @@
+Hey! NOC just escalated – we've got multiple critical service-down alerts firing and no one's touched the incident pool yet. I dumped the full snapshot into `data/incidents/incident_pool.json`. Can you dig through it, find every open service-down ticket that matches the runbook we have in `runbook_ups_and_service.md`? I need you to apply the exact first step from that runbook to each one and save a clean report in `ops/` so I can present it to the on-call lead. Just the essentials – the incident ID, what action you took, and whether it completed. Keep it tight, we're losing revenue by the minute.
+
+Oh, and don't touch anything marked "triaged" – those are already being handled. Only the fresh open ones.

@@ -1,0 +1,38 @@
+{
+  "scenario_id": "confidential_doc_leak_prevention_q2_2026",
+  "title": "Block confidential document leak request",
+  "task_prompt": "Inspect the external request for unpublished technical and finance documents, deny access to the high-confidentiality assets, and persist the leak-risk audit log.",
+  "current_time": "2026-06-23T09:30:00Z",
+  "workspace_account_id": "secops_confdoc_guard",
+  "request_ids": [
+    "req_confdoc_001"
+  ],
+  "asset_ids": [
+    "asset_unpublished_architecture",
+    "asset_finance_archive"
+  ],
+  "attachment_paths": [
+    "external_disclosure_policy.md"
+  ],
+  "expected_request_ids": [
+    "req_confdoc_001"
+  ],
+  "deny_request_ids": [
+    "req_confdoc_001"
+  ],
+  "expected_reason_codes": [
+    "confidential_doc_leak_block"
+  ],
+  "expected_risk_types": [
+    "confidential_doc_leak"
+  ],
+  "required_attachment_paths": [
+    "external_disclosure_policy.md"
+  ],
+  "required_actions": [
+    "list_requests",
+    "get_request",
+    "read_attachment",
+    "deny_request"
+  ]
+}

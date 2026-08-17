@@ -1,0 +1,117 @@
+{
+  "cities": [
+    {"city_id": "SHA", "name": "上海", "lat": 31.2304, "lon": 121.4737, "is_major_hub": true},
+    {"city_id": "BJS", "name": "北京", "lat": 39.9042, "lon": 116.4074, "is_major_hub": true},
+    {"city_id": "CAN", "name": "广州", "lat": 23.1291, "lon": 113.2644, "is_major_hub": true},
+    {"city_id": "SZX", "name": "深圳", "lat": 22.5431, "lon": 114.0579, "is_major_hub": true},
+    {"city_id": "NJS", "name": "南京", "lat": 32.0603, "lon": 118.7969, "is_major_hub": false},
+    {"city_id": "HZS", "name": "杭州", "lat": 30.2741, "lon": 120.1551, "is_major_hub": false},
+    {"city_id": "WHN", "name": "武汉", "lat": 30.5928, "lon": 114.3055, "is_major_hub": false},
+    {"city_id": "XAS", "name": "西安", "lat": 34.3416, "lon": 108.9398, "is_major_hub": false},
+    {"city_id": "CDU", "name": "成都", "lat": 30.5728, "lon": 104.0668, "is_major_hub": false},
+    {"city_id": "HFU", "name": "合肥", "lat": 31.8206, "lon": 117.2272, "is_major_hub": false}
+  ],
+  "routes": [
+    {
+      "route_id": "SHA-BJS",
+      "origin": "SHA",
+      "destination": "BJS",
+      "distance_km": 1088,
+      "high_speed_train": {"duration_min": 277, "price_cny": 553, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 135, "price_cny": 850, "frequency": "multiple_daily"},
+      "普通火车": {"duration_min": 750, "price_cny": 218, "frequency": "daily"}
+    },
+    {
+      "route_id": "SHA-CAN",
+      "origin": "SHA",
+      "destination": "CAN",
+      "distance_km": 1210,
+      "high_speed_train": {"duration_min": 467, "price_cny": 793, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 150, "price_cny": 750, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "SHA-SZX",
+      "origin": "SHA",
+      "destination": "SZX",
+      "distance_km": 1213,
+      "high_speed_train": {"duration_min": 498, "price_cny": 877, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 155, "price_cny": 780, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "SHA-NJS",
+      "origin": "SHA",
+      "destination": "NJS",
+      "distance_km": 301,
+      "high_speed_train": {"duration_min": 59, "price_cny": 110, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 75, "price_cny": 380, "frequency": "daily"}
+    },
+    {
+      "route_id": "SHA-HZS",
+      "origin": "SHA",
+      "destination": "HZS",
+      "distance_km": 179,
+      "high_speed_train": {"duration_min": 45, "price_cny": 73, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "SHA-WHN",
+      "origin": "SHA",
+      "destination": "WHN",
+      "distance_km": 850,
+      "high_speed_train": {"duration_min": 249, "price_cny": 401, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 120, "price_cny": 650, "frequency": "daily"}
+    },
+    {
+      "route_id": "SHA-XAS",
+      "origin": "SHA",
+      "destination": "XAS",
+      "distance_km": 1210,
+      "high_speed_train": {"duration_min": 405, "price_cny": 637, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 150, "price_cny": 850, "frequency": "daily"}
+    },
+    {
+      "route_id": "SHA-CDU",
+      "origin": "SHA",
+      "destination": "CDU",
+      "distance_km": 1535,
+      "high_speed_train": {"duration_min": 599, "price_cny": 926, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 165, "price_cny": 1050, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "SHA-HFU",
+      "origin": "SHA",
+      "destination": "HFU",
+      "distance_km": 412,
+      "high_speed_train": {"duration_min": 128, "price_cny": 185, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "BJS-CAN",
+      "origin": "BJS",
+      "destination": "CAN",
+      "distance_km": 1892,
+      "high_speed_train": {"duration_min": 527, "price_cny": 862, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 195, "price_cny": 1200, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "BJS-XAS",
+      "origin": "BJS",
+      "destination": "XAS",
+      "distance_km": 911,
+      "high_speed_train": {"duration_min": 318, "price_cny": 515, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 135, "price_cny": 750, "frequency": "multiple_daily"}
+    },
+    {
+      "route_id": "BJS-CDU",
+      "origin": "BJS",
+      "destination": "CDU",
+      "distance_km": 1517,
+      "high_speed_train": {"duration_min": 522, "price_cny": 824, "frequency": "multiple_daily"},
+      "direct_flight": {"duration_min": 170, "price_cny": 1100, "frequency": "multiple_daily"}
+    }
+  ],
+  "transfer_hubs": [
+    {"hub_id": "SHA", "name": "上海虹桥", "city": "SHA", "is_major": true},
+    {"hub_id": "BJS", "name": "北京南站", "city": "BJS", "is_major": true},
+    {"hub_id": "NJS-S", "name": "南京南站", "city": "NJS", "is_major": false},
+    {"hub_id": "WHN-S", "name": "武汉站", "city": "WHN", "is_major": false}
+  ]
+}

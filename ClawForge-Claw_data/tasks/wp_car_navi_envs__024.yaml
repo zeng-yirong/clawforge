@@ -1,0 +1,7 @@
+prompt_path: tasks/prompts/wp_car_navi_envs__024.md
+asset: wp_car_navi_envs__024
+runtime:
+  python: "3.10"
+  resources:
+    cpu: 1
+    memory: 256

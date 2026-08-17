@@ -1,0 +1,338 @@
+{
+  "env_name": "churn_retention_mail_env",
+  "rel_path": "without_skill/churn_retention_mail_env",
+  "cli_module": "without_skill.churn_retention_mail_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "CHURN_RETENTION_MAIL_SESSION_ID",
+    "state_env": "CHURN_RETENTION_MAIL_STATE_ROOT",
+    "scenario_env": "CHURN_RETENTION_MAIL_SCENARIO_ID",
+    "default_scenario_id": "churn_retention_mail_fintech_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-retention-email",
+      "action": "generate_retention_email",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--customer-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-cache-entry",
+      "action": "get_cache_entry",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--entry-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-customer",
+      "action": "get_customer",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--customer-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-news-sample",
+      "action": "get_news_sample",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--news-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-cache",
+      "action": "list_cache",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--entry-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cache-key",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-customers",
+      "action": "list_customers",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--industry",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--risk-level",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-news-samples",
+      "action": "list_news_samples",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--industry",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-customers",
+      "dst": "get-customer",
+      "weight": 0.8,
+      "relationship": "produces_customer_id_for"
+    },
+    {
+      "src": "list-customers",
+      "dst": "generate-retention-email",
+      "weight": 0.8,
+      "relationship": "produces_customer_id_for"
+    },
+    {
+      "src": "list-news-samples",
+      "dst": "get-news-sample",
+      "weight": 0.8,
+      "relationship": "produces_news_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "churn_retention_mail_fintech_q2_2026": [
+      "list_customers",
+      "get_customer",
+      "list_news_samples",
+      "generate_retention_email"
+    ]
+  },
+  "anchor_keys": [
+    "expected_news_ids",
+    "required_actions",
+    "target_customer_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "churn_retention_mail_fintech_q2_2026"
+  ]
+}

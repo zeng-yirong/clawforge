@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_post_mails__001.md
+asset: wp_post_mails__001
+runtime:
+  cwd: assets/wp_post_mails__001

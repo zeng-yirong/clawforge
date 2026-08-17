@@ -1,0 +1,1 @@
+小明（客户成功经理）：凌晨2点，监控告警说上个月活跃度下降的客户又掉了一大截！我把数据丢在 `data/` 下了。你帮我从 `data/logs/activity_logs.json` 和 `data/customers/customers.json` 里筛出那些真正要救的客户 —— 就是那种风险高、最近都没活动、用量下滑、工单还全是负面的。然后去 `data/news/news_samples.json` 里找他们行业相关的、强调痛点的新闻，给每个客户配一条。最后把整理好的列表写到 `cache/retention_email.json` 里，我早上直接拿去发。记得按客户ID排好序，我对着看方便。

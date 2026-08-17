@@ -1,0 +1,290 @@
+{
+  "env_name": "car_control_envs",
+  "rel_path": "car_control_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "files": [
+    {
+      "path": "data/ac_presets.json",
+      "kind": "collection",
+      "wrapper_key": "presets",
+      "record_key": "preset_id",
+      "count": 6,
+      "fields": [
+        {
+          "name": "preset_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "preset_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "制冷",
+            "制热",
+            "自动",
+            "节能",
+            "运动",
+            "除雾"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "快速制冷模式，保持车内凉爽",
+            "快速制热模式，保持车内温暖",
+            "快速除雾除霜模式",
+            "自动调节温度和风速",
+            "节能模式，降低能耗",
+            "运动模式，提供最佳动力响应"
+          ],
+          "desc": "description (str)"
+        },
+        {
+          "name": "default_temperature",
+          "type": "int",
+          "required": true,
+          "desc": "default_temperature (int)"
+        },
+        {
+          "name": "fan_speed",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "auto",
+            "high"
+          ],
+          "desc": "fan_speed (str)"
+        },
+        {
+          "name": "ac_enabled",
+          "type": "bool|str",
+          "required": true,
+          "desc": "ac_enabled (bool|str)"
+        },
+        {
+          "name": "recirculation",
+          "type": "bool|str",
+          "required": true,
+          "desc": "recirculation (bool|str)"
+        },
+        {
+          "name": "defog_enabled",
+          "type": "bool",
+          "required": false,
+          "desc": "defog_enabled (bool)"
+        },
+        {
+          "name": "defrost_enabled",
+          "type": "bool",
+          "required": false,
+          "desc": "defrost_enabled (bool)"
+        }
+      ],
+      "desc": "collection file data/ac_presets.json"
+    },
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "default_driver_mode",
+        "default_temperature_unit",
+        "preferred_language",
+        "profile_name"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/ambient_lights.json",
+      "kind": "collection",
+      "wrapper_key": "ambient_lights",
+      "record_key": "color_id",
+      "count": 7,
+      "fields": [
+        {
+          "name": "color_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "color_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "关闭",
+            "橙色",
+            "白色",
+            "紫色",
+            "红色",
+            "绿色",
+            "蓝色"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "hex_color",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "#000000",
+            "#0066CC",
+            "#00CC66",
+            "#9933CC",
+            "#CC3333",
+            "#FF9933",
+            "#FFFFFF"
+          ],
+          "desc": "hex_color (str)"
+        },
+        {
+          "name": "effect",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "冷静舒适",
+            "氛围灯关闭",
+            "浪漫优雅",
+            "温暖活力",
+            "简约明亮",
+            "自然放松",
+            "运动激情"
+          ],
+          "desc": "effect (str)"
+        }
+      ],
+      "desc": "collection file data/ambient_lights.json"
+    },
+    {
+      "path": "data/driving_modes.json",
+      "kind": "collection",
+      "wrapper_key": "driving_modes",
+      "record_key": "mode_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "mode_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "mode_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "个性化模式",
+            "舒适模式",
+            "节能模式",
+            "运动模式"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "优化能耗，提高续航里程",
+            "平衡动力与能耗，提供舒适驾乘体验",
+            "最大动力输出，运动调校",
+            "自定义各项设置"
+          ],
+          "desc": "description (str)"
+        },
+        {
+          "name": "characteristics",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "ac_power",
+            "max_acceleration",
+            "power_response",
+            "regen_braking"
+          ],
+          "desc": "characteristics (dict)"
+        }
+      ],
+      "desc": "collection file data/driving_modes.json"
+    },
+    {
+      "path": "data/vehicle.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "features",
+        "license_plate",
+        "model",
+        "vehicle_id",
+        "vin"
+      ],
+      "desc": "json_blob file data/vehicle.json"
+    },
+    {
+      "path": "data/zones.json",
+      "kind": "collection",
+      "wrapper_key": "zones",
+      "record_key": "zone_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "zone_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "zone_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "右前",
+            "右后",
+            "后排中间",
+            "左前",
+            "左后"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "position",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "front_left",
+            "front_right",
+            "rear_center",
+            "rear_left",
+            "rear_right"
+          ],
+          "desc": "position (str)"
+        },
+        {
+          "name": "seat_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "heated",
+            "standard",
+            "ventilated"
+          ],
+          "desc": "seat_type (str)"
+        }
+      ],
+      "desc": "collection file data/zones.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

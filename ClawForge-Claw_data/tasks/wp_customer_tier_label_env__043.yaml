@@ -1,0 +1,5 @@
+asset: wp_customer_tier_label_env__043
+prompt_path: tasks/prompts/wp_customer_tier_label_env__043.md
+runtime:
+  type: file_workplace
+  cwd: assets/wp_customer_tier_label_env__043

@@ -1,0 +1,5 @@
+id: wp_customer_tier_label_env__034
+asset: wp_customer_tier_label_env__034
+prompt: tasks/prompts/wp_customer_tier_label_env__034.md
+runtime:
+  cwd: assets/wp_customer_tier_label_env__034

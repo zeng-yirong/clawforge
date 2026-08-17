@@ -1,0 +1,9 @@
+name: wp_performance_review_env__025
+asset: wp_performance_review_env__025
+prompt: tasks/prompts/wp_performance_review_env__025.md
+runtime:
+  workspace: .
+  tools:
+    - file_read
+    - file_write
+    - file_list

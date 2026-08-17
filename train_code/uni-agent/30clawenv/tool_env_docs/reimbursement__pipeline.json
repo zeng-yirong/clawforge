@@ -1,0 +1,292 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "upload_receipt",
+    "description": "Upload a new receipt for processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "description": "Name of the receipt file."
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "Employee identifier."
+        },
+        "category": {
+          "type": "string",
+          "description": "Expense category. Must be one of VALID_RECEIPT_CATEGORIES."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional metadata for the receipt."
+        }
+      },
+      "required": [
+        "filename",
+        "employee_id",
+        "category"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "run_ocr_processing",
+    "description": "Run OCR processing on an uploaded receipt.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_id": {
+          "type": "string",
+          "description": "The receipt ID to process."
+        },
+        "language": {
+          "type": "string",
+          "description": "[Optional] Language for OCR. Defaults to 'zh-CN'."
+        },
+        "auto_verify": {
+          "type": "boolean",
+          "description": "[Optional] Automatically verify OCR results. Defaults to False."
+        }
+      },
+      "required": [
+        "receipt_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_receipts",
+    "description": "List uploaded receipts, optionally filtered by employee or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by OCR status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "upload_bank_statement",
+    "description": "Upload a bank statement for reconciliation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "bank_name": {
+          "type": "string",
+          "description": "Name of the bank."
+        },
+        "account_number": {
+          "type": "string",
+          "description": "Account number (masked)."
+        },
+        "period": {
+          "type": "string",
+          "description": "Statement period (e.g., \"2024-05\")."
+        },
+        "transactions": {
+          "type": "array",
+          "description": "List of transaction records."
+        }
+      },
+      "required": [
+        "bank_name",
+        "account_number",
+        "period",
+        "transactions"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "match_receipts_to_transactions",
+    "description": "Match receipts to bank statement transactions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "statement_id": {
+          "type": "string",
+          "description": "The statement ID to match against."
+        },
+        "matching_strategy": {
+          "type": "string",
+          "description": "[Optional] Matching strategy. Defaults to 'fuzzy_date_amount'."
+        }
+      },
+      "required": [
+        "statement_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_expense_report",
+    "description": "Create a new expense report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "Employee identifier."
+        },
+        "period": {
+          "type": "string",
+          "description": "Report period (e.g., \"2024-05\")."
+        },
+        "receipt_ids": {
+          "type": "array",
+          "description": "List of receipt IDs to include."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Report description."
+        }
+      },
+      "required": [
+        "employee_id",
+        "period",
+        "receipt_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "submit_expense_report",
+    "description": "Submit an expense report for approval.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "The report ID to submit."
+        }
+      },
+      "required": [
+        "report_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "review_expense_report",
+    "description": "Review and approve/reject an expense report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "The report ID to review."
+        },
+        "action": {
+          "type": "string",
+          "description": "Review action - 'approve' or 'reject'."
+        },
+        "notes": {
+          "type": "string",
+          "description": "[Optional] Review notes."
+        },
+        "approved_amounts": {
+          "type": "dict",
+          "description": "[Optional] Approved amounts per item."
+        }
+      },
+      "required": [
+        "report_id",
+        "action"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_expense_reports",
+    "description": "List expense reports, optionally filtered by employee or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by report status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reconcile_payments",
+    "description": "Reconcile approved expenses with bank payments.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "The approved expense report ID."
+        },
+        "statement_id": {
+          "type": "string",
+          "description": "The bank statement ID."
+        }
+      },
+      "required": [
+        "report_id",
+        "statement_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

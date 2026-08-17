@@ -1,0 +1,13 @@
+asset: wp_churn_retention_mail_env__036
+prompt_path: tasks/prompts/wp_churn_retention_mail_env__036.md
+runtime:
+  cwd: "."
+  python: "3.10"
+  allowed_packages:
+    - json
+    - csv
+    - os
+    - sys
+    - re
+    - pathlib
+    - collections

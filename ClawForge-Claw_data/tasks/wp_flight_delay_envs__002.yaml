@@ -1,0 +1,11 @@
+task_description: "Generate adjusted transportation booking and delay notification based on flight delay cascade"
+asset: wp_flight_delay_envs__002
+prompt: tasks/prompts/wp_flight_delay_envs__002.md
+sandbox:
+  command: python
+  args: ["env_builder.py"]
+  workdir: assets/wp_flight_delay_envs__002/
+runtime:
+  timeout_seconds: 60
+  docker_image: "python:3.11-slim"
+  max_file_size_mb: 10

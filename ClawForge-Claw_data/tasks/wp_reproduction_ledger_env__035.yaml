@@ -1,0 +1,8 @@
+task_name: wp_reproduction_ledger_env__035
+asset: wp_reproduction_ledger_env__035
+prompt_path: tasks/prompts/wp_reproduction_ledger_env__035.md
+runtime:
+  cwd: .
+  entrypoint: python -m nanoclaw.agent
+  max_iterations: 20
+  timeout_seconds: 300

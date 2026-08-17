@@ -1,0 +1,785 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "adjust_inventory",
+      "required_args": [
+        "--sku",
+        "--warehouse-id",
+        "--quantity-change",
+        "--reason-code"
+      ],
+      "id": "adjust-inventory"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "approve_return",
+      "required_args": [
+        "--return-id"
+      ],
+      "id": "approve-return"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_reconciliation_report",
+      "required_args": [],
+      "id": "generate-reconciliation-report"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_inventory",
+      "required_args": [
+        "--sku"
+      ],
+      "id": "get-inventory"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_order",
+      "required_args": [
+        "--order-id"
+      ],
+      "id": "get-order"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_return",
+      "required_args": [
+        "--return-id"
+      ],
+      "id": "get-return"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_shipment",
+      "required_args": [
+        "--shipment-id"
+      ],
+      "id": "get-shipment"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "inspect_return",
+      "required_args": [
+        "--return-id",
+        "--inspection-notes",
+        "--resolution"
+      ],
+      "id": "inspect-return"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_inventory",
+      "required_args": [],
+      "id": "list-inventory"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_orders",
+      "required_args": [],
+      "id": "list-orders"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_returns",
+      "required_args": [],
+      "id": "list-returns"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_shipments",
+      "required_args": [],
+      "id": "list-shipments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-id"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "receive_return",
+      "required_args": [
+        "--return-id"
+      ],
+      "id": "receive-return"
+    },
+    {
+      "layer": "cli",
+      "role": "guard",
+      "action": "reject_return",
+      "required_args": [
+        "--return-id",
+        "--reason"
+      ],
+      "id": "reject-return"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reserve_inventory",
+      "required_args": [
+        "--sku",
+        "--warehouse-id",
+        "--quantity"
+      ],
+      "id": "reserve-inventory"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_order_status",
+      "required_args": [
+        "--order-id",
+        "--new-status"
+      ],
+      "id": "update-order-status"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_shipment_status",
+      "required_args": [
+        "--shipment-id",
+        "--new-status"
+      ],
+      "id": "update-shipment-status"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "approve-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-reconciliation-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "reject-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-order-status"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-shipment-status"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "approve-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-reconciliation-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "reject-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-order-status"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-shipment-status"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "approve-return",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "approve-return",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "approve-return",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after approval, receive the return",
+      "tier": "llm_weak",
+      "source": "approve-return",
+      "target": "receive-return"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-reconciliation-report",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-reconciliation-report",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-reconciliation-report",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "report may have attachments",
+      "tier": "llm_weak",
+      "source": "generate-reconciliation-report",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-inventory",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-inventory",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-order",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-order",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "cross-entity read",
+      "tier": "llm_weak",
+      "source": "get-order",
+      "target": "get-shipment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-return",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-return",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "cross-entity read",
+      "tier": "llm_weak",
+      "source": "get-return",
+      "target": "get-order"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-shipment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-shipment",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "inspect-return",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "inspect-return",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after inspection, often approve",
+      "tier": "llm_weak",
+      "source": "inspect-return",
+      "target": "approve-return"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after inspection, sometimes reject",
+      "tier": "llm_weak",
+      "source": "inspect-return",
+      "target": "reject-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-inventory",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-inventory",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_order_id_for",
+      "tier": "dataflow",
+      "source": "list-orders",
+      "target": "get-order"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_order_id_for",
+      "tier": "dataflow",
+      "source": "list-orders",
+      "target": "update-order-status"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-orders",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-orders",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_return_id_for",
+      "tier": "dataflow",
+      "source": "list-returns",
+      "target": "get-return"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_return_id_for",
+      "tier": "dataflow",
+      "source": "list-returns",
+      "target": "approve-return"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_return_id_for",
+      "tier": "dataflow",
+      "source": "list-returns",
+      "target": "reject-return"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_return_id_for",
+      "tier": "dataflow",
+      "source": "list-returns",
+      "target": "inspect-return"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_return_id_for",
+      "tier": "dataflow",
+      "source": "list-returns",
+      "target": "receive-return"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-returns",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-returns",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_shipment_id_for",
+      "tier": "dataflow",
+      "source": "list-shipments",
+      "target": "get-shipment"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_shipment_id_for",
+      "tier": "dataflow",
+      "source": "list-shipments",
+      "target": "update-shipment-status"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-shipments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-shipments",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after receiving, adjust inventory",
+      "tier": "llm_weak",
+      "source": "receive-return",
+      "target": "adjust-inventory"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reject-return",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reject-return",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "reject-return",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-inventory"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-order"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-return"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-shipment"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "inspect-return"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-inventory"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-orders"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-returns"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-shipments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-order-status",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-order-status",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-order-status",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-shipment-status",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-shipment-status",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-shipment-status",
+      "target": "finish"
+    }
+  ]
+}

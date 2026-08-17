@@ -1,0 +1,1 @@
+嘿，新来的IT专员！我刚收到研发部两位新同事的签好字的合同，就在 `data/onboarding/contracts.json` 里。其他部门的合同还在审批，先不管。我已经把设备清单 `data/onboarding/equipment_inventory.json` 和权限包定义 `data/onboarding/permission_packs.json` 放在对应目录了。你帮我把研发部这两位新人的入职套装配齐：找出他们的邮箱（就在合同里），给他们分配对应部门的系统权限，再从可用设备里每人分一台笔记本，最后生成一份欢迎消息。所有东西整理成一个文件放到 `ops/onboarding_plan.json`，我直接拿去跑流程。记住，只处理已签合同的研发部员工，别搞混了。

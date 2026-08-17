@@ -1,0 +1,6 @@
+name: wp_mail_client_envs__014
+asset: wp_mail_client_envs__014
+prompt_path: tasks/prompts/wp_mail_client_envs__014.md
+runtime:
+  type: python
+  version: "3.10"

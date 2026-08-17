@@ -1,0 +1,1 @@
+Hey，快来帮忙！马上要发绩效奖金了，我手里有员工信息（data/employees/employees.json）、这个月的产出记录（data/ledgers/monthly_outputs.json）和评分规则（data/rules/scoring_rules.json）。你帮我算一下每个员工的综合绩效得分，规则里面写了各维度的权重。算出后，整理成一份JSON文件放到performance_review/目录下，文件名就叫monthly_scores.json吧。格式就每个员工一条，字段包括employee_id和total_score就行。注意，有些员工可能没有产出记录或者规则不全，别算他们了。快，我等着导入系统呢！

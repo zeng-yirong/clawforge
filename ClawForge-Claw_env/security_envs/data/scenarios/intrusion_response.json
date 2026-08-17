@@ -1,0 +1,13 @@
+{
+  "scenario_id": "intrusion_response",
+  "name": "Intrusion Response Scenario",
+  "description": "Test security response to detected intrusion",
+  "initial_state": {
+    "meta": {
+      "current_time": "2026-06-10T00:00:00"
+    }
+  },
+  "response_weight": 0.4,
+  "lock_weight": 0.3,
+  "notification_weight": 0.3
+}

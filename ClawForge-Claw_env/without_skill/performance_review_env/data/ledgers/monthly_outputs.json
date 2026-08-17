@@ -1,0 +1,10 @@
+{
+  "monthly_outputs": [
+    {
+      "employee_id": "emp_eng_001",
+      "feature_delivery": 88,
+      "quality_score": 92,
+      "collaboration_score": 85
+    }
+  ]
+}

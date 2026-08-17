@@ -1,0 +1,286 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "allocate_equipment",
+  "description": "Allocates equipment to an employee.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "employee_id": {
+     "type": "string",
+     "description": "Employee to allocate to"
+    },
+    "asset_tag": {
+     "type": "string",
+     "description": "Asset tag of equipment"
+    }
+   },
+   "required": [
+    "employee_id",
+    "asset_tag"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "assign_system_access",
+  "description": "Assigns system access pack to employee.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "employee_id": {
+     "type": "string",
+     "description": "Employee to assign"
+    },
+    "pack_id": {
+     "type": "string",
+     "description": "Access pack identifier"
+    }
+   },
+   "required": [
+    "employee_id",
+    "pack_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_email_profile",
+  "description": "Creates email profile for employee.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "employee_id": {
+     "type": "string",
+     "description": "Employee for profile"
+    }
+   },
+   "required": [
+    "employee_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_contract",
+  "description": "Retrieves contract details for employee.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "employee_id": {
+     "type": "string",
+     "description": "Employee to query"
+    }
+   },
+   "required": [
+    "employee_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_contracts",
+  "description": "Lists contracts filtered by status.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "Contract status filter"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "Lists available onboarding scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "post_welcome_message",
+  "description": "Posts welcome message to employee.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "employee_id": {
+     "type": "string",
+     "description": "Target employee"
+    }
+   },
+   "required": [
+    "employee_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Provides summary of current session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Describes the current task to complete.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

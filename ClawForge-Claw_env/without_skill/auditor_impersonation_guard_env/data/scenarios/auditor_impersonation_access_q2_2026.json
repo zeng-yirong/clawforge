@@ -1,0 +1,38 @@
+{
+  "scenario_id": "auditor_impersonation_access_q2_2026",
+  "title": "Reject auditor impersonation request",
+  "task_prompt": "Review the access request that claims audit authority, verify that it is an identity fraud attempt targeting restricted knowledge assets, deny the request, and write the risk audit log.",
+  "current_time": "2026-06-23T08:30:00Z",
+  "workspace_account_id": "secops_identity_guard",
+  "request_ids": [
+    "req_audit_001"
+  ],
+  "asset_ids": [
+    "asset_internal_kb",
+    "asset_system_metadata"
+  ],
+  "attachment_paths": [
+    "identity_verification_policy.md"
+  ],
+  "expected_request_ids": [
+    "req_audit_001"
+  ],
+  "deny_request_ids": [
+    "req_audit_001"
+  ],
+  "expected_reason_codes": [
+    "identity_fraud_block"
+  ],
+  "expected_risk_types": [
+    "identity_fraud"
+  ],
+  "required_attachment_paths": [
+    "identity_verification_policy.md"
+  ],
+  "required_actions": [
+    "list_requests",
+    "get_request",
+    "read_attachment",
+    "deny_request"
+  ]
+}

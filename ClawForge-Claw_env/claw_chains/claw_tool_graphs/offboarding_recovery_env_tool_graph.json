@@ -1,0 +1,351 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_handover_checklist",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "generate-handover-checklist"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_exit_request",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "get-exit-request"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_exit_requests",
+      "required_args": [],
+      "id": "list-exit-requests"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_handover_records",
+      "required_args": [],
+      "id": "list-handover-records"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reclaim_equipment",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "reclaim-equipment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "revoke_system_access",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "revoke-system-access"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-handover-checklist"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-handover-checklist"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-handover-checklist",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-handover-checklist",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-handover-checklist",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.3",
+      "tier": "llm_weak",
+      "source": "generate-handover-checklist",
+      "target": "reclaim-equipment"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.3",
+      "tier": "llm_weak",
+      "source": "generate-handover-checklist",
+      "target": "revoke-system-access"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::offboarding_recovery_q2_2026",
+      "tier": "gold",
+      "source": "get-exit-request",
+      "target": "revoke-system-access"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-exit-request",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-exit-request",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "get-exit-request",
+      "target": "list-handover-records"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-exit-requests",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-exit-requests",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "list-exit-requests",
+      "target": "list-handover-records"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "list-exit-requests",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-handover-records",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-handover-records",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::offboarding_recovery_q2_2026",
+      "tier": "gold",
+      "source": "reclaim-equipment",
+      "target": "generate-handover-checklist"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.25",
+      "tier": "llm_weak",
+      "source": "reclaim-equipment",
+      "target": "revoke-system-access"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::offboarding_recovery_q2_2026",
+      "tier": "gold",
+      "source": "revoke-system-access",
+      "target": "reclaim-equipment"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "revoke-system-access",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-exit-request"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-exit-requests"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-handover-records"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "brands": [
+    {
+      "brand_id": "brand_luminaskin",
+      "brand_name": "LuminaSkin",
+      "hero_category_id": "cat_hydration_serum",
+      "hero_category_name": "Hydration Serum",
+      "positioning": "Clinical hydration with barrier-support actives",
+      "region_focus": "APAC",
+      "price_tier": "mid-premium"
+    },
+    {
+      "brand_id": "brand_aquapulse",
+      "brand_name": "AquaPulse",
+      "hero_category_id": "cat_hydration_serum",
+      "hero_category_name": "Hydration Serum",
+      "positioning": "High-volume hydration at accessible price points",
+      "region_focus": "APAC",
+      "price_tier": "value"
+    },
+    {
+      "brand_id": "brand_dermveil",
+      "brand_name": "DermVeil",
+      "hero_category_id": "cat_hydration_serum",
+      "hero_category_name": "Hydration Serum",
+      "positioning": "Dermatologist-coded premium treatment serum",
+      "region_focus": "APAC",
+      "price_tier": "premium"
+    },
+    {
+      "brand_id": "brand_purelattice",
+      "brand_name": "PureLattice",
+      "hero_category_id": "cat_hydration_serum",
+      "hero_category_name": "Hydration Serum",
+      "positioning": "Ingredient-first clean hydration portfolio",
+      "region_focus": "APAC",
+      "price_tier": "mid-premium"
+    },
+    {
+      "brand_id": "brand_solaroat",
+      "brand_name": "SolarOat",
+      "hero_category_id": "cat_uv_moisturizer",
+      "hero_category_name": "UV Moisturizer",
+      "positioning": "Oat-based lightweight SPF moisturizers",
+      "region_focus": "APAC",
+      "price_tier": "mid"
+    }
+  ]
+}

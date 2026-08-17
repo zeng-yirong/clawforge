@@ -1,0 +1,6 @@
+prompt: tasks/prompts/wp_privilege_export_guard_env__005.md
+asset: wp_privilege_export_guard_env__005
+runtime:
+  cwd: assets/wp_privilege_export_guard_env__005
+  entrypoint: python env_builder.py
+  verify: python scripts/wp_privilege_export_guard_env__005/verify_workplace.py

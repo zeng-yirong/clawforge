@@ -1,0 +1,166 @@
+{
+  "env_name": "reproduction_ledger_env",
+  "rel_path": "without_skill/reproduction_ledger_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "required_actions",
+    "required_doc_id",
+    "target_project_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/project_docs/langgraph_readme.md",
+      "kind": "markdown_attachment",
+      "title": "LangGraph Simulation README",
+      "bytes": 155,
+      "desc": "markdown_attachment file data/project_docs/langgraph_readme.md"
+    },
+    {
+      "path": "data/projects/project_docs.json",
+      "kind": "collection",
+      "wrapper_key": "project_docs",
+      "record_key": "doc_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "doc_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "doc_id (str)"
+        },
+        {
+          "name": "project_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "project_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "desc": "path (str)"
+        }
+      ],
+      "desc": "collection file data/projects/project_docs.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "doc_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/projects/project_docs.json",
+          "record_key": "doc_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "required_doc_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/projects/project_docs.json",
+          "record_key": "doc_id"
+        }
+      ]
+    }
+  ]
+}

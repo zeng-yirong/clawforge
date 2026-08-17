@@ -1,0 +1,234 @@
+{
+  "skus": [
+    {
+      "sku_id": "sku_lum_001",
+      "brand_id": "brand_luminaskin",
+      "brand_name": "LuminaSkin",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "LuminaSkin DewLock Serum 30ml",
+      "size_value": 30,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "72-hour hydration support",
+        "Barrier repair with ceramides",
+        "Fragrance-free clinical formula"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Ceramide NP",
+        "Panthenol",
+        "Betaine"
+      ]
+    },
+    {
+      "sku_id": "sku_lum_002",
+      "brand_id": "brand_luminaskin",
+      "brand_name": "LuminaSkin",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "LuminaSkin DewLock Serum 50ml",
+      "size_value": 50,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "72-hour hydration support",
+        "Barrier repair with ceramides",
+        "Refill-minded jumbo size"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Ceramide NP",
+        "Panthenol",
+        "Squalane"
+      ]
+    },
+    {
+      "sku_id": "sku_lum_003",
+      "brand_id": "brand_luminaskin",
+      "brand_name": "LuminaSkin",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "LuminaSkin NightFlood Ampoule 20ml",
+      "size_value": 20,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Overnight moisture recovery",
+        "Low-irritation fermented complex",
+        "Suitable for post-acid routines"
+      ],
+      "ingredients": [
+        "Polyglutamic Acid",
+        "Fermented Rice Filtrate",
+        "Allantoin",
+        "Trehalose"
+      ]
+    },
+    {
+      "sku_id": "sku_aqp_001",
+      "brand_id": "brand_aquapulse",
+      "brand_name": "AquaPulse",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "AquaPulse Hydro Quench 30ml",
+      "size_value": 30,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Daily hydration booster",
+        "Fast-absorbing water gel texture",
+        "Budget-friendly routine step"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Glycerin",
+        "Aloe Vera",
+        "Niacinamide"
+      ]
+    },
+    {
+      "sku_id": "sku_aqp_002",
+      "brand_id": "brand_aquapulse",
+      "brand_name": "AquaPulse",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "AquaPulse Hydro Quench 50ml",
+      "size_value": 50,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Daily hydration booster",
+        "Fast-absorbing water gel texture",
+        "Family-size value bottle"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Glycerin",
+        "Aloe Vera",
+        "Beta-Glucan"
+      ]
+    },
+    {
+      "sku_id": "sku_drv_001",
+      "brand_id": "brand_dermveil",
+      "brand_name": "DermVeil",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "DermVeil Hydra Matrix 30ml",
+      "size_value": 30,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Triple molecular hydration",
+        "Dermatologist-tested recovery serum",
+        "Luxury slip finish"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Ectoin",
+        "Ceramide AP",
+        "Madecassoside"
+      ]
+    },
+    {
+      "sku_id": "sku_drv_002",
+      "brand_id": "brand_dermveil",
+      "brand_name": "DermVeil",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "DermVeil Hydra Matrix 45ml",
+      "size_value": 45,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Triple molecular hydration",
+        "Dermatologist-tested recovery serum",
+        "Premium clinic-inspired dosage"
+      ],
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Ectoin",
+        "Ceramide AP",
+        "Panthenol"
+      ]
+    },
+    {
+      "sku_id": "sku_plt_001",
+      "brand_id": "brand_purelattice",
+      "brand_name": "PureLattice",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "PureLattice Water Mesh 30ml",
+      "size_value": 30,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Minimalist 8-ingredient hydration",
+        "Clean beauty positioning",
+        "Sensitive-skin compatible"
+      ],
+      "ingredients": [
+        "Sodium Hyaluronate",
+        "Betaine",
+        "Tremella Extract",
+        "Panthenol"
+      ]
+    },
+    {
+      "sku_id": "sku_plt_002",
+      "brand_id": "brand_purelattice",
+      "brand_name": "PureLattice",
+      "category_id": "cat_hydration_serum",
+      "category_name": "Hydration Serum",
+      "sku_name": "PureLattice Water Mesh 50ml",
+      "size_value": 50,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "Minimalist 8-ingredient hydration",
+        "Clean beauty positioning",
+        "Low-residue finish"
+      ],
+      "ingredients": [
+        "Sodium Hyaluronate",
+        "Betaine",
+        "Tremella Extract",
+        "Trehalose"
+      ]
+    },
+    {
+      "sku_id": "sku_sol_001",
+      "brand_id": "brand_solaroat",
+      "brand_name": "SolarOat",
+      "category_id": "cat_uv_moisturizer",
+      "category_name": "UV Moisturizer",
+      "sku_name": "SolarOat Soft Shield SPF50 50ml",
+      "size_value": 50,
+      "size_unit": "ml",
+      "pack_count": 1,
+      "status": "active",
+      "selling_points": [
+        "SPF50 daily hydration",
+        "Oat-calming sunscreen milk",
+        "No white cast"
+      ],
+      "ingredients": [
+        "Colloidal Oatmeal",
+        "Glycerin",
+        "Uvinul A Plus",
+        "Panthenol"
+      ]
+    }
+  ]
+}

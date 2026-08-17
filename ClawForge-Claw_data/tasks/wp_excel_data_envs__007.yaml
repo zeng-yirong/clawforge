@@ -1,0 +1,5 @@
+task:
+  prompt: tasks/prompts/wp_excel_data_envs__007.md
+  asset: wp_excel_data_envs__007
+  runtime:
+    cwd: assets/wp_excel_data_envs__007

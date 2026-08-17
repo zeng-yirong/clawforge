@@ -1,0 +1,10 @@
+asset: wp_business_markdown_report_env__006
+prompt_path: tasks/prompts/wp_business_markdown_report_env__006.md
+runtime:
+  base_image: python:3.11-slim
+  source_actions:
+    - read
+    - list-ledgers
+    - preview-ledger
+    - generate-markdown-report
+  max_steps: 30

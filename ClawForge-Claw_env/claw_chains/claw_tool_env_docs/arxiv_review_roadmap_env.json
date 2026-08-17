@@ -1,0 +1,316 @@
+{
+  "env_name": "arxiv_review_roadmap_env",
+  "rel_path": "without_skill/arxiv_review_roadmap_env",
+  "cli_module": "without_skill.arxiv_review_roadmap_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "ARXIV_REVIEW_ROADMAP_SESSION_ID",
+    "state_env": "ARXIV_REVIEW_ROADMAP_STATE_ROOT",
+    "scenario_env": "ARXIV_REVIEW_ROADMAP_SCENARIO_ID",
+    "default_scenario_id": "arxiv_review_tool_reasoning_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-review",
+      "action": "generate_review",
+      "role": "produce",
+      "help": "Generate review and roadmap.",
+      "args": [
+        {
+          "name": "--direction",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--paper-ids",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-cache-entry",
+      "action": "get_cache_entry",
+      "role": "read",
+      "help": "Get cache entry.",
+      "args": [
+        {
+          "name": "--entry-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-paper",
+      "action": "get_paper",
+      "role": "read",
+      "help": "Get paper.",
+      "args": [
+        {
+          "name": "--paper-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-attachments",
+      "action": "list_attachments",
+      "role": "read",
+      "help": "List attachments.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-cache",
+      "action": "list_cache",
+      "role": "read",
+      "help": "List cache.",
+      "args": [
+        {
+          "name": "--entry-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cache-key",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-papers",
+      "action": "list_papers",
+      "role": "read",
+      "help": "List papers.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--direction",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--year-min",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read attachment.",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show task.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-papers",
+      "dst": "get-paper",
+      "weight": 0.8,
+      "relationship": "produces_paper_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "arxiv_review_tool_reasoning_q2_2026": [
+      "list_papers",
+      "get_paper",
+      "read_attachment",
+      "generate_review"
+    ]
+  },
+  "anchor_keys": [
+    "expected_paper_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "target_direction"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "arxiv_review_tool_reasoning_q2_2026"
+  ]
+}

@@ -1,0 +1,13 @@
+schema_version: "1.0"
+task_id: wp_arxiv_review_roadmap_env__002
+asset: wp_arxiv_review_roadmap_env__002
+prompt_path: tasks/prompts/wp_arxiv_review_roadmap_env__002.md
+runtime:
+  agent_work_dir: "."
+  allowed_actions:
+    - read
+    - write
+    - mkdir
+    - listdir
+  max_steps: 30
+  entrypoint: null

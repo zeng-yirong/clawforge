@@ -1,0 +1,180 @@
+{
+  "env_name": "sensor_envs",
+  "rel_path": "sensor_envs",
+  "has_skill_md": true,
+  "anchor_keys": [],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "account_name",
+          "type": "str",
+          "required": true,
+          "desc": "account_name (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "desc": "location (str)"
+        },
+        {
+          "name": "sensors",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "sensors (list)"
+        },
+        {
+          "name": "locations",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "locations (list)"
+        },
+        {
+          "name": "notification_contacts",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "notification_contacts (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/locations/locations.json",
+      "kind": "collection",
+      "wrapper_key": "locations",
+      "record_key": "location_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "location_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "location_id (str)"
+        },
+        {
+          "name": "location_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Main Lobby",
+            "Office Area",
+            "Server Room",
+            "Warehouse"
+          ],
+          "desc": "location_name (str)"
+        },
+        {
+          "name": "floor",
+          "type": "int",
+          "required": true,
+          "desc": "floor (int)"
+        },
+        {
+          "name": "sensors",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "sensors (list)"
+        }
+      ],
+      "desc": "collection file data/locations/locations.json"
+    },
+    {
+      "path": "data/sensors/sensors.json",
+      "kind": "collection",
+      "wrapper_key": "sensors",
+      "record_key": "sensor_id",
+      "count": 10,
+      "fields": [
+        {
+          "name": "sensor_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "sensor_id (str)"
+        },
+        {
+          "name": "sensor_name",
+          "type": "str",
+          "required": true,
+          "desc": "sensor_name (str)"
+        },
+        {
+          "name": "sensor_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "air_quality",
+            "energy",
+            "humidity",
+            "temperature"
+          ],
+          "desc": "sensor_type (str)"
+        },
+        {
+          "name": "location_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "location_id (str)"
+        },
+        {
+          "name": "unit",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "aqi",
+            "celsius",
+            "kwh",
+            "percent"
+          ],
+          "desc": "unit (str)"
+        },
+        {
+          "name": "threshold_low",
+          "type": "float",
+          "required": true,
+          "desc": "threshold_low (float)"
+        },
+        {
+          "name": "threshold_high",
+          "type": "float",
+          "required": true,
+          "desc": "threshold_high (float)"
+        },
+        {
+          "name": "current_value",
+          "type": "float",
+          "required": true,
+          "desc": "current_value (float)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "desc": "status (str)"
+        }
+      ],
+      "desc": "collection file data/sensors/sensors.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

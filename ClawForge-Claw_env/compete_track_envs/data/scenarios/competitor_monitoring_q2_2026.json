@@ -1,0 +1,24 @@
+{
+  "scenario_id": "competitor_monitoring_q2_2026",
+  "title": "Q2 2026 Competitive Intelligence Report",
+  "task_prompt": "You are a competitive intelligence analyst at your company. Your task is to compile a comprehensive competitive intelligence report for Q2 2026 covering: 1) Market performance of key competitors (TechCorp, CloudMajor, DataFlow AI, SmartSaaS), 2) Impact of new regulatory policies (EU DMA, AI Transparency Act, Global Data Privacy Framework), 3) User acquisition trends and competitive positioning, 4) Generate alerts for significant competitive or regulatory changes, 5) Create a final market report summarizing findings and strategic recommendations. Focus on identifying opportunities and threats in the competitive landscape.",
+  "current_time": "2026-06-15T09:00:00+00:00",
+  "workspace_account_id": "research_team",
+  "competitor_ids": ["comp_001", "comp_002", "comp_003", "comp_004"],
+  "policy_ids": ["pol_001", "pol_002", "pol_003"],
+  "user_ids": ["user_001", "user_002", "user_003", "user_004", "user_005"],
+  "required_actions": [
+    "list_competitors",
+    "get_competitor",
+    "screen_competitors",
+    "compare_competitors",
+    "list_policies",
+    "get_policy",
+    "get_policy_impact",
+    "get_regulatory_risks",
+    "list_users",
+    "analyze_acquisition_sources",
+    "create_market_report",
+    "create_alert"
+  ]
+}

@@ -1,0 +1,6 @@
+asset: wp_itinerary_envs__004
+prompt: tasks/prompts/wp_itinerary_envs__004.md
+runtime:
+  workdir: assets/wp_itinerary_envs__004
+  allowed_extensions: [".json", ".csv", ".txt"]
+  max_file_size_mb: 10

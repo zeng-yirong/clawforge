@@ -1,0 +1,412 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the investment research environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_company",
+    "description": "Register a company in the investment research system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "description": "Stock symbol/ticker (e.g., 'AAPL', 'GOOGL')."
+        },
+        "name": {
+          "type": "string",
+          "description": "Full company name."
+        },
+        "sector": {
+          "type": "string",
+          "description": "Industry sector. Must be one of: technology, healthcare, finance, energy, consumer, industrial, materials, utilities."
+        },
+        "market_cap": {
+          "type": "number",
+          "description": "Market capitalization in billions USD."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Company description."
+        }
+      },
+      "required": [
+        "symbol",
+        "name",
+        "sector",
+        "market_cap"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_company_info",
+    "description": "Retrieve company information by ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "Company identifier."
+        }
+      },
+      "required": [
+        "company_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_data_stream",
+    "description": "Define a new financial data stream for a registered company.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "Company identifier to associate with this stream."
+        },
+        "data_type": {
+          "type": "string",
+          "description": "Type of financial data. Must be one of: 'price', 'financial', 'news', 'video'."
+        },
+        "frequency_minutes": {
+          "type": "integer",
+          "description": "Expected data arrival frequency in minutes."
+        },
+        "schema": {
+          "type": "dict",
+          "description": "Field name → type mapping for data points (e.g., {'price': 'float', 'volume': 'int', 'timestamp': 'datetime'})."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Stream description."
+        }
+      },
+      "required": [
+        "company_id",
+        "data_type",
+        "frequency_minutes",
+        "schema"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_data_streams",
+    "description": "List financial data streams, optionally filtered by company or data type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "[Optional] Filter by company ID."
+        },
+        "data_type": {
+          "type": "string",
+          "description": "[Optional] Filter by data type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_stream_performance",
+    "description": "Get performance metrics for a specific data stream.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "stream_id": {
+          "type": "integer",
+          "description": "Stream ID."
+        }
+      },
+      "required": [
+        "stream_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "subscribe_to_briefs",
+    "description": "Subscribe to receive investment briefs for specific companies.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_ids": {
+          "type": "array",
+          "description": "List of company IDs to monitor."
+        },
+        "brief_format": {
+          "type": "string",
+          "description": "Desired brief format. Must be one of: 'summary', 'detailed', 'executive', 'technical'."
+        },
+        "alert_levels": {
+          "type": "array",
+          "description": "[Optional] Filter by alert levels (info, warning, critical). If empty, all levels."
+        },
+        "convergence_threshold": {
+          "type": "number",
+          "description": "Minimum cross-validation confidence threshold (0.0 to 1.0)."
+        }
+      },
+      "required": [
+        "company_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unsubscribe_from_briefs",
+    "description": "Cancel an active investment brief subscription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID to cancel."
+        }
+      },
+      "required": [
+        "subscription_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_subscriptions",
+    "description": "List active brief subscriptions, optionally filtered by company.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "[Optional] Filter by company ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_subscription_filters",
+    "description": "Update filter criteria for an existing subscription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID to update."
+        },
+        "alert_levels": {
+          "type": "array",
+          "description": "[Optional] New alert levels filter."
+        },
+        "convergence_threshold": {
+          "type": "number",
+          "description": "[Optional] New convergence threshold."
+        }
+      },
+      "required": [
+        "subscription_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_data_point",
+    "description": "Ingests a new data point into a financial data stream.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "stream_id": {
+          "type": "integer",
+          "description": "Target stream ID."
+        },
+        "data_payload": {
+          "type": "dict",
+          "description": "Data point payload matching stream schema."
+        },
+        "source_confidence": {
+          "type": "number",
+          "description": "Confidence score for this data source (0.0 to 1.0)."
+        }
+      },
+      "required": [
+        "stream_id",
+        "data_payload"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_cross_validation",
+    "description": "Process a pending cross-validation task and generate investment briefs.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "validation_id": {
+          "type": "integer",
+          "description": "Validation task ID."
+        },
+        "manual_override": {
+          "type": "boolean",
+          "description": "Force processing even if confidence low."
+        }
+      },
+      "required": [
+        "validation_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_pending_validations",
+    "description": "Get all pending cross-validation tasks.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "acknowledge_brief",
+    "description": "Acknowledge receipt of an investment brief.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID."
+        },
+        "brief_id": {
+          "type": "integer",
+          "description": "Brief ID to acknowledge."
+        }
+      },
+      "required": [
+        "subscription_id",
+        "brief_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_pending_briefs",
+    "description": "Get all unacknowledged investment briefs for a subscription.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "subscription_id": {
+          "type": "integer",
+          "description": "Subscription ID."
+        }
+      },
+      "required": [
+        "subscription_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_brief_details",
+    "description": "Retrieve full details of a specific investment brief.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "brief_id": {
+          "type": "integer",
+          "description": "Brief ID."
+        }
+      },
+      "required": [
+        "brief_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_company_brief_history",
+    "description": "Retrieve investment brief history for a company.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "Company ID."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of briefs to return. Defaults to 20."
+        },
+        "alert_level": {
+          "type": "string",
+          "description": "[Optional] Filter by alert level."
+        }
+      },
+      "required": [
+        "company_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "earnings": [
+    {
+      "earnings_id": "earn_001",
+      "ticker": "NXTC",
+      "quarter": "Q2 2026",
+      "report_date": "2026-06-11",
+      "revenue_actual": 4850000000,
+      "revenue_estimate": 4330000000,
+      "revenue_beat": true,
+      "revenue_beat_pct": 12.0,
+      "eps_actual": 2.45,
+      "eps_estimate": 2.19,
+      "eps_beat": true,
+      "eps_beat_pct": 11.9,
+      "gross_margin_actual": 68.5,
+      "net_margin_actual": 24.2,
+      "key_highlights": ["AI chip demand exceeded expectations", "Data center revenue +35%", "International revenue now 45% of total"]
+    },
+    {
+      "earnings_id": "earn_002",
+      "ticker": "TECH",
+      "quarter": "Q1 2026",
+      "report_date": "2026-05-08",
+      "revenue_actual": 15200000000,
+      "revenue_estimate": 14800000000,
+      "revenue_beat": true,
+      "revenue_beat_pct": 2.7,
+      "eps_actual": 5.82,
+      "eps_estimate": 5.65,
+      "eps_beat": true,
+      "eps_beat_pct": 3.0,
+      "gross_margin_actual": 62.1,
+      "net_margin_actual": 19.8,
+      "key_highlights": ["Consumer segment showed strong recovery", "Gross margin expansion of 120 bps", "Free cash flow $3.2B"]
+    },
+    {
+      "earnings_id": "earn_003",
+      "ticker": "MFST",
+      "quarter": "Q1 2026",
+      "report_date": "2026-04-25",
+      "revenue_actual": 8950000000,
+      "revenue_estimate": 9200000000,
+      "revenue_beat": false,
+      "revenue_beat_pct": -2.7,
+      "eps_actual": 3.12,
+      "eps_estimate": 3.25,
+      "eps_beat": false,
+      "eps_beat_pct": -4.0,
+      "gross_margin_actual": 28.4,
+      "net_margin_actual": 8.2,
+      "key_highlights": ["Logistics costs impacted margins", "International expansion on track", "E-commerce volume +18%"]
+    }
+  ]
+}

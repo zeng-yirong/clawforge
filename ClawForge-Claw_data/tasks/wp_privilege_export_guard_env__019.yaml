@@ -1,0 +1,7 @@
+name: wp_privilege_export_guard_env__019
+description: "环境：权限导出守卫。Agent 需要根据账户权限和资产访问策略，识别并标记越权的批量导出请求。"
+asset: wp_privilege_export_guard_env__019
+prompt: tasks/prompts/wp_privilege_export_guard_env__019.md
+runtime:
+  max_steps: 30
+  environment_type: file_workplace

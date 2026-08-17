@@ -1,0 +1,51 @@
+# Python bytecode and build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Tests, linters, and coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Jupyter-generated artifacts
+.ipynb_checkpoints/
+
+# Local runtime state, logs, and training outputs
+*.log
+wandb/
+ray_results/
+outputs/
+.tmp/
+workplace_score.json
+**/.session_state/
+**/_chain_cache/
+
+# Credentials and local certificates
+*.pem
+*.key
+id_rsa
+id_ed25519
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local backup of nested repository metadata retained while vendoring Uni-Agent
+/.git-backups/

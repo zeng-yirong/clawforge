@@ -1,0 +1,9 @@
+task_id: wp_server_fault_supabase_env__036
+prompt: tasks/prompts/wp_server_fault_supabase_env__036.md
+asset: wp_server_fault_supabase_env__036
+runtime:
+  cwd: assets/wp_server_fault_supabase_env__036
+  env:
+    SERVER_FAULT_SUPABASE_SESSION_ID: "wp036-session"
+    SERVER_FAULT_SUPABASE_STATE_ROOT: "assets/wp_server_fault_supabase_env__036"
+    SERVER_FAULT_SUPABASE_SCENARIO_ID: "server_fault_triage_q2_2026"

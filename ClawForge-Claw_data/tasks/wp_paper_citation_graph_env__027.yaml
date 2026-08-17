@@ -1,0 +1,7 @@
+prompt: tasks/prompts/wp_paper_citation_graph_env__027.md
+asset: wp_paper_citation_graph_env__027
+runtime:
+  cwd: assets/wp_paper_citation_graph_env__027
+  max_steps: 10
+  allow_network: false
+  allow_subprocess: false

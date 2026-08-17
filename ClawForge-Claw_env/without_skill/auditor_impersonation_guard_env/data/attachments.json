@@ -1,0 +1,10 @@
+{
+  "attachments": [
+    {
+      "path": "identity_verification_policy.md",
+      "title": "Identity Verification Policy",
+      "kind": "security_policy",
+      "description": "Verification requirements for anyone claiming to be an internal auditor."
+    }
+  ]
+}

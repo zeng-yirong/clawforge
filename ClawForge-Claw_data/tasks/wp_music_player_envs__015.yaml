@@ -1,0 +1,7 @@
+task_id: wp_music_player_envs__015
+asset: wp_music_player_envs__015
+prompt: tasks/prompts/wp_music_player_envs__015.md
+runtime:
+  base_image: ubuntu:22.04
+  python: 3.11
+  tools: []

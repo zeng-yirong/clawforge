@@ -1,0 +1,1 @@
+紧急！刚收到航司通知，今天的 UA123（SFO→JFK）晚点了整整两个钟头，DL789 也晚了半小时。我手上有航班、酒店预订和交通预订的数据，都丢在 `raw/` 目录下了——`flights.json`、`hotel_bookings.json` 和 `transport_bookings.json`。你帮我把那些被延误波及的预订揪出来，重新排一下时间。酒店入住时间和接机时间都要按延误时长往后推，别动那些没受影响或已经取消的记录。最后把调整后的结果整理成一个 JSON 文件放到 `output/affected_schedule.json`，每个受影响的预订要注明它的 ID、类型（hotel 还是 transport）、原来啥时候、改成啥时候。整利索了发我，我好直接拿去通知旅客和供应商。

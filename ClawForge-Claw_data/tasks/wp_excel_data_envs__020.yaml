@@ -1,0 +1,6 @@
+name: wp_excel_data_envs__020
+prompt: tasks/prompts/wp_excel_data_envs__020.md
+asset: wp_excel_data_envs__020
+runtime:
+  workspace: .
+  cwd: assets/wp_excel_data_envs__020

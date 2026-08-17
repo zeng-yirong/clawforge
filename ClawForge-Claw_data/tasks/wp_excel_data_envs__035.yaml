@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_excel_data_envs__035.md
+asset: wp_excel_data_envs__035
+runtime:
+  timeout: 120
+  max_tokens: 2000

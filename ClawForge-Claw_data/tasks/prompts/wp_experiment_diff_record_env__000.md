@@ -1,0 +1,1 @@
+Hey，昨晚我跑了两批实验（batch_001 和 batch_002），每组都分 control 和 treatment。数据我放在 `data/experiments/experiment_results.csv` 里了。现在我得赶着去开会，你帮我比较一下从 batch_001 到 batch_002，每个组的核心指标（准确率、延迟、成本）都变化了多少？我想看 batch_002 减去 batch_001 的差值。整理好后放到 `ops/diff_record.json` 里，结构清晰点，我好直接拿去汇报。谢啦！

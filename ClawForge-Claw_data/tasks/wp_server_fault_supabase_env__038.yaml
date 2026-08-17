@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_server_fault_supabase_env__038.md
+asset: wp_server_fault_supabase_env__038
+runtime:
+  timeout: 300
+  workspace_cleanup: false

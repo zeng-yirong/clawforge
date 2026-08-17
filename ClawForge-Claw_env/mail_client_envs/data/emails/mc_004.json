@@ -1,0 +1,23 @@
+{
+  "id": "mc_004",
+  "thread_id": "th_client",
+  "folder": "inbox",
+  "sender_id": "c_client",
+  "subject": "Project Feedback - Phase 1 Complete",
+  "timestamp": "2026-06-16T16:45:00+00:00",
+  "importance": "high",
+  "labels": ["work", "client"],
+  "has_read": false,
+  "body": "Thank you for your hard work on Phase 1. Overall the delivery meets our expectations. However, we have a few change requests: 1) Update the dashboard colors to match our brand guidelines, 2) Add export functionality for reports, 3) Improve loading performance. Please acknowledge receipt and provide an estimated timeline for these changes.",
+  "attachments": [
+    {
+      "attachment_id": "mcatt_003",
+      "file_name": "Feedback_Summary.docx",
+      "mime_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "tags": ["feedback", "changes"],
+      "relative_path": "attachments/Feedback_Summary.docx.md"
+    }
+  ],
+  "auto_classify_suggestion": "work",
+  "auto_archive_candidates": []
+}

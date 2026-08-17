@@ -1,0 +1,4 @@
+asset: wp_logistics_envs__004
+prompt: tasks/prompts/wp_logistics_envs__004.md
+runtime:
+  image: python:3.11

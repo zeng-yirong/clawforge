@@ -1,0 +1,589 @@
+{
+  "env_name": "crm_envs",
+  "rel_path": "crm_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_archive",
+    "required_classifications",
+    "required_reminders"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "default_tag_color",
+          "type": "str",
+          "required": true,
+          "desc": "default_tag_color (str)"
+        },
+        {
+          "name": "auto_tagging_enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "auto_tagging_enabled (bool)"
+        },
+        {
+          "name": "birthday_reminders_enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "birthday_reminders_enabled (bool)"
+        },
+        {
+          "name": "reminder_days_before",
+          "type": "int",
+          "required": true,
+          "desc": "reminder_days_before (int)"
+        },
+        {
+          "name": "available_folders",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "available_folders (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/companies.json",
+      "kind": "collection",
+      "wrapper_key": "companies",
+      "record_key": "company_id",
+      "count": 6,
+      "fields": [
+        {
+          "name": "company_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "company_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ClientCo Operations",
+            "Global Partners LLC",
+            "OldClient Services",
+            "StartupIO",
+            "TechCorp Industries",
+            "VendorCo Supplies"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "industry",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Consulting",
+            "Logistics",
+            "Manufacturing",
+            "Retail",
+            "Technology"
+          ],
+          "desc": "industry (str)"
+        },
+        {
+          "name": "size",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "enterprise",
+            "mid_market",
+            "small"
+          ],
+          "desc": "size (str)"
+        },
+        {
+          "name": "website",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "https://clientco.com",
+            "https://globalpartners.com",
+            "https://oldclient.com",
+            "https://startup.io",
+            "https://techcorp.com",
+            "https://vendorco.com"
+          ],
+          "desc": "website (str)"
+        },
+        {
+          "name": "address",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "address (str)"
+        },
+        {
+          "name": "phone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "+1-555-1000",
+            "+1-555-2000",
+            "+1-555-3000",
+            "+1-555-4000",
+            "+1-555-5000",
+            "+1-555-6000"
+          ],
+          "desc": "phone (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "annual_revenue",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "100M+",
+            "1M-5M",
+            "25M-50M",
+            "50M-100M",
+            "5M-10M"
+          ],
+          "desc": "annual_revenue (str)"
+        },
+        {
+          "name": "customer_since",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "customer_since (str)"
+        },
+        {
+          "name": "account_manager",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ct_001",
+            "ct_002",
+            "ct_003",
+            "ct_005",
+            "ct_007"
+          ],
+          "desc": "account_manager (str)"
+        }
+      ],
+      "desc": "collection file data/companies.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "first_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice",
+            "Bob",
+            "Carol",
+            "David",
+            "Emma",
+            "Frank",
+            "Grace",
+            "Henry"
+          ],
+          "desc": "first_name (str)"
+        },
+        {
+          "name": "last_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Brown",
+            "Davis",
+            "Johnson",
+            "Miller",
+            "Smith",
+            "Taylor",
+            "Williams",
+            "Wilson"
+          ],
+          "desc": "last_name (str)"
+        },
+        {
+          "name": "full_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice Johnson",
+            "Bob Smith",
+            "Carol Williams",
+            "David Brown",
+            "Emma Davis",
+            "Frank Miller",
+            "Grace Wilson",
+            "Henry Taylor"
+          ],
+          "desc": "full_name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "alice.johnson@techcorp.com",
+            "bob.smith@clientco.com",
+            "carol.w@startup.io",
+            "david.brown@email.com",
+            "emma.davis@partner.net",
+            "frank.m@oldclient.com",
+            "grace.wilson@vendor.co",
+            "henry.t@bigcorp.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "phone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "+1-555-0101",
+            "+1-555-0102",
+            "+1-555-0103",
+            "+1-555-0104",
+            "+1-555-0105",
+            "+1-555-0106",
+            "+1-555-0107",
+            "+1-555-0108"
+          ],
+          "desc": "phone (str)"
+        },
+        {
+          "name": "company_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "company_id (str)"
+        },
+        {
+          "name": "job_title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Account Manager",
+            "CEO",
+            "CTO",
+            "IT Manager",
+            "Partnership Director",
+            "Procurement Manager",
+            "VP Engineering"
+          ],
+          "desc": "job_title (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Business Development",
+            "Engineering",
+            "IT",
+            "Leadership",
+            "Operations",
+            "Sales"
+          ],
+          "desc": "department (str)"
+        },
+        {
+          "name": "contact_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "business",
+            "personal"
+          ],
+          "desc": "contact_type (str)"
+        },
+        {
+          "name": "folder",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "business",
+            "inactive",
+            "personal"
+          ],
+          "desc": "folder (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "birthday",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "birthday (str)"
+        },
+        {
+          "name": "notes",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "notes (str)"
+        },
+        {
+          "name": "source",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "business_card",
+            "conference",
+            "imported",
+            "networking",
+            "personal",
+            "referral",
+            "website"
+          ],
+          "desc": "source (str)"
+        },
+        {
+          "name": "created_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "created_at (str)"
+        },
+        {
+          "name": "last_contacted_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "last_contacted_at (str)"
+        },
+        {
+          "name": "lifetime_value",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "low",
+            "medium"
+          ],
+          "desc": "lifetime_value (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/reminders/reminders.json",
+      "kind": "collection",
+      "wrapper_key": "reminders",
+      "record_key": "reminder_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "reminder_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "reminder_id (str)"
+        },
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "reminder_type",
+          "type": "str",
+          "required": true,
+          "desc": "reminder_type (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice Johnson's Birthday",
+            "Bob Smith's Birthday",
+            "Carol Williams's Birthday",
+            "David Brown's Birthday",
+            "Emma Davis's Birthday",
+            "Frank Miller's Birthday",
+            "Grace Wilson's Birthday",
+            "Henry Taylor's Birthday"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Birthday reminder for Alice Johnson",
+            "Birthday reminder for Bob Smith",
+            "Birthday reminder for Carol Williams",
+            "Birthday reminder for David Brown",
+            "Birthday reminder for Emma Davis",
+            "Birthday reminder for Frank Miller",
+            "Birthday reminder for Grace Wilson",
+            "Birthday reminder for Henry Taylor"
+          ],
+          "desc": "description (str)"
+        },
+        {
+          "name": "reminder_date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "reminder_date (str)"
+        },
+        {
+          "name": "days_before",
+          "type": "int",
+          "required": true,
+          "desc": "days_before (int)"
+        },
+        {
+          "name": "is_recurring",
+          "type": "bool",
+          "required": true,
+          "desc": "is_recurring (bool)"
+        },
+        {
+          "name": "enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "enabled (bool)"
+        }
+      ],
+      "desc": "collection file data/reminders/reminders.json"
+    },
+    {
+      "path": "data/tags/tag_definitions.json",
+      "kind": "collection",
+      "wrapper_key": "tag_definitions",
+      "record_key": "tag_id",
+      "count": 11,
+      "fields": [
+        {
+          "name": "tag_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "tag_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "color",
+          "type": "str",
+          "required": true,
+          "desc": "color (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "industry",
+            "personal",
+            "priority",
+            "relationship",
+            "role",
+            "status"
+          ],
+          "desc": "category (str)"
+        }
+      ],
+      "desc": "collection file data/tags/tag_definitions.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "contact_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/contacts.json",
+          "record_key": "contact_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "required_archive",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/contacts.json",
+          "record_key": "contact_id"
+        }
+      ]
+    }
+  ]
+}

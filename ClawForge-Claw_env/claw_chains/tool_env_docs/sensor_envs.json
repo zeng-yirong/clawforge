@@ -1,0 +1,704 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "active",
+  "description": "Get active alerts",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "severity": {
+     "type": "string",
+     "description": "Filter by severity"
+    },
+    "type": {
+     "type": "string",
+     "description": "Filter by type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "alerts",
+  "description": "Alert management commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "analyze",
+  "description": "Analyze trend for sensor",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "start": {
+     "type": "string",
+     "description": "Start time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End time"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "anomaly",
+  "description": "Generate anomaly report",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "start": {
+     "type": "string",
+     "description": "Start time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End time"
+    },
+    "severity": {
+     "type": "string",
+     "description": "Severity filter"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check",
+  "description": "Check for anomalies",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sensor_id": {
+     "type": "string",
+     "description": "Sensor ID to check"
+    },
+    "severity": {
+     "type": "string",
+     "description": "Filter by severity"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "compose_anomaly",
+  "description": "Compose anomaly alert notification",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "recipient": {
+     "type": "string",
+     "description": "Recipient name"
+    },
+    "contact": {
+     "type": "string",
+     "description": "Recipient contact"
+    },
+    "anomaly_id": {
+     "type": "string",
+     "description": "Anomaly ID"
+    }
+   },
+   "required": [
+    "recipient",
+    "contact",
+    "anomaly_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create",
+  "description": "Create notification",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Notification type"
+    },
+    "severity": {
+     "type": "string",
+     "description": "Severity"
+    },
+    "title": {
+     "type": "string",
+     "description": "Title"
+    },
+    "description": {
+     "type": "string",
+     "description": "Description"
+    },
+    "sensor_id": {
+     "type": "string",
+     "description": "Sensor ID"
+    },
+    "location_id": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "anomaly_id": {
+     "type": "string",
+     "description": "Linked anomaly ID"
+    },
+    "recipient": {
+     "type": "string",
+     "description": "Recipient name"
+    },
+    "contact": {
+     "type": "string",
+     "description": "Recipient contact"
+    },
+    "subject": {
+     "type": "string",
+     "description": "Subject"
+    },
+    "body": {
+     "type": "string",
+     "description": "Body"
+    },
+    "priority": {
+     "type": "string",
+     "description": "Priority",
+     "default": "normal"
+    },
+    "linked_alerts": {
+     "type": "string",
+     "description": "Comma-separated alert IDs"
+    }
+   },
+   "required": [
+    "type",
+    "severity",
+    "title",
+    "description",
+    "sensor_id",
+    "location_id",
+    "type",
+    "recipient",
+    "contact",
+    "subject",
+    "body"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "daily",
+  "description": "Generate daily report",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "location": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "type": {
+     "type": "string",
+     "description": "Sensor type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "energy",
+  "description": "Generate energy report",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "location": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "start": {
+     "type": "string",
+     "description": "Start time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End time"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "hourly",
+  "description": "Generate hourly report",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "location": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "type": {
+     "type": "string",
+     "description": "Sensor type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "info",
+  "description": "Show environment info",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list",
+  "description": "List notifications",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "type": {
+     "type": "string",
+     "description": "Filter by type"
+    },
+    "location": {
+     "type": "string",
+     "description": "Filter by location ID"
+    },
+    "status": {
+     "type": "string",
+     "description": "Filter by status"
+    },
+    "severity": {
+     "type": "string",
+     "description": "Filter by severity"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Result limit"
+    },
+    "priority": {
+     "type": "string",
+     "description": "Filter by priority"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "monitoring",
+  "description": "Monitoring commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "monthly",
+  "description": "Generate monthly report",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "location": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "type": {
+     "type": "string",
+     "description": "Sensor type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "moving_average",
+  "description": "Calculate moving average",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "window": {
+     "type": "integer",
+     "description": "Window size",
+     "default": 5
+    },
+    "start": {
+     "type": "string",
+     "description": "Start time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End time"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "notifications",
+  "description": "Notification commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read",
+  "description": "Read sensor data",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "timestamp": {
+     "type": "string",
+     "description": "Timestamp for historical data"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reports",
+  "description": "Report generation commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reset",
+  "description": "Reset environment to a given scenario.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "scenario_id": {
+     "type": "string",
+     "description": "ID of the scenario to reset to"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "resolve",
+  "description": "Resolve alert",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "resolution": {
+     "type": "string",
+     "description": "Resolution"
+    }
+   },
+   "required": [
+    "resolution",
+    "resolution"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "seasonality",
+  "description": "Detect seasonality",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "period": {
+     "type": "integer",
+     "description": "Expected period in hours",
+     "default": 24
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "sensors",
+  "description": "Sensor data commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "set_threshold",
+  "description": "Set sensor threshold",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "stats",
+  "description": "Get notification statistics",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "start": {
+     "type": "string",
+     "description": "Start time"
+    },
+    "end": {
+     "type": "string",
+     "description": "End time"
+    }
+   },
+   "required": [
+    "start",
+    "end"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "summary",
+  "description": "Get trend summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "location": {
+     "type": "string",
+     "description": "Location ID"
+    },
+    "type": {
+     "type": "string",
+     "description": "Sensor type"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "trends",
+  "description": "Trend analysis commands",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

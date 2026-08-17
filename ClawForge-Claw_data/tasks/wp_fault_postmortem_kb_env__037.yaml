@@ -1,0 +1,8 @@
+asset: wp_fault_postmortem_kb_env__037
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__037.md
+runtime:
+  image: python:3.11-slim
+  cwd: ""
+  env:
+    - name: LOG_LEVEL
+      value: INFO

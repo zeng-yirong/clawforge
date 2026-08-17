@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""
+Description: Search workspace file contents with a regular expression.
+
+Parameters:
+  --pattern (string, required): Regular expression to search for.
+  --path (string, optional): Directory or file path to search from.
+  --glob (string, optional): Glob pattern that filters which files are searched.
+  --case_sensitive (bool, optional): Whether matching is case-sensitive.
+  --max_results (int, optional): Maximum number of matching lines to return.
+"""
+
+import argparse
+import re
+import sys
+from pathlib import Path
+
+
+def parse_bool(value: str) -> bool:
+    lowered = value.strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
+
+
+def read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="utf-8", errors="replace")
+
+
+def is_hidden(path: Path) -> bool:
+    return any(part.startswith(".") for part in path.parts if part not in {"."})
+
+
+def iter_candidate_files(search_root: Path, glob_pattern: str) -> list[Path]:
+    if search_root.is_file():
+        return [search_root]
+
+    matches = []
+    for candidate in search_root.glob(glob_pattern):
+        if not candidate.is_file():
+            continue
+        rel = candidate.relative_to(search_root)
+        if is_hidden(rel):
+            continue
+        matches.append(candidate)
+    return sorted(set(matches))
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Search workspace file contents with a regular expression.")
+    parser.add_argument("--pattern", required=True, type=str, help="Regular expression to search for.")
+    parser.add_argument("--path", default=".", type=str, help="Directory or file path to search from.")
+    parser.add_argument("--glob", default="**/*", type=str, help="Glob pattern used to filter files.")
+    parser.add_argument(
+        "--case_sensitive",
+        type=parse_bool,
+        default=True,
+        help="Whether matching is case-sensitive.",
+    )
+    parser.add_argument("--max_results", type=int, default=200, help="Maximum number of matching lines to return.")
+    args = parser.parse_args()
+
+    search_root = Path(args.path)
+    if not search_root.exists():
+        print(f"Path does not exist: {search_root}")
+        sys.exit(1)
+    if args.max_results < 1:
+        print("max_results must be >= 1.")
+        sys.exit(1)
+
+    flags = 0 if args.case_sensitive else re.IGNORECASE
+    try:
+        pattern = re.compile(args.pattern, flags)
+    except re.error as exc:
+        print(f"Invalid regular expression: {exc}")
+        sys.exit(1)
+
+    try:
+        files = iter_candidate_files(search_root, args.glob)
+    except Exception as exc:
+        print(f"Failed to enumerate files under {search_root}: {exc}")
+        sys.exit(1)
+
+    if not files:
+        print(f"No files matched glob {args.glob!r} under {search_root}.")
+        return
+
+    results = []
+    files_with_matches = 0
+    for path in files:
+        try:
+            text = read_text(path)
+        except Exception:
+            continue
+
+        file_had_match = False
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            if pattern.search(line):
+                if not file_had_match:
+                    files_with_matches += 1
+                    file_had_match = True
+                results.append(f"{path}:{line_number}: {line}")
+                if len(results) >= args.max_results:
+                    break
+        if len(results) >= args.max_results:
+            break
+
+    if not results:
+        print(f"No matches for regex {args.pattern!r} under {search_root}.")
+        return
+
+    print(
+        f"Searched {len(files)} file(s) under {search_root}. "
+        f"Found {len(results)} matching line(s) across {files_with_matches} file(s)."
+    )
+    for line in results:
+        print(line)
+    if len(results) >= args.max_results:
+        print(f"<truncated at max_results={args.max_results}>")
+
+
+if __name__ == "__main__":
+    main()

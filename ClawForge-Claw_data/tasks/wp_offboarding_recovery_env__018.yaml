@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_offboarding_recovery_env__018.md
+asset: wp_offboarding_recovery_env__018
+runtime:
+  language: python
+  version: "3.9"

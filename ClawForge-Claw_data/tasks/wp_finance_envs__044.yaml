@@ -1,0 +1,7 @@
+name: wp_finance_envs__044
+description: Process fragmented financial data files and produce a structured investment summary for a target technology stock.
+prompts: tasks/prompts/wp_finance_envs__044.md
+asset: wp_finance_envs__044
+runtime:
+  timeout: 300
+  max_turns: 15

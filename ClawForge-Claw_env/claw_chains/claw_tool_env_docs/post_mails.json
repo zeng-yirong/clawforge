@@ -1,0 +1,403 @@
+{
+  "env_name": "post_mails",
+  "rel_path": "post_mails",
+  "cli_module": "post_mails.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "POST_MAILS_SESSION_ID",
+    "state_env": "POST_MAILS_STATE_ROOT",
+    "scenario_env": "POST_MAILS_SCENARIO_ID",
+    "default_scenario_id": "orbital_launch"
+  },
+  "visible_verbs": [
+    {
+      "verb": "list-emails",
+      "action": "list_emails",
+      "role": "read",
+      "help": "List inbox items.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--unread-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-posts",
+      "action": "list_posts",
+      "role": "read",
+      "help": "List X and Reddit posts.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--platform",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--needs-response-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "publish-post",
+      "action": "publish_post",
+      "role": "produce",
+      "help": "Publish a new X or Reddit post.",
+      "args": [
+        {
+          "name": "--platform",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--content",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--community",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--author",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment and mark it as opened.",
+      "args": [
+        {
+          "name": "--attachment-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-email",
+      "action": "read_email",
+      "role": "read",
+      "help": "Open an email and mark it as read.",
+      "args": [
+        {
+          "name": "--email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reply-post",
+      "action": "reply_post",
+      "role": "produce",
+      "help": "Reply to a post.",
+      "args": [
+        {
+          "name": "--post-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--content",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--author",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "view-post",
+      "action": "view_post",
+      "role": "read",
+      "help": "View a full post thread, including replies.",
+      "args": [
+        {
+          "name": "--post-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-emails",
+      "dst": "read-email",
+      "weight": 0.8,
+      "relationship": "produces_email_id_for"
+    },
+    {
+      "src": "list-posts",
+      "dst": "view-post",
+      "weight": 0.8,
+      "relationship": "produces_post_id_for"
+    },
+    {
+      "src": "list-posts",
+      "dst": "reply-post",
+      "weight": 0.8,
+      "relationship": "produces_post_id_for"
+    },
+    {
+      "src": "publish-post",
+      "dst": "view-post",
+      "weight": 0.8,
+      "relationship": "produces_post_id_for"
+    },
+    {
+      "src": "publish-post",
+      "dst": "reply-post",
+      "weight": 0.8,
+      "relationship": "produces_post_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_attachment_ids",
+    "required_posts",
+    "required_replies"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "reply_score",
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "orbital_launch"
+  ]
+}

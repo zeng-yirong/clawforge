@@ -1,0 +1,6 @@
+name: wp_customer_tier_label_env__007
+prompt_path: tasks/prompts/wp_customer_tier_label_env__007.md
+asset: wp_customer_tier_label_env__007
+runtime:
+  language: python
+  version: "3.10"

@@ -1,0 +1,15 @@
+version: "1.0"
+id: wp_prompt_key_guard_env__002
+asset: wp_prompt_key_guard_env__002
+prompt: tasks/prompts/wp_prompt_key_guard_env__002.md
+runtime:
+  max_seconds: 300
+  allowed_modules:
+    - json
+    - os
+    - csv
+    - pathlib
+    - re
+    - shutil
+    - yaml
+  workdir: "."

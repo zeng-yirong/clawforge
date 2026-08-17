@@ -1,0 +1,25 @@
+{
+  "regions": [
+    {
+      "region_id": "region_downtown",
+      "name": "市中心区域",
+      "center": {"lat": 31.2304, "lon": 121.4737},
+      "radius_km": 10,
+      "map_version": "2024.06.01"
+    },
+    {
+      "region_id": "region_airport",
+      "name": "机场区域",
+      "center": {"lat": 31.1443, "lon": 121.8083},
+      "radius_km": 5,
+      "map_version": "2024.06.01"
+    },
+    {
+      "region_id": "region_suburb",
+      "name": "郊区扩展区域",
+      "center": {"lat": 31.2833, "lon": 121.4167},
+      "radius_km": 20,
+      "map_version": "2024.05.15"
+    }
+  ]
+}

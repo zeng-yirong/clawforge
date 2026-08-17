@@ -1,0 +1,7 @@
+prompt: tasks/prompts/wp_car_control_envs__014.md
+asset: wp_car_control_envs__014
+runtime:
+  python: "3.10"
+  workspace: /workspace
+  env:
+    - ASSET_DIR: /assets/wp_car_control_envs__014

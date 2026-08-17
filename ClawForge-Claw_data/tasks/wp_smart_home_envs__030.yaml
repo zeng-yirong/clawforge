@@ -1,0 +1,8 @@
+id: wp_smart_home_envs__030
+asset: wp_smart_home_envs__030
+prompt: tasks/prompts/wp_smart_home_envs__030.md
+runtime:
+  cwd: assets/wp_smart_home_envs__030
+  entrypoint: python
+  arguments: []
+  environment: {}

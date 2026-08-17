@@ -1,0 +1,1 @@
+Hi, 我是数据中心运维小王。今早收到一条报警，说 Server Room 的湿度传感器读数异常，但阈值好像设得太宽了，导致没触发警报。我怀疑是那台传感器的当前值已经越过了高阈值。你帮忙查一下 `data/sensors/sensors.json` 和 `data/locations/locations.json`，找到 Server Room 里所有湿度传感器中当前值超过高阈值的那个（注意：只有一台这样的传感器，别弄混了）。然后根据它的当前值，生成一个调整后的阈值建议：新下限设为当前值减去 5.0，新上限设为当前值加上 5.0，结果保留一位小数。把结果存到 `ops/adjustments.json`，JSON 格式，包含 `sensor_id`、`new_low`、`new_high` 三个字段。我待会直接用。谢了！

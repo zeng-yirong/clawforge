@@ -1,0 +1,1 @@
+Hey，最近在折腾一批开源项目的复现记录，有些乱。我在 workplace 根目录下放了一个项目清单 `data/projects/project_docs.json`，里面列出了每个项目文档的路径，对应的文档文件在 `raw_docs/` 下。这些文档里记录了复现步骤和状态。我需要你帮我找出那个唯一一个复现成功（status 为 success）的项目，然后把这个项目的 ID 和复现日期归档到 `ops/reproduction_ledger.json` 里。注意：只有那个 status 明确写着 success 的才算数，其他状态都不要。另外，确保使用的是清单里指定的文档路径，别自己乱猜。搞定了告诉我。谢了！

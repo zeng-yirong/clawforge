@@ -1,0 +1,1 @@
+嘿，凌晨3点主库IO飙到100%了！我把故障案例库和相关的附件都拉下来了，就在你工作区里。那个叫 `fault-043` 的案例看起来最可疑，`root_cause_hint` 提示说问题出在某个慢查询日志里。附件都在 `attachments/` 下，日志文件名上带有日期。你帮我根据那个案例的线索，把真正的罪魁祸首找出来——我需要它的 transaction ID 来强杀。整理成标准的 JSON 报告放到 `ops/root_cause.json`，格式你懂的：`fault_id`、`root_cause`、`repair_plan` 还有从附件里挖出来的 `transaction_id`（整数）。要快，别搞错 case 了。

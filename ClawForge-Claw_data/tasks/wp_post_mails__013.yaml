@@ -1,0 +1,7 @@
+task_id: wp_post_mails__013
+asset: wp_post_mails__013
+prompt_path: tasks/prompts/wp_post_mails__013.md
+env_builder_path: tasks/wp_post_mails__013/env_builder.py
+verify_script_path: scripts/wp_post_mails__013/verify_workplace.py
+runtime:
+  python: "3.10"

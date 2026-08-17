@@ -1,0 +1,6 @@
+task_id: wp_onboarding_asset_access_env__038
+asset: wp_onboarding_asset_access_env__038
+prompt: tasks/prompts/wp_onboarding_asset_access_env__038.md
+runtime:
+  python: "3.10"
+  cwd: "assets/wp_onboarding_asset_access_env__038"

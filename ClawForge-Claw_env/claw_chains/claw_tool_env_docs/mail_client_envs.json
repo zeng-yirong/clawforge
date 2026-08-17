@@ -1,0 +1,518 @@
+{
+  "env_name": "mail_client_envs",
+  "rel_path": "mail_client_envs",
+  "cli_module": "mail_client_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "MAIL_CLIENT_SESSION_ID",
+    "state_env": "MAIL_CLIENT_STATE_ROOT",
+    "scenario_env": "MAIL_CLIENT_SCENARIO_ID",
+    "default_scenario_id": "email_inbox_automation"
+  },
+  "visible_verbs": [
+    {
+      "verb": "archive-email",
+      "action": "archive_email",
+      "role": "produce",
+      "help": "Archive an email.",
+      "args": [
+        {
+          "name": "--email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "classify-email",
+      "action": "classify_email",
+      "role": "other",
+      "help": "Classify an email into a folder with labels.",
+      "args": [
+        {
+          "name": "--email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--labels",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated labels",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "complete-todo",
+      "action": "complete_todo",
+      "role": "other",
+      "help": "Mark a TODO item as completed.",
+      "args": [
+        {
+          "name": "--todo-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-reply",
+      "action": "create_reply",
+      "role": "produce",
+      "help": "Send a reply to an email.",
+      "args": [
+        {
+          "name": "--target-email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--content",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-todo",
+      "action": "create_todo",
+      "role": "produce",
+      "help": "Create a new TODO item from an email.",
+      "args": [
+        {
+          "name": "--source-email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--priority",
+          "required": false,
+          "has_default": true,
+          "default": "normal",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--due-date",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "delete-email",
+      "action": "delete_email",
+      "role": "other",
+      "help": "Move an email to trash.",
+      "args": [
+        {
+          "name": "--email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-emails",
+      "action": "list_emails",
+      "role": "read",
+      "help": "List emails in the inbox.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--folder",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--label",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--unread-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-replies",
+      "action": "list_replies",
+      "role": "read",
+      "help": "List sent replies.",
+      "args": [
+        {
+          "name": "--target-email-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-todos",
+      "action": "list_todos",
+      "role": "read",
+      "help": "List TODO items.",
+      "args": [
+        {
+          "name": "--completed-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--pending-only",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--priority",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment and mark it as opened.",
+      "args": [
+        {
+          "name": "--attachment-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-email",
+      "action": "read_email",
+      "role": "read",
+      "help": "Open an email and mark it as read.",
+      "args": [
+        {
+          "name": "--email-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-emails",
+      "dst": "read-email",
+      "weight": 0.8,
+      "relationship": "produces_email_id_for"
+    },
+    {
+      "src": "list-emails",
+      "dst": "classify-email",
+      "weight": 0.8,
+      "relationship": "produces_email_id_for"
+    },
+    {
+      "src": "list-emails",
+      "dst": "archive-email",
+      "weight": 0.8,
+      "relationship": "produces_email_id_for"
+    },
+    {
+      "src": "list-emails",
+      "dst": "delete-email",
+      "weight": 0.8,
+      "relationship": "produces_email_id_for"
+    },
+    {
+      "src": "list-todos",
+      "dst": "complete-todo",
+      "weight": 0.8,
+      "relationship": "produces_todo_id_for"
+    },
+    {
+      "src": "create-todo",
+      "dst": "complete-todo",
+      "weight": 0.8,
+      "relationship": "produces_todo_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_archive",
+    "required_attachment_reads",
+    "required_classifications",
+    "required_delete",
+    "required_replies",
+    "required_todos"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "reply_score",
+      "penalty"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "email_inbox_automation"
+  ]
+}

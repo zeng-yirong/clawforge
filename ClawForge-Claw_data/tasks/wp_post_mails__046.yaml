@@ -1,0 +1,5 @@
+task_id: wp_post_mails__046
+prompt_path: tasks/prompts/wp_post_mails__046.md
+asset: wp_post_mails__046
+runtime:
+  cwd: assets/wp_post_mails__046

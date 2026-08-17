@@ -1,0 +1,5 @@
+task_name: wp_expense_envs__014
+prompt_path: tasks/prompts/wp_expense_envs__014.md
+asset: wp_expense_envs__014
+runtime:
+  cwd: assets/wp_expense_envs__014

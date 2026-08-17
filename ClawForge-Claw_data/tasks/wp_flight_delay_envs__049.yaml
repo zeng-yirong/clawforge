@@ -1,0 +1,6 @@
+task_id: wp_flight_delay_envs__049
+asset: wp_flight_delay_envs__049
+prompt: tasks/prompts/wp_flight_delay_envs__049.md
+runtime:
+  image: python:3.9-slim
+  command: python -c "print('Task environment ready')"

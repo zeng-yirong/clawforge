@@ -1,0 +1,57 @@
+{
+  "conferences": [
+    {
+      "conference_id": "conf_tech2026",
+      "conference_name": "Tech Summit 2026",
+      "organizer": "Tech Conference Group",
+      "start_date": "2026-06-16T09:00:00+00:00",
+      "end_date": "2026-06-18T17:00:00+00:00",
+      "location": "New York Convention Center, 655 W 34th St, New York, NY 10001",
+      "status": "confirmed",
+      "sessions": [
+        {
+          "session_id": "session_keynote",
+          "title": "Opening Keynote: The Future of AI",
+          "start_time": "2026-06-16T09:00:00+00:00",
+          "end_time": "2026-06-16T10:30:00+00:00",
+          "location": "Main Hall A",
+          "speaker": "Dr. Sarah Chen"
+        },
+        {
+          "session_id": "session_workshop1",
+          "title": "Hands-on Machine Learning Workshop",
+          "start_time": "2026-06-16T11:00:00+00:00",
+          "end_time": "2026-06-16T13:00:00+00:00",
+          "location": "Workshop Room 1",
+          "speaker": "Prof. Michael Lee"
+        }
+      ],
+      "attendees": [
+        {
+          "attendee_id": "att_john",
+          "name": "John Smith",
+          "email": "john.smith@example.com",
+          "company": "Acme Corp",
+          "attending": true,
+          "rsvp_status": "confirmed"
+        },
+        {
+          "attendee_id": "att_jane",
+          "name": "Jane Doe",
+          "email": "jane.doe@example.com",
+          "company": "Tech Innovations",
+          "attending": true,
+          "rsvp_status": "confirmed"
+        },
+        {
+          "attendee_id": "att_mike",
+          "name": "Mike Johnson",
+          "email": "mike.johnson@example.com",
+          "company": "StartupXYZ",
+          "attending": true,
+          "rsvp_status": "confirmed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "accounts": [
+    {
+      "account_id": "cloud_finops_team",
+      "display_name": "Northstar Cloud FinOps",
+      "department": "Infrastructure Finance",
+      "email": "cloud-finops@northstar.example.com",
+      "permissions": [
+        "view_clusters",
+        "view_resource_ledger",
+        "view_pricing_catalogs",
+        "read_attachments",
+        "aggregate_cluster_usage",
+        "generate_cost_reports",
+        "view_cache"
+      ],
+      "default_region": "APAC",
+      "voice": [
+        "quantitative",
+        "cost-aware",
+        "auditable"
+      ]
+    }
+  ]
+}

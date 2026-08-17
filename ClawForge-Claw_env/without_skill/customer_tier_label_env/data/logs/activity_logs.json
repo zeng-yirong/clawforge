@@ -1,0 +1,16 @@
+{
+  "activity_logs": [
+    {
+      "customer_id": "cust_fin_001",
+      "risk_level": "high",
+      "last_active_days": 24,
+      "usage_trend": "down"
+    },
+    {
+      "customer_id": "cust_health_001",
+      "risk_level": "low",
+      "last_active_days": 4,
+      "usage_trend": "up"
+    }
+  ]
+}

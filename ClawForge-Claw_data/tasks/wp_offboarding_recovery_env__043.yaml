@@ -1,0 +1,6 @@
+task_id: wp_offboarding_recovery_env__043
+prompt_path: tasks/prompts/wp_offboarding_recovery_env__043.md
+asset: wp_offboarding_recovery_env__043
+runtime:
+  cwd: assets/wp_offboarding_recovery_env__043
+  timeout: 120

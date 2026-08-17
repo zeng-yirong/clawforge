@@ -1,0 +1,549 @@
+{
+  "env_name": "server_fault_supabase_env",
+  "rel_path": "without_skill/server_fault_supabase_env",
+  "cli_module": "without_skill.server_fault_supabase_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "SERVER_FAULT_SUPABASE_SESSION_ID",
+    "state_env": "SERVER_FAULT_SUPABASE_STATE_ROOT",
+    "scenario_env": "SERVER_FAULT_SUPABASE_SCENARIO_ID",
+    "default_scenario_id": "server_fault_triage_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "batch-remediate",
+      "action": "batch_remediate",
+      "role": "other",
+      "help": "Execute remediation logic for multiple incidents.",
+      "args": [
+        {
+          "name": "--incident-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated incident ids",
+          "hidden": false
+        },
+        {
+          "name": "--remediation-mode",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--operator-note",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-audit-log",
+      "action": "get_audit_log",
+      "role": "read",
+      "help": "Get one audit log entry.",
+      "args": [
+        {
+          "name": "--audit-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-incident",
+      "action": "get_incident",
+      "role": "read",
+      "help": "Get incident details.",
+      "args": [
+        {
+          "name": "--incident-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-supabase-row",
+      "action": "get_supabase_row",
+      "role": "read",
+      "help": "Get one Supabase memory row.",
+      "args": [
+        {
+          "name": "--row-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-attachments",
+      "action": "list_attachments",
+      "role": "read",
+      "help": "List supporting attachments.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-audit-logs",
+      "action": "list_audit_logs",
+      "role": "read",
+      "help": "List audit logs for the rollout session.",
+      "args": [
+        {
+          "name": "--action-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-incidents",
+      "action": "list_incidents",
+      "role": "read",
+      "help": "List server fault incidents.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-supabase-rows",
+      "action": "list_supabase_rows",
+      "role": "read",
+      "help": "List rows in the simulated Supabase memory table.",
+      "args": [
+        {
+          "name": "--table-name",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--incident-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "Read an attachment used by the scenario.",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "remediate-incident",
+      "action": "remediate_incident",
+      "role": "other",
+      "help": "Execute remediation logic for one incident.",
+      "args": [
+        {
+          "name": "--incident-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--remediation-mode",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--operator-note",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "screen-risk-incidents",
+      "action": "screen_risk_incidents",
+      "role": "other",
+      "help": "Screen UPS outage and service-down risk tickets.",
+      "args": [
+        {
+          "name": "--categories",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated categories",
+          "hidden": false
+        },
+        {
+          "name": "--statuses",
+          "required": false,
+          "has_default": true,
+          "default": "open,triaged",
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated statuses",
+          "hidden": false
+        },
+        {
+          "name": "--severities",
+          "required": false,
+          "has_default": true,
+          "default": "critical,high",
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated severities",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "write-supabase-resolution",
+      "action": "write_supabase_resolution",
+      "role": "produce",
+      "help": "Write a processed incident into the simulated Supabase memory table.",
+      "args": [
+        {
+          "name": "--incident-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--table-name",
+          "required": false,
+          "has_default": true,
+          "default": "incident_resolutions",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-incidents",
+      "dst": "get-incident",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "list-incidents",
+      "dst": "remediate-incident",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "list-incidents",
+      "dst": "write-supabase-resolution",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "screen-risk-incidents",
+      "dst": "get-incident",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "screen-risk-incidents",
+      "dst": "remediate-incident",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "screen-risk-incidents",
+      "dst": "write-supabase-resolution",
+      "weight": 0.8,
+      "relationship": "produces_incident_id_for"
+    },
+    {
+      "src": "list-supabase-rows",
+      "dst": "get-supabase-row",
+      "weight": 0.8,
+      "relationship": "produces_row_id_for"
+    },
+    {
+      "src": "list-audit-logs",
+      "dst": "get-audit-log",
+      "weight": 0.8,
+      "relationship": "produces_audit_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "server_fault_triage_q2_2026": [
+      "task",
+      "screen_risk_incidents",
+      "read_attachment",
+      "batch_remediate",
+      "write_supabase_resolution",
+      "list_audit_logs"
+    ]
+  },
+  "anchor_keys": [
+    "expected_incident_ids",
+    "expected_resolution_states",
+    "forbidden_incident_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "required_audit_actions",
+    "target_categories",
+    "target_statuses"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "penalty",
+      "audit_score"
+    ],
+    "has_forbidden_penalty": true
+  },
+  "scenario_ids": [
+    "server_fault_triage_q2_2026"
+  ]
+}

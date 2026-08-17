@@ -1,0 +1,11 @@
+asset: wp_fault_postmortem_kb_env__049
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__049.md
+runtime:
+  cwd: assets/wp_fault_postmortem_kb_env__049
+  actions_allowed:
+    - read
+    - write
+    - listdir
+    - mkdir
+    - glob
+    - remove

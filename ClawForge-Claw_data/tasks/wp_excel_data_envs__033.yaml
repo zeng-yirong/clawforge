@@ -1,0 +1,6 @@
+task_id: wp_excel_data_envs__033
+prompt_path: tasks/prompts/wp_excel_data_envs__033.md
+asset: wp_excel_data_envs__033
+runtime:
+  timeout: 300
+  max_attempts: 1

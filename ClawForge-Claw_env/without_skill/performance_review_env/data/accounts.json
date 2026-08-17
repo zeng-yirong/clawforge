@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "hr_performance_ops",
+      "display_name": "HR Performance Ops",
+      "department": "HR Operations",
+      "email": "performance-ops@northstar.example.com",
+      "permissions": ["view_employees", "view_output_ledgers", "view_scoring_rules", "generate_performance_profiles"]
+    }
+  ]
+}

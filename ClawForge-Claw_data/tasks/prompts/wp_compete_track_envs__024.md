@@ -1,0 +1,1 @@
+Hi, 我是市场部的 Alice。我们最近试了几个用户获取渠道：organic, paid_ads, referral, social。数据团队把每个用户的获取成本和生命周期价值（LTV）放在 `data/users/` 里面了。我怀疑有个渠道 ROI 特别低，但没时间一个个算。你帮我把每个渠道的总成本和总 LTV 拉出来，算一下 ROI（LTV / 成本），找出最差的那个，把渠道名和 ROI 写到 `ops/channel_alert.json` 里。只要结果，别跟我说过程。谢了！

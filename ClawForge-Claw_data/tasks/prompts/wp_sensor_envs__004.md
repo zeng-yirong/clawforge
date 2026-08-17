@@ -1,0 +1,1 @@
+哥们儿，南区告警面板又炸了！我刚刚把最新的传感器快照扔进 `data/sensors/sensors.json` 了，位置信息和账户归属在 `data/locations/locations.json` 和 `data/accounts/accounts.json` 里。你帮我筛一下：正在运行的传感器（别把停用的混进来）里，当前读数超过高阈值的那些，整理成一份清单扔到 `ops/alerts.json` 里。每条记录带上传感器ID、归属账户ID、当前值和高阈值就行，我直接拿去派单。对了，之前备份过一份旧数据在 `data/sensors/sensors_old.json`，那个已经过期了别管它。快点，领导要结果。

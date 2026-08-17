@@ -1,0 +1,67 @@
+{
+  "scenario_id": "music_in_car",
+  "title": "In-Car Music Assistant",
+  "task_prompt": "You are an in-car music assistant helping the driver control the music system. Your job is to: 1) Play songs by name, artist, album, or brand/OST theme; 2) Search songs by tags, scenes, style, language, era, crowd, or charts; 3) Control playback - play, pause, next, previous, seek, mode switch, player select; 4) Query current playback status. Always respond in Chinese when the user speaks Chinese.",
+  "base_time": "2024-06-11T08:30:00Z",
+  "workspace_account_id": "acc_001",
+  "expected_actions": {
+    "playback_operations": [
+      {"action": "play", "target": "song_001"},
+      {"action": "pause"},
+      {"action": "resume"},
+      {"action": "next"},
+      {"action": "previous"},
+      {"action": "seek", "position": 60},
+      {"action": "set_mode", "mode": "repeat_one"},
+      {"action": "set_mode", "mode": "shuffle"},
+      {"action": "switch_player", "player": "bluetooth"}
+    ],
+    "search_operations": [
+      {"action": "play_by_name", "song_title": "夜曲"},
+      {"action": "play_by_artist", "artist": "周杰伦"},
+      {"action": "play_by_album", "album": "十一月的萧邦"},
+      {"action": "play_by_brand", "brand": "速度与激情"},
+      {"action": "search_by_tag", "tag": "夜晚"},
+      {"action": "search_by_scene", "scene": "夜间驾驶"},
+      {"action": "search_by_style", "style": "R&B"},
+      {"action": "search_by_language", "language": "中文"},
+      {"action": "search_by_era", "era": "2000s"},
+      {"action": "search_by_crowd", "crowd": "90后"},
+      {"action": "search_similar", "song_id": "song_001"}
+    ],
+    "query_operations": [
+      {"action": "status"},
+      {"action": "list_playlists"},
+      {"action": "list_players"}
+    ]
+  },
+  "scoring_rules": {
+    "dimensions": [
+      {
+        "name": "playback_control",
+        "weight": 0.35,
+        "description": "正确执行播放控制指令"
+      },
+      {
+        "name": "search_accuracy",
+        "weight": 0.35,
+        "description": "正确搜索并播放目标歌曲"
+      },
+      {
+        "name": "status_query",
+        "weight": 0.15,
+        "description": "正确查询播放状态"
+      },
+      {
+        "name": "command_understanding",
+        "weight": 0.15,
+        "description": "理解并正确响应用户意图"
+      }
+    ],
+    "bonus": {
+      "name": "efficiency",
+        "description": "用最少的命令完成任务",
+        "max_bonus": 0.1
+    }
+  }
+}

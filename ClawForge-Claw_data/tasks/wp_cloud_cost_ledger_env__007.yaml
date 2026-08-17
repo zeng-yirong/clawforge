@@ -1,0 +1,7 @@
+id: wp_cloud_cost_ledger_env__007
+asset: wp_cloud_cost_ledger_env__007
+runtime:
+  timeout_seconds: 600
+  max_steps: 50
+  environment: cloud_cost_ledger_env
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__007.md

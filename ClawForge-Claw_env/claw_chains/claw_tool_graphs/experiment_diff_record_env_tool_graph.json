@@ -1,0 +1,342 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_diff_record",
+      "required_args": [
+        "--batch-ids"
+      ],
+      "id": "generate-diff-record"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_batch",
+      "required_args": [
+        "--batch-id"
+      ],
+      "id": "get-batch"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_record",
+      "required_args": [
+        "--record-id"
+      ],
+      "id": "get-record"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_experiment_batches",
+      "required_args": [],
+      "id": "list-experiment-batches"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_records",
+      "required_args": [],
+      "id": "list-records"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-diff-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-diff-record"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_record_id_for",
+      "tier": "dataflow",
+      "source": "generate-diff-record",
+      "target": "get-record"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-diff-record",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-diff-record",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-diff-record",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating, list all records to see the new one",
+      "tier": "llm_weak",
+      "source": "generate-diff-record",
+      "target": "list-records"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::experiment_diff_record_q2_2026",
+      "tier": "gold",
+      "source": "get-batch",
+      "target": "generate-diff-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-batch",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-batch",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting a batch, retrieve a record within it",
+      "tier": "llm_weak",
+      "source": "get-batch",
+      "target": "get-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-record",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-record",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting a record, compare it with another via diff",
+      "tier": "llm_weak",
+      "source": "get-record",
+      "target": "generate-diff-record"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_batch_id_for",
+      "tier": "dataflow",
+      "source": "list-experiment-batches",
+      "target": "get-batch"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-experiment-batches",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-experiment-batches",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_record_id_for",
+      "tier": "dataflow",
+      "source": "list-records",
+      "target": "get-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-records",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-records",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing records, select two to produce a diff",
+      "tier": "llm_weak",
+      "source": "list-records",
+      "target": "generate-diff-record"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-batch"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-record"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-experiment-batches"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-records"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    }
+  ]
+}

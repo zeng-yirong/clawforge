@@ -1,0 +1,10 @@
+prompt_file: tasks/prompts/wp_churn_retention_mail_env__021.md
+asset: wp_churn_retention_mail_env__021
+runtime:
+  workspace_path: assets/wp_churn_retention_mail_env__021
+  allowed_actions:
+    - read
+    - write
+    - list
+    - grep
+    - file_search

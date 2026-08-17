@@ -1,0 +1,346 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_emails",
+  "description": "List inbox emails matching optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search term to filter emails.",
+     "default": ""
+    },
+    "folder": {
+     "type": "string",
+     "description": "Email folder to list."
+    },
+    "unread_only": {
+     "type": "boolean",
+     "description": "Show only unread emails."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_posts",
+  "description": "List X or Reddit posts matching filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search term to filter posts.",
+     "default": ""
+    },
+    "platform": {
+     "type": "string",
+     "description": "Platform: X or Reddit."
+    },
+    "needs_response_only": {
+     "type": "boolean",
+     "description": "Only posts needing response."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number to return."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "publish_post",
+  "description": "Create and publish a post on specified platform.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "platform": {
+     "type": "string",
+     "description": "Target platform (X or Reddit)."
+    },
+    "content": {
+     "type": "string",
+     "description": "Body text of the post."
+    },
+    "title": {
+     "type": "string",
+     "description": "Post title (for Reddit)."
+    },
+    "community": {
+     "type": "string",
+     "description": "Subreddit for Reddit posts."
+    },
+    "author": {
+     "type": "string",
+     "description": "Post author handle."
+    }
+   },
+   "required": [
+    "platform",
+    "content"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Open and read a file attachment.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_id": {
+     "type": "string",
+     "description": "ID of attachment to read."
+    }
+   },
+   "required": [
+    "attachment_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_email",
+  "description": "Open and read an email message.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "email_id": {
+     "type": "string",
+     "description": "ID of email to read."
+    }
+   },
+   "required": [
+    "email_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reply_post",
+  "description": "Post a reply to an existing post.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "post_id": {
+     "type": "string",
+     "description": "ID of post to reply to."
+    },
+    "content": {
+     "type": "string",
+     "description": "Reply text content."
+    },
+    "author": {
+     "type": "string",
+     "description": "Author handle of reply."
+    }
+   },
+   "required": [
+    "post_id",
+    "content"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "view_post",
+  "description": "Display a post and its replies.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "post_id": {
+     "type": "string",
+     "description": "ID of post to view."
+    }
+   },
+   "required": [
+    "post_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

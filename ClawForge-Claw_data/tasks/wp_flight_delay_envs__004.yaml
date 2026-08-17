@@ -1,0 +1,7 @@
+name: flight_delay_envs__004
+prompt: tasks/prompts/wp_flight_delay_envs__004.md
+asset: wp_flight_delay_envs__004
+runtime:
+  cwd: assets/wp_flight_delay_envs__004
+  entrypoint: python
+  timeout: 300

@@ -1,0 +1,12 @@
+{
+  "scenario_id": "performance_review_engineering_q2_2026",
+  "title": "Generate engineering performance profile",
+  "task_prompt": "Read the target engineer's monthly output ledger and scoring rule, calculate the performance score, and store the performance profile in the employee memory store.",
+  "current_time": "2026-06-23T12:00:00Z",
+  "workspace_account_id": "hr_performance_ops",
+  "employee_ids": ["emp_eng_001"],
+  "target_employee_id": "emp_eng_001",
+  "expected_score": 88.65,
+  "expected_band": "exceeds",
+  "required_actions": ["get_output_ledger", "get_scoring_rule", "generate_performance_profile"]
+}

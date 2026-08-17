@@ -1,0 +1,6 @@
+asset: wp_auditor_impersonation_guard_env__019
+prompt_path: prompts/wp_auditor_impersonation_guard_env__019.md
+runtime:
+  language: python3
+  workdir: .
+  timeout: 120

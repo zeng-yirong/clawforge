@@ -1,0 +1,8 @@
+task_id: wp_smart_home_envs__045
+name: Smart Home Health Conflict Resolution
+asset: wp_smart_home_envs__045
+prompt_path: tasks/prompts/wp_smart_home_envs__045.md
+runtime:
+  workspace: .
+  environment:
+    - PYTHONDONTWRITEBYTECODE=1

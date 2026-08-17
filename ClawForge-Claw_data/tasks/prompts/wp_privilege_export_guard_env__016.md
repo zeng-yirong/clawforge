@@ -1,0 +1,1 @@
+李工（IT安全部）: “嗨，我刚处理完一批告警，发现有人批量提交了导出请求。公司最近更新了数据访问策略，只允许账户在其权限范围内导出数据。我的账户是 acc_001，权限在 `data/accounts.json` 里。麻烦你跑一趟，拉一下 `data/requests/requests.json` 里面的待处理请求（status 是 pending 的），对照 `data/assets/assets.json` 里对应资产的 read_policy，把我没权限碰的那些请求 ID 摘出来。结果就放在 `ops/denied_requests.json` 里，我直接拿去驳回。注意别漏了也别多塞，我要最精确的。”

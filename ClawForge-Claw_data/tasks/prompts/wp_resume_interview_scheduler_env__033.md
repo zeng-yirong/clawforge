@@ -1,0 +1,1 @@
+嘿，AI助手，我是HR小张。刚刚工程部主管发来紧急邮件，说后端工程师岗位（职位ID在 data/jobs/ 里能找到）急需安排面试，简历附件我已经上传到系统了，附件清单在 data/attachments.json 里。候选人的技能档案都在 data/candidates/candidates.json，面试官就从工程部的同事里挑一位吧（账号信息在 data/accounts.json）。面试时间就定在 2025年6月16日（周一）上午10点整。麻烦你整理出匹配的候选人，排好面试日程，把最终的时间表放到 scheduling/interview_schedule.json 里，格式你看着办，但要把候选人ID、面试时间、面试官和职位ID都写清楚。多谢啦！

@@ -1,0 +1,5 @@
+asset: wp_excel_data_envs__005
+prompt_path: tasks/prompts/wp_excel_data_envs__005.md
+runtime:
+  runner: generic
+  timeout: 600

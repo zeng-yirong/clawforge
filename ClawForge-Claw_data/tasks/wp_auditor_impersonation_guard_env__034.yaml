@@ -1,0 +1,9 @@
+task_id: wp_auditor_impersonation_guard_env__034
+asset: wp_auditor_impersonation_guard_env__034
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__034.md
+runtime:
+  type: docker
+  image: python:3.11-slim
+  workdir: /workspace
+entrypoint: []
+timeout: 300

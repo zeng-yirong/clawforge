@@ -1,0 +1,298 @@
+{
+  "env_name": "secure_vault_envs",
+  "rel_path": "secure_vault_envs",
+  "cli_module": "secure_vault_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "VAULT_SESSION_ID",
+    "state_env": "VAULT_STATE_ROOT",
+    "scenario_env": "VAULT_SCENARIO_ID",
+    "default_scenario_id": "credential_management_001"
+  },
+  "visible_verbs": [
+    {
+      "verb": "check-strength",
+      "action": "check_strength",
+      "role": "other",
+      "help": "Check password strength",
+      "args": [
+        {
+          "name": "--password",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--policy",
+          "required": false,
+          "has_default": true,
+          "default": "{}",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "classify-credential",
+      "action": "classify_credential",
+      "role": "other",
+      "help": "Classify a credential",
+      "args": [
+        {
+          "name": "--credential-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-password",
+      "action": "generate_password",
+      "role": "produce",
+      "help": "Generate a password",
+      "args": [
+        {
+          "name": "--length",
+          "required": false,
+          "has_default": true,
+          "default": 16,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--charset",
+          "required": false,
+          "has_default": true,
+          "default": "alphanumeric",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-credentials",
+      "action": "list_credentials",
+      "role": "read",
+      "help": "List all credentials",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "retrieve-credential",
+      "action": "retrieve_credential",
+      "role": "other",
+      "help": "Retrieve a credential",
+      "args": [
+        {
+          "name": "--platform",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "setup-autofill",
+      "action": "setup_autofill",
+      "role": "other",
+      "help": "Setup autofill for a platform",
+      "args": [
+        {
+          "name": "--platform",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--field-mappings",
+          "required": false,
+          "has_default": true,
+          "default": "{}",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "store-credential",
+      "action": "store_credential",
+      "role": "produce",
+      "help": "Store a credential",
+      "args": [
+        {
+          "name": "--platform",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--username",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--password",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--category-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--url",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "store-credential",
+      "dst": "classify-credential",
+      "weight": 0.8,
+      "relationship": "produces_credential_id_for"
+    },
+    {
+      "src": "retrieve-credential",
+      "dst": "classify-credential",
+      "weight": 0.8,
+      "relationship": "produces_credential_id_for"
+    },
+    {
+      "src": "list-credentials",
+      "dst": "classify-credential",
+      "weight": 0.8,
+      "relationship": "produces_credential_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "credential_management_001": [
+      "generate_password",
+      "store_credential",
+      "classify_credential",
+      "setup_autofill",
+      "check_password_strength",
+      "retrieve_credential"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "credential_management_001"
+  ]
+}

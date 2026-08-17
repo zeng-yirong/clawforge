@@ -1,0 +1,16 @@
+task_id: wp_car_navi_envs__002
+asset: wp_car_navi_envs__002
+prompt: tasks/prompts/wp_car_navi_envs__002.md
+runtime:
+  base_image: python:3.11-slim
+  timeout_seconds: 600
+  max_file_operations: 200
+  allowed_modules:
+    - json
+    - os
+    - csv
+    - re
+    - pathlib
+    - math
+    - decimal
+    - statistics

@@ -1,0 +1,6 @@
+task_id: wp_doc_clue_memory_env__019
+prompt_path: tasks/prompts/wp_doc_clue_memory_env__019.md
+asset: wp_doc_clue_memory_env__019
+runtime:
+  image: python:3.11
+  workspace: assets/wp_doc_clue_memory_env__019

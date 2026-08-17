@@ -1,0 +1,6 @@
+task_id: wp_prompt_key_guard_env__041
+prompt: tasks/prompts/wp_prompt_key_guard_env__041.md
+asset: wp_prompt_key_guard_env__041
+runtime:
+  workdir: "."
+  python: "3.10"

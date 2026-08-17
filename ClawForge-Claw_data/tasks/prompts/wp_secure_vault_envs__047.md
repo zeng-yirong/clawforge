@@ -1,0 +1,1 @@
+嘿，早！新一批实习生今天入职，IT那边的账号申请单我已经整理到 `ops/onboard.csv` 里了。咱们的密码规则文件在 `ops/password_rules.json`，照着那个生成就行。凭证库在 `vault/credentials.json`，分类定义在 `vault/schema.json`。你帮我把这批新账号的强密码生成好、存进凭证库，顺便把自动填充功能打开——省得他们天天找密码。搞定了回我一声，谢啦！

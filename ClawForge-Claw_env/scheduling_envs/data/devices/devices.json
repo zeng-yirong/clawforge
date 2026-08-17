@@ -1,0 +1,64 @@
+{
+  "devices": [
+    {
+      "device_id": "light_001",
+      "device_name": "Living Room Light",
+      "device_type": "light",
+      "location": "living_room",
+      "supported_settings": ["brightness", "color"],
+      "settings": {
+        "brightness": 100,
+        "color": "warm_white"
+      }
+    },
+    {
+      "device_id": "light_002",
+      "device_name": "Bedroom Light",
+      "device_type": "light",
+      "location": "bedroom",
+      "supported_settings": ["brightness", "color"],
+      "settings": {
+        "brightness": 80,
+        "color": "warm_white"
+      }
+    },
+    {
+      "device_id": "ac_001",
+      "device_name": "Living Room AC",
+      "device_type": "ac",
+      "location": "living_room",
+      "supported_settings": ["temperature", "mode", "fan_speed"],
+      "settings": {
+        "temperature": 24,
+        "mode": "cool",
+        "fan_speed": "auto"
+      }
+    },
+    {
+      "device_id": "humidifier_001",
+      "device_name": "Bedroom Humidifier",
+      "device_type": "humidifier",
+      "location": "bedroom",
+      "supported_settings": ["humidity_level"],
+      "settings": {
+        "humidity_level": 50
+      }
+    },
+    {
+      "device_id": "plug_001",
+      "device_name": "TV Smart Plug",
+      "device_type": "smart_plug",
+      "location": "living_room",
+      "supported_settings": [],
+      "settings": {}
+    },
+    {
+      "device_id": "plug_002",
+      "device_name": "Coffee Machine Smart Plug",
+      "device_type": "smart_plug",
+      "location": "kitchen",
+      "supported_settings": [],
+      "settings": {}
+    }
+  ]
+}

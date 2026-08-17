@@ -1,0 +1,325 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_batch",
+    "description": "Create a new processing batch for grouping related invoices.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Batch name/identifier."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the batch."
+        },
+        "owner": {
+          "type": "string",
+          "description": "Responsible person or department."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_batches",
+    "description": "List all processing batches, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by batch status ('active', 'closed')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_invoice",
+    "description": "Add an OCR-processed invoice to a batch.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "description": "Target batch ID."
+        },
+        "invoice_data": {
+          "type": "dict",
+          "description": "OCR-extracted invoice information."
+        }
+      },
+      "required": [
+        "batch_id",
+        "invoice_data"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_invoices",
+    "description": "List invoices, optionally filtered by batch or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by batch ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by invoice status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "validate_invoice",
+    "description": "Validate an invoice after OCR processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "invoice_id": {
+          "type": "integer",
+          "description": "Invoice ID to validate."
+        },
+        "validation_result": {
+          "type": "string",
+          "description": "'verified' or 'rejected'."
+        },
+        "notes": {
+          "type": "string",
+          "description": "[Optional] Validation notes or reason for rejection."
+        }
+      },
+      "required": [
+        "invoice_id",
+        "validation_result"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_transaction",
+    "description": "Add a bank transaction record for reconciliation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "transaction_data": {
+          "type": "dict",
+          "description": "Bank transaction information."
+        }
+      },
+      "required": [
+        "transaction_data"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_transactions",
+    "description": "List transaction records with optional filters.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by status ('unreconciled', 'matched', 'partial')."
+        },
+        "start_date": {
+          "type": "string",
+          "description": "[Optional] Start date filter (YYYY-MM-DD)."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "[Optional] End date filter (YYYY-MM-DD)."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reconcile_invoice",
+    "description": "Reconcile an invoice against available bank transactions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "invoice_id": {
+          "type": "integer",
+          "description": "Invoice ID to reconcile."
+        },
+        "max_date_difference": {
+          "type": "integer",
+          "description": "Maximum allowed days between invoice and transaction dates. Defaults to 7."
+        }
+      },
+      "required": [
+        "invoice_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "auto_fill_expense_report",
+    "description": "Auto-fill expense report in financial system based on reconciliation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "reconciliation_id": {
+          "type": "integer",
+          "description": "Reconciliation ID to use for auto-fill."
+        },
+        "system_fields": {
+          "type": "dict",
+          "description": "Mapping of financial system field names to invoice data fields. e.g. { 'vendor_field': 'vendor', 'amount_field': 'amount', 'date_field': 'date', 'description_field': 'description' }"
+        }
+      },
+      "required": [
+        "reconciliation_id",
+        "system_fields"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "approve_reconciliation",
+    "description": "Approve a reconciliation for final processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "reconciliation_id": {
+          "type": "integer",
+          "description": "Reconciliation ID to approve."
+        },
+        "approver": {
+          "type": "string",
+          "description": "Name/ID of the approver."
+        },
+        "notes": {
+          "type": "string",
+          "description": "[Optional] Approval notes or comments."
+        }
+      },
+      "required": [
+        "reconciliation_id",
+        "approver"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_reconciliations",
+    "description": "List reconciliation records with optional filters.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by batch ID."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by reconciliation status."
+        },
+        "requires_review": {
+          "type": "boolean",
+          "description": "[Optional] Filter by review requirement."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_discrepancy_summary",
+    "description": "Get summary statistics of reconciliation discrepancies.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "batch_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by batch ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_config",
+    "description": "Update system configuration parameters.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "config_updates": {
+          "type": "dict",
+          "description": "Configuration updates."
+        }
+      },
+      "required": [
+        "config_updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

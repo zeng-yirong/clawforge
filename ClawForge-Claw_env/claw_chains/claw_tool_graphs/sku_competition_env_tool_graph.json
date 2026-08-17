@@ -1,0 +1,597 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "extract_brand_catalog",
+      "required_args": [
+        "--brand-id",
+        "--price-book-id"
+      ],
+      "id": "extract-brand-catalog"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_category_report",
+      "required_args": [
+        "--brand-id",
+        "--price-book-id"
+      ],
+      "id": "generate-category-report"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_brand",
+      "required_args": [
+        "--brand-id"
+      ],
+      "id": "get-brand"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_cache_entry",
+      "required_args": [
+        "--entry-id"
+      ],
+      "id": "get-cache-entry"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_price_book",
+      "required_args": [
+        "--price-book-id"
+      ],
+      "id": "get-price-book"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_sku",
+      "required_args": [
+        "--sku-id"
+      ],
+      "id": "get-sku"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_brands",
+      "required_args": [],
+      "id": "list-brands"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_cache",
+      "required_args": [],
+      "id": "list-cache"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_price_books",
+      "required_args": [],
+      "id": "list-price-books"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_skus",
+      "required_args": [],
+      "id": "list-skus"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-category-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-category-report"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::sku_competition_report_apac_q2_2026",
+      "tier": "gold",
+      "source": "extract-brand-catalog",
+      "target": "generate-category-report"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after extracting catalog, check cache",
+      "tier": "llm_weak",
+      "source": "extract-brand-catalog",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-category-report",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-category-report",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-category-report",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating report, check cache for entry",
+      "tier": "llm_weak",
+      "source": "generate-category-report",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-brand",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-brand",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting brand, extract its catalog",
+      "tier": "llm_weak",
+      "source": "get-brand",
+      "target": "extract-brand-catalog"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting brand, list its SKUs (cross-entity read)",
+      "tier": "llm_weak",
+      "source": "get-brand",
+      "target": "list-skus"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::sku_competition_report_apac_q2_2026",
+      "tier": "gold",
+      "source": "get-price-book",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-price-book",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-price-book",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting price book, list SKUs (cross-entity read)",
+      "tier": "llm_weak",
+      "source": "get-price-book",
+      "target": "list-skus"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-sku",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-sku",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting SKU, list its attachments",
+      "tier": "llm_weak",
+      "source": "get-sku",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for",
+      "tier": "dataflow",
+      "source": "list-brands",
+      "target": "get-brand"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for",
+      "tier": "dataflow",
+      "source": "list-brands",
+      "target": "extract-brand-catalog"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_brand_id_for",
+      "tier": "dataflow",
+      "source": "list-brands",
+      "target": "generate-category-report"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::sku_competition_report_apac_q2_2026",
+      "tier": "gold",
+      "source": "list-brands",
+      "target": "list-skus"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-brands",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-brands",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_price-book_id_for",
+      "tier": "gold",
+      "source": "list-price-books",
+      "target": "get-price-book"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_price-book_id_for",
+      "tier": "dataflow",
+      "source": "list-price-books",
+      "target": "extract-brand-catalog"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_price-book_id_for",
+      "tier": "dataflow",
+      "source": "list-price-books",
+      "target": "generate-category-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-price-books",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-price-books",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_sku_id_for",
+      "tier": "dataflow",
+      "source": "list-skus",
+      "target": "get-sku"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::sku_competition_report_apac_q2_2026",
+      "tier": "gold",
+      "source": "list-skus",
+      "target": "list-price-books"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-skus",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-skus",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::sku_competition_report_apac_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "extract-brand-catalog"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-brands"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-brand"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-cache-entry"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-price-book"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-sku"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-price-books"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-skus"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

@@ -1,0 +1,719 @@
+{
+  "env_name": "scheduling_envs",
+  "rel_path": "scheduling_envs",
+  "cli_module": "scheduling_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "SCHEDULING_SESSION_ID",
+    "state_env": "SCHEDULING_STATE_ROOT",
+    "scenario_env": "SCHEDULING_SCENARIO_ID",
+    "default_scenario_id": "device_scheduling"
+  },
+  "visible_verbs": [
+    {
+      "verb": "control-ac",
+      "action": "control_ac",
+      "role": "other",
+      "help": "Control AC.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--action",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "on",
+            "off"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--temperature",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "control-humidifier",
+      "action": "control_humidifier",
+      "role": "other",
+      "help": "Control humidifier.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--action",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "on",
+            "off"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--humidity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "control-light",
+      "action": "control_light",
+      "role": "other",
+      "help": "Control a light.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--action",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "on",
+            "off"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--brightness",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "control-plug",
+      "action": "control_plug",
+      "role": "other",
+      "help": "Control smart plug.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--action",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "on",
+            "off"
+          ],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-schedule",
+      "action": "create_schedule",
+      "role": "produce",
+      "help": "Create a new schedule.",
+      "args": [
+        {
+          "name": "--name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--action",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "on",
+            "off"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--time",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--repeat",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "once",
+            "daily",
+            "weekly",
+            "custom"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--days",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "delete-schedule",
+      "action": "delete_schedule",
+      "role": "other",
+      "help": "Delete a schedule.",
+      "args": [
+        {
+          "name": "--schedule-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "disable-schedule",
+      "action": "disable_schedule",
+      "role": "other",
+      "help": "Disable a schedule.",
+      "args": [
+        {
+          "name": "--schedule-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "enable-schedule",
+      "action": "enable_schedule",
+      "role": "other",
+      "help": "Enable a schedule.",
+      "args": [
+        {
+          "name": "--schedule-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "execute-tasks",
+      "action": "execute_tasks",
+      "role": "other",
+      "help": "Execute scheduled tasks.",
+      "args": [
+        {
+          "name": "--time",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-device",
+      "action": "get_device",
+      "role": "read",
+      "help": "Get device status.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-schedule",
+      "action": "get_schedule",
+      "role": "read",
+      "help": "Get schedule details.",
+      "args": [
+        {
+          "name": "--schedule-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-devices",
+      "action": "list_devices",
+      "role": "read",
+      "help": "List all devices.",
+      "args": [
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-schedules",
+      "action": "list_schedules",
+      "role": "read",
+      "help": "List all schedules.",
+      "args": [
+        {
+          "name": "--enabled",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "scheduling-status",
+      "action": "scheduling_status",
+      "role": "other",
+      "help": "Get scheduling status.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task-history",
+      "action": "task_history",
+      "role": "other",
+      "help": "Get execution history.",
+      "args": [
+        {
+          "name": "--schedule-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": true,
+          "default": 50,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "turn-off-device",
+      "action": "turn_off_device",
+      "role": "other",
+      "help": "Turn off a device.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "turn-on-device",
+      "action": "turn_on_device",
+      "role": "other",
+      "help": "Turn on a device.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "upcoming-tasks",
+      "action": "upcoming_tasks",
+      "role": "other",
+      "help": "Get upcoming tasks.",
+      "args": [
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": true,
+          "default": 10,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-devices",
+      "dst": "get-device",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "turn-on-device",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "turn-off-device",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "control-light",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "control-ac",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "control-humidifier",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "control-plug",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-devices",
+      "dst": "create-schedule",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "list-schedules",
+      "dst": "get-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "list-schedules",
+      "dst": "enable-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "list-schedules",
+      "dst": "disable-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "list-schedules",
+      "dst": "delete-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "create-schedule",
+      "dst": "get-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "create-schedule",
+      "dst": "enable-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "create-schedule",
+      "dst": "disable-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    },
+    {
+      "src": "create-schedule",
+      "dst": "delete-schedule",
+      "weight": 0.8,
+      "relationship": "produces_schedule_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "device_scheduling"
+  ]
+}

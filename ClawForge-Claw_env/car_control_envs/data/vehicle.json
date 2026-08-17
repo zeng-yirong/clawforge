@@ -1,0 +1,7 @@
+{
+  "vehicle_id": "veh_001",
+  "model": "智联新能源SUV",
+  "license_plate": "京A12345",
+  "vin": "LSV123456789012345",
+  "features": ["ac", "heated_seats", "ventilated_seats", "sunroof", "moonroof", "ambient_lights", "driver_assist"]
+}

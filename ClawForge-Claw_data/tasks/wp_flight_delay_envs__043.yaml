@@ -1,0 +1,7 @@
+asset: wp_flight_delay_envs__043
+prompt: tasks/prompts/wp_flight_delay_envs__043.md
+runtime:
+  image: python:3.11-slim
+  command: python -c "import sys; print('ok')"
+  mount_path: /workplace
+timeout: 300

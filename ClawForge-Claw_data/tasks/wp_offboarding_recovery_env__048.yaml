@@ -1,0 +1,9 @@
+id: wp_offboarding_recovery_env__048
+name: Offboarding Recovery – Access Revoke & Handover Checklist
+asset: wp_offboarding_recovery_env__048
+prompt: tasks/prompts/wp_offboarding_recovery_env__048.md
+runner: file_workplace
+runtime:
+  workdir: assets/wp_offboarding_recovery_env__048
+  max_steps: 30
+  max_file_ops: 200

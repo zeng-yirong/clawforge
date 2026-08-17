@@ -1,0 +1,6 @@
+asset: wp_fault_postmortem_kb_env__018
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__018.md
+runtime:
+  cwd: assets/wp_fault_postmortem_kb_env__018
+  max_turns: 30
+  agent_environment: file_workplace

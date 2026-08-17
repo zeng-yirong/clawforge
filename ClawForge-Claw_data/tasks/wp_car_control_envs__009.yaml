@@ -1,0 +1,8 @@
+asset: wp_car_control_envs__009
+prompt: tasks/prompts/wp_car_control_envs__009.md
+runtime:
+  session:
+    max_steps: 20
+    timeout_seconds: 300
+  environment:
+    workspace: assets/wp_car_control_envs__009

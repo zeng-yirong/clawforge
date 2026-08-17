@@ -1,0 +1,10 @@
+{
+  "scenario_id": "onboarding_asset_access_q2_2026",
+  "title": "Complete onboarding provisioning flow",
+  "task_prompt": "Verify the signed contract, create the new employee email profile, assign the standard engineering access pack, allocate the starter laptop, and post the welcome message.",
+  "current_time": "2026-06-23T14:30:00Z",
+  "workspace_account_id": "people_ops_onboarding",
+  "employee_ids": ["emp_new_001"],
+  "target_employee_id": "emp_new_001",
+  "required_actions": ["get_contract", "create_email_profile", "assign_system_access", "allocate_equipment", "post_welcome_message"]
+}

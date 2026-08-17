@@ -1,0 +1,233 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "ac_fan",
+      "required_args": [],
+      "id": "ac-fan"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "ac_mode",
+      "required_args": [],
+      "id": "ac-mode"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "ac_power",
+      "required_args": [],
+      "id": "ac-power"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "ac_temp",
+      "required_args": [],
+      "id": "ac-temp"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "ambient_light",
+      "required_args": [],
+      "id": "ambient-light"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "driving_mode",
+      "required_args": [],
+      "id": "driving-mode"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "media_play",
+      "required_args": [],
+      "id": "media-play"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "seat",
+      "required_args": [
+        "--position"
+      ],
+      "id": "seat"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "seat_heat",
+      "required_args": [],
+      "id": "seat-heat"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "status",
+      "required_args": [],
+      "id": "status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "volume",
+      "required_args": [],
+      "id": "volume"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "window",
+      "required_args": [],
+      "id": "window"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "ac-temp",
+      "target": "seat-heat"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "driving-mode",
+      "target": "seat"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "driving-mode"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "media-play",
+      "target": "volume"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "seat",
+      "target": "seat-heat"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "window",
+      "target": "ambient-light"
+    }
+  ]
+}

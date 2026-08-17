@@ -1,0 +1,6 @@
+task_id: wp_post_mails__035
+prompt_path: tasks/prompts/wp_post_mails__035.md
+asset: wp_post_mails__035
+runtime:
+  max_steps: 20
+  timeout: 300

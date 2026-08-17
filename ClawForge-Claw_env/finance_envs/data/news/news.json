@@ -1,0 +1,70 @@
+{
+  "news": [
+    {
+      "news_id": "news_001",
+      "headline": "Fed Holds Rates Steady, Signals Potential Cuts in Q3",
+      "summary": "The Federal Reserve kept interest rates unchanged at 5.25-5.50% but signaled two potential rate cuts for Q3 2026, citing improving inflation outlook.",
+      "category": "macro",
+      "source": "Reuters",
+      "published_at": "2026-06-10T14:30:00Z",
+      "sentiment": "bullish",
+      "impact": "high",
+      "related_tickers": ["FNS", "GLBL", "ENGY"]
+    },
+    {
+      "news_id": "news_002",
+      "headline": "NXTC Q2 Earnings Beat Estimates, Raises Full-Year Guidance",
+      "summary": "Nexa Technologies reported Q2 earnings of $2.45 per share, beating consensus by 12%. Revenue grew 22% YoY. Company raised FY2026 guidance citing strong AI chip demand.",
+      "category": "earnings",
+      "source": "Bloomberg",
+      "published_at": "2026-06-11T21:00:00Z",
+      "sentiment": "bullish",
+      "impact": "high",
+      "related_tickers": ["NXTC", "TECH"]
+    },
+    {
+      "news_id": "news_003",
+      "headline": "TECH Unveils Next-Gen AI Processing Chip",
+      "summary": "TechVentures announced its new Apex AI chip series with 40% performance improvement over previous generation. Production to begin Q4 2026.",
+      "category": "product",
+      "source": "CNBC",
+      "published_at": "2026-06-12T10:00:00Z",
+      "sentiment": "bullish",
+      "impact": "high",
+      "related_tickers": ["TECH"]
+    },
+    {
+      "news_id": "news_004",
+      "headline": "SEC Launches Inquiry into NXTC Options Timing",
+      "summary": "The SEC has opened an inquiry into timing of NXTC executive stock option exercises ahead of positive earnings announcement. Company cooperating.",
+      "category": "regulatory",
+      "source": "WSJ",
+      "published_at": "2026-06-13T16:00:00Z",
+      "sentiment": "bearish",
+      "impact": "medium",
+      "related_tickers": ["NXTC"]
+    },
+    {
+      "news_id": "news_005",
+      "headline": "CloudMajor Partners with TECH for Enterprise AI Solutions",
+      "summary": "CloudMajor announces strategic partnership with TechVentures to integrate Apex AI chips into enterprise cloud offerings. Deal worth $2B over 3 years.",
+      "category": "partnership",
+      "source": "TechCrunch",
+      "published_at": "2026-06-14T09:00:00Z",
+      "sentiment": "bullish",
+      "impact": "high",
+      "related_tickers": ["TECH"]
+    },
+    {
+      "news_id": "news_006",
+      "headline": "Healthcare Spending Growth Remains Muted Despite Policy Changes",
+      "summary": "Industry analysts report healthcare spending growth of 4% YTD, below historical averages. Policy uncertainty continues to impact capital expenditure plans.",
+      "category": "sector",
+      "source": "Modern Healthcare",
+      "published_at": "2026-06-15T11:00:00Z",
+      "sentiment": "neutral",
+      "impact": "medium",
+      "related_tickers": ["HLTH"]
+    }
+  ]
+}

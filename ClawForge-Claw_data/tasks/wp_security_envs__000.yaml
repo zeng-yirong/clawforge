@@ -1,0 +1,11 @@
+name: security_envs_intrusion_response
+asset: wp_security_envs__000
+prompt: tasks/prompts/wp_security_envs__000.md
+runtime:
+  working_directory: assets/wp_security_envs__000
+  allowed_commands:
+    - read
+    - write
+    - list
+    - glob
+  timeout_seconds: 300

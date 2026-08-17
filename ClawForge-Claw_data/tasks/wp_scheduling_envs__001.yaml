@@ -1,0 +1,9 @@
+---
+task_id: wp_scheduling_envs__001
+asset: wp_scheduling_envs__001
+prompt_path: tasks/prompts/wp_scheduling_envs__001.md
+env_builder: tasks/wp_scheduling_envs__001/env_builder.py
+verifier: scripts/wp_scheduling_envs__001/verify_workplace.py
+runtime:
+  cwd: assets/wp_scheduling_envs__001/
+  timeout: 300

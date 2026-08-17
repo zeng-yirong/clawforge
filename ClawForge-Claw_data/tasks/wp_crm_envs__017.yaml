@@ -1,0 +1,6 @@
+name: wp_crm_envs__017
+asset: wp_crm_envs__017
+runtime:
+  language: python
+  entrypoint: workspace
+prompt: tasks/prompts/wp_crm_envs__017.md

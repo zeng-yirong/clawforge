@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "repro_lead_001",
+      "name": "Ada Gu",
+      "role": "Repro Lead",
+      "email": "ada.gu@northstar.example.com"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "accounts": [
+    {
+      "account_id": "analyst_team",
+      "display_name": "InvestWise Research",
+      "department": "Equity Research",
+      "email": "research@investwise.example.com",
+      "permissions": [
+        "view_stocks",
+        "view_news",
+        "view_earnings",
+        "view_filings",
+        "create_briefs",
+        "screen_stocks",
+        "generate_reports"
+      ],
+      "default_universe": "sp500",
+      "voice": [
+        "analytical",
+        "concise",
+        "data-driven"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+name: wp_customer_tier_label_env__010
+description: Customer tier label update based on consumption and activity logs
+asset: wp_customer_tier_label_env__010
+prompt: tasks/prompts/wp_customer_tier_label_env__010.md
+runtime:
+  cwd: assets/wp_customer_tier_label_env__010
+  environments:
+    - PYTHONUNBUFFERED=1

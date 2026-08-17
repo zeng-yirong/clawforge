@@ -1,0 +1,461 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_zone",
+    "description": "Register a new security zone to be monitored.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "description": "Unique identifier for the zone (e.g. 'zone_front_door')."
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable zone name (e.g. 'Front Entrance')."
+        },
+        "location": {
+          "type": "string",
+          "description": "Physical location description (e.g. 'Building A, Floor 1')."
+        },
+        "responsible_contact": {
+          "type": "string",
+          "description": "Phone number or contact ID of the person responsible for this zone."
+        }
+      },
+      "required": [
+        "zone_id",
+        "name",
+        "location",
+        "responsible_contact"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_zone",
+    "description": "Retrieve the current state of a security zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "description": "Zone identifier."
+        }
+      },
+      "required": [
+        "zone_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_zones",
+    "description": "List all registered security zones, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by zone status. Must be one of: 'normal', 'alert', 'lockdown', 'offline'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_zone_status",
+    "description": "Update the operational status of a security zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "description": "Zone identifier."
+        },
+        "status": {
+          "type": "string",
+          "description": "New status. Must be one of: 'normal', 'alert', 'lockdown', 'offline'."
+        }
+      },
+      "required": [
+        "zone_id",
+        "status"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "raise_alert",
+    "description": "Raise an intrusion alert for a monitored zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "description": "Zone where the intrusion was detected."
+        },
+        "level": {
+          "type": "string",
+          "description": "Alert severity level. Must be one of: 'low', 'medium', 'high', 'critical'."
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the detected anomaly."
+        },
+        "sensor_worker_id": {
+          "type": "string",
+          "description": "[Optional] Worker ID of the sensor that detected the intrusion."
+        }
+      },
+      "required": [
+        "zone_id",
+        "level",
+        "description"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_alert",
+    "description": "Retrieve a specific alert by its ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert identifier."
+        }
+      },
+      "required": [
+        "alert_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_alerts",
+    "description": "List all alerts, optionally filtered by zone, status, or severity level.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "description": "[Optional] Filter by zone identifier."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by alert status ('open', 'resolved', 'false_alarm')."
+        },
+        "level": {
+          "type": "string",
+          "description": "[Optional] Filter by severity level ('low', 'medium', 'high', 'critical')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "resolve_alert",
+    "description": "Mark an alert as resolved or a false alarm, and restore the zone to normal status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert identifier."
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Resolution type. Must be one of: 'resolved', 'false_alarm'."
+        }
+      },
+      "required": [
+        "alert_id",
+        "resolution"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "link_alert_to_pipeline",
+    "description": "Link an alert to a response pipeline for traceability.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert identifier."
+        },
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline identifier."
+        }
+      },
+      "required": [
+        "alert_id",
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_worker",
+    "description": "Register a new security device or service worker.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Display name for the worker (e.g. 'Front Door Lock', 'Camera-01')."
+        },
+        "worker_type": {
+          "type": "string",
+          "description": "Device/service type. Must be one of: 'door_controller', 'alarm_dialer', 'camera', 'sms_gateway', 'sensor'."
+        },
+        "capabilities": {
+          "type": "array",
+          "description": "[Optional] List of action types this worker can perform (e.g. ['lock_door', 'unlock_door'])."
+        },
+        "zone_id": {
+          "type": "string",
+          "description": "[Optional] Zone this worker is assigned to."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "unregister_worker",
+    "description": "Remove a security device or service worker from the system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "worker_id": {
+          "type": "string",
+          "description": "Worker ID to remove."
+        }
+      },
+      "required": [
+        "worker_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_workers",
+    "description": "List registered workers, optionally filtered by type, status, or zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "worker_type": {
+          "type": "string",
+          "description": "[Optional] Filter by worker type."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by worker status ('idle', 'busy', 'offline', 'error')."
+        },
+        "zone_id": {
+          "type": "string",
+          "description": "[Optional] Filter by assigned zone."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "define_pipeline",
+    "description": "Define a new security response pipeline with an ordered list of stages.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Pipeline name (e.g. 'Intrusion Response - Zone A')."
+        },
+        "stages": {
+          "type": "array",
+          "description": "Ordered list of stage definitions. Each stage requires: - stage_id (str): Unique stage identifier within this pipeline. - name (str): Human-readable stage name. - action (str): Action type to execute (e.g. 'lock_door', 'dial_emergency', 'backup_video', 'send_sms'). - params (Dict): Parameters for the action (e.g. contact number, cloud bucket). - on_failure (str): [Optional] 'abort', 'skip', or 'retry'. Defaults to 'abort'. - max_retries (int): [Optional] Max retries if on_failure='retry'. Defaults to 1. - depends_on (List[str]): [Optional] Stage IDs that must complete first. - assigned_worker (str): [Optional] Worker ID for this stage."
+        },
+        "mode": {
+          "type": "string",
+          "description": "Execution mode — 'sequential' or 'parallel'. Defaults to 'sequential'."
+        }
+      },
+      "required": [
+        "name",
+        "stages"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_pipeline",
+    "description": "Retrieve the full state of a response pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        }
+      },
+      "required": [
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_pipelines",
+    "description": "List all response pipelines, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by pipeline status. Must be one of: 'pending', 'in_progress', 'awaiting_approval', 'completed', 'failed', 'cancelled', 'rolled_back'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "assign_stage",
+    "description": "Assign a security worker/device to a specific stage in a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID within the pipeline."
+        },
+        "worker_id": {
+          "type": "string",
+          "description": "Worker ID to assign (must be a registered security device)."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id",
+        "worker_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "execute_stage",
+    "description": "Execute a single security response stage within a pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        },
+        "stage_id": {
+          "type": "string",
+          "description": "Stage ID to execute."
+        }
+      },
+      "required": [
+        "pipeline_id",
+        "stage_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "execute_pipeline",
+    "description": "Execute all pending stages in a security response pipeline.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pipeline_id": {
+          "type": "integer",
+          "description": "Pipeline ID."
+        }
+      },
+      "required": [
+        "pipeline_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

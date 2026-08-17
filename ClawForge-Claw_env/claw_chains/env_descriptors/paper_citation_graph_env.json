@@ -1,0 +1,190 @@
+{
+  "env_name": "paper_citation_graph_env",
+  "rel_path": "without_skill/paper_citation_graph_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_edge_count",
+    "expected_node_count",
+    "expected_paper_ids",
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "attachments"
+      ],
+      "desc": "json_blob file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/papers/papers.json",
+      "kind": "collection",
+      "wrapper_key": "papers",
+      "record_key": "paper_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "paper_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "paper_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "direction",
+          "type": "str",
+          "required": true,
+          "desc": "direction (str)"
+        },
+        {
+          "name": "year",
+          "type": "int",
+          "required": true,
+          "desc": "year (int)"
+        },
+        {
+          "name": "keywords",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "keywords (list)"
+        },
+        {
+          "name": "abstract",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "abstract (str)"
+        },
+        {
+          "name": "citation_ids",
+          "type": "list",
+          "required": true,
+          "is_key": true,
+          "list_elem_type": "str",
+          "desc": "citation_ids (list)"
+        }
+      ],
+      "desc": "collection file data/papers/papers.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "paper_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/papers/papers.json",
+          "record_key": "paper_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_paper_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/papers/papers.json",
+          "record_key": "paper_id"
+        }
+      ]
+    }
+  ]
+}

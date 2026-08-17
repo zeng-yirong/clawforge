@@ -1,0 +1,7 @@
+name: wp_fault_postmortem_kb_env__029
+description: "Fault postmortem: identify the transaction ID to kill from slow query logs"
+asset: wp_fault_postmortem_kb_env__029
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__029.md
+runtime:
+  max_steps: 20
+  work_dir: assets/wp_fault_postmortem_kb_env__029

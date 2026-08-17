@@ -1,0 +1,1 @@
+嗨，我是 Jon Li（Merchandising Ops）。Alina 盯了三天了——LuminaSkin 那批 Hydration Serum 的竞品分析不能再拖了。我把原始数据铺在 `data/` 下了，最新的价格表在 `data/pricing/` 里，那个叫“LIVE”的版本才是对的，别碰那个叫“ARCHIVE”的。同品类（Hydration Serum）的活跃 SKU 都给我筛出来，每个品牌的标清楚，跟 LuminaSkin 自己的放在一起。最后加个价格对比：每个竞争对手 SKU 的价格跟 LuminaSkin 同品类平均价的百分比差（保留两位小数）。结果塞到 `reports/competitor_analysis.json`，一个文件搞定，别多事。急，先谢了。

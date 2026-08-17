@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "talent_ops",
+      "display_name": "Talent Operations",
+      "department": "Recruiting",
+      "email": "talent-ops@northstar.example.com",
+      "permissions": ["view_candidates", "view_jobs", "match_candidates", "schedule_interviews"]
+    }
+  ]
+}

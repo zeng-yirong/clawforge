@@ -1,0 +1,668 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "analyze_health_conflicts",
+      "required_args": [
+        "--user-id",
+        "--current-temp",
+        "--current-humidity"
+      ],
+      "id": "analyze-health-conflicts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "analyze_weather_comfort",
+      "required_args": [
+        "--temperature",
+        "--humidity"
+      ],
+      "id": "analyze-weather-comfort"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "calculate_power_consumption",
+      "required_args": [
+        "--device-id",
+        "--hours"
+      ],
+      "id": "calculate-power-consumption"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_cost_saving",
+      "required_args": [
+        "--device-type",
+        "--current-setting"
+      ],
+      "id": "check-cost-saving"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_extreme_weather",
+      "required_args": [],
+      "id": "check-extreme-weather"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_health_alerts",
+      "required_args": [
+        "--user-id",
+        "--current-temp",
+        "--current-humidity"
+      ],
+      "id": "check-health-alerts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_all_devices",
+      "required_args": [],
+      "id": "get-all-devices"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_daily_rate_schedule",
+      "required_args": [],
+      "id": "get-daily-rate-schedule"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_device_status",
+      "required_args": [
+        "--device-id"
+      ],
+      "id": "get-device-status"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_devices_by_type",
+      "required_args": [
+        "--device-type"
+      ],
+      "id": "get-devices-by-type"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_electricity_rate",
+      "required_args": [],
+      "id": "get-electricity-rate"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_health_recommendations",
+      "required_args": [
+        "--user-id"
+      ],
+      "id": "get-health-recommendations"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_optimal_window",
+      "required_args": [
+        "--duration-hours"
+      ],
+      "id": "get-optimal-window"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_recommended_temperature",
+      "required_args": [],
+      "id": "get-recommended-temperature"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_user_health",
+      "required_args": [
+        "--user-id"
+      ],
+      "id": "get-user-health"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_weather",
+      "required_args": [],
+      "id": "get-weather"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_weather_forecast",
+      "required_args": [],
+      "id": "get-weather-forecast"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "set_air_conditioner",
+      "required_args": [
+        "--device-id",
+        "--temperature"
+      ],
+      "id": "set-air-conditioner"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "set_humidifier",
+      "required_args": [
+        "--device-id",
+        "--humidity-level"
+      ],
+      "id": "set-humidifier"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "set_smart_plug",
+      "required_args": [
+        "--device-id",
+        "--power-state"
+      ],
+      "id": "set-smart-plug"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "turn_off_device",
+      "required_args": [
+        "--device-id"
+      ],
+      "id": "turn-off-device"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after high consumption turn off device",
+      "tier": "llm_weak",
+      "source": "calculate-power-consumption",
+      "target": "turn-off-device"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after cost saving set smart plug",
+      "tier": "llm_weak",
+      "source": "check-cost-saving",
+      "target": "set-smart-plug"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after extreme weather adjust AC",
+      "tier": "llm_weak",
+      "source": "check-extreme-weather",
+      "target": "set-air-conditioner"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "get-device-status"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "set-air-conditioner"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "set-humidifier"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "set-smart-plug"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "turn-off-device"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-all-devices",
+      "target": "calculate-power-consumption"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-all-devices",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-all-devices",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-daily-rate-schedule",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-daily-rate-schedule",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after rate schedule set plug",
+      "tier": "llm_weak",
+      "source": "get-daily-rate-schedule",
+      "target": "set-smart-plug"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-device-status",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-device-status",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "get-device-status"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "set-air-conditioner"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "set-humidifier"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "set-smart-plug"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "turn-off-device"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_device_id_for",
+      "tier": "dataflow",
+      "source": "get-devices-by-type",
+      "target": "calculate-power-consumption"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-devices-by-type",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-devices-by-type",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-electricity-rate",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-electricity-rate",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-health-recommendations",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-health-recommendations",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-optimal-window",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-optimal-window",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-recommended-temperature",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-recommended-temperature",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-user-health",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-user-health",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after user health adjust humidity",
+      "tier": "llm_weak",
+      "source": "get-user-health",
+      "target": "set-humidifier"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-weather",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-weather",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible weak follow-up after weather check health alerts",
+      "tier": "llm_weak",
+      "source": "get-weather",
+      "target": "check-health-alerts"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-weather-forecast",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-weather-forecast",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-all-devices"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-daily-rate-schedule"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-device-status"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-devices-by-type"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-electricity-rate"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-health-recommendations"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-optimal-window"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-recommended-temperature"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-user-health"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-weather"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-weather-forecast"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    }
+  ]
+}

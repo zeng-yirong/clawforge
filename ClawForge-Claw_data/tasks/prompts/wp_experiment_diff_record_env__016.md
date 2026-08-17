@@ -1,0 +1,1 @@
+Hey，刚跑完两轮 A/B 实验，需要你火速帮我把差异整理出来。数据都在 `data/experiments/experiment_results.csv` 里，批次是 `batch_2024Q1` 和 `batch_2024Q2`，每个批次都有三个场景（alpha、beta、gamma）。你按照场景把指标的变化算清楚，然后扔到 `ops/diff_record.json` 里，我开会要用。这次改动有点大，你仔细点，别漏了哪个场景。我只要准确数字，谢了！

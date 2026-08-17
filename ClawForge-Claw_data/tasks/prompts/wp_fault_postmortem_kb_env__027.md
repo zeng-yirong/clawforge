@@ -1,0 +1,1 @@
+Hey, 昨晚 payment 服务又崩了，死锁搞得主库 IO 飙升。我把故障案例整理到 `data/faults/fault_cases.json` 了，附件清单在 `data/attachments.json`，慢查询日志放在 `attachments/payment_slow_query.log`。帮我搞一份后验复盘报告，放在 `ops/postmortem.json` 里，要把根因、修复方案还有触发时间戳都写上——时间戳就是那个出事事务的准确时间。老板等着呢，快点搞定。

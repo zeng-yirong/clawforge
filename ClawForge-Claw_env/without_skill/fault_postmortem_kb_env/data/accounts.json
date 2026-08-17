@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "sre_postmortem_ops",
+      "display_name": "SRE Postmortem Ops",
+      "department": "Site Reliability",
+      "email": "sre-postmortem@northstar.example.com",
+      "permissions": ["view_fault_cases", "read_templates", "archive_postmortems"]
+    }
+  ]
+}

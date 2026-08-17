@@ -1,0 +1,8 @@
+name: wp_arxiv_review_roadmap_env__000
+description: Generate a markdown review and Mermaid roadmap for efficient_vision papers.
+asset: wp_arxiv_review_roadmap_env__000
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__000.md
+runtime:
+  max_turns: 30
+  require_files: true
+  output_dir: outputs

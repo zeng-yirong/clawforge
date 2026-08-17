@@ -1,0 +1,6 @@
+name: wp_arxiv_review_roadmap_env__008
+prompt: prompts/wp_arxiv_review_roadmap_env__008.md
+asset: wp_arxiv_review_roadmap_env__008
+runtime:
+  cwd: assets/wp_arxiv_review_roadmap_env__008
+  python: "3.11"

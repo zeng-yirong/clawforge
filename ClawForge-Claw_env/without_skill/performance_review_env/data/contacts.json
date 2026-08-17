@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "hrbp_001",
+      "name": "Sonia Gao",
+      "role": "HRBP",
+      "email": "sonia.gao@northstar.example.com"
+    }
+  ]
+}

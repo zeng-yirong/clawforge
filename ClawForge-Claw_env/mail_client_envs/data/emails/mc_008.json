@@ -1,0 +1,23 @@
+{
+  "id": "mc_008",
+  "thread_id": "th_hr",
+  "folder": "inbox",
+  "sender_id": "c_hr",
+  "subject": "Reminder: Complete Your Annual Compliance Training",
+  "timestamp": "2026-06-14T10:00:00+00:00",
+  "importance": "normal",
+  "labels": ["hr", "compliance"],
+  "has_read": false,
+  "body": "This is a reminder that all employees must complete their annual compliance training by June 30th. The training covers: Data privacy, Workplace safety, Code of conduct. Please log into the HR portal to complete the training. Failure to complete may affect your performance review.",
+  "attachments": [
+    {
+      "attachment_id": "mcatt_004",
+      "file_name": "Training_Instructions.pdf",
+      "mime_type": "application/pdf",
+      "tags": ["training", "hr"],
+      "relative_path": "attachments/Training_Instructions.pdf.md"
+    }
+  ],
+  "auto_classify_suggestion": "hr",
+  "auto_archive_candidates": []
+}

@@ -1,0 +1,7 @@
+task_id: wp_cloud_cost_ledger_env__047
+prompt_path: tasks/prompts/wp_cloud_cost_ledger_env__047.md
+asset: wp_cloud_cost_ledger_env__047
+runtime:
+  language: python
+  files: []
+  timeout: 300

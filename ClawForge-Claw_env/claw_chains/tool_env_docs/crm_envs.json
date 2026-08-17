@@ -1,0 +1,482 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "add_tags",
+  "description": "Add tags to contact.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact to tag."
+    },
+    "tags": {
+     "type": "string",
+     "description": "Comma-separated tags"
+    }
+   },
+   "required": [
+    "contact_id",
+    "tags"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "archive_contact",
+  "description": "Archive a contact.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact to archive."
+    }
+   },
+   "required": [
+    "contact_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "classify_contact",
+  "description": "Classify contact into folder with tags.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact to classify."
+    },
+    "folder": {
+     "type": "string",
+     "description": "Target folder for classification."
+    },
+    "tags": {
+     "type": "string",
+     "description": "Comma-separated tags"
+    }
+   },
+   "required": [
+    "contact_id",
+    "folder",
+    "tags"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_birthday_reminder",
+  "description": "Create birthday reminder for contact.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact."
+    },
+    "days_before": {
+     "type": "integer",
+     "description": "Days before birthday to remind.",
+     "default": 7
+    }
+   },
+   "required": [
+    "contact_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "disable_reminder",
+  "description": "Disable a reminder.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "reminder_id": {
+     "type": "string",
+     "description": "ID of the reminder to disable."
+    }
+   },
+   "required": [
+    "reminder_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "enable_reminder",
+  "description": "Enable a reminder.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "reminder_id": {
+     "type": "string",
+     "description": "ID of the reminder to enable."
+    }
+   },
+   "required": [
+    "reminder_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_contact",
+  "description": "Get contact details.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact to retrieve."
+    }
+   },
+   "required": [
+    "contact_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_or_create_tag",
+  "description": "Get or create a tag.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "tag_name": {
+     "type": "string",
+     "description": "Name of the tag to find/create."
+    }
+   },
+   "required": [
+    "tag_name"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_contacts",
+  "description": "List contacts with optional filters.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query string.",
+     "default": ""
+    },
+    "folder": {
+     "type": "string",
+     "description": "Filter by folder name."
+    },
+    "contact_type": {
+     "type": "string",
+     "description": "Filter by contact type."
+    },
+    "tag": {
+     "type": "string",
+     "description": "Filter by tag name."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_reminders",
+  "description": "List reminders.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "Filter by contact ID."
+    },
+    "reminder_type": {
+     "type": "string",
+     "description": "Filter by reminder type."
+    },
+    "upcoming_only": {
+     "type": "boolean",
+     "description": "Only show upcoming reminders."
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_tags",
+  "description": "List available tag definitions.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "category": {
+     "type": "string",
+     "description": "Filter by tag category."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "remove_tags",
+  "description": "Remove tags from contact.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "contact_id": {
+     "type": "string",
+     "description": "ID of the contact to untag."
+    },
+    "tags": {
+     "type": "string",
+     "description": "Comma-separated tags"
+    }
+   },
+   "required": [
+    "contact_id",
+    "tags"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "search_contacts",
+  "description": "Search contacts by various criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "name_query": {
+     "type": "string",
+     "description": "Search by contact name.",
+     "default": ""
+    },
+    "email_query": {
+     "type": "string",
+     "description": "Search by email address.",
+     "default": ""
+    },
+    "company_id": {
+     "type": "string",
+     "description": "Filter by company ID."
+    },
+    "tag": {
+     "type": "string",
+     "description": "Filter by tag name."
+    },
+    "folder": {
+     "type": "string",
+     "description": "Filter by folder name."
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

@@ -1,0 +1,210 @@
+{
+  "env_name": "security_envs",
+  "rel_path": "security_envs",
+  "has_skill_md": true,
+  "anchor_keys": [],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "account_name",
+          "type": "str",
+          "required": true,
+          "desc": "account_name (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "desc": "location (str)"
+        },
+        {
+          "name": "zones",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "zones (list)"
+        },
+        {
+          "name": "emergency_contacts",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "emergency_contacts (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Emergency Services",
+            "John Smith",
+            "Local Police Precinct",
+            "Security Company"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Monitoring Service",
+            "Police",
+            "Police Non-Emergency",
+            "Security Manager"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "phone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "+1-555-0101",
+            "+1-555-0199",
+            "+1-800-555-0123",
+            "911"
+          ],
+          "desc": "phone (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "john.smith@example.com",
+            "monitoring@securityco.com",
+            "police.precinct@example.com"
+          ],
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts/contacts.json"
+    },
+    {
+      "path": "data/doors/doors.json",
+      "kind": "collection",
+      "wrapper_key": "doors",
+      "record_key": "door_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "door_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "door_id (str)"
+        },
+        {
+          "name": "door_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Back Door",
+            "Basement Door",
+            "Front Door",
+            "Garage Door",
+            "Office Door"
+          ],
+          "desc": "door_name (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Basement",
+            "Garage",
+            "Main Entrance",
+            "Office Room",
+            "Rear Entrance"
+          ],
+          "desc": "location (str)"
+        },
+        {
+          "name": "zone_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "zone_id (str)"
+        }
+      ],
+      "desc": "collection file data/doors/doors.json"
+    },
+    {
+      "path": "data/zones/zones.json",
+      "kind": "collection",
+      "wrapper_key": "zones",
+      "record_key": "zone_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "zone_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "zone_id (str)"
+        },
+        {
+          "name": "zone_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Backyard",
+            "Basement",
+            "Garage",
+            "Main Lobby",
+            "Office Room"
+          ],
+          "desc": "zone_name (str)"
+        },
+        {
+          "name": "sensors",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "sensors (list)"
+        },
+        {
+          "name": "intrusion_detected",
+          "type": "bool",
+          "required": true,
+          "desc": "intrusion_detected (bool)"
+        }
+      ],
+      "desc": "collection file data/zones/zones.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "acc_home_manager",
+      "account_name": "Home Manager Account",
+      "email": "manager@smarthome.com",
+      "role": "home_manager",
+      "display_name": "Home Manager"
+    }
+  ]
+}

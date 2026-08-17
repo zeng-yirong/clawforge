@@ -1,0 +1,9 @@
+asset: wp_churn_retention_mail_env__038
+version: 1.0
+type: workplace_task
+prompt_path: tasks/prompts/wp_churn_retention_mail_env__038.md
+runtime:
+  build_dir: assets/wp_churn_retention_mail_env__038
+  verify_script: scripts/wp_churn_retention_mail_env__038/verify_workplace.py
+  workdir: .
+features: []

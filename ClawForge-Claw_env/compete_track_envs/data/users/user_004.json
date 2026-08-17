@@ -1,0 +1,24 @@
+{
+  "user_id": "user_004",
+  "name": "David Lee",
+  "email": "david.lee@retail.net",
+  "competitor_id": "comp_003",
+  "tier": "basic",
+  "cohort": "cohort_q4_2025",
+  "acquisition_source": "organic",
+  "acquisition_campaign": "content_marketing",
+  "acquisition_date": "2025-11-05",
+  "acquisition_cost": 0,
+  "initial_channel": "blog",
+  "lifetime_value": 800,
+  "churned": true,
+  "churn_date": "2026-02-15",
+  "engagement": {
+    "score": 25,
+    "monthly_active_days": 3,
+    "features_used": ["basic_analytics"]
+  },
+  "activity_history": [
+    {"date": "2025-11-05", "action": "signup", "duration_minutes": 2}
+  ]
+}

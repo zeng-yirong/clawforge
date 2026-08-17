@@ -1,0 +1,24 @@
+task_id: wp_sensor_envs__005
+asset: wp_sensor_envs__005
+prompt_path: tasks/prompts/wp_sensor_envs__005.md
+runtime:
+  cwd: assets/wp_sensor_envs__005
+  allowed_modules:
+    - json
+    - csv
+    - pathlib
+    - os
+    - sys
+    - re
+    - math
+    - decimal
+    - statistics
+  disallowed_modules:
+    - openai
+    - httpx
+    - requests
+    - pickle
+    - socket
+  execution_timeout: 120
+  output_artifacts:
+    - ops/active_sensors.json

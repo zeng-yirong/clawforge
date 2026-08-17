@@ -1,0 +1,8 @@
+id: wp_experiment_diff_record_env__010
+name: "Experiment Diff Record Environment"
+prompt: prompts/wp_experiment_diff_record_env__010.md
+asset: wp_experiment_diff_record_env__010
+runtime:
+  type: generic
+  environment:
+    - type: file

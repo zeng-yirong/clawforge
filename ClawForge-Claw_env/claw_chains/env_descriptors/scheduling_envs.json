@@ -1,0 +1,135 @@
+{
+  "env_name": "scheduling_envs",
+  "rel_path": "scheduling_envs",
+  "has_skill_md": true,
+  "anchor_keys": [],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "account_name",
+          "type": "str",
+          "required": true,
+          "desc": "account_name (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "desc": "location (str)"
+        },
+        {
+          "name": "devices",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "devices (list)"
+        },
+        {
+          "name": "schedules",
+          "type": "list",
+          "required": true,
+          "desc": "schedules (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/devices/devices.json",
+      "kind": "collection",
+      "wrapper_key": "devices",
+      "record_key": "device_id",
+      "count": 6,
+      "fields": [
+        {
+          "name": "device_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "device_id (str)"
+        },
+        {
+          "name": "device_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Bedroom Humidifier",
+            "Bedroom Light",
+            "Coffee Machine Smart Plug",
+            "Living Room AC",
+            "Living Room Light",
+            "TV Smart Plug"
+          ],
+          "desc": "device_name (str)"
+        },
+        {
+          "name": "device_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ac",
+            "humidifier",
+            "light",
+            "smart_plug"
+          ],
+          "desc": "device_type (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "bedroom",
+            "kitchen",
+            "living_room"
+          ],
+          "desc": "location (str)"
+        },
+        {
+          "name": "supported_settings",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "supported_settings (list)"
+        },
+        {
+          "name": "settings",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "brightness",
+            "color",
+            "fan_speed",
+            "humidity_level",
+            "mode",
+            "temperature"
+          ],
+          "desc": "settings (dict)"
+        }
+      ],
+      "desc": "collection file data/devices/devices.json"
+    },
+    {
+      "path": "data/schedules/schedules.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "schedules"
+      ],
+      "desc": "json_blob file data/schedules/schedules.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

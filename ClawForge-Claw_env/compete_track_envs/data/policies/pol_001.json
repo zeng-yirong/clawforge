@@ -1,0 +1,28 @@
+{
+  "policy_id": "pol_001",
+  "title": "EU Digital Markets Act Compliance",
+  "description": "Regulations requiring interoperability and data portability for major tech platforms.",
+  "policy_type": "antitrust",
+  "jurisdiction": "EU",
+  "status": "active",
+  "impact_level": "high",
+  "full_text": "The Digital Markets Act (DMA) establishes rules for designated gatekeepers to ensure contestability and fairness in digital markets. Gatekeepers must comply with obligations regarding data sharing, interoperability, and fair access.",
+  "summary": "Requires major platforms to ensure data portability, interoperability, and fair access for competitors.",
+  "impact": {
+    "affected_competitors": ["comp_001", "comp_002"],
+    "key_requirements": [
+      "Data sharing with business users",
+      "Interoperability for messaging services",
+      "Fair access to app stores"
+    ],
+    "deadline": "2026-03-01T00:00:00Z",
+    "compliance_cost_estimate": 50000000
+  },
+  "changes": [
+    {
+      "change_type": "amendment",
+      "date": "2026-01-15",
+      "description": "Added clarification on messaging interoperability requirements"
+    }
+  ]
+}

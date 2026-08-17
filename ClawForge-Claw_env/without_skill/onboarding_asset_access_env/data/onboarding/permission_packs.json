@@ -1,0 +1,8 @@
+{
+  "permission_packs": [
+    {
+      "pack_id": "pack_engineering_standard",
+      "systems": ["Git", "CI", "Issue Tracker"]
+    }
+  ]
+}

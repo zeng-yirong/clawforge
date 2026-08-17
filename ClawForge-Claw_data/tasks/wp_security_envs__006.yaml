@@ -1,0 +1,7 @@
+task_id: wp_security_envs__006
+asset: wp_security_envs__006
+prompt: tasks/prompts/wp_security_envs__006.md
+runtime:
+  base_image: "python:3.11-slim"
+  workdir: "/workspace"
+  entrypoint: ["python", "-c", "import os; os.makedirs('output', exist_ok=True)"]

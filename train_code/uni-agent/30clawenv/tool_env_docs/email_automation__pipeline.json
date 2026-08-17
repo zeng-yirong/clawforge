@@ -1,0 +1,319 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_platform",
+    "description": "Register a new social platform for content distribution.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique platform identifier (e.g., 'reddit', 'x')."
+        },
+        "platform_type": {
+          "type": "string",
+          "description": "Platform category ('social_feed', 'microblog', etc.)."
+        },
+        "rate_limit": {
+          "type": "integer",
+          "description": "Platform-specific rate limit per hour. Defaults to 30."
+        }
+      },
+      "required": [
+        "name",
+        "platform_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_email_account",
+    "description": "Register a new email account for monitoring.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique account identifier."
+        },
+        "address": {
+          "type": "string",
+          "description": "Email address."
+        },
+        "account_type": {
+          "type": "string",
+          "description": "Account type ('enterprise', 'newsletter', 'alert')."
+        }
+      },
+      "required": [
+        "name",
+        "address",
+        "account_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_platforms",
+    "description": "List registered social platforms, optionally filtered by type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform_type": {
+          "type": "string",
+          "description": "[Optional] Filter by platform type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_emails",
+    "description": "Ingest emails from a configured account into the processing pool.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "account": {
+          "type": "string",
+          "description": "Email account identifier (must be registered)."
+        },
+        "count": {
+          "type": "integer",
+          "description": "Number of emails to ingest. Defaults to 10."
+        },
+        "email_type": {
+          "type": "string",
+          "description": "[Optional] Filter by email type."
+        }
+      },
+      "required": [
+        "account"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_emails",
+    "description": "List emails in the pool, optionally filtered by account or processing status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "account": {
+          "type": "string",
+          "description": "[Optional] Filter by email account."
+        },
+        "processed": {
+          "type": "boolean",
+          "description": "[Optional] Filter by processed status."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "extract_briefs",
+    "description": "Extract actionable briefs from ingested emails.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "email_ids": {
+          "type": "array",
+          "description": "List of email IDs to analyze."
+        },
+        "extraction_method": {
+          "type": "string",
+          "description": "Extraction approach - 'auto', 'concise', 'detailed'."
+        }
+      },
+      "required": [
+        "email_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_briefs",
+    "description": "List extracted briefs, optionally filtered by publication status or type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "published": {
+          "type": "boolean",
+          "description": "[Optional] Filter by publication status."
+        },
+        "brief_type": {
+          "type": "string",
+          "description": "[Optional] Filter by brief type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "publish_brief",
+    "description": "Publish a brief to a social platform.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "brief_id": {
+          "type": "integer",
+          "description": "Brief ID to publish."
+        },
+        "platform": {
+          "type": "string",
+          "description": "Target platform identifier."
+        },
+        "audience": {
+          "type": "string",
+          "description": "Target audience - 'general', 'technical', 'business'."
+        },
+        "tone": {
+          "type": "string",
+          "description": "Content tone - 'professional', 'casual', 'urgent'."
+        }
+      },
+      "required": [
+        "brief_id",
+        "platform"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "scan_platform",
+    "description": "Scan a social platform for relevant discussions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "description": "Platform to scan."
+        },
+        "topic": {
+          "type": "string",
+          "description": "[Optional] Topic filter."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum results to return. Defaults to 20."
+        }
+      },
+      "required": [
+        "platform"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_response",
+    "description": "Create a response to an existing platform post/discussion.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "post_id": {
+          "type": "integer",
+          "description": "Target post ID to respond to."
+        },
+        "response_type": {
+          "type": "string",
+          "description": "Type of response - 'comment', 'reply', etc."
+        },
+        "content": {
+          "type": "string",
+          "description": "Response content/text."
+        }
+      },
+      "required": [
+        "post_id",
+        "response_type",
+        "content"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "analyze_engagement",
+    "description": "Analyze engagement metrics across platforms.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "time_window": {
+          "type": "string",
+          "description": "Time window for analysis - '1h', '24h', '7d', '30d'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_report",
+    "description": "Generate a workflow report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "report_type": {
+          "type": "string",
+          "description": "Report type - 'daily', 'weekly', 'performance'."
+        },
+        "output_format": {
+          "type": "string",
+          "description": "Output format - 'markdown', 'bullet', 'json', etc."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

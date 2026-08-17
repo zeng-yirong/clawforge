@@ -1,0 +1,7 @@
+task_id: wp_performance_review_env__041
+asset: wp_performance_review_env__041
+prompt_path: tasks/prompts/wp_performance_review_env__041.md
+runtime:
+  python_version: "3.10"
+  requirements: []
+  timeout_seconds: 300

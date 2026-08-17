@@ -1,0 +1,10 @@
+{
+  "employees": [
+    {
+      "employee_id": "emp_eng_001",
+      "employee_name": "Chris Du",
+      "department": "Engineering",
+      "role_code": "software_engineer"
+    }
+  ]
+}

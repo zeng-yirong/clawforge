@@ -1,0 +1,6 @@
+asset: wp_excel_data_envs__032
+prompt: tasks/prompts/wp_excel_data_envs__032.md
+type: workplace
+runtime:
+  image: python:3.11
+  command: python -c "import os; print('ready')"

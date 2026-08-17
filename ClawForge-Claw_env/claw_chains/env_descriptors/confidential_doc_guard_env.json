@@ -1,0 +1,321 @@
+{
+  "env_name": "confidential_doc_guard_env",
+  "rel_path": "without_skill/confidential_doc_guard_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "deny_request_ids",
+    "expected_reason_codes",
+    "expected_request_ids",
+    "expected_risk_types",
+    "required_actions",
+    "required_attachment_paths"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/assets/assets.json",
+      "kind": "collection",
+      "wrapper_key": "assets",
+      "record_key": "asset_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "asset_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "asset_id (str)"
+        },
+        {
+          "name": "asset_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Finance Archive Bundle",
+            "Unpublished Architecture Plan"
+          ],
+          "desc": "asset_name (str)"
+        },
+        {
+          "name": "asset_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "finance_archive",
+            "technical_plan"
+          ],
+          "desc": "asset_type (str)"
+        },
+        {
+          "name": "classification",
+          "type": "str",
+          "required": true,
+          "desc": "classification (str)"
+        },
+        {
+          "name": "owner_team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Architecture Office",
+            "Finance Operations"
+          ],
+          "desc": "owner_team (str)"
+        },
+        {
+          "name": "read_policy",
+          "type": "str",
+          "required": true,
+          "desc": "read_policy (str)"
+        }
+      ],
+      "desc": "collection file data/assets/assets.json"
+    },
+    {
+      "path": "data/attachments/external_disclosure_policy.md",
+      "kind": "markdown_attachment",
+      "title": "External Disclosure Policy",
+      "bytes": 289,
+      "desc": "markdown_attachment file data/attachments/external_disclosure_policy.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 1,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/requests/requests.json",
+      "kind": "collection",
+      "wrapper_key": "requests",
+      "record_key": "request_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "request_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "request_id (str)"
+        },
+        {
+          "name": "channel",
+          "type": "str",
+          "required": true,
+          "desc": "channel (str)"
+        },
+        {
+          "name": "request_type",
+          "type": "str",
+          "required": true,
+          "desc": "request_type (str)"
+        },
+        {
+          "name": "risk_level",
+          "type": "str",
+          "required": true,
+          "desc": "risk_level (str)"
+        },
+        {
+          "name": "risk_type",
+          "type": "str",
+          "required": true,
+          "desc": "risk_type (str)"
+        },
+        {
+          "name": "target_asset_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "target_asset_id (str)"
+        },
+        {
+          "name": "actor_name",
+          "type": "str",
+          "required": true,
+          "desc": "actor_name (str)"
+        },
+        {
+          "name": "claimed_role",
+          "type": "str",
+          "required": true,
+          "desc": "claimed_role (str)"
+        },
+        {
+          "name": "message",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "message (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "desc": "status (str)"
+        }
+      ],
+      "desc": "collection file data/requests/requests.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "request_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/requests/requests.json",
+          "record_key": "request_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "asset_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/assets/assets.json",
+          "record_key": "asset_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_request_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/requests/requests.json",
+          "record_key": "request_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "deny_request_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/requests/requests.json",
+          "record_key": "request_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+task_id: wp_prompt_key_guard_env__019
+asset: wp_prompt_key_guard_env__019
+prompt_path: tasks/prompts/wp_prompt_key_guard_env__019.md
+runtime:
+  cwd: assets/wp_prompt_key_guard_env__019
+  exec_mode: file_ops

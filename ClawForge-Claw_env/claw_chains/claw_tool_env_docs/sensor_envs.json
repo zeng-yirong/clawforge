@@ -1,0 +1,894 @@
+{
+  "env_name": "sensor_envs",
+  "rel_path": "sensor_envs",
+  "cli_module": "sensor_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "SENSOR_SESSION_ID",
+    "state_env": "SENSOR_STATE_ROOT",
+    "scenario_env": "SENSOR_SCENARIO_ID",
+    "default_scenario_id": "sensor_monitoring"
+  },
+  "visible_verbs": [
+    {
+      "verb": "active",
+      "action": "active",
+      "role": "other",
+      "help": "Get active alerts",
+      "args": [
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by severity",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by type",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "alerts",
+      "action": "alerts",
+      "role": "other",
+      "help": "Alert management commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "analyze",
+      "action": "analyze",
+      "role": "other",
+      "help": "Analyze trend for sensor",
+      "args": [
+        {
+          "name": "--start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Start time",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "End time",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "anomaly",
+      "action": "anomaly",
+      "role": "other",
+      "help": "Generate anomaly report",
+      "args": [
+        {
+          "name": "--start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Start time",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "End time",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Severity filter",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "check",
+      "action": "check",
+      "role": "other",
+      "help": "Check for anomalies",
+      "args": [
+        {
+          "name": "--sensor-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor ID to check",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by severity",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "compose-anomaly",
+      "action": "compose_anomaly",
+      "role": "other",
+      "help": "Compose anomaly alert notification",
+      "args": [
+        {
+          "name": "--recipient",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient name",
+          "hidden": false
+        },
+        {
+          "name": "--contact",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient contact",
+          "hidden": false
+        },
+        {
+          "name": "--anomaly-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Anomaly ID",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create",
+      "action": "create",
+      "role": "other",
+      "help": "Create notification",
+      "args": [
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Alert type",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Severity",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Title",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Description",
+          "hidden": false
+        },
+        {
+          "name": "--sensor-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor ID",
+          "hidden": false
+        },
+        {
+          "name": "--location-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--anomaly-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Linked anomaly ID",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Notification type",
+          "hidden": false
+        },
+        {
+          "name": "--recipient",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient name",
+          "hidden": false
+        },
+        {
+          "name": "--contact",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient contact",
+          "hidden": false
+        },
+        {
+          "name": "--subject",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Subject",
+          "hidden": false
+        },
+        {
+          "name": "--body",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Body",
+          "hidden": false
+        },
+        {
+          "name": "--priority",
+          "required": false,
+          "has_default": true,
+          "default": "normal",
+          "type": "str",
+          "choices": [],
+          "help": "Priority",
+          "hidden": false
+        },
+        {
+          "name": "--linked-alerts",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated alert IDs",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "daily",
+      "action": "daily",
+      "role": "other",
+      "help": "Generate daily report",
+      "args": [
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor type",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "energy",
+      "action": "energy",
+      "role": "other",
+      "help": "Generate energy report",
+      "args": [
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Start time",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "End time",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "hourly",
+      "action": "hourly",
+      "role": "other",
+      "help": "Generate hourly report",
+      "args": [
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor type",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "info",
+      "action": "info",
+      "role": "other",
+      "help": "Show environment info",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list",
+      "action": "list",
+      "role": "other",
+      "help": "List notifications",
+      "args": [
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by sensor type",
+          "hidden": false
+        },
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by location ID",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by status",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by severity",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by type",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "Result limit",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by status",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by type",
+          "hidden": false
+        },
+        {
+          "name": "--priority",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by priority",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "Result limit",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "monitoring",
+      "action": "monitoring",
+      "role": "other",
+      "help": "Monitoring commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "monthly",
+      "action": "monthly",
+      "role": "other",
+      "help": "Generate monthly report",
+      "args": [
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor type",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "moving-average",
+      "action": "moving_average",
+      "role": "other",
+      "help": "Calculate moving average",
+      "args": [
+        {
+          "name": "--window",
+          "required": false,
+          "has_default": true,
+          "default": 5,
+          "type": "int",
+          "choices": [],
+          "help": "Window size",
+          "hidden": false
+        },
+        {
+          "name": "--start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Start time",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "End time",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "notifications",
+      "action": "notifications",
+      "role": "other",
+      "help": "Notification commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "read",
+      "action": "read",
+      "role": "other",
+      "help": "Read sensor data",
+      "args": [
+        {
+          "name": "--timestamp",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Timestamp for historical data",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reports",
+      "action": "reports",
+      "role": "other",
+      "help": "Report generation commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset",
+      "action": "reset",
+      "role": "other",
+      "help": "Reset environment",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "resolve",
+      "action": "resolve",
+      "role": "other",
+      "help": "Resolve alert",
+      "args": [
+        {
+          "name": "--resolution",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Resolution notes",
+          "hidden": false
+        },
+        {
+          "name": "--resolution",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Resolution",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "seasonality",
+      "action": "seasonality",
+      "role": "other",
+      "help": "Detect seasonality",
+      "args": [
+        {
+          "name": "--period",
+          "required": false,
+          "has_default": true,
+          "default": 24,
+          "type": "int",
+          "choices": [],
+          "help": "Expected period in hours",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "sensors",
+      "action": "sensors",
+      "role": "other",
+      "help": "Sensor data commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "set-threshold",
+      "action": "set_threshold",
+      "role": "other",
+      "help": "Set sensor threshold",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "stats",
+      "action": "stats",
+      "role": "other",
+      "help": "Get notification statistics",
+      "args": [
+        {
+          "name": "--start",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Start time",
+          "hidden": false
+        },
+        {
+          "name": "--end",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "End time",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "summary",
+      "action": "summary",
+      "role": "other",
+      "help": "Get trend summary",
+      "args": [
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location ID",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Sensor type",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "trends",
+      "action": "trends",
+      "role": "other",
+      "help": "Trend analysis commands",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "sensors",
+      "dst": "create",
+      "weight": 0.8,
+      "relationship": "produces_sensor_id_for"
+    },
+    {
+      "src": "anomaly",
+      "dst": "compose-anomaly",
+      "weight": 0.8,
+      "relationship": "produces_anomaly_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    ""
+  ]
+}

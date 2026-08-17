@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_customer_tier_label_env__048.md
+asset: wp_customer_tier_label_env__048
+runtime:
+  workdir: assets/wp_customer_tier_label_env__048
+  timeout: 300

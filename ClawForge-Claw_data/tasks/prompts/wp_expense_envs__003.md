@@ -1,0 +1,1 @@
+小X，帮我看看这次出差的花费有没有超预算。我刚从上海回来，财务催着要数据。我的个人信息在 `data/employee_profile.json`，公司的出差政策在 `data/travel_policies.json`，这次出差的消费记录在 `data/consumption_records.csv`。你帮我算一下每个类别的预算和实际支出，把超支的类别和金额都列出来，最后看总体是不是超了。结果放在 `ops/budget_check.json` 里。谢谢！

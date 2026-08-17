@@ -1,0 +1,1124 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_average_order",
+      "required_args": [],
+      "id": "create-average-order"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_bar_chart",
+      "required_args": [
+        "--chart-id",
+        "--title",
+        "--x-axis",
+        "--y-axis"
+      ],
+      "id": "create-bar-chart"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_column_chart",
+      "required_args": [
+        "--chart-id",
+        "--title",
+        "--x-axis",
+        "--y-axis"
+      ],
+      "id": "create-column-chart"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_formula",
+      "required_args": [
+        "--name",
+        "--expression"
+      ],
+      "id": "create-formula"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_line_chart",
+      "required_args": [
+        "--chart-id",
+        "--title",
+        "--x-axis",
+        "--y-axis"
+      ],
+      "id": "create-line-chart"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_pie_chart",
+      "required_args": [
+        "--chart-id",
+        "--title",
+        "--label-column",
+        "--value-column"
+      ],
+      "id": "create-pie-chart"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_pivot",
+      "required_args": [
+        "--row-dimensions",
+        "--value-column"
+      ],
+      "id": "create-pivot"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_pivot_category_region",
+      "required_args": [],
+      "id": "create-pivot-category-region"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_pivot_city",
+      "required_args": [],
+      "id": "create-pivot-city"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_pivot_salesperson",
+      "required_args": [],
+      "id": "create-pivot-salesperson"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_total_revenue",
+      "required_args": [],
+      "id": "create-total-revenue"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_total_transactions",
+      "required_args": [],
+      "id": "create-total-transactions"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "deduplicate",
+      "required_args": [
+        "--data-id"
+      ],
+      "id": "deduplicate"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "fill_missing",
+      "required_args": [
+        "--data-id"
+      ],
+      "id": "fill-missing"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_chart",
+      "required_args": [],
+      "id": "get-chart"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_chart_details",
+      "required_args": [],
+      "id": "get-chart-details"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_charts",
+      "required_args": [],
+      "id": "get-charts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_cleaned_data",
+      "required_args": [],
+      "id": "get-cleaned-data"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_data_summary",
+      "required_args": [],
+      "id": "get-data-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_formulas",
+      "required_args": [],
+      "id": "get-formulas"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_pivots",
+      "required_args": [],
+      "id": "get-pivots"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_raw_data",
+      "required_args": [],
+      "id": "list-raw-data"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_raw_data",
+      "required_args": [
+        "--data-id"
+      ],
+      "id": "read-raw-data"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-average-order"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-column-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-formula"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-line-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-pivot"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-pivot-category-region"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-pivot-city"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-pivot-salesperson"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-total-revenue"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-total-transactions"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-average-order"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-column-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-formula"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-line-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-pivot"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-pivot-category-region"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-pivot-city"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-pivot-salesperson"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-total-revenue"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-total-transactions"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-average-order",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-average-order",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-average-order",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-bar-chart",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-bar-chart",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-bar-chart",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after creating chart, inspect its details",
+      "tier": "llm_weak",
+      "source": "create-bar-chart",
+      "target": "get-chart-details"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-column-chart",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-column-chart",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-column-chart",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-formula",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-formula",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-formula",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-line-chart",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-line-chart",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-line-chart",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pie-chart",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pie-chart",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-pie-chart",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-pivot",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-category-region",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-category-region",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-pivot-category-region",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after pivot by category, show proportions",
+      "tier": "llm_weak",
+      "source": "create-pivot-category-region",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-city",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-city",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-pivot-city",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-salesperson",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-pivot-salesperson",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-pivot-salesperson",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-total-revenue",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-total-revenue",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-total-revenue",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "visualize revenue with a bar chart",
+      "tier": "llm_weak",
+      "source": "create-total-revenue",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-total-transactions",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-total-transactions",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-total-transactions",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after deduplication, often fill missing values",
+      "tier": "llm_weak",
+      "source": "deduplicate",
+      "target": "fill-missing"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after filling missing, compute averages",
+      "tier": "llm_weak",
+      "source": "fill-missing",
+      "target": "create-average-order"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart",
+      "target": "create-line-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart",
+      "target": "create-column-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-chart",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-chart",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart-details",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart-details",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart-details",
+      "target": "create-line-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-chart-details",
+      "target": "create-column-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-chart-details",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-chart-details",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-charts",
+      "target": "create-bar-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-charts",
+      "target": "create-pie-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-charts",
+      "target": "create-line-chart"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_chart_id_for",
+      "tier": "dataflow",
+      "source": "get-charts",
+      "target": "create-column-chart"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-charts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-charts",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-cleaned-data",
+      "target": "read-raw-data"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-cleaned-data",
+      "target": "deduplicate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-cleaned-data",
+      "target": "fill-missing"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cleaned-data",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cleaned-data",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after inspecting cleaned data, create pivot table",
+      "tier": "llm_weak",
+      "source": "get-cleaned-data",
+      "target": "create-pivot"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-data-summary",
+      "target": "read-raw-data"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-data-summary",
+      "target": "deduplicate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "get-data-summary",
+      "target": "fill-missing"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-data-summary",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-data-summary",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-formulas",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-formulas",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-pivots",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-pivots",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "list-raw-data",
+      "target": "read-raw-data"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "list-raw-data",
+      "target": "deduplicate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_data_id_for",
+      "tier": "dataflow",
+      "source": "list-raw-data",
+      "target": "fill-missing"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-raw-data",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-raw-data",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, read a raw dataset",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "read-raw-data"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-raw-data",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-raw-data",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-chart"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-chart-details"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-charts"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-cleaned-data"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-data-summary"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-formulas"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-pivots"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-raw-data"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-raw-data"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+task_id: wp_secure_vault_envs__006
+asset: wp_secure_vault_envs__006
+prompt_path: tasks/prompts/wp_secure_vault_envs__006.md
+runtime:
+  env:
+    - name: HOME
+      value: /tmp
+    - name: USER
+      value: agent
+  workspace: /home/agent/workplace

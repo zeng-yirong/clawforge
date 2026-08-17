@@ -1,0 +1,7 @@
+id: wp_performance_review_env__012
+name: "Performance Review - Generate Monthly Scores"
+asset: wp_performance_review_env__012
+prompt_path: prompts/wp_performance_review_env__012.md
+runtime:
+  workspace: .
+  timeout: 300

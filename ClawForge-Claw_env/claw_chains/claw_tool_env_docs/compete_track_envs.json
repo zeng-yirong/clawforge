@@ -1,0 +1,1094 @@
+{
+  "env_name": "compete_track_envs",
+  "rel_path": "compete_track_envs",
+  "cli_module": "compete_track_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "COMPETE_TRACK_SESSION_ID",
+    "state_env": "COMPETE_TRACK_STATE_ROOT",
+    "scenario_env": "COMPETE_TRACK_SCENARIO_ID",
+    "default_scenario_id": "competitor_monitoring_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "acknowledge-alert",
+      "action": "acknowledge_alert",
+      "role": "other",
+      "help": "Acknowledge alert.",
+      "args": [
+        {
+          "name": "--alert-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--acknowledged-by",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--notes",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "analyze-acquisition-sources",
+      "action": "analyze_acquisition_sources",
+      "role": "other",
+      "help": "Analyze acquisition sources.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "compare-competitors",
+      "action": "compare_competitors",
+      "role": "other",
+      "help": "Compare competitors.",
+      "args": [
+        {
+          "name": "--competitor-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--metrics",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-alert",
+      "action": "create_alert",
+      "role": "produce",
+      "help": "Create alert.",
+      "args": [
+        {
+          "name": "--alert-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--related-competitor-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--related-policy-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-market-report",
+      "action": "create_market_report",
+      "role": "produce",
+      "help": "Create market report.",
+      "args": [
+        {
+          "name": "--title",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--report-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--competitor-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--include-sections",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--findings",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "filter-policies-by-competitor",
+      "action": "filter_policies_by_competitor",
+      "role": "other",
+      "help": "Filter policies by competitor.",
+      "args": [
+        {
+          "name": "--competitor-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--impact-level",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "finalize-report",
+      "action": "finalize_report",
+      "role": "other",
+      "help": "Finalize report.",
+      "args": [
+        {
+          "name": "--report-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-competitive-landscape",
+      "action": "generate_competitive_landscape",
+      "role": "produce",
+      "help": "Generate competitive landscape.",
+      "args": [
+        {
+          "name": "--competitor-ids",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-regulatory-summary",
+      "action": "generate_regulatory_summary",
+      "role": "produce",
+      "help": "Generate regulatory summary.",
+      "args": [
+        {
+          "name": "--competitor-ids",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--impact-filter",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "generate-user-acquisition-analysis",
+      "action": "generate_user_acquisition_analysis",
+      "role": "produce",
+      "help": "Generate user acquisition analysis.",
+      "args": [
+        {
+          "name": "--cohort-filter",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-competitor",
+      "action": "get_competitor",
+      "role": "read",
+      "help": "Get competitor details.",
+      "args": [
+        {
+          "name": "--competitor-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy",
+      "action": "get_policy",
+      "role": "read",
+      "help": "Get policy details.",
+      "args": [
+        {
+          "name": "--policy-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy-impact",
+      "action": "get_policy_impact",
+      "role": "read",
+      "help": "Get policy impact analysis.",
+      "args": [
+        {
+          "name": "--policy-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--competitor-ids",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-regulatory-risks",
+      "action": "get_regulatory_risks",
+      "role": "read",
+      "help": "Get regulatory risks.",
+      "args": [
+        {
+          "name": "--competitor-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-impact-level",
+          "required": false,
+          "has_default": true,
+          "default": "medium",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-user",
+      "action": "get_user",
+      "role": "read",
+      "help": "Get user details.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-alerts",
+      "action": "list_alerts",
+      "role": "read",
+      "help": "List alerts.",
+      "args": [
+        {
+          "name": "--alert-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--acknowledged",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [
+            "true",
+            "false"
+          ],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-competitors",
+      "action": "list_competitors",
+      "role": "read",
+      "help": "List competitors.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sector",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-market-share",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sort-by",
+          "required": false,
+          "has_default": true,
+          "default": "market_cap",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-policies",
+      "action": "list_policies",
+      "role": "read",
+      "help": "List regulatory policies.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--policy-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--jurisdiction",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--impact-level",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-reports",
+      "action": "list_reports",
+      "role": "read",
+      "help": "List reports.",
+      "args": [
+        {
+          "name": "--report-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-users",
+      "action": "list_users",
+      "role": "read",
+      "help": "List users.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--acquisition-source",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--user-tier",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cohort",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "screen-competitors",
+      "action": "screen_competitors",
+      "role": "other",
+      "help": "Screen competitors by criteria.",
+      "args": [
+        {
+          "name": "--min-market-cap",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--max-market-cap",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-market-share",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-revenue-growth",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--sectors",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--sort-by",
+          "required": false,
+          "has_default": true,
+          "default": "market_cap",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "screen-users",
+      "action": "screen_users",
+      "role": "other",
+      "help": "Screen users by criteria.",
+      "args": [
+        {
+          "name": "--min-lifetime-value",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--min-engagement-score",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--user-tiers",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--acquisition-sources",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Comma-separated list",
+          "hidden": false
+        },
+        {
+          "name": "--sort-by",
+          "required": false,
+          "has_default": true,
+          "default": "lifetime_value",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "update-user-tier",
+      "action": "update_user_tier",
+      "role": "produce",
+      "help": "Update user tier.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-tier",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--reason",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-competitors",
+      "dst": "get-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "list-competitors",
+      "dst": "filter-policies-by-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "screen-competitors",
+      "dst": "get-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "screen-competitors",
+      "dst": "filter-policies-by-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "compare-competitors",
+      "dst": "get-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "compare-competitors",
+      "dst": "filter-policies-by-competitor",
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for"
+    },
+    {
+      "src": "list-users",
+      "dst": "get-user",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "list-users",
+      "dst": "update-user-tier",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "screen-users",
+      "dst": "get-user",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "screen-users",
+      "dst": "update-user-tier",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "generate-user-acquisition-analysis",
+      "dst": "get-user",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "generate-user-acquisition-analysis",
+      "dst": "update-user-tier",
+      "weight": 0.8,
+      "relationship": "produces_user_id_for"
+    },
+    {
+      "src": "list-reports",
+      "dst": "finalize-report",
+      "weight": 0.8,
+      "relationship": "produces_report_id_for"
+    },
+    {
+      "src": "create-market-report",
+      "dst": "finalize-report",
+      "weight": 0.8,
+      "relationship": "produces_report_id_for"
+    },
+    {
+      "src": "list-alerts",
+      "dst": "acknowledge-alert",
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for"
+    },
+    {
+      "src": "create-alert",
+      "dst": "acknowledge-alert",
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "competitor_monitoring_q2_2026": [
+      "list_competitors",
+      "get_competitor",
+      "screen_competitors",
+      "compare_competitors",
+      "list_policies",
+      "get_policy",
+      "get_policy_impact",
+      "get_regulatory_risks",
+      "list_users",
+      "analyze_acquisition_sources",
+      "create_market_report",
+      "create_alert"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "competitor_monitoring_q2_2026"
+  ]
+}

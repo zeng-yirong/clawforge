@@ -1,0 +1,7 @@
+task_id: wp_finance_envs__041
+asset: wp_finance_envs__041
+prompt_path: tasks/prompts/wp_finance_envs__041.md
+env_builder_path: tasks/wp_finance_envs__041/env_builder.py
+verify_script_path: scripts/wp_finance_envs__041/verify_workplace.py
+runtime:
+  python_version: "3.10"

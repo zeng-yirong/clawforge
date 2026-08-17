@@ -1,0 +1,6 @@
+name: wp_post_mails__003
+prompt: tasks/prompts/wp_post_mails__003.md
+asset: wp_post_mails__003
+runtime:
+  cwd: assets/wp_post_mails__003
+  safe_mode: false

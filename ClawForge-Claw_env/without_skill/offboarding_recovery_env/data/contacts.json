@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "it_asset_001",
+      "name": "Paul He",
+      "role": "IT Asset Manager",
+      "email": "paul.he@northstar.example.com"
+    }
+  ]
+}

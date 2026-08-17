@@ -1,0 +1,8 @@
+name: "Paper Citation Graph Extraction"
+asset: "wp_paper_citation_graph_env__038"
+prompt: "tasks/prompts/wp_paper_citation_graph_env__038.md"
+runtime:
+  entrypoint: "python"
+  working_directory: "assets/wp_paper_citation_graph_env__038"
+  environment:
+    PYTHONUNBUFFERED: "1"

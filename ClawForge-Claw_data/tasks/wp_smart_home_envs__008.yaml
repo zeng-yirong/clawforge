@@ -1,0 +1,11 @@
+task_id: wp_smart_home_envs__008
+asset: wp_smart_home_envs__008
+prompt_path: tasks/prompts/wp_smart_home_envs__008.md
+runtime:
+  cwd: assets/wp_smart_home_envs__008
+  allowed_actions:
+    - read
+    - write
+    - list
+  max_steps: 30
+  timeout_seconds: 120

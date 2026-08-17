@@ -1,0 +1,27 @@
+{
+  "trip_id": "trip_001",
+  "employee_id": "EMP001",
+  "employee_name": "张三",
+  "department": "技术研发部",
+  "destination": "北京",
+  "purpose": "参加技术会议",
+  "start_date": "2024-06-15",
+  "end_date": "2024-06-17",
+  "duration_days": 3,
+  "consumption_records": [
+    {"record_id": "c001", "category": "flight", "date": "2024-06-15", "amount": 850.00, "description": "上海-北京机票", "receipt": true, "vendor": "东方航空"},
+    {"record_id": "c002", "category": "flight", "date": "2024-06-17", "amount": 850.00, "description": "北京-上海机票", "receipt": true, "vendor": "东方航空"},
+    {"record_id": "c003", "category": "accommodation", "date": "2024-06-15", "amount": 450.00, "description": "住宿费-北京饭店", "receipt": true, "vendor": "北京饭店", "nights": 2},
+    {"record_id": "c004", "category": "food", "date": "2024-06-15", "amount": 120.00, "description": "午餐-机场", "receipt": true, "vendor": "机场餐厅"},
+    {"record_id": "c005", "category": "food", "date": "2024-06-15", "amount": 180.00, "description": "晚餐-客户宴请", "receipt": true, "vendor": "北京烤鸭店"},
+    {"record_id": "c006", "category": "food", "date": "2024-06-16", "amount": 85.00, "description": "午餐-会议茶歇", "receipt": true, "vendor": "会议中心"},
+    {"record_id": "c007", "category": "food", "date": "2024-06-16", "amount": 220.00, "description": "晚餐-团队聚餐", "receipt": true, "vendor": "北京酒楼"},
+    {"record_id": "c008", "category": "taxi", "date": "2024-06-15", "amount": 85.00, "description": "首都机场-酒店", "receipt": true, "vendor": "出租车"},
+    {"record_id": "c009", "category": "taxi", "date": "2024-06-17", "amount": 120.00, "description": "酒店-首都机场", "receipt": true, "vendor": "出租车"},
+    {"record_id": "c010", "category": "metro", "date": "2024-06-16", "amount": 12.00, "description": "地铁交通", "receipt": false, "vendor": "北京地铁"},
+    {"record_id": "c011", "category": "communication", "date": "2024-06-15", "amount": 50.00, "description": "漫游费", "receipt": true, "vendor": "中国移动"},
+    {"record_id": "c012", "category": "misc", "date": "2024-06-16", "amount": 30.00, "description": "会议资料打印", "receipt": true, "vendor": "打印店"}
+  ],
+  "total_actual": 3052.00,
+  "budget_total": 3150.00
+}

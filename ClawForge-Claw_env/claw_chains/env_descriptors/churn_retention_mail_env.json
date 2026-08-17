@@ -1,0 +1,319 @@
+{
+  "env_name": "churn_retention_mail_env",
+  "rel_path": "without_skill/churn_retention_mail_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_news_ids",
+    "required_actions",
+    "target_customer_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "attachments"
+      ],
+      "desc": "json_blob file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/customers/customers.json",
+      "kind": "collection",
+      "wrapper_key": "customers",
+      "record_key": "customer_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "customer_id (str)"
+        },
+        {
+          "name": "customer_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "LedgerFlow",
+            "ShelfCloud"
+          ],
+          "desc": "customer_name (str)"
+        },
+        {
+          "name": "industry",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "fintech",
+            "retail"
+          ],
+          "desc": "industry (str)"
+        },
+        {
+          "name": "tier",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "enterprise",
+            "mid_market"
+          ],
+          "desc": "tier (str)"
+        },
+        {
+          "name": "labels",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "labels (list)"
+        },
+        {
+          "name": "owner_name",
+          "type": "str",
+          "required": true,
+          "desc": "owner_name (str)"
+        }
+      ],
+      "desc": "collection file data/customers/customers.json"
+    },
+    {
+      "path": "data/logs/activity_logs.json",
+      "kind": "collection",
+      "wrapper_key": "activity_logs",
+      "record_key": "customer_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "customer_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "customer_id (str)"
+        },
+        {
+          "name": "risk_level",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "low"
+          ],
+          "desc": "risk_level (str)"
+        },
+        {
+          "name": "last_active_days",
+          "type": "int",
+          "required": true,
+          "desc": "last_active_days (int)"
+        },
+        {
+          "name": "usage_trend",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "down",
+            "stable"
+          ],
+          "desc": "usage_trend (str)"
+        },
+        {
+          "name": "ticket_sentiment",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "negative",
+            "neutral"
+          ],
+          "desc": "ticket_sentiment (str)"
+        }
+      ],
+      "desc": "collection file data/logs/activity_logs.json"
+    },
+    {
+      "path": "data/news/news_samples.json",
+      "kind": "collection",
+      "wrapper_key": "news_samples",
+      "record_key": "news_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "news_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "news_id (str)"
+        },
+        {
+          "name": "industry",
+          "type": "str",
+          "required": true,
+          "desc": "industry (str)"
+        },
+        {
+          "name": "headline",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "headline (str)"
+        },
+        {
+          "name": "tone",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "opportunity",
+            "pain_point"
+          ],
+          "desc": "tone (str)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        }
+      ],
+      "desc": "collection file data/news/news_samples.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "customer_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/customers/customers.json",
+          "record_key": "customer_id"
+        },
+        {
+          "file": "data/logs/activity_logs.json",
+          "record_key": "customer_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "news_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/news/news_samples.json",
+          "record_key": "news_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_customer_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/customers/customers.json",
+          "record_key": "customer_id"
+        },
+        {
+          "file": "data/logs/activity_logs.json",
+          "record_key": "customer_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_news_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/news/news_samples.json",
+          "record_key": "news_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_car_control_envs__015.md
+asset: wp_car_control_envs__015
+runtime:
+  cwd: assets/wp_car_control_envs__015

@@ -1,0 +1,473 @@
+{
+  "env_name": "doc_clue_memory_env",
+  "rel_path": "without_skill/doc_clue_memory_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_document_ids",
+    "forbidden_document_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "required_source_types",
+    "target_solution_aliases",
+    "target_solution_id",
+    "target_solution_name"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_region",
+          "type": "str",
+          "required": true,
+          "desc": "default_region (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/solution_matching_notes.md",
+      "kind": "markdown_attachment",
+      "title": "Solution Matching Notes",
+      "bytes": 378,
+      "desc": "markdown_attachment file data/attachments/solution_matching_notes.md"
+    },
+    {
+      "path": "data/attachments/temp_record_guidelines.md",
+      "kind": "markdown_attachment",
+      "title": "Temporary Record Guidelines",
+      "bytes": 430,
+      "desc": "markdown_attachment file data/attachments/temp_record_guidelines.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 2,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "solution_matching_notes.md",
+            "temp_record_guidelines.md"
+          ],
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Solution Matching Notes",
+            "Temporary Record Guidelines"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "matching_guide",
+            "record_schema"
+          ],
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Dev Mehra",
+            "Keiko Han",
+            "Rhea Morita"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Archive Operations",
+            "Market Intelligence Partner",
+            "Signal Research Lead"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "dev.mehra@northstar.example.com",
+            "keiko.han@northstar.example.com",
+            "rhea.morita@northstar.example.com"
+          ],
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/media_samples/media_samples.json",
+      "kind": "collection",
+      "wrapper_key": "media_samples",
+      "record_key": "sample_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "sample_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "sample_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "channel",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "editorial_draft",
+            "keynote_transcript",
+            "podcast_transcript"
+          ],
+          "desc": "channel (str)"
+        },
+        {
+          "name": "captured_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "captured_at (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "solution_aliases",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "solution_aliases (list)"
+        },
+        {
+          "name": "content",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "content (str)"
+        }
+      ],
+      "desc": "collection file data/media_samples/media_samples.json"
+    },
+    {
+      "path": "data/presentations/presentations.json",
+      "kind": "collection",
+      "wrapper_key": "presentations",
+      "record_key": "presentation_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "presentation_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "presentation_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "owner",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "partner_marketing",
+            "research_design",
+            "strategy_team"
+          ],
+          "desc": "owner (str)"
+        },
+        {
+          "name": "updated_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "updated_at (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "solution_aliases",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "solution_aliases (list)"
+        },
+        {
+          "name": "deck_notes",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "deck_notes (str)"
+        }
+      ],
+      "desc": "collection file data/presentations/presentations.json"
+    },
+    {
+      "path": "data/reports/reports.json",
+      "kind": "collection",
+      "wrapper_key": "reports",
+      "record_key": "report_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "report_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "report_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "sector",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "industrial_ai",
+            "logistics_ai",
+            "robotics"
+          ],
+          "desc": "sector (str)"
+        },
+        {
+          "name": "published_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "published_at (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "solution_aliases",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "solution_aliases (list)"
+        },
+        {
+          "name": "content",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "content (str)"
+        }
+      ],
+      "desc": "collection file data/reports/reports.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "report_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/reports/reports.json",
+          "record_key": "report_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "presentation_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/presentations/presentations.json",
+          "record_key": "presentation_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "media_sample_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/media_samples/media_samples.json",
+          "record_key": "sample_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_document_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/reports/reports.json",
+          "record_key": "report_id"
+        },
+        {
+          "file": "data/presentations/presentations.json",
+          "record_key": "presentation_id"
+        },
+        {
+          "file": "data/media_samples/media_samples.json",
+          "record_key": "sample_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "forbidden_document_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/reports/reports.json",
+          "record_key": "report_id"
+        },
+        {
+          "file": "data/presentations/presentations.json",
+          "record_key": "presentation_id"
+        },
+        {
+          "file": "data/media_samples/media_samples.json",
+          "record_key": "sample_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+id: wp_privilege_export_guard_env__008
+asset: wp_privilege_export_guard_env__008
+type: workplace
+prompt_path: tasks/prompts/wp_privilege_export_guard_env__008.md
+runtime:
+  cwd: assets/wp_privilege_export_guard_env__008
+  allowed_actions:
+    - read
+    - write
+    - grep
+    - find
+    - finish

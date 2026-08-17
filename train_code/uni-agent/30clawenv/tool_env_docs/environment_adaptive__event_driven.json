@@ -1,0 +1,260 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_source",
+    "description": "Register a new event source to monitor.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique name for the source (e.g., 'weather_api_nyc')."
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Type of source — must be one of VALID_TRIGGER_TYPES."
+        },
+        "config": {
+          "type": "dict",
+          "description": "Optional configuration for the source."
+        }
+      },
+      "required": [
+        "name",
+        "source_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_sources",
+    "description": "List all registered event sources and their status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_rule",
+    "description": "Create an automation rule for adaptive environmental control.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable rule name."
+        },
+        "trigger_type": {
+          "type": "string",
+          "description": "Event type that triggers evaluation."
+        },
+        "condition_field": {
+          "type": "string",
+          "description": "Field in the event payload to evaluate."
+        },
+        "condition_op": {
+          "type": "string",
+          "description": "Comparison operator — eq, neq, gt, lt, gte, lte, contains, matches."
+        },
+        "condition_value": {
+          "type": "string",
+          "description": "Value to compare against."
+        },
+        "actions": {
+          "type": "array",
+          "description": "Ordered list of adjustment actions to execute. Each action has 'type' and 'params'."
+        },
+        "source_filter": {
+          "type": "string",
+          "description": "[Optional] Only trigger from this specific source name."
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Rule priority (1=highest, 5=lowest). Defaults to 1."
+        }
+      },
+      "required": [
+        "name",
+        "trigger_type",
+        "condition_field",
+        "condition_op",
+        "condition_value",
+        "actions"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_rule",
+    "description": "Update fields of an existing rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to update."
+        },
+        "updates": {
+          "type": "dict",
+          "description": "Fields to change. Allowed keys: name, enabled, trigger_type, condition, actions, source_filter, priority."
+        }
+      },
+      "required": [
+        "rule_id",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "delete_rule",
+    "description": "Delete an automation rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to delete."
+        }
+      },
+      "required": [
+        "rule_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_rules",
+    "description": "List all configured rules.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "enabled_only": {
+          "type": "boolean",
+          "description": "If True, return only enabled rules. Defaults to False."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "inject_event",
+    "description": "Inject a simulated event from a monitored source. The environment evaluates",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Name of the registered source emitting the event."
+        },
+        "event_type": {
+          "type": "string",
+          "description": "Type of the event (must match a valid trigger_type)."
+        },
+        "payload": {
+          "type": "dict",
+          "description": "Arbitrary key-value data describing the event."
+        }
+      },
+      "required": [
+        "source",
+        "event_type",
+        "payload"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_event_log",
+    "description": "Retrieve filtered event history.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "[Optional] Filter by source name."
+        },
+        "event_type": {
+          "type": "string",
+          "description": "[Optional] Filter by event type."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum events to return. Defaults to 20."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_action_log",
+    "description": "Retrieve history of executed adaptive control actions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "Maximum actions to return. Defaults to 50."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_current_metrics",
+    "description": "Get current environmental metrics and energy statistics.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

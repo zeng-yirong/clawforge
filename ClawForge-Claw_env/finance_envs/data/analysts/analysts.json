@@ -1,0 +1,8 @@
+{
+  "analysts": [
+    {"analyst_id": "analyst_1", "name": "Sarah Chen", "firm": "InvestWise Research", "coverage": ["TECH", "NXTC"], "rating": "Senior"},
+    {"analyst_id": "analyst_2", "name": "Mike Johnson", "firm": "InvestWise Research", "coverage": ["HLTH", "FNS"], "rating": "Analyst"},
+    {"analyst_id": "analyst_3", "name": "Tom Davis", "firm": "Global Equities", "coverage": ["TECH", "MFST"], "rating": "Senior"},
+    {"analyst_id": "analyst_4", "name": "Emily Brown", "firm": "Capital Markets", "coverage": ["ENGY", "CONS"], "rating": "Associate"}
+  ]
+}

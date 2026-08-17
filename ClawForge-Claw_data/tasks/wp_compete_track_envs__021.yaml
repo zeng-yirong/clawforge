@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_compete_track_envs__021.md
+asset: wp_compete_track_envs__021
+runtime:
+  python: "3.10"
+  packages: []

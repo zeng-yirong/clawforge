@@ -1,0 +1,5 @@
+prompt_path: tasks/prompts/wp_mail_client_envs__006.md
+asset: wp_mail_client_envs__006
+runtime:
+  workspace: ./
+  max_timeout: 600

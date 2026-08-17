@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_flight_delay_envs__020.md
+asset: wp_flight_delay_envs__020
+runtime:
+  python: "3.10"

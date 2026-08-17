@@ -1,0 +1,13 @@
+name: Resume Interview Scheduler – Match & Schedule
+asset: wp_resume_interview_scheduler_env__022
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__022.md
+runtime:
+  cwd: assets/wp_resume_interview_scheduler_env__022
+  tools:
+    - name: read
+    - name: write
+    - name: list
+    - name: grep
+    - name: find
+    - name: edit
+    - name: finish

@@ -1,0 +1,7 @@
+version: "1.0"
+tasks:
+  - path: tasks/prompts/wp_onboarding_asset_access_env__026.md
+    asset: wp_onboarding_asset_access_env__026
+    runtime:
+      type: workplace
+      workspace: assets/wp_onboarding_asset_access_env__026

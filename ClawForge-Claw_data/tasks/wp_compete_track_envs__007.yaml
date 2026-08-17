@@ -1,0 +1,11 @@
+task_id: wp_compete_track_envs__007
+asset: wp_compete_track_envs__007
+prompt: tasks/prompts/wp_compete_track_envs__007.md
+runtime:
+  python: "3.10"
+  cwd: assets/wp_compete_track_envs__007
+  workspace:
+    init:
+      - run: python tasks/wp_compete_track_envs__007/env_builder.py
+    verify:
+      - run: python scripts/wp_compete_track_envs__007/verify_workplace.py {workspace}

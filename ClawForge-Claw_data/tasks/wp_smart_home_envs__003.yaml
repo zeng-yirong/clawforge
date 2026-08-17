@@ -1,0 +1,8 @@
+name: smart_home_health_conflict_analysis
+asset: wp_smart_home_envs__003
+prompt: tasks/prompts/wp_smart_home_envs__003.md
+runtime:
+  node: "18"
+  path: ["."]
+  commands: []
+dependencies: []

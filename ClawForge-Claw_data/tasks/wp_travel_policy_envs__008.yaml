@@ -1,0 +1,7 @@
+# nanoclaw schema for workplace task
+task_type: workplace
+asset: wp_travel_policy_envs__008
+prompt_path: tasks/prompts/wp_travel_policy_envs__008.md
+runtime:
+  python_version: ">=3.9"
+  dependencies: []

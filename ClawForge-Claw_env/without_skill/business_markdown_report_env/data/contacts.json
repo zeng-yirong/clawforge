@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "ops_dir_001",
+      "name": "Holly Ren",
+      "role": "Business Ops Director",
+      "email": "holly.ren@northstar.example.com"
+    }
+  ]
+}

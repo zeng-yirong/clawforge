@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "biz_ops_reporting",
+      "display_name": "Business Ops Reporting",
+      "department": "Business Operations",
+      "email": "biz-ops-reporting@northstar.example.com",
+      "permissions": ["view_ledgers", "generate_markdown_reports", "view_cache"]
+    }
+  ]
+}

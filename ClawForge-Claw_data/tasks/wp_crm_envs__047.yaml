@@ -1,0 +1,5 @@
+task_id: wp_crm_envs__047
+prompt: prompts/wp_crm_envs__047.md
+asset: wp_crm_envs__047
+environment:
+  cwd: "."

@@ -1,0 +1,14 @@
+{
+  "scenario_id": "experiment_diff_record_q2_2026",
+  "title": "Generate experiment difference record",
+  "task_prompt": "Compare the configured experiment batches, compute the metric deltas, and store the difference record in the environment record store.",
+  "current_time": "2026-06-23T13:30:00Z",
+  "workspace_account_id": "lab_eval_ops",
+  "target_batch_ids": ["batch_alpha", "batch_beta"],
+  "expected_diff": {
+    "accuracy_delta": 0.019,
+    "latency_delta": 13.0,
+    "cost_delta": 2.6
+  },
+  "required_actions": ["get_batch", "generate_diff_record"]
+}

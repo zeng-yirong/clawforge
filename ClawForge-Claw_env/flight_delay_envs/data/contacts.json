@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "contact_id": "contact_john",
+      "name": "John Smith",
+      "email": "john.smith@example.com",
+      "phone": "+1-555-0101"
+    },
+    {
+      "contact_id": "contact_jane",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com",
+      "phone": "+1-555-0102"
+    },
+    {
+      "contact_id": "contact_mike",
+      "name": "Mike Johnson",
+      "email": "mike.johnson@example.com",
+      "phone": "+1-555-0103"
+    }
+  ]
+}

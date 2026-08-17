@@ -1,0 +1,22 @@
+{
+  "regions": [
+    {
+      "region_id": "reg_001",
+      "name": "北京市中心",
+      "center": {"lat": 39.9042, "lon": 116.4074},
+      "radius_km": 15
+    },
+    {
+      "region_id": "reg_002",
+      "name": "朝阳区",
+      "center": {"lat": 39.9269, "lon": 116.4467},
+      "radius_km": 10
+    },
+    {
+      "region_id": "reg_003",
+      "name": "海淀区",
+      "center": {"lat": 39.9811, "lon": 116.3120},
+      "radius_km": 12
+    }
+  ]
+}

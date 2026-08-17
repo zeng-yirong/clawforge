@@ -1,0 +1,18 @@
+name: "Business Markdown Report – Q3 Metric Summary"
+description: "Generate a Markdown report with a JSON block aggregating Q3 metrics from customer, ops, and product ledgers."
+asset: wp_business_markdown_report_env__016
+prompt: tasks/prompts/wp_business_markdown_report_env__016.md
+runtime:
+  cwd: assets/wp_business_markdown_report_env__016
+  actions:
+    - read
+    - task
+    - list-scenarios
+    - find
+    - list-ledgers
+    - grep
+    - preview-ledger
+    - aggregate-period-metrics
+    - generate-markdown-report
+    - edit
+    - finish

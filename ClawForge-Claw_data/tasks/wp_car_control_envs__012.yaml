@@ -1,0 +1,12 @@
+task_name: wp_car_control_envs__012
+asset: wp_car_control_envs__012
+agent_home: workspace
+prompt_path: tasks/prompts/wp_car_control_envs__012.md
+runtime:
+  cwd: assets/wp_car_control_envs__012
+  env:
+    - name: PYTHONPATH
+      value: /tasks/wp_car_control_envs__012
+  timeout_seconds: 120
+outputs:
+  - ops/fan_speed.json

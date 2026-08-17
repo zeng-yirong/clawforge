@@ -1,0 +1,35 @@
+{
+  "competitor_id": "comp_002",
+  "name": "CloudMajor",
+  "description": "Major cloud computing provider with strong presence in North America and Europe.",
+  "sector": "Cloud Computing",
+  "market_cap": 620000000000,
+  "market_share": 0.19,
+  "revenue": 89000000000,
+  "user_count": 18000000,
+  "growth_rate": 0.15,
+  "financials": {
+    "pe_ratio": 28.2,
+    "profit_margin": 0.21,
+    "debt_to_equity": 0.52,
+    "revenue_growth_yoy": 0.15,
+    "quarterly_earnings": [
+      {"quarter": "Q1 2026", "revenue": 21000000000, "net_income": 4410000000},
+      {"quarter": "Q2 2026", "revenue": 23000000000, "net_income": 4830000000}
+    ]
+  },
+  "products": [
+    {"product_id": "prod_004", "name": "CloudMajor Compute", "category": "IaaS", "market_share": 0.20},
+    {"product_id": "prod_005", "name": "CloudMajor Storage", "category": "Storage", "market_share": 0.24}
+  ],
+  "news": [
+    {
+      "news_id": "news_comp_003",
+      "title": "CloudMajor expands data center footprint",
+      "category": "expansion",
+      "sentiment": "positive",
+      "published_at": "2026-06-09T10:00:00Z",
+      "summary": "CloudMajor announced plans to open 5 new data centers across Asia Pacific region."
+    }
+  ]
+}

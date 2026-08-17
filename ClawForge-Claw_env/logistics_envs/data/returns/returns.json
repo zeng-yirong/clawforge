@@ -1,0 +1,79 @@
+{
+  "returns": [
+    {
+      "return_id": "ret_001",
+      "order_id": "ord_006",
+      "customer_id": "c_customer_002",
+      "reason": "Product defective - audio cutting out",
+      "requested_at": "2026-06-12T10:00:00+00:00",
+      "status": "approved",
+      "items": [
+        {"sku": "SKU-1001", "name": "Wireless Bluetooth Headphones", "quantity": 1}
+      ],
+      "refund_amount": 79.99,
+      "return_tracking_number": "RET001",
+      "inspection_notes": null,
+      "resolution": null
+    },
+    {
+      "return_id": "ret_002",
+      "order_id": "ord_008",
+      "customer_id": "c_customer_004",
+      "reason": "Changed mind - no longer needed",
+      "requested_at": "2026-06-10T14:30:00+00:00",
+      "status": "received",
+      "items": [
+        {"sku": "SKU-7001", "name": "Laptop Stand Aluminum", "quantity": 1}
+      ],
+      "refund_amount": 89.99,
+      "return_tracking_number": "RET002",
+      "inspection_notes": "Item returned in original condition",
+      "resolution": "refund_approved"
+    },
+    {
+      "return_id": "ret_003",
+      "order_id": "ord_003",
+      "customer_id": "c_customer_003",
+      "reason": "Wrong item received - ordered 27-inch, received 24-inch",
+      "requested_at": "2026-06-14T09:15:00+00:00",
+      "status": "pending_inspection",
+      "items": [
+        {"sku": "SKU-3001", "name": "4K Monitor 27-inch", "quantity": 1}
+      ],
+      "refund_amount": 349.99,
+      "return_tracking_number": "RET003",
+      "inspection_notes": null,
+      "resolution": null
+    },
+    {
+      "return_id": "ret_004",
+      "order_id": "ord_009",
+      "customer_id": "c_customer_001",
+      "reason": "Item not as described",
+      "requested_at": "2026-06-11T16:45:00+00:00",
+      "status": "rejected",
+      "items": [
+        {"sku": "SKU-8001", "name": "USB Hub 7-Port", "quantity": 1}
+      ],
+      "refund_amount": 45.99,
+      "return_tracking_number": null,
+      "inspection_notes": null,
+      "resolution": "rejected - past 30-day return window"
+    },
+    {
+      "return_id": "ret_005",
+      "order_id": "ord_001",
+      "customer_id": "c_customer_001",
+      "reason": "Cable defective - frayed wire",
+      "requested_at": "2026-06-16T08:00:00+00:00",
+      "status": "pending_review",
+      "items": [
+        {"sku": "SKU-1002", "name": "USB-C Charging Cable", "quantity": 2}
+      ],
+      "refund_amount": 25.98,
+      "return_tracking_number": "RET005",
+      "inspection_notes": null,
+      "resolution": null
+    }
+  ]
+}

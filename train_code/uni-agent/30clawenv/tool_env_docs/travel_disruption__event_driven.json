@@ -1,0 +1,557 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_source",
+    "description": "Register a new flight or travel data source to monitor.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique name for the source (e.g., 'airline_api_CA', 'airport_flightradar')."
+        },
+        "source_type": {
+          "type": "string",
+          "description": "Type of events this source emits. Must be one of the valid trigger types: flight_delay, flight_cancel, flight_update, gate_change, baggage_alert, weather_disruption, connection_risk."
+        }
+      },
+      "required": [
+        "name",
+        "source_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_sources",
+    "description": "List all registered travel data sources and their current status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "deactivate_source",
+    "description": "Deactivate a registered source so its events are no longer processed.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the source to deactivate."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_itinerary",
+    "description": "Create a travel itinerary record to be monitored for disruptions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "Unique identifier for this itinerary (e.g., 'ITIN-2024-001')."
+        },
+        "traveler_name": {
+          "type": "string",
+          "description": "Full name of the traveler."
+        },
+        "flight_number": {
+          "type": "string",
+          "description": "Flight number (e.g., 'CA1234')."
+        },
+        "origin": {
+          "type": "string",
+          "description": "IATA code of the departure airport (e.g., 'PEK')."
+        },
+        "destination": {
+          "type": "string",
+          "description": "IATA code of the arrival airport (e.g., 'SHA')."
+        },
+        "scheduled_departure": {
+          "type": "string",
+          "description": "Scheduled departure time (e.g., '2024-06-15T08:00')."
+        },
+        "scheduled_arrival": {
+          "type": "string",
+          "description": "Scheduled arrival time (e.g., '2024-06-15T10:30')."
+        },
+        "participant_emails": {
+          "type": "array",
+          "description": "Email addresses of meeting participants who should be notified of any disruptions."
+        }
+      },
+      "required": [
+        "itinerary_id",
+        "traveler_name",
+        "flight_number",
+        "origin",
+        "destination",
+        "scheduled_departure",
+        "scheduled_arrival",
+        "participant_emails"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_itinerary",
+    "description": "Retrieve a specific itinerary by its ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "The unique itinerary identifier."
+        }
+      },
+      "required": [
+        "itinerary_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_itineraries",
+    "description": "List all stored itineraries, optionally filtered by status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by itinerary status. Valid values: on_time, delayed, cancelled, completed."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_hotel_booking",
+    "description": "Create a hotel booking record linked to a travel itinerary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "The itinerary this booking belongs to."
+        },
+        "hotel_name": {
+          "type": "string",
+          "description": "Name of the hotel (e.g., 'Marriott Shanghai')."
+        },
+        "checkin_time": {
+          "type": "string",
+          "description": "Scheduled check-in time (e.g., '2024-06-15T15:00')."
+        },
+        "checkout_time": {
+          "type": "string",
+          "description": "Scheduled check-out time (e.g., '2024-06-17T12:00')."
+        },
+        "room_type": {
+          "type": "string",
+          "description": "Room category (e.g., 'Deluxe King', 'Standard Twin')."
+        },
+        "confirmation_number": {
+          "type": "string",
+          "description": "Hotel confirmation/reservation number."
+        }
+      },
+      "required": [
+        "itinerary_id",
+        "hotel_name",
+        "checkin_time",
+        "checkout_time",
+        "room_type",
+        "confirmation_number"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "modify_hotel_checkin",
+    "description": "Modify the check-in time of an existing hotel booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "booking_id": {
+          "type": "string",
+          "description": "The hotel booking ID to modify (e.g., 'HTL-0001')."
+        },
+        "new_checkin_time": {
+          "type": "string",
+          "description": "The new check-in time (e.g., '2024-06-15T19:00')."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for the modification (e.g., 'Flight CA1234 delayed by 240 min')."
+        }
+      },
+      "required": [
+        "booking_id",
+        "new_checkin_time",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_hotel_booking",
+    "description": "Cancel an existing hotel booking.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "booking_id": {
+          "type": "string",
+          "description": "The hotel booking ID to cancel."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for cancellation."
+        }
+      },
+      "required": [
+        "booking_id",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_hotel_bookings",
+    "description": "List hotel bookings, optionally filtered by itinerary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "[Optional] Filter bookings by itinerary ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_pickup_reservation",
+    "description": "Create an airport pickup reservation linked to a travel itinerary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "The itinerary this pickup belongs to."
+        },
+        "driver_name": {
+          "type": "string",
+          "description": "Name of the assigned driver or service provider."
+        },
+        "vehicle_type": {
+          "type": "string",
+          "description": "Type of vehicle (e.g., 'Sedan', 'SUV', 'Van')."
+        },
+        "pickup_location": {
+          "type": "string",
+          "description": "Pickup point (e.g., 'PVG Terminal 2 Arrivals')."
+        },
+        "pickup_time": {
+          "type": "string",
+          "description": "Scheduled pickup time (e.g., '2024-06-15T11:00')."
+        },
+        "dropoff_location": {
+          "type": "string",
+          "description": "Drop-off destination (e.g., 'Marriott Shanghai')."
+        },
+        "contact_phone": {
+          "type": "string",
+          "description": "Driver or service contact phone number."
+        }
+      },
+      "required": [
+        "itinerary_id",
+        "driver_name",
+        "vehicle_type",
+        "pickup_location",
+        "pickup_time",
+        "dropoff_location",
+        "contact_phone"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reschedule_pickup",
+    "description": "Reschedule an existing airport pickup reservation to a new time.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pickup_id": {
+          "type": "string",
+          "description": "The pickup reservation ID to reschedule (e.g., 'PKP-0001')."
+        },
+        "new_pickup_time": {
+          "type": "string",
+          "description": "The new pickup time (e.g., '2024-06-15T15:30')."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for rescheduling (e.g., 'Flight CA1234 delayed by 240 min')."
+        }
+      },
+      "required": [
+        "pickup_id",
+        "new_pickup_time",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "cancel_pickup",
+    "description": "Cancel an existing airport pickup reservation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "pickup_id": {
+          "type": "string",
+          "description": "The pickup reservation ID to cancel."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for cancellation."
+        }
+      },
+      "required": [
+        "pickup_id",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_pickup_reservations",
+    "description": "List pickup reservations, optionally filtered by itinerary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "[Optional] Filter reservations by itinerary ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "send_delay_notification",
+    "description": "Send a delay notification email to meeting participants of an itinerary.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "The itinerary whose participants should be notified."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Email subject line."
+        },
+        "message": {
+          "type": "string",
+          "description": "Email body content describing the disruption and impact."
+        },
+        "recipient_emails": {
+          "type": "array",
+          "description": "[Optional] Override recipient list. If omitted, uses the participant_emails from the itinerary."
+        }
+      },
+      "required": [
+        "itinerary_id",
+        "subject",
+        "message"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_notification_log",
+    "description": "Retrieve the history of sent notifications.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "itinerary_id": {
+          "type": "string",
+          "description": "[Optional] Filter notifications by itinerary ID."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum number of notifications to return. Defaults to 50."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_rule",
+    "description": "Create an automation rule that responds to travel disruption events.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable rule name (e.g., 'Delay >2h: modify hotel checkin')."
+        },
+        "trigger_type": {
+          "type": "string",
+          "description": "Event type that activates this rule. Must be one of: flight_delay, flight_cancel, flight_update, gate_change, baggage_alert, weather_disruption, connection_risk."
+        },
+        "condition_field": {
+          "type": "string",
+          "description": "Field in the event payload to evaluate (e.g., 'delay_minutes', 'flight_number', 'severity')."
+        },
+        "condition_op": {
+          "type": "string",
+          "description": "Comparison operator — eq, neq, gt, lt, gte, lte, contains, matches."
+        },
+        "condition_value": {
+          "type": "string",
+          "description": "Value to compare against (e.g., '120' for 2 hours)."
+        },
+        "actions": {
+          "type": "array",
+          "description": "Ordered list of actions to execute when condition is met. Each action must have 'type' (one of the valid action types) and 'params' dict. Valid action types: modify_hotel_checkin, cancel_hotel_booking, reschedule_pickup, cancel_pickup, send_delay_notification, send_cancellation_notification, update_itinerary, log_alert."
+        },
+        "source_filter": {
+          "type": "string",
+          "description": "[Optional] Only trigger from this specific registered source."
+        }
+      },
+      "required": [
+        "name",
+        "trigger_type",
+        "condition_field",
+        "condition_op",
+        "condition_value",
+        "actions"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_rule",
+    "description": "Update fields of an existing automation rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to update."
+        },
+        "updates": {
+          "type": "dict",
+          "description": "Fields to change. Allowed keys: name, enabled, trigger_type, condition, actions, source_filter."
+        }
+      },
+      "required": [
+        "rule_id",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "delete_rule",
+    "description": "Delete an automation rule permanently.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to delete."
+        }
+      },
+      "required": [
+        "rule_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,12 @@
+asset: wp_prompt_key_guard_env__004
+prompt_path: tasks/prompts/wp_prompt_key_guard_env__004.md
+runtime:
+  workspace_type: file
+  max_time_seconds: 600
+  allowed_modules:
+    - json
+    - csv
+    - os
+    - re
+    - pathlib
+    - shutil

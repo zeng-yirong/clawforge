@@ -1,0 +1,6 @@
+task:
+  prompt: tasks/prompts/wp_customer_tier_label_env__040.md
+  asset: wp_customer_tier_label_env__040
+  runtime:
+    image: python:3.10
+    command: python -m agents.workplace

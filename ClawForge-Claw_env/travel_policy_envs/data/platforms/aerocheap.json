@@ -1,0 +1,21 @@
+{
+  "platform_id": "aerocheap",
+  "name": "AeroCheap",
+  "region": "Asia Pacific",
+  "is_active": true,
+  "transaction_fee": 0.015,
+  "service_fee": 8.0,
+  "payment_methods": ["Credit Card", "Alipay", "WeChat Pay"],
+  "cancellation_policy": "No refund on business/first class, 50% on economy",
+  "discounts": [
+    {"code": "ASIA20", "description": "20% Asia routes", "min_booking": 400}
+  ],
+  "promotions": [
+    {"title": "Flash Sale", "discount_percent": 25, "conditions": "Limited seats available"}
+  ],
+  "loyalty_program": {
+    "name": "AeroPoints",
+    "points_per_dollar": 3,
+    "redemption_rate": 0.008
+  }
+}

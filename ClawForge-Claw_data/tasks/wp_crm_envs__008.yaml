@@ -1,0 +1,7 @@
+task_id: wp_crm_envs__008
+name: CRM Birthday Reminder Audit
+asset: wp_crm_envs__008
+prompt: tasks/prompts/wp_crm_envs__008.md
+runtime:
+  python: "3.10"
+  cwd: assets/wp_crm_envs__008/

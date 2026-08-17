@@ -1,0 +1,10 @@
+name: wp_compete_track_envs__011
+description: "竞争情报追踪任务：分析欧盟高影响政策对主要竞争对手获客成本及市场份额的影响"
+asset: wp_compete_track_envs__011
+prompt: prompts/wp_compete_track_envs__011.md
+runtime:
+  type: python
+  image: python:3.10-slim
+  command: |
+    python -c "import os, sys; sys.exit(0)"
+  workdir: /workspace

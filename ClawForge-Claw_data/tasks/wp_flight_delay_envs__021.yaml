@@ -1,0 +1,7 @@
+task_id: wp_flight_delay_envs__021
+prompt_path: tasks/prompts/wp_flight_delay_envs__021.md
+asset: wp_flight_delay_envs__021
+runtime:
+  type: python
+  version: "3.10"
+  requirements: []

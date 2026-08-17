@@ -1,0 +1,97 @@
+{
+  "env_name": "itinerary_envs",
+  "rel_path": "itinerary_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "department",
+        "employee_id",
+        "preferences",
+        "preferred_currency",
+        "profile_name"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/transportation.json",
+      "kind": "collection",
+      "wrapper_key": "routes",
+      "record_key": "route_id",
+      "count": 12,
+      "fields": [
+        {
+          "name": "route_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "route_id (str)"
+        },
+        {
+          "name": "origin",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "BJS",
+            "SHA"
+          ],
+          "desc": "origin (str)"
+        },
+        {
+          "name": "destination",
+          "type": "str",
+          "required": true,
+          "desc": "destination (str)"
+        },
+        {
+          "name": "distance_km",
+          "type": "int",
+          "required": true,
+          "desc": "distance_km (int)"
+        },
+        {
+          "name": "high_speed_train",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "duration_min",
+            "frequency",
+            "price_cny"
+          ],
+          "desc": "high_speed_train (dict)"
+        },
+        {
+          "name": "direct_flight",
+          "type": "dict",
+          "required": false,
+          "dict_keys": [
+            "duration_min",
+            "frequency",
+            "price_cny"
+          ],
+          "desc": "direct_flight (dict)"
+        },
+        {
+          "name": "普通火车",
+          "type": "dict",
+          "required": false,
+          "dict_keys": [
+            "duration_min",
+            "frequency",
+            "price_cny"
+          ],
+          "desc": "普通火车 (dict)"
+        }
+      ],
+      "desc": "collection file data/transportation.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

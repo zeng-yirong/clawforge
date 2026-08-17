@@ -1,0 +1,32 @@
+{
+  "contacts": [
+    {
+      "contact_id": "contact_001",
+      "name": "John Smith",
+      "role": "Security Manager",
+      "phone": "+1-555-0101",
+      "email": "john.smith@example.com"
+    },
+    {
+      "contact_id": "contact_002",
+      "name": "Emergency Services",
+      "role": "Police",
+      "phone": "911",
+      "email": null
+    },
+    {
+      "contact_id": "contact_003",
+      "name": "Local Police Precinct",
+      "role": "Police Non-Emergency",
+      "phone": "+1-555-0199",
+      "email": "police.precinct@example.com"
+    },
+    {
+      "contact_id": "contact_004",
+      "name": "Security Company",
+      "role": "Monitoring Service",
+      "phone": "+1-800-555-0123",
+      "email": "monitoring@securityco.com"
+    }
+  ]
+}

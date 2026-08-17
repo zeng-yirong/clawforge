@@ -1,0 +1,278 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compare_transport",
+      "required_args": [
+        "--route-result"
+      ],
+      "id": "compare-transport"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_itinerary",
+      "required_args": [
+        "--routes"
+      ],
+      "id": "generate-itinerary"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_cities",
+      "required_args": [],
+      "id": "list-cities"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "load_city",
+      "required_args": [
+        "--city-id"
+      ],
+      "id": "load-city"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "optimize_route",
+      "required_args": [],
+      "id": "optimize-route"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "plan_transfer",
+      "required_args": [
+        "--origin",
+        "--destination"
+      ],
+      "id": "plan-transfer"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "search_routes",
+      "required_args": [
+        "--origin",
+        "--destination"
+      ],
+      "id": "search-routes"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-itinerary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-itinerary"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after comparing, often plan a multi-stop transfer",
+      "tier": "llm_weak",
+      "source": "compare-transport",
+      "target": "plan-transfer"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-itinerary",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-itinerary",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-itinerary",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating itinerary, often get session summary",
+      "tier": "llm_weak",
+      "source": "generate-itinerary",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cities",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cities",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, often search routes for that context",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "search-routes"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after loading a city, often search routes involving it",
+      "tier": "llm_weak",
+      "source": "load-city",
+      "target": "search-routes"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after optimizing, often generate itinerary",
+      "tier": "llm_weak",
+      "source": "optimize-route",
+      "target": "generate-itinerary"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after planning a transfer, often optimize route",
+      "tier": "llm_weak",
+      "source": "plan-transfer",
+      "target": "optimize-route"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-routes",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-routes",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after searching routes, often compare options",
+      "tier": "llm_weak",
+      "source": "search-routes",
+      "target": "compare-transport"
+    }
+  ]
+}

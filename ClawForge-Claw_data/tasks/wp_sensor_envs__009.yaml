@@ -1,0 +1,9 @@
+task_id: wp_sensor_envs__009
+asset: wp_sensor_envs__009
+prompt: tasks/prompts/wp_sensor_envs__009.md
+runtime:
+  cwd: assets/wp_sensor_envs__009
+  env:
+    - SENSOR_SESSION_ID=test-009
+    - SENSOR_STATE_ROOT=.
+    - SENSOR_SCENARIO_ID=sensor_monitoring

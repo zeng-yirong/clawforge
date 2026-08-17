@@ -1,0 +1,5 @@
+task_id: wp_confidential_doc_guard_env__048
+prompt: tasks/prompts/wp_confidential_doc_guard_env__048.md
+asset: wp_confidential_doc_guard_env__048
+runtime:
+  max_steps: 30

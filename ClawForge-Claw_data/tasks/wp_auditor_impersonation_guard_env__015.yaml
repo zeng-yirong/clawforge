@@ -1,0 +1,16 @@
+version: "1.0"
+asset: wp_auditor_impersonation_guard_env__015
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__015.md
+runtime:
+  cwd: "."
+  commands:
+    - type: file_operation
+      allowed: true
+    - type: read
+      allowed: true
+    - type: write
+      allowed: true
+    - type: deny_request
+      allowed: true
+env_builder: tasks/wp_auditor_impersonation_guard_env__015/env_builder.py
+verify: scripts/wp_auditor_impersonation_guard_env__015/verify_workplace.py

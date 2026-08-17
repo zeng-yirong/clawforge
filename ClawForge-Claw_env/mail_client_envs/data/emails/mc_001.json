@@ -1,0 +1,23 @@
+{
+  "id": "mc_001",
+  "thread_id": "th_meeting",
+  "folder": "inbox",
+  "sender_id": "c_boss",
+  "subject": "Q3 Planning Meeting - Urgent Action Required",
+  "timestamp": "2026-06-18T09:00:00+00:00",
+  "importance": "high",
+  "labels": ["work", "urgent"],
+  "has_read": false,
+  "body": "We need to finalize the Q3 planning by end of week. Please review the attached document and create a todo list with action items for the team. The main priorities are: 1) Feature roadmap review, 2) Resource allocation, 3) Timeline adjustment. Let me know if you have any questions.",
+  "attachments": [
+    {
+      "attachment_id": "mcatt_001",
+      "file_name": "Q3_Planning_Document.pdf",
+      "mime_type": "application/pdf",
+      "tags": ["planning", "q3"],
+      "relative_path": "attachments/Q3_Planning_Document.pdf.md"
+    }
+  ],
+  "auto_classify_suggestion": "work",
+  "auto_archive_candidates": []
+}

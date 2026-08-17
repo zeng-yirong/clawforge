@@ -1,0 +1,328 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "archive_reproduction_ledger",
+      "required_args": [
+        "--project-id",
+        "--steps",
+        "--result"
+      ],
+      "id": "archive-reproduction-ledger"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_project_doc",
+      "required_args": [
+        "--doc-id"
+      ],
+      "id": "get-project-doc"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_knowledge_entries",
+      "required_args": [],
+      "id": "list-knowledge-entries"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_project_docs",
+      "required_args": [],
+      "id": "list-project-docs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "archive-reproduction-ledger"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "archive-reproduction-ledger"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-reproduction-ledger",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "archive-reproduction-ledger",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "archive-reproduction-ledger",
+      "target": "finish"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_project_id_for",
+      "tier": "gold",
+      "source": "get-project-doc",
+      "target": "archive-reproduction-ledger"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-project-doc",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-project-doc",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after reading a doc, may list scenarios for that project",
+      "tier": "llm_weak",
+      "source": "get-project-doc",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after reading doc, may list related knowledge",
+      "tier": "llm_weak",
+      "source": "get-project-doc",
+      "target": "list-knowledge-entries"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-knowledge-entries",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-knowledge-entries",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing knowledge, may want to read associated doc",
+      "tier": "llm_weak",
+      "source": "list-knowledge-entries",
+      "target": "get-project-doc"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_doc_id_for",
+      "tier": "dataflow",
+      "source": "list-project-docs",
+      "target": "get-project-doc"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_project_id_for",
+      "tier": "dataflow",
+      "source": "list-project-docs",
+      "target": "archive-reproduction-ledger"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-project-docs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-project-docs",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing docs, may check related knowledge entries",
+      "tier": "llm_weak",
+      "source": "list-project-docs",
+      "target": "list-knowledge-entries"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, user may want to view a specific project doc",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "get-project-doc"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after summarizing session, may start a new task",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-project-doc"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-knowledge-entries"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-project-docs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after completing a task, often archive the ledger",
+      "tier": "llm_weak",
+      "source": "task",
+      "target": "archive-reproduction-ledger"
+    }
+  ]
+}

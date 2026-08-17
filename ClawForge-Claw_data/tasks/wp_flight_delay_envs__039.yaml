@@ -1,0 +1,6 @@
+version: "1.0"
+prompt: tasks/prompts/wp_flight_delay_envs__039.md
+asset: wp_flight_delay_envs__039
+runtime:
+  max_steps: 120
+  timeout: 300

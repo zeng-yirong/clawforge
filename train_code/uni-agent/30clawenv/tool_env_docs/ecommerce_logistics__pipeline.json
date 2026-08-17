@@ -1,0 +1,410 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the complete internal state of the current environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_warehouse",
+    "description": "Register a new warehouse.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "warehouse_id": {
+          "type": "string",
+          "description": "Unique warehouse identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Warehouse name"
+        },
+        "location": {
+          "type": "string",
+          "description": "Warehouse location (city)"
+        },
+        "capacity": {
+          "type": "integer",
+          "description": "Total warehouse capacity (in units)"
+        }
+      },
+      "required": [
+        "warehouse_id",
+        "name",
+        "location",
+        "capacity"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_warehouses",
+    "description": "List warehouses, with filtering by status and location.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by warehouse status"
+        },
+        "location": {
+          "type": "string",
+          "description": "Filter by warehouse location"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_product_to_warehouse",
+    "description": "Add product to warehouse or update inventory.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "warehouse_id": {
+          "type": "string",
+          "description": "Warehouse ID"
+        },
+        "product_id": {
+          "type": "string",
+          "description": "Product ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product name"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Quantity"
+        },
+        "threshold": {
+          "type": "integer",
+          "description": "Inventory alert threshold"
+        }
+      },
+      "required": [
+        "warehouse_id",
+        "product_id",
+        "name",
+        "quantity"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "check_low_stock",
+    "description": "Check all warehouses for low stock products.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "threshold_percentage": {
+          "type": "number",
+          "description": "Alert threshold percentage"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_order",
+    "description": "Create a new order.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "customer_id": {
+          "type": "string",
+          "description": "Customer ID"
+        },
+        "products": {
+          "type": "array",
+          "description": "Product list, each product contains: - product_id: Product ID - name: Product name - quantity: Quantity - price: Unit price"
+        },
+        "shipping_address": {
+          "type": "string",
+          "description": "Shipping address"
+        }
+      },
+      "required": [
+        "customer_id",
+        "products",
+        "shipping_address"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ship_order",
+    "description": "Create a logistics shipment record for an order.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Order ID"
+        },
+        "carrier": {
+          "type": "string",
+          "description": "Logistics carrier"
+        }
+      },
+      "required": [
+        "order_id",
+        "carrier"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "track_shipment",
+    "description": "Query logistics status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "identifier": {
+          "type": "string",
+          "description": "Shipment ID or tracking number"
+        },
+        "use_tracking_number": {
+          "type": "boolean",
+          "description": "Whether to use tracking number for query"
+        }
+      },
+      "required": [
+        "identifier"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "track_order_shipments",
+    "description": "Query all logistics records for an order.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Order ID"
+        }
+      },
+      "required": [
+        "order_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_return_ticket",
+    "description": "Create a return/exchange ticket.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Original order ID"
+        },
+        "customer_id": {
+          "type": "string",
+          "description": "Customer ID"
+        },
+        "products": {
+          "type": "array",
+          "description": "List of products to return/exchange, containing: - product_id: Product ID - name: Product name - quantity: Quantity - reason: Return/exchange reason"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Overall return/exchange reason"
+        },
+        "ticket_type": {
+          "type": "string",
+          "description": "Ticket type (return or exchange)"
+        }
+      },
+      "required": [
+        "order_id",
+        "customer_id",
+        "products",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_return_ticket",
+    "description": "Process a return/exchange ticket.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticket_id": {
+          "type": "string",
+          "description": "Ticket ID"
+        },
+        "action": {
+          "type": "string",
+          "description": "Processing action (approve, reject, cancel)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Processing notes"
+        }
+      },
+      "required": [
+        "ticket_id",
+        "action"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_return_tickets",
+    "description": "List return/exchange tickets.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by ticket status"
+        },
+        "ticket_type": {
+          "type": "string",
+          "description": "Filter by ticket type"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "perform_inventory_audit",
+    "description": "Perform an inventory audit.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "warehouse_id": {
+          "type": "string",
+          "description": "Warehouse ID"
+        },
+        "audit_type": {
+          "type": "string",
+          "description": "Audit type"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Audit notes"
+        }
+      },
+      "required": [
+        "warehouse_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reconcile_inventory",
+    "description": "Reconcile and adjust inventory.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "audit_id": {
+          "type": "string",
+          "description": "Audit record ID"
+        },
+        "auto_adjust": {
+          "type": "boolean",
+          "description": "Whether to automatically adjust inventory"
+        }
+      },
+      "required": [
+        "audit_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_logistics_report",
+    "description": "Generate a logistics operations report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "report_type": {
+          "type": "string",
+          "description": "Report type (daily, weekly, monthly)"
+        },
+        "warehouse_ids": {
+          "type": "array",
+          "description": "List of warehouse IDs, None means all warehouses"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_inventory_report",
+    "description": "Generate an inventory report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "format": {
+          "type": "string",
+          "description": "Report format (summary, detailed, low_stock)"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

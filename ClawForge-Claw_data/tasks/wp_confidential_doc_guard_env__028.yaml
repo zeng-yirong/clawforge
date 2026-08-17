@@ -1,0 +1,6 @@
+prompt: tasks/prompts/wp_confidential_doc_guard_env__028.md
+asset: wp_confidential_doc_guard_env__028
+runtime:
+  image: python:3.11
+  resources:
+    memory: 1Gi

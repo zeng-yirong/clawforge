@@ -1,0 +1,7 @@
+name: paper_citation_graph_022
+asset: wp_paper_citation_graph_env__022
+prompt: tasks/prompts/wp_paper_citation_graph_env__022.md
+runtime:
+  cwd: ./
+  timeout: 120
+  max_file_size: 10485760

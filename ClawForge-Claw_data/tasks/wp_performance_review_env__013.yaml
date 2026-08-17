@@ -1,0 +1,11 @@
+task:
+  name: "wp_performance_review_env__013"
+  asset: "wp_performance_review_env__013"
+  prompt_path: "tasks/prompts/wp_performance_review_env__013.md"
+  runtime:
+    workdir: "workplace"
+    cli: false
+    python: "3.11"
+  environment:
+    type: "workplace"
+    workspace: true

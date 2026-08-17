@@ -1,0 +1,7 @@
+name: wp_confidential_doc_guard_env__040
+description: "Identify external unauthorized access requests to unpublished confidential documents and produce a deny list."
+asset: wp_confidential_doc_guard_env__040
+prompt: tasks/prompts/wp_confidential_doc_guard_env__040.md
+runtime:
+  workspace: /workspace
+  timeout: 300

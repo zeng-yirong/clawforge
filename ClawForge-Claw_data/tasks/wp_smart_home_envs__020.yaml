@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_smart_home_envs__020.md
+asset: wp_smart_home_envs__020
+runtime:
+  language: python
+  version: "3.11"

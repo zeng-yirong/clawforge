@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "soc_lead_001",
+      "name": "Mina Zhou",
+      "role": "SOC Lead",
+      "email": "mina.zhou@northstar.example.com"
+    }
+  ]
+}

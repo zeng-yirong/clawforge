@@ -1,0 +1,6 @@
+version: '1.0'
+asset: wp_smart_home_envs__009
+prompt: tasks/prompts/wp_smart_home_envs__009.md
+runtime:
+  language: python
+  entry: tasks/wp_smart_home_envs__009/env_builder.py

@@ -1,0 +1,8 @@
+version: '1.0'
+asset: wp_customer_tier_label_env__037
+prompt_path: tasks/prompts/wp_customer_tier_label_env__037.md
+runtime:
+  workspace: .
+  resources:
+    cpu: 1
+    memory: 512

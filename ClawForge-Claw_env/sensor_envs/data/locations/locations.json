@@ -1,0 +1,28 @@
+{
+  "locations": [
+    {
+      "location_id": "loc_lobby",
+      "location_name": "Main Lobby",
+      "floor": 1,
+      "sensors": ["temp_001", "humidity_001", "energy_001"]
+    },
+    {
+      "location_id": "loc_office",
+      "location_name": "Office Area",
+      "floor": 2,
+      "sensors": ["temp_002", "humidity_002", "air_001", "energy_002"]
+    },
+    {
+      "location_id": "loc_server_room",
+      "location_name": "Server Room",
+      "floor": 1,
+      "sensors": ["temp_003", "air_002"]
+    },
+    {
+      "location_id": "loc_warehouse",
+      "location_name": "Warehouse",
+      "floor": 1,
+      "sensors": ["energy_003"]
+    }
+  ]
+}

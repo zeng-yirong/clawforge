@@ -1,0 +1,28 @@
+{
+  "policy_id": "pol_003",
+  "title": "Global Data Privacy Framework",
+  "description": "International agreement on cross-border data transfer requirements and user consent mechanisms.",
+  "policy_type": "privacy",
+  "jurisdiction": "Global",
+  "status": "active",
+  "impact_level": "high",
+  "full_text": "The Global Data Privacy Framework establishes unified standards for cross-border data transfers, requiring explicit user consent and data localization options.",
+  "summary": "Standardizes cross-border data transfer requirements internationally.",
+  "impact": {
+    "affected_competitors": ["comp_001", "comp_002", "comp_003", "comp_004"],
+    "key_requirements": [
+      "Explicit user consent for data transfers",
+      "Data localization options",
+      "Cross-border transfer impact assessments"
+    ],
+    "deadline": "2026-06-01T00:00:00Z",
+    "compliance_cost_estimate": 75000000
+  },
+  "changes": [
+    {
+      "change_type": "amendment",
+      "date": "2026-04-10",
+      "description": "Added provisions for emerging markets exemption"
+    }
+  ]
+}

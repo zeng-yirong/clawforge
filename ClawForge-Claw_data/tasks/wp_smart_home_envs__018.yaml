@@ -1,0 +1,7 @@
+name: wp_smart_home_envs__018
+asset: wp_smart_home_envs__018
+prompt: tasks/prompts/wp_smart_home_envs__018.md
+runtime:
+  timeout: 120
+  requirements:
+    - python3

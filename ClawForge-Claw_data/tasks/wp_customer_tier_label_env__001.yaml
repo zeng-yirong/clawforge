@@ -1,0 +1,7 @@
+name: wp_customer_tier_label_env__001
+description: "基于消费和活跃数据重新计算客户层级标签"
+prompt: tasks/prompts/wp_customer_tier_label_env__001.md
+asset: wp_customer_tier_label_env__001
+runtime:
+  python: "3.10"
+  workdir: "assets/wp_customer_tier_label_env__001"

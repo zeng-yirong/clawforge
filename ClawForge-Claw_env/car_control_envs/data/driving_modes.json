@@ -1,0 +1,48 @@
+{
+  "driving_modes": [
+    {
+      "mode_id": "eco",
+      "name": "节能模式",
+      "description": "优化能耗，提高续航里程",
+      "characteristics": {
+        "power_response": "gradual",
+        "max_acceleration": 0.6,
+        "regen_braking": "high",
+        "ac_power": "reduced"
+      }
+    },
+    {
+      "mode_id": "comfort",
+      "name": "舒适模式",
+      "description": "平衡动力与能耗，提供舒适驾乘体验",
+      "characteristics": {
+        "power_response": "balanced",
+        "max_acceleration": 0.8,
+        "regen_braking": "medium",
+        "ac_power": "normal"
+      }
+    },
+    {
+      "mode_id": "sport",
+      "name": "运动模式",
+      "description": "最大动力输出，运动调校",
+      "characteristics": {
+        "power_response": "aggressive",
+        "max_acceleration": 1.0,
+        "regen_braking": "low",
+        "ac_power": "normal"
+      }
+    },
+    {
+      "mode_id": "individual",
+      "name": "个性化模式",
+      "description": "自定义各项设置",
+      "characteristics": {
+        "power_response": "customizable",
+        "max_acceleration": "customizable",
+        "regen_braking": "customizable",
+        "ac_power": "customizable"
+      }
+    }
+  ]
+}

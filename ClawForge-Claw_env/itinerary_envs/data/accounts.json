@@ -1,0 +1,12 @@
+{
+  "account_id": "acc_001",
+  "profile_name": "张三",
+  "employee_id": "EMP001",
+  "department": "技术研发部",
+  "preferred_currency": "CNY",
+  "preferences": {
+    "preferred_transport": "high_speed_train",
+    "max_travel_time_hours": 8,
+    "budget_priority": "balanced"
+  }
+}

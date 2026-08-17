@@ -1,0 +1,10 @@
+task_id: wp_arxiv_review_roadmap_env__009
+asset: wp_arxiv_review_roadmap_env__009
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__009.md
+runtime:
+  model: gpt-4
+  max_tokens: 4096
+  temperature: 0.1
+sandbox:
+  image: default
+  timeout: 300

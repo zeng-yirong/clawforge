@@ -1,0 +1,6 @@
+prompt: "tasks/prompts/wp_expense_envs__017.md"
+asset: "wp_expense_envs__017"
+runtime:
+  type: workplace
+  max_steps: 30
+  allow_scaffold: true

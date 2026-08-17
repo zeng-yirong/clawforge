@@ -1,0 +1,15 @@
+{
+  "id": "mc_007",
+  "thread_id": "th_spam",
+  "folder": "inbox",
+  "sender_id": "c_spam",
+  "subject": "Congratulations! You've won $1,000,000!",
+  "timestamp": "2026-06-15T03:00:00+00:00",
+  "importance": "low",
+  "labels": ["spam"],
+  "has_read": false,
+  "body": "Congratulations! You have been selected as the winner of our Lucky Draw! Click here to claim your prize of $1,000,000! This is not a scam. Act now!",
+  "attachments": [],
+  "auto_classify_suggestion": "spam",
+  "auto_archive_candidates": ["spam"]
+}

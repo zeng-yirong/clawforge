@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__049.md
+asset: wp_arxiv_review_roadmap_env__049
+runtime:
+  max_steps: 20
+  agent: default

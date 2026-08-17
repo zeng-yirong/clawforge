@@ -1,0 +1,8 @@
+task_id: wp_scheduling_envs__046
+prompt: tasks/prompts/wp_scheduling_envs__046.md
+asset: wp_scheduling_envs__046
+runtime:
+  max_steps: 20
+  workdir: /workspace
+extra:
+  session_type: file_workplace

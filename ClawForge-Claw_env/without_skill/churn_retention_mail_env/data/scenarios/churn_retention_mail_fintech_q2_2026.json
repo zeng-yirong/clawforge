@@ -1,0 +1,12 @@
+{
+  "scenario_id": "churn_retention_mail_fintech_q2_2026",
+  "title": "Generate retention email for high-risk fintech customer",
+  "task_prompt": "Use customer activity logs to identify the high-risk fintech customer, review the relevant industry news samples, and save a targeted retention email to cache.",
+  "current_time": "2026-06-23T11:00:00Z",
+  "workspace_account_id": "retention_ops",
+  "customer_ids": ["cust_fin_001", "cust_retail_001"],
+  "news_ids": ["news_fin_001", "news_fin_002"],
+  "target_customer_id": "cust_fin_001",
+  "expected_news_ids": ["news_fin_001", "news_fin_002"],
+  "required_actions": ["list_customers", "get_customer", "list_news_samples", "generate_retention_email"]
+}

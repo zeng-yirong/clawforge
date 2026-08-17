@@ -1,0 +1,5 @@
+asset: wp_travel_policy_envs__007
+prompt: prompts/wp_travel_policy_envs__007.md
+runtime:
+  python_version: "3.10"
+  max_time_seconds: 300

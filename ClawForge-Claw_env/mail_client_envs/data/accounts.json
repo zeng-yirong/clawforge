@@ -1,0 +1,23 @@
+{
+  "accounts": [
+    {
+      "account_id": "assistant_demo",
+      "display_name": "Demo Assistant",
+      "email_address": "assistant@demo.com",
+      "default_signature": "Demo Assistant",
+      "auto_classify_enabled": true,
+      "reply_templates_enabled": true,
+      "task_generation_enabled": true,
+      "folders": [
+        "inbox",
+        "archive",
+        "sent",
+        "drafts",
+        "trash",
+        "work",
+        "personal",
+        "urgent"
+      ]
+    }
+  ]
+}

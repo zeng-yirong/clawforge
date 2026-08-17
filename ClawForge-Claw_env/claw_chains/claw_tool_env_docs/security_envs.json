@@ -1,0 +1,681 @@
+{
+  "env_name": "security_envs",
+  "rel_path": "security_envs",
+  "cli_module": "security_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "SECURITY_SESSION_ID",
+    "state_env": "SECURITY_STATE_ROOT",
+    "scenario_env": "SECURITY_SCENARIO_ID",
+    "default_scenario_id": "intrusion_response"
+  },
+  "visible_verbs": [
+    {
+      "verb": "acknowledge",
+      "action": "acknowledge",
+      "role": "other",
+      "help": "Acknowledge an alert",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "alerts",
+      "action": "alerts",
+      "role": "other",
+      "help": "Alert management commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "arm",
+      "action": "arm",
+      "role": "other",
+      "help": "Arm a zone",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "arm-all",
+      "action": "arm_all",
+      "role": "other",
+      "help": "Arm all zones",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "check",
+      "action": "check",
+      "role": "other",
+      "help": "Check for intrusion",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "clip",
+      "action": "clip",
+      "role": "other",
+      "help": "Capture motion clip",
+      "args": [
+        {
+          "name": "--camera",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Camera ID",
+          "hidden": false
+        },
+        {
+          "name": "--zone",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Zone ID",
+          "hidden": false
+        },
+        {
+          "name": "--duration",
+          "required": false,
+          "has_default": true,
+          "default": 30,
+          "type": "int",
+          "choices": [],
+          "help": "Duration in seconds",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "closed-loop",
+      "action": "closed_loop",
+      "role": "other",
+      "help": "Run closed-loop response",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "compose",
+      "action": "compose",
+      "role": "other",
+      "help": "Compose intrusion notification",
+      "args": [
+        {
+          "name": "--recipient",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient name",
+          "hidden": false
+        },
+        {
+          "name": "--contact",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient contact",
+          "hidden": false
+        },
+        {
+          "name": "--alert-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Alert ID",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "contacts",
+      "action": "contacts",
+      "role": "other",
+      "help": "Get emergency contacts",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create",
+      "action": "create",
+      "role": "other",
+      "help": "Create notification",
+      "args": [
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Alert type",
+          "hidden": false
+        },
+        {
+          "name": "--zone",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Zone ID",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Description",
+          "hidden": false
+        },
+        {
+          "name": "--severity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Severity",
+          "hidden": false
+        },
+        {
+          "name": "--source",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Source",
+          "hidden": false
+        },
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Notification type",
+          "hidden": false
+        },
+        {
+          "name": "--recipient",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient name",
+          "hidden": false
+        },
+        {
+          "name": "--contact",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Recipient contact",
+          "hidden": false
+        },
+        {
+          "name": "--subject",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Subject",
+          "hidden": false
+        },
+        {
+          "name": "--body",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Body",
+          "hidden": false
+        },
+        {
+          "name": "--priority",
+          "required": false,
+          "has_default": true,
+          "default": "normal",
+          "type": "str",
+          "choices": [],
+          "help": "Priority",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "dial",
+      "action": "dial",
+      "role": "other",
+      "help": "Dial emergency",
+      "args": [
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Call type (police/fire/ambulance)",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Description",
+          "hidden": false
+        },
+        {
+          "name": "--location",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Location",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "disarm",
+      "action": "disarm",
+      "role": "other",
+      "help": "Disarm a zone",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "doors",
+      "action": "doors",
+      "role": "other",
+      "help": "Door control commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "emergency",
+      "action": "emergency",
+      "role": "other",
+      "help": "Emergency call commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "evidence",
+      "action": "evidence",
+      "role": "other",
+      "help": "Evidence capture commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "info",
+      "action": "info",
+      "role": "other",
+      "help": "Show environment info",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list",
+      "action": "list",
+      "role": "other",
+      "help": "List pending notifications",
+      "args": [
+        {
+          "name": "--verbose",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "Verbose output",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by status",
+          "hidden": false
+        },
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Search query",
+          "hidden": false
+        },
+        {
+          "name": "--call-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by call type",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by status",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": true,
+          "default": 10,
+          "type": "int",
+          "choices": [],
+          "help": "Result limit",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "lock",
+      "action": "lock",
+      "role": "other",
+      "help": "Lock a door",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "lock-all",
+      "action": "lock_all",
+      "role": "other",
+      "help": "Lock all doors",
+      "args": [
+        {
+          "name": "--zone",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Filter by zone ID",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "notifications",
+      "action": "notifications",
+      "role": "other",
+      "help": "Notification commands",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset",
+      "action": "reset",
+      "role": "other",
+      "help": "Reset environment",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "resolve",
+      "action": "resolve",
+      "role": "other",
+      "help": "Resolve an alert",
+      "args": [
+        {
+          "name": "--resolution",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Resolution",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "save",
+      "action": "save",
+      "role": "other",
+      "help": "Save evidence",
+      "args": [
+        {
+          "name": "--type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Evidence type",
+          "hidden": false
+        },
+        {
+          "name": "--description",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Description",
+          "hidden": false
+        },
+        {
+          "name": "--source",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Source",
+          "hidden": false
+        },
+        {
+          "name": "--metadata",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Metadata JSON",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "send",
+      "action": "send",
+      "role": "other",
+      "help": "Send notification",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "sensors",
+      "action": "sensors",
+      "role": "other",
+      "help": "Check zone sensors",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "snapshot",
+      "action": "snapshot",
+      "role": "other",
+      "help": "Capture camera snapshot",
+      "args": [
+        {
+          "name": "--camera",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Camera ID",
+          "hidden": false
+        },
+        {
+          "name": "--zone",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "Zone ID",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "status",
+      "action": "status",
+      "role": "other",
+      "help": "Get security status",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "unlock",
+      "action": "unlock",
+      "role": "other",
+      "help": "Unlock a door",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "zones",
+      "action": "zones",
+      "role": "other",
+      "help": "Zone management commands",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "alerts",
+      "dst": "compose",
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "intrusion_response"
+  ]
+}

@@ -1,0 +1,5 @@
+prompt: "tasks/prompts/wp_paper_citation_graph_env__019.md"
+asset: "wp_paper_citation_graph_env__019"
+runtime:
+  max_steps: 60
+  allow_network: false

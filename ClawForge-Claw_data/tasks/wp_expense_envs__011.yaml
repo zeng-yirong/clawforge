@@ -1,0 +1,10 @@
+prompt: tasks/prompts/wp_expense_envs__011.md
+asset: wp_expense_envs__011
+runtime:
+  cwd: assets/wp_expense_envs__011
+  allowed_commands:
+    - read
+    - write
+    - list
+    - grep
+  max_iterations: 30

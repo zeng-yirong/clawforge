@@ -1,0 +1,16 @@
+task_id: wp_post_mails__043
+prompt_path: tasks/prompts/wp_post_mails__043.md
+asset: wp_post_mails__043
+runtime:
+  cwd: assets/wp_post_mails__043
+  files:
+    - data/emails/em_001.json
+    - data/emails/em_002.json
+    - data/emails/em_003.json
+    - data/emails/em_004.json
+    - data/emails/em_005.json
+    - data/emails/em_006.json
+    - data/attachments/att_brief_v1.txt
+    - data/attachments/att_brief_v2.txt
+    - data/attachments/att_brief_v3.txt
+    - data/attachments/att_brief_v2_approved.txt

@@ -1,0 +1,6 @@
+type: task
+prompt: "tasks/prompts/wp_resume_interview_scheduler_env__034.md"
+asset: "wp_resume_interview_scheduler_env__034"
+runtime:
+  python: "3.10"
+  tools: []

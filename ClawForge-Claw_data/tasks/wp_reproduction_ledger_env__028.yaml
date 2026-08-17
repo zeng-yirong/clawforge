@@ -1,0 +1,9 @@
+name: wp_reproduction_ledger_env__028
+prompt: tasks/prompts/wp_reproduction_ledger_env__028.md
+asset: wp_reproduction_ledger_env__028
+runtime:
+  working_directory: assets/wp_reproduction_ledger_env__028
+  actions:
+    - type: file_read
+    - type: file_write
+    - type: directory_create

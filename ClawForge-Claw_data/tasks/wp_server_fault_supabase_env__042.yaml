@@ -1,0 +1,10 @@
+name: "wp_server_fault_supabase_env__042"
+description: "Screen UPS and service-down risk incidents from pool, apply runbook date threshold, output sorted ID list."
+prompt_file: "tasks/prompts/wp_server_fault_supabase_env__042.md"
+asset: "wp_server_fault_supabase_env__042"
+runtime:
+  cwd: "assets/wp_server_fault_supabase_env__042"
+  tools:
+    - file_read
+    - file_write
+    - json_parse

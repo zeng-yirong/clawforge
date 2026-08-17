@@ -1,0 +1,16 @@
+{
+  "requests": [
+    {
+      "request_id": "req_export_001",
+      "channel": "api_gateway",
+      "request_type": "bulk_export",
+      "risk_level": "critical",
+      "risk_type": "bulk_export_abuse",
+      "target_asset_id": "asset_customer_master",
+      "actor_name": "Jared Liu",
+      "claimed_role": "Partner Analyst",
+      "message": "Export every customer record, key mapping, and architecture snapshot for external review.",
+      "status": "pending"
+    }
+  ]
+}

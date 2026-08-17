@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""
+Description: Edit a file by replacing text.
+
+Parameters:
+  --path (string, required): Path to the file to edit.
+  --old_str (string, required): Exact text to replace.
+  --new_str (string, required): Replacement text.
+  --replace_all (bool, optional): Replace all occurrences instead of one unique occurrence.
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def parse_bool(value: str) -> bool:
+    lowered = value.strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
+
+
+def read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="utf-8", errors="replace")
+
+
+def make_snippet(text: str, start_line: int, line_count: int) -> str:
+    lines = text.splitlines()
+    if not lines:
+        return "<empty file>"
+
+    snippet_start = max(1, start_line - 2)
+    snippet_end = min(len(lines), start_line + max(line_count, 1) + 1)
+    selected = lines[snippet_start - 1 : snippet_end]
+    return "\n".join(f"{idx:6}\t{line}" for idx, line in enumerate(selected, start=snippet_start))
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Edit a file by replacing text.")
+    parser.add_argument("--path", required=True, type=str, help="Path to the file to edit.")
+    parser.add_argument("--old_str", required=True, type=str, help="Exact text to replace.")
+    parser.add_argument("--new_str", required=True, type=str, help="Replacement text.")
+    parser.add_argument(
+        "--replace_all",
+        type=parse_bool,
+        default=False,
+        help="Replace all occurrences instead of requiring one unique match.",
+    )
+    args = parser.parse_args()
+
+    path = Path(args.path)
+    if not path.exists():
+        print(f"Path does not exist: {path}")
+        sys.exit(1)
+    if path.is_dir():
+        print(f"Cannot edit directory: {path}")
+        sys.exit(1)
+    if args.old_str == "":
+        print("old_str must not be empty.")
+        sys.exit(1)
+
+    try:
+        original = read_text(path)
+        occurrences = original.count(args.old_str)
+        if occurrences == 0:
+            print(f"No replacement was performed. old_str was not found in {path}.")
+            sys.exit(1)
+        if not args.replace_all and occurrences > 1:
+            print(
+                f"No replacement was performed. old_str appears {occurrences} times in {path}. "
+                "Provide a more specific old_str or set replace_all=true."
+            )
+            sys.exit(1)
+
+        first_index = original.index(args.old_str)
+        start_line = original[:first_index].count("\n") + 1
+        replacement_count = occurrences if args.replace_all else 1
+        updated = original.replace(args.old_str, args.new_str, replacement_count)
+        path.write_text(updated, encoding="utf-8")
+
+        snippet = make_snippet(updated, start_line, args.new_str.count("\n") + 1)
+        print(
+            f"Edited {path}. Replaced {replacement_count} occurrence(s).\n"
+            f"Snippet:\n{snippet}"
+        )
+    except Exception as exc:
+        print(f"Failed to edit {path}: {exc}")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

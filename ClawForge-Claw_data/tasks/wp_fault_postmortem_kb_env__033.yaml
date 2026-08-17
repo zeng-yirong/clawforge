@@ -1,0 +1,8 @@
+name: "Fault Postmortem KB - Transaction ID Extraction"
+description: "从故障案例和附件中提取事务 ID 并写入 kill_target.json"
+asset: "wp_fault_postmortem_kb_env__033"
+prompt_path: "tasks/prompts/wp_fault_postmortem_kb_env__033.md"
+runtime:
+  cwd: "assets/wp_fault_postmortem_kb_env__033"
+  timeout_seconds: 300
+  max_output_size: 100000

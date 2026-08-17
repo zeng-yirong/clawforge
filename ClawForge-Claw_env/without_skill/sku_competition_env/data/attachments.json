@@ -1,0 +1,16 @@
+{
+  "attachments": [
+    {
+      "path": "current_pricebook_notice.md",
+      "title": "Current Price Book Notice",
+      "kind": "pricing_notice",
+      "description": "Defines which price book is approved for current APAC reporting."
+    },
+    {
+      "path": "category_review_template.md",
+      "title": "Category Review Template",
+      "kind": "report_template",
+      "description": "Summarizes the minimum sections required for the cached category competition report."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+asset: wp_doc_clue_memory_env__040
+prompt: tasks/prompts/wp_doc_clue_memory_env__040.md
+runtime:
+  python: '3.10'
+  workspace:
+    - reports
+    - presentations
+    - media_samples

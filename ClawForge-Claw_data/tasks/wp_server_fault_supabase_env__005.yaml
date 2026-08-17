@@ -1,0 +1,5 @@
+task_id: wp_server_fault_supabase_env__005
+prompt_path: tasks/prompts/wp_server_fault_supabase_env__005.md
+asset: wp_server_fault_supabase_env__005
+runtime:
+  cwd: assets/wp_server_fault_supabase_env__005

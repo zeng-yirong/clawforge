@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "user_id": "user_001",
+      "name": "John Smith",
+      "age": 45,
+      "health_conditions": ["mild_asthma", "dust_allergy"],
+      "respiratory_issues": true,
+      "cardiovascular_risk": false,
+      "temperature_preference": {
+        "comfort_low": 22,
+        "comfort_high": 26,
+        "optimal": 24
+      },
+      "humidity_preference": {
+        "comfort_low": 40,
+        "comfort_high": 60,
+        "optimal": 50
+      },
+      "sleep_schedule": {
+        "bedtime": "23:00",
+        "wake_time": "07:00"
+      }
+    },
+    {
+      "user_id": "user_002",
+      "name": "Jane Smith",
+      "age": 42,
+      "health_conditions": ["eczema"],
+      "respiratory_issues": false,
+      "cardiovascular_risk": false,
+      "temperature_preference": {
+        "comfort_low": 21,
+        "comfort_high": 25,
+        "optimal": 23
+      },
+      "humidity_preference": {
+        "comfort_low": 45,
+        "comfort_high": 65,
+        "optimal": 55
+      },
+      "sleep_schedule": {
+        "bedtime": "22:30",
+        "wake_time": "06:30"
+      }
+    }
+  ]
+}

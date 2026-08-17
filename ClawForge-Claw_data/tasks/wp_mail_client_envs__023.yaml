@@ -1,0 +1,6 @@
+prompt: "tasks/prompts/wp_mail_client_envs__023.md"
+asset: "wp_mail_client_envs__023"
+runtime:
+  type: python3
+  base_image: "python:3.11-slim"
+  requirements: []

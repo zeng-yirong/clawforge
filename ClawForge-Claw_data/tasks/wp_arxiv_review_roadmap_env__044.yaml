@@ -1,0 +1,7 @@
+task:
+  id: wp_arxiv_review_roadmap_env__044
+  asset: wp_arxiv_review_roadmap_env__044
+  prompt: tasks/prompts/wp_arxiv_review_roadmap_env__044.md
+  runtime:
+    cwd: assets/wp_arxiv_review_roadmap_env__044
+    timeout: 300

@@ -1,0 +1,12 @@
+task_id: wp_scheduling_envs__033
+asset: wp_scheduling_envs__033
+prompt_path: tasks/prompts/wp_scheduling_envs__033.md
+runtime:
+  cwd: assets/wp_scheduling_envs__033
+  env:
+    - name: HOME_TASK_DIR
+      value: assets/wp_scheduling_envs__033
+  allowed_actions: []
+  forbidden_actions: []
+  file_operations: true
+  network: false

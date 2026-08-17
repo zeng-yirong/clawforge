@@ -1,0 +1,257 @@
+{
+  "resource_ledger": [
+    {
+      "entry_id": "led_retail_frontend_vcpu",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "frontend node pool vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 64,
+      "unit": "vcpu",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_retail_frontend_memory",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "frontend node pool memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 256,
+      "unit": "GiB",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_retail_orders_vcpu",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "order services vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 96,
+      "unit": "vcpu",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_retail_orders_memory",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "order services memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 384,
+      "unit": "GiB",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_retail_block_storage",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "retail block storage",
+      "resource_family": "storage",
+      "metric_code": "block_storage_gb",
+      "quantity": 4200,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_retail_object_storage",
+      "cluster_id": "cluster_retail_core",
+      "cluster_name": "retail-core",
+      "resource_name": "retail object storage",
+      "resource_family": "storage",
+      "metric_code": "object_storage_gb",
+      "quantity": 16000,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_ads_ranker_vcpu",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "ranking engine vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 48,
+      "unit": "vcpu",
+      "billing_model": "autoscale"
+    },
+    {
+      "entry_id": "led_ads_ranker_memory",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "ranking engine memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 192,
+      "unit": "GiB",
+      "billing_model": "autoscale"
+    },
+    {
+      "entry_id": "led_ads_feature_vcpu",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "feature service vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 24,
+      "unit": "vcpu",
+      "billing_model": "autoscale"
+    },
+    {
+      "entry_id": "led_ads_feature_memory",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "feature service memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 96,
+      "unit": "GiB",
+      "billing_model": "autoscale"
+    },
+    {
+      "entry_id": "led_ads_inference_gpu",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "inference gpu accelerators",
+      "resource_family": "compute",
+      "metric_code": "gpu",
+      "quantity": 8,
+      "unit": "gpu",
+      "billing_model": "autoscale"
+    },
+    {
+      "entry_id": "led_ads_block_storage",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "ads block storage",
+      "resource_family": "storage",
+      "metric_code": "block_storage_gb",
+      "quantity": 3100,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_ads_object_storage",
+      "cluster_id": "cluster_ads_ranking",
+      "cluster_name": "ads-ranking",
+      "resource_name": "ads object storage",
+      "resource_family": "storage",
+      "metric_code": "object_storage_gb",
+      "quantity": 9000,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_lakehouse_batch_vcpu",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "lakehouse batch pool vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 80,
+      "unit": "vcpu",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_lakehouse_batch_memory",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "lakehouse batch pool memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 640,
+      "unit": "GiB",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_lakehouse_serving_vcpu",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "analytics serving vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 48,
+      "unit": "vcpu",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_lakehouse_serving_memory",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "analytics serving memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 384,
+      "unit": "GiB",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_lakehouse_block_storage",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "lakehouse block storage",
+      "resource_family": "storage",
+      "metric_code": "block_storage_gb",
+      "quantity": 18000,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_lakehouse_object_storage",
+      "cluster_id": "cluster_lakehouse_analytics",
+      "cluster_name": "lakehouse-analytics",
+      "resource_name": "lakehouse object storage",
+      "resource_family": "storage",
+      "metric_code": "object_storage_gb",
+      "quantity": 64000,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_shared_ops_vcpu",
+      "cluster_id": "cluster_shared_ops",
+      "cluster_name": "shared-ops",
+      "resource_name": "shared ops vcpu",
+      "resource_family": "compute",
+      "metric_code": "vcpu",
+      "quantity": 48,
+      "unit": "vcpu",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_shared_ops_memory",
+      "cluster_id": "cluster_shared_ops",
+      "cluster_name": "shared-ops",
+      "resource_name": "shared ops memory",
+      "resource_family": "compute",
+      "metric_code": "memory_gb",
+      "quantity": 192,
+      "unit": "GiB",
+      "billing_model": "reserved"
+    },
+    {
+      "entry_id": "led_shared_ops_block_storage",
+      "cluster_id": "cluster_shared_ops",
+      "cluster_name": "shared-ops",
+      "resource_name": "shared ops block storage",
+      "resource_family": "storage",
+      "metric_code": "block_storage_gb",
+      "quantity": 2400,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    },
+    {
+      "entry_id": "led_shared_ops_object_storage",
+      "cluster_id": "cluster_shared_ops",
+      "cluster_name": "shared-ops",
+      "resource_name": "shared ops object storage",
+      "resource_family": "storage",
+      "metric_code": "object_storage_gb",
+      "quantity": 7000,
+      "unit": "GiB",
+      "billing_model": "monthly"
+    }
+  ]
+}

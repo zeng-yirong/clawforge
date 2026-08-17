@@ -1,0 +1,8 @@
+version: "1.0"
+task_id: "wp_finance_envs__003"
+asset: "wp_finance_envs__003"
+prompt: "tasks/prompts/wp_finance_envs__003.md"
+runtime:
+  max_steps: 30
+  workspace_type: filesystem
+  allowed_commands: ["read", "write", "list", "mkdir", "execute_python"]

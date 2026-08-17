@@ -1,0 +1,437 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_performance_profile",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "generate-performance-profile"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_employee",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "get-employee"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_output_ledger",
+      "required_args": [
+        "--employee-id"
+      ],
+      "id": "get-output-ledger"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_performance_profile",
+      "required_args": [
+        "--profile-id"
+      ],
+      "id": "get-performance-profile"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_scoring_rule",
+      "required_args": [
+        "--role-code"
+      ],
+      "id": "get-scoring-rule"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_employees",
+      "required_args": [],
+      "id": "list-employees"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_performance_profiles",
+      "required_args": [],
+      "id": "list-performance-profiles"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-performance-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-performance-profile"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_profile_id_for",
+      "tier": "dataflow",
+      "source": "generate-performance-profile",
+      "target": "get-performance-profile"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-performance-profile",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-performance-profile",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-performance-profile",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-employee",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-employee",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "get-employee",
+      "target": "get-performance-profile"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::performance_review_engineering_q2_2026",
+      "tier": "gold",
+      "source": "get-output-ledger",
+      "target": "get-scoring-rule"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-output-ledger",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-output-ledger",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "get-output-ledger",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-performance-profile",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-performance-profile",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "get-performance-profile",
+      "target": "generate-performance-profile"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::performance_review_engineering_q2_2026",
+      "tier": "gold",
+      "source": "get-scoring-rule",
+      "target": "generate-performance-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-scoring-rule",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-scoring-rule",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for",
+      "tier": "dataflow",
+      "source": "list-employees",
+      "target": "get-employee"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for",
+      "tier": "dataflow",
+      "source": "list-employees",
+      "target": "get-output-ledger"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for",
+      "tier": "dataflow",
+      "source": "list-employees",
+      "target": "generate-performance-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-employees",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-employees",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "list-employees",
+      "target": "list-performance-profiles"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_profile_id_for",
+      "tier": "dataflow",
+      "source": "list-performance-profiles",
+      "target": "get-performance-profile"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-performance-profiles",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-performance-profiles",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "get-scoring-rule"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-employee"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-output-ledger"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-performance-profile"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-scoring-rule"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-employees"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-performance-profiles"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible_followup",
+      "tier": "llm_weak",
+      "source": "task",
+      "target": "session-summary"
+    }
+  ]
+}

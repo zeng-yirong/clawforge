@@ -1,0 +1,415 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "define_state_machine",
+    "description": "Define a new reimbursement workflow state machine template.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "State machine name (e.g. 'standard_reimbursement', 'urgent_approval')."
+        },
+        "initial_state": {
+          "type": "string",
+          "description": "The starting state for all reimbursement forms in this machine."
+        },
+        "terminal_states": {
+          "type": "array",
+          "description": "[Optional] States that mark form completion (e.g. 'paid', 'rejected')."
+        }
+      },
+      "required": [
+        "name",
+        "initial_state"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_state",
+    "description": "Add a new state to an existing reimbursement workflow state machine.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "State machine ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "State name (must be unique within this machine)."
+        }
+      },
+      "required": [
+        "sm_id",
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_transition",
+    "description": "Define a transition between two states in a reimbursement workflow, optionally guarded.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "State machine ID."
+        },
+        "from_state": {
+          "type": "string",
+          "description": "Source state name."
+        },
+        "to_state": {
+          "type": "string",
+          "description": "Target state name."
+        },
+        "guard": {
+          "type": "dict",
+          "description": "[Optional] Guard condition as {field: {op: value}}. e.g. {\"discrepancy\": {\"eq\": 0}, \"total_amount\": {\"lte\": 5000}}."
+        },
+        "trigger": {
+          "type": "string",
+          "description": "Trigger mode — 'auto' or 'manual'. Defaults to 'auto'."
+        }
+      },
+      "required": [
+        "sm_id",
+        "from_state",
+        "to_state"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ocr_receipt",
+    "description": "Simulate OCR recognition of a receipt and store the extracted information.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_type": {
+          "type": "string",
+          "description": "Type of receipt ('taxi', 'meal', 'hotel', 'flight', 'other')."
+        },
+        "amount": {
+          "type": "number",
+          "description": "Total amount on the receipt."
+        },
+        "date": {
+          "type": "string",
+          "description": "Date of the expense (e.g. '2024-01-15')."
+        },
+        "vendor": {
+          "type": "string",
+          "description": "Vendor or merchant name."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional OCR-extracted fields (e.g. tax, tip, items)."
+        }
+      },
+      "required": [
+        "receipt_type",
+        "amount",
+        "date",
+        "vendor"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_receipt",
+    "description": "Retrieve a receipt by its ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_id": {
+          "type": "string",
+          "description": "Receipt ID."
+        }
+      },
+      "required": [
+        "receipt_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_receipts",
+    "description": "List receipts, optionally filtered by type or matching status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_type": {
+          "type": "string",
+          "description": "[Optional] Filter by receipt type."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by matching status ('matched', 'unmatched')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_bank_transaction",
+    "description": "Add a bank transaction record for reconciliation matching.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Transaction amount."
+        },
+        "date": {
+          "type": "string",
+          "description": "Transaction date (e.g. '2024-01-15')."
+        },
+        "description": {
+          "type": "string",
+          "description": "Transaction description from bank statement."
+        },
+        "card_last_four": {
+          "type": "string",
+          "description": "Last four digits of the card used."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional transaction details."
+        }
+      },
+      "required": [
+        "amount",
+        "date",
+        "description",
+        "card_last_four"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_bank_transaction",
+    "description": "Retrieve a bank transaction by its ID.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "transaction_id": {
+          "type": "string",
+          "description": "Transaction ID."
+        }
+      },
+      "required": [
+        "transaction_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_bank_transactions",
+    "description": "List bank transactions, optionally filtered by matching status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by matching status ('matched', 'unmatched')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "match_receipt_to_transaction",
+    "description": "Match a receipt to a bank transaction for reconciliation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_id": {
+          "type": "string",
+          "description": "Receipt ID."
+        },
+        "transaction_id": {
+          "type": "string",
+          "description": "Bank transaction ID."
+        }
+      },
+      "required": [
+        "receipt_id",
+        "transaction_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_reimbursement_form",
+    "description": "Create a reimbursement form entity from matched receipts, starting at the initial state.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "State machine ID that governs this reimbursement workflow."
+        },
+        "receipt_ids": {
+          "type": "array",
+          "description": "List of receipt IDs to include in this form."
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "Employee submitting the reimbursement."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "[Optional] Additional form data (e.g. department, project code)."
+        }
+      },
+      "required": [
+        "sm_id",
+        "receipt_ids",
+        "employee_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "trigger_form_transition",
+    "description": "Attempt to transition a reimbursement form to a target state.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Reimbursement form ID."
+        },
+        "to_state": {
+          "type": "string",
+          "description": "Desired target state."
+        }
+      },
+      "required": [
+        "form_id",
+        "to_state"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_reimbursement_form",
+    "description": "Get the full state and history of a reimbursement form.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Reimbursement form ID."
+        }
+      },
+      "required": [
+        "form_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_reimbursement_forms",
+    "description": "List reimbursement forms, optionally filtered by state machine, current state, or employee.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sm_id": {
+          "type": "integer",
+          "description": "[Optional] Filter by state machine ID."
+        },
+        "state": {
+          "type": "string",
+          "description": "[Optional] Filter by current state."
+        },
+        "employee_id": {
+          "type": "string",
+          "description": "[Optional] Filter by employee ID."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "calculate_discrepancy",
+    "description": "Calculate the total discrepancy between receipts and bank transactions for a form.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "form_id": {
+          "type": "string",
+          "description": "Reimbursement form ID."
+        }
+      },
+      "required": [
+        "form_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

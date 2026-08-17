@@ -1,0 +1,60 @@
+{
+  "presets": [
+    {
+      "preset_id": "cool",
+      "name": "制冷",
+      "description": "快速制冷模式，保持车内凉爽",
+      "default_temperature": 22,
+      "fan_speed": "high",
+      "ac_enabled": true,
+      "recirculation": false
+    },
+    {
+      "preset_id": "warm",
+      "name": "制热",
+      "description": "快速制热模式，保持车内温暖",
+      "default_temperature": 26,
+      "fan_speed": "high",
+      "ac_enabled": true,
+      "recirculation": true
+    },
+    {
+      "preset_id": "eco",
+      "name": "节能",
+      "description": "节能模式，降低能耗",
+      "default_temperature": 24,
+      "fan_speed": "auto",
+      "ac_enabled": "auto",
+      "recirculation": true
+    },
+    {
+      "preset_id": "sport",
+      "name": "运动",
+      "description": "运动模式，提供最佳动力响应",
+      "default_temperature": 22,
+      "fan_speed": "auto",
+      "ac_enabled": true,
+      "recirculation": false
+    },
+    {
+      "preset_id": "defog",
+      "name": "除雾",
+      "description": "快速除雾除霜模式",
+      "default_temperature": 25,
+      "fan_speed": "high",
+      "ac_enabled": true,
+      "recirculation": false,
+      "defog_enabled": true,
+      "defrost_enabled": true
+    },
+    {
+      "preset_id": "auto",
+      "name": "自动",
+      "description": "自动调节温度和风速",
+      "default_temperature": 23,
+      "fan_speed": "auto",
+      "ac_enabled": "auto",
+      "recirculation": "auto"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+task_id: wp_sku_competition_env__003
+prompt: prompts/wp_sku_competition_env__003.md
+asset: wp_sku_competition_env__003
+runtime:
+  python_version: "3.10"
+  packages: []

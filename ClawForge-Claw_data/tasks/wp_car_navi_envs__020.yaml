@@ -1,0 +1,7 @@
+prompt: tasks/prompts/wp_car_navi_envs__020.md
+asset: wp_car_navi_envs__020
+runtime:
+  engine: python
+  entry: env_builder.py
+  workdir: assets/wp_car_navi_envs__020
+  timeout: 60

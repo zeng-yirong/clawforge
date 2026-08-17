@@ -1,0 +1,13 @@
+{
+  "fault_cases": [
+    {
+      "fault_id": "fault_checkout_001",
+      "service_name": "checkout-api",
+      "severity": "sev1",
+      "stack_trace": "NullPointerException at PaymentOrchestrator.submit()",
+      "call_chain": "gateway -> checkout-api -> payment-orchestrator -> card-token-service",
+      "root_cause_hint": "A null payment token propagated from the card-token-service after a schema mismatch.",
+      "repair_plan_hint": "Deploy the schema fix, add null-guard validation in checkout-api, and replay failed payment intents."
+    }
+  ]
+}

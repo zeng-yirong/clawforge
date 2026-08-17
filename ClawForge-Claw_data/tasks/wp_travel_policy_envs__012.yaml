@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_travel_policy_envs__012.md
+asset: wp_travel_policy_envs__012
+runtime:
+  max_iterations: 30
+  tools: ["read", "write", "edit", "glob", "grep", "execute_command"]

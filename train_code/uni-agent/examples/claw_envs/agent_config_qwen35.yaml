@@ -1,0 +1,65 @@
+# Claw-env agent-loop config -- WORKPLACE + optional CLI tasks, local execution.
+#
+# Thin shell: every per-task field (workspace setup, optional CLI rollout
+# setup, reward verify_script, interaction limits) is emitted into
+# ``extra_info.tools_kwargs`` by either ``uni_agent.datasets.ClawNativeDataset``
+# or the legacy parquet preprocessing script, then deep-merged over this file by
+# ``UniAgentLoop._init_config``. Only global knobs live here.
+#
+# Runtime model: setup runs the task's env_builder.py in a fresh per-rollout
+# WORKPLACE. Native samples can also prepare the matching claw CLI session, so
+# the model uses file tools for local artifacts and ``execute_bash`` for
+# environment actions. Reward runs the task's own verify_workplace.py. The
+# skill / without_skill split is a system-prompt choice made by the dataset, so
+# no runtime SkillsManager is configured here -- the same config serves both.
+- name: swe_agent
+
+  _target_: uni_agent.agent_loop.UniAgentLoop
+
+  concurrency: 32
+  log_dir: /opt/huawei/dataset/zyr_yuyin/youshen/uni-agent/claw_envs_train_logs
+  mask_abnormal_exit_traj: false
+  tool_parser: qwen35_xml
+
+  interaction:
+    action_timeout: 120
+    max_turns: 50
+
+  env:
+    deployment:
+      # No container isolation: drive bash directly on the host via pexpect.
+      # Purpose-built to survive verl's repeated asyncio.run rollout pattern.
+      type: local_native
+      startup_timeout: 120
+    # User-writable install dir for the L1 scaffold tool scripts (no root).
+    tool_install_dir: /opt/huawei/dataset/zyr_yuyin/youshen/.uni-agent/bin
+    env_variables:
+      PAGER: "cat"
+      MANPAGER: "cat"
+      GIT_PAGER: "cat"
+      TQDM_DISABLE: "1"
+    # Restrict model-visible file operations to the per-rollout workspace.
+    # Native claw samples also fill allowed_bash_command_prefixes with the
+    # current env's CLI module, so execute_bash can call the env CLI but cannot
+    # read/write arbitrary host paths or run shell pipelines.
+    restrict_workspace: true
+    workspace_env_var: CLAW_WORKSPACE
+    restrict_bash_commands: true
+    allowed_bash_command_prefixes: []
+
+  # Generic file tools plus bash. Native claw samples instruct the model to use
+  # execute_bash for environment CLI commands instead of editing env state files
+  # directly. The deliverable remains the file(s) scored by verify_workplace.py.
+  tools:
+    - name: read
+    - name: write
+    - name: edit
+    - name: str_replace_editor
+    - name: ls
+    - name: find
+    - name: grep
+    - name: execute_bash
+    - name: finish
+
+  # ``reward`` is supplied per-task via tools_kwargs (name: claw, verify_script,
+  # workspace_env_var). Left unset here so a task without a reward is a no-op.

@@ -1,0 +1,10 @@
+prompt_path: tasks/prompts/wp_secure_vault_envs__005.md
+asset: wp_secure_vault_envs__005
+runtime:
+  language: python
+  version: "3.10"
+  tools:
+    - python
+  environment:
+    - name: WORKSPACE
+      value: "."

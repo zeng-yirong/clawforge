@@ -1,0 +1,9 @@
+task_spec: 1.0.0
+asset: wp_customer_tier_label_env__020
+prompt: tasks/prompts/wp_customer_tier_label_env__020.md
+runtime:
+  image: python:3.11-slim
+  cwd: assets/wp_customer_tier_label_env__020
+  init:
+    - python tasks/wp_customer_tier_label_env__020/env_builder.py
+verify: scripts/wp_customer_tier_label_env__020/verify_workplace.py

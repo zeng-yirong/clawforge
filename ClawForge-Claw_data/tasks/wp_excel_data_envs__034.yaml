@@ -1,0 +1,11 @@
+asset: wp_excel_data_envs__034
+prompt: tasks/prompts/wp_excel_data_envs__034.md
+runtime:
+  cwd: assets/wp_excel_data_envs__034/
+  extend_env:
+    - name: EXCEL_DATA_SESSION_ID
+      value: "session_034"
+    - name: EXCEL_DATA_STATE_ROOT
+      value: /tmp/wp_excel_data_envs_034
+    - name: EXCEL_DATA_SCENARIO_ID
+      value: sales_duplicates_dirty

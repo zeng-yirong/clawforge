@@ -1,0 +1,6 @@
+prompt_path: tasks/prompts/wp_reproduction_ledger_env__001.md
+asset: wp_reproduction_ledger_env__001
+runtime:
+  workspace_type: file
+  entry: env_builder.py
+  verify: scripts/wp_reproduction_ledger_env__001/verify_workplace.py

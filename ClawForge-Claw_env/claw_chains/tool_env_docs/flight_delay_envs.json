@@ -1,0 +1,791 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "adjust_hotel_booking",
+  "description": "Adjust hotel booking check-in/check-out times.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the hotel booking"
+    },
+    "new_check_in": {
+     "type": "string",
+     "description": "New check-in date/time"
+    },
+    "new_check_out": {
+     "type": "string",
+     "description": "New check-out date/time"
+    }
+   },
+   "required": [
+    "booking_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "cancel_hotel_booking",
+  "description": "Cancel a hotel booking.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the hotel booking"
+    },
+    "cancellation_reason": {
+     "type": "string",
+     "description": "Reason for cancellation"
+    }
+   },
+   "required": [
+    "booking_id",
+    "cancellation_reason"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "cancel_transport_booking",
+  "description": "Cancel a transport booking.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the transport booking"
+    },
+    "cancellation_reason": {
+     "type": "string",
+     "description": "Reason for cancellation"
+    }
+   },
+   "required": [
+    "booking_id",
+    "cancellation_reason"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "check_flight_status",
+  "description": "Check flight status and delay information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "flight_id": {
+     "type": "string",
+     "description": "ID of the flight"
+    }
+   },
+   "required": [
+    "flight_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "compose_delay_notification",
+  "description": "Compose a flight delay notification for a recipient.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "flight_id": {
+     "type": "string",
+     "description": "ID of the delayed flight"
+    },
+    "recipient_name": {
+     "type": "string",
+     "description": "Name of the recipient"
+    },
+    "recipient_email": {
+     "type": "string",
+     "description": "Email of the recipient"
+    }
+   },
+   "required": [
+    "flight_id",
+    "recipient_name",
+    "recipient_email"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_hotel_booking",
+  "description": "Create a new hotel booking.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "hotel_id": {
+     "type": "string",
+     "description": "ID of the hotel"
+    },
+    "hotel_name": {
+     "type": "string",
+     "description": "Name of the hotel"
+    },
+    "check_in": {
+     "type": "string",
+     "description": "Check-in date/time"
+    },
+    "check_out": {
+     "type": "string",
+     "description": "Check-out date/time"
+    },
+    "guest_name": {
+     "type": "string",
+     "description": "Name of the guest"
+    },
+    "guest_count": {
+     "type": "integer",
+     "description": "Number of guests",
+     "default": 1
+    },
+    "room_type": {
+     "type": "string",
+     "description": "Type of room",
+     "default": "standard"
+    },
+    "special_requests": {
+     "type": "string",
+     "description": "Special requests"
+    },
+    "linked_flight_id": {
+     "type": "string",
+     "description": "Linked flight ID"
+    }
+   },
+   "required": [
+    "hotel_id",
+    "hotel_name",
+    "check_in",
+    "check_out",
+    "guest_name"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_transport_booking",
+  "description": "Create a new transport booking.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "transport_type": {
+     "type": "string",
+     "description": "Type of transport"
+    },
+    "service_provider": {
+     "type": "string",
+     "description": "Service provider name"
+    },
+    "passenger_name": {
+     "type": "string",
+     "description": "Passenger name"
+    },
+    "passenger_phone": {
+     "type": "string",
+     "description": "Passenger phone number"
+    },
+    "pickup_location": {
+     "type": "string",
+     "description": "Pickup location"
+    },
+    "dropoff_location": {
+     "type": "string",
+     "description": "Dropoff location"
+    },
+    "pickup_time": {
+     "type": "string",
+     "description": "Pickup time"
+    },
+    "vehicle_type": {
+     "type": "string",
+     "description": "Type of vehicle",
+     "default": "standard"
+    },
+    "passengers_count": {
+     "type": "integer",
+     "description": "Number of passengers",
+     "default": 1
+    },
+    "special_requests": {
+     "type": "string",
+     "description": "Special requests"
+    },
+    "linked_flight_id": {
+     "type": "string",
+     "description": "Linked flight ID"
+    }
+   },
+   "required": [
+    "transport_type",
+    "service_provider",
+    "passenger_name",
+    "passenger_phone",
+    "pickup_location",
+    "dropoff_location",
+    "pickup_time"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "detect_delayed_flights",
+  "description": "Detect all delayed flights in the session.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_affected_connections",
+  "description": "Get hotel and transport bookings affected by a flight delay.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "flight_id": {
+     "type": "string",
+     "description": "ID of the delayed flight"
+    }
+   },
+   "required": [
+    "flight_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_conference",
+  "description": "Get detailed conference information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "conference_id": {
+     "type": "string",
+     "description": "ID of the conference"
+    }
+   },
+   "required": [
+    "conference_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_flight",
+  "description": "Get detailed flight information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "flight_id": {
+     "type": "string",
+     "description": "ID of the flight"
+    }
+   },
+   "required": [
+    "flight_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_hotel_booking",
+  "description": "Get detailed hotel booking information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the hotel booking"
+    }
+   },
+   "required": [
+    "booking_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_notification",
+  "description": "Get detailed notification information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "notification_id": {
+     "type": "string",
+     "description": "ID of the notification"
+    }
+   },
+   "required": [
+    "notification_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_transport_booking",
+  "description": "Get detailed transport booking information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the transport booking"
+    }
+   },
+   "required": [
+    "booking_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_attendees",
+  "description": "List conference attendees.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "conference_id": {
+     "type": "string",
+     "description": "ID of the conference"
+    },
+    "attending": {
+     "type": "boolean",
+     "description": "Filter by attendance status"
+    },
+    "query": {
+     "type": "string",
+     "description": "Search query for attendees",
+     "default": ""
+    }
+   },
+   "required": [
+    "conference_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_conferences",
+  "description": "List conferences.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Conference status filter"
+    },
+    "location": {
+     "type": "string",
+     "description": "Location filter"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_flights",
+  "description": "List available flights.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Flight status filter"
+    },
+    "airline": {
+     "type": "string",
+     "description": "Airline filter"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_hotel_bookings",
+  "description": "List hotel bookings.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Booking status filter"
+    },
+    "guest_name": {
+     "type": "string",
+     "description": "Filter by guest name"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_notifications",
+  "description": "List notifications.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query",
+     "default": ""
+    },
+    "notification_type": {
+     "type": "string",
+     "description": "Notification type filter"
+    },
+    "status": {
+     "type": "string",
+     "description": "Notification status filter"
+    },
+    "recipient_email": {
+     "type": "string",
+     "description": "Filter by recipient email"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_transport_bookings",
+  "description": "List transport bookings.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query",
+     "default": ""
+    },
+    "status": {
+     "type": "string",
+     "description": "Booking status filter"
+    },
+    "transport_type": {
+     "type": "string",
+     "description": "Transport type filter"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "notification_stats",
+  "description": "Get notification statistics.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reschedule_transport_booking",
+  "description": "Reschedule a transport booking.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "booking_id": {
+     "type": "string",
+     "description": "ID of the transport booking"
+    },
+    "new_pickup_time": {
+     "type": "string",
+     "description": "New pickup time"
+    }
+   },
+   "required": [
+    "booking_id",
+    "new_pickup_time"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "send_notification",
+  "description": "Send a notification.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "notification_id": {
+     "type": "string",
+     "description": "ID of the notification to send"
+    }
+   },
+   "required": [
+    "notification_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

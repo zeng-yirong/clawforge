@@ -1,0 +1,8 @@
+asset: wp_prompt_key_guard_env__031
+prompt: tasks/prompts/wp_prompt_key_guard_env__031.md
+runtime:
+  auto_apply: false
+  sandbox:
+    max_file_ops: 100
+    max_dir_depth: 4
+  verify: scripts/wp_prompt_key_guard_env__031/verify_workplace.py

@@ -1,0 +1,15 @@
+{
+  "id": "em_008",
+  "thread_id": "th_support_sync",
+  "folder": "inbox",
+  "sender_id": "c_support",
+  "subject": "Support macros for launch day",
+  "timestamp": "2026-06-17T11:00:00+00:00",
+  "importance": "medium",
+  "labels": [
+    "support",
+    "launch"
+  ],
+  "body": "Reminder: support macros mention that Orbital Note is web and mac at launch. We should not say Android ships on launch day, because that work is still on the roadmap.",
+  "attachments": []
+}

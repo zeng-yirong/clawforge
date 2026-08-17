@@ -1,0 +1,13 @@
+{
+  "scenario_id": "paper_citation_graph_snapshot_q2_2026",
+  "title": "Generate citation graph snapshot",
+  "task_prompt": "Read the abstract memory store, identify the citation relationships among the target papers, and write a citation graph snapshot into cache.",
+  "current_time": "2026-06-23T10:30:00Z",
+  "workspace_account_id": "research_mapping_team",
+  "paper_ids": ["paper_tar_001", "paper_tar_002", "paper_tar_003"],
+  "attachment_paths": [],
+  "expected_paper_ids": ["paper_tar_001", "paper_tar_002", "paper_tar_003"],
+  "expected_node_count": 3,
+  "expected_edge_count": 3,
+  "required_actions": ["list_papers", "get_paper", "generate_citation_graph"]
+}

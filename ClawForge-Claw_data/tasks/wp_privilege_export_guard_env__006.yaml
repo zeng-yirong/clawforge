@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_privilege_export_guard_env__006.md
+asset: wp_privilege_export_guard_env__006
+runtime:
+  timeout: 300
+  max_iterations: 50

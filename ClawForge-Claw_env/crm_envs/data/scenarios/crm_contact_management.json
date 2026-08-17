@@ -1,0 +1,95 @@
+{
+  "scenario_id": "crm_contact_management",
+  "title": "Automated CRM Contact Organization and Tagging",
+  "workspace_account_id": "crm_admin",
+  "current_time": "2026-06-18T10:00:00+00:00",
+  "task_prompt": "You are a CRM administrator managing customer data. Your job is to: 1) Organize and classify contacts into appropriate folders (business, personal, archive, inactive), 2) Add and manage tags for contacts based on their attributes, 3) Set up birthday reminders for contacts, 4) Archive inactive contacts, 5) Search and match contacts based on various criteria. Focus on data quality and proper classification.",
+  "contact_ids": [
+    "ct_001",
+    "ct_002",
+    "ct_003",
+    "ct_004",
+    "ct_005",
+    "ct_006",
+    "ct_007",
+    "ct_008"
+  ],
+  "required_classifications": [
+    {
+      "requirement_id": "classify_ct_001_business",
+      "contact_id": "ct_001",
+      "expected_folder": "business",
+      "expected_tags": ["vip", "tech"]
+    },
+    {
+      "requirement_id": "classify_ct_002_business",
+      "contact_id": "ct_002",
+      "expected_folder": "business",
+      "expected_tags": ["procurement", "decision_maker"]
+    },
+    {
+      "requirement_id": "classify_ct_003_business",
+      "contact_id": "ct_003",
+      "expected_folder": "business",
+      "expected_tags": ["vip", "startup", "decision_maker"]
+    },
+    {
+      "requirement_id": "classify_ct_004_personal",
+      "contact_id": "ct_004",
+      "expected_folder": "personal",
+      "expected_tags": ["college"]
+    },
+    {
+      "requirement_id": "classify_ct_005_business",
+      "contact_id": "ct_005",
+      "expected_folder": "business",
+      "expected_tags": ["partner", "strategic"]
+    },
+    {
+      "requirement_id": "classify_ct_006_inactive",
+      "contact_id": "ct_006",
+      "expected_folder": "inactive",
+      "expected_tags": ["former_client"]
+    },
+    {
+      "requirement_id": "classify_ct_007_business",
+      "contact_id": "ct_007",
+      "expected_folder": "business",
+      "expected_tags": ["vendor", "sales"]
+    },
+    {
+      "requirement_id": "classify_ct_008_business",
+      "contact_id": "ct_008",
+      "expected_folder": "business",
+      "expected_tags": ["vip", "tech", "decision_maker"]
+    }
+  ],
+  "required_reminders": [
+    {
+      "requirement_id": "reminder_alice",
+      "contact_id": "ct_001",
+      "reminder_type": "birthday",
+      "must_include": ["birthday", "alice"]
+    },
+    {
+      "requirement_id": "reminder_carol",
+      "contact_id": "ct_003",
+      "reminder_type": "birthday",
+      "must_include": ["birthday", "carol"]
+    },
+    {
+      "requirement_id": "reminder_henry",
+      "contact_id": "ct_008",
+      "reminder_type": "birthday",
+      "must_include": ["birthday", "henry"]
+    }
+  ],
+  "required_archive": [
+    "ct_006"
+  ],
+  "forbidden_phrases": [
+    "untagged",
+    "unclassified",
+    "no tags"
+  ]
+}

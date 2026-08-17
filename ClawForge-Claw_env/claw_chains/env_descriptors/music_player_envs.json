@@ -1,0 +1,239 @@
+{
+  "env_name": "music_player_envs",
+  "rel_path": "music_player_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "default_play_mode",
+        "default_player",
+        "preferred_language",
+        "profile_name",
+        "volume_level"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/playlists/playlists.json",
+      "kind": "collection",
+      "wrapper_key": "playlists",
+      "record_key": "playlist_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "playlist_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "playlist_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "嗨曲串烧",
+            "夜驾驶",
+            "怀旧金曲",
+            "我的收藏",
+            "速度与激情"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "80后90后回忆杀",
+            "夜晚开车听的歌",
+            "我最喜欢的歌曲",
+            "赛车电影主题曲",
+            "运动健身嗨曲"
+          ],
+          "desc": "description (str)"
+        },
+        {
+          "name": "song_ids",
+          "type": "list",
+          "required": true,
+          "is_key": true,
+          "list_elem_type": "str",
+          "desc": "song_ids (list)"
+        },
+        {
+          "name": "created_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "created_at (str)"
+        },
+        {
+          "name": "updated_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "updated_at (str)"
+        }
+      ],
+      "desc": "collection file data/playlists/playlists.json"
+    },
+    {
+      "path": "data/songs/songs.json",
+      "kind": "collection",
+      "wrapper_key": "songs",
+      "record_key": "song_id",
+      "count": 20,
+      "fields": [
+        {
+          "name": "song_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "song_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "artist",
+          "type": "str",
+          "required": true,
+          "desc": "artist (str)"
+        },
+        {
+          "name": "album",
+          "type": "str",
+          "required": true,
+          "desc": "album (str)"
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "required": true,
+          "desc": "duration (int)"
+        },
+        {
+          "name": "language",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "中文",
+            "英文"
+          ],
+          "desc": "language (str)"
+        },
+        {
+          "name": "genre",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "摇滚",
+            "民谣",
+            "流行",
+            "电子"
+          ],
+          "desc": "genre (str)"
+        },
+        {
+          "name": "style",
+          "type": "str",
+          "required": true,
+          "desc": "style (str)"
+        },
+        {
+          "name": "era",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "1970s",
+            "1980s",
+            "2000s",
+            "2010s"
+          ],
+          "desc": "era (str)"
+        },
+        {
+          "name": "tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "tags (list)"
+        },
+        {
+          "name": "scene_tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "scene_tags (list)"
+        },
+        {
+          "name": "crowd_tags",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "crowd_tags (list)"
+        },
+        {
+          "name": "play_count",
+          "type": "int",
+          "required": true,
+          "desc": "play_count (int)"
+        },
+        {
+          "name": "brand_theme",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "冰雪奇缘",
+            "后会无期",
+            "头文字D",
+            "速度与激情"
+          ],
+          "desc": "brand_theme (str)"
+        },
+        {
+          "name": "lyrics_snippet",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "lyrics_snippet (str)"
+        }
+      ],
+      "desc": "collection file data/songs/songs.json"
+    },
+    {
+      "path": "data/tags/tag_definitions.json",
+      "kind": "collection",
+      "wrapper_key": "tag_definitions",
+      "record_key": null,
+      "count": 20,
+      "fields": [
+        {
+          "name": "tag",
+          "type": "str",
+          "required": true,
+          "desc": "tag (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/tags/tag_definitions.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

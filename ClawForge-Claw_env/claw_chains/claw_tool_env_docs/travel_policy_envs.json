@@ -1,0 +1,354 @@
+{
+  "env_name": "travel_policy_envs",
+  "rel_path": "travel_policy_envs",
+  "cli_module": "travel_policy_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "TRAVEL_POLICY_SESSION_ID",
+    "state_env": "TRAVEL_POLICY_STATE_ROOT",
+    "scenario_env": "TRAVEL_POLICY_SCENARIO_ID",
+    "default_scenario_id": "q2_business_travel_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "approve-request",
+      "action": "approve_request",
+      "role": "produce",
+      "help": "Approve request",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "bulk-approve-requests",
+      "action": "bulk_approve_requests",
+      "role": "other",
+      "help": "Bulk approve",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "calculate-total-cost",
+      "action": "calculate_total_cost",
+      "role": "other",
+      "help": "Calculate total cost",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "cancel-booking",
+      "action": "cancel_booking",
+      "role": "other",
+      "help": "Cancel booking",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "check-approval-status",
+      "action": "check_approval_status",
+      "role": "other",
+      "help": "Check approval status",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "check-policy-compliance",
+      "action": "check_policy_compliance",
+      "role": "other",
+      "help": "Check compliance",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "compare-platform-prices",
+      "action": "compare_platform_prices",
+      "role": "other",
+      "help": "Compare prices across platforms",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "confirm-booking-received",
+      "action": "confirm_booking_received",
+      "role": "other",
+      "help": "Confirm booking",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "create-booking",
+      "action": "create_booking",
+      "role": "produce",
+      "help": "Create booking",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "escalate-approval",
+      "action": "escalate_approval",
+      "role": "other",
+      "help": "Escalate approval",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "filter-platforms-by-region",
+      "action": "filter_platforms_by_region",
+      "role": "other",
+      "help": "Filter platforms by region",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-approval-history",
+      "action": "get_approval_history",
+      "role": "read",
+      "help": "Get approval history",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-booking-details",
+      "action": "get_booking_details",
+      "role": "read",
+      "help": "Get booking details",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-booking-itinerary",
+      "action": "get_booking_itinerary",
+      "role": "read",
+      "help": "Get itinerary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-booking-statistics",
+      "action": "get_booking_statistics",
+      "role": "read",
+      "help": "Get booking stats",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-domestic-international-policy",
+      "action": "get_domestic_international_policy",
+      "role": "read",
+      "help": "Get domestic/intl policy",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-platform",
+      "action": "get_platform",
+      "role": "read",
+      "help": "Get platform details",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy",
+      "action": "get_policy",
+      "role": "read",
+      "help": "Get policy details",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy-approval-chain",
+      "action": "get_policy_approval_chain",
+      "role": "read",
+      "help": "Get approval chain",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy-restrictions",
+      "action": "get_policy_restrictions",
+      "role": "read",
+      "help": "Get policy restrictions",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-policy-travel-limits",
+      "action": "get_policy_travel_limits",
+      "role": "read",
+      "help": "Get travel limits",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "initiate-approval-request",
+      "action": "initiate_approval_request",
+      "role": "other",
+      "help": "Initiate approval",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-bookings",
+      "action": "list_bookings",
+      "role": "read",
+      "help": "List bookings",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-pending-approvals",
+      "action": "list_pending_approvals",
+      "role": "read",
+      "help": "List pending approvals",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-platforms",
+      "action": "list_platforms",
+      "role": "read",
+      "help": "List all platforms",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-policies",
+      "action": "list_policies",
+      "role": "read",
+      "help": "List all policies",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "platform-discounts",
+      "action": "platform_discounts",
+      "role": "other",
+      "help": "Get platform discounts",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "platform-fee-structure",
+      "action": "platform_fee_structure",
+      "role": "other",
+      "help": "Get platform fee structure",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reject-request",
+      "action": "reject_request",
+      "role": "guard",
+      "help": "Reject request",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "search-flights",
+      "action": "search_flights",
+      "role": "read",
+      "help": "Search flights on platform",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "update-booking",
+      "action": "update_booking",
+      "role": "produce",
+      "help": "Update booking",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "validate-booking-against-policy",
+      "action": "validate_booking_against_policy",
+      "role": "other",
+      "help": "Validate booking",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--session-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [],
+  "gold_actions_by_scenario": {
+    "q2_business_travel_2026": [
+      "compare_platform_prices",
+      "validate_booking_against_policy",
+      "initiate_approval_request",
+      "create_booking"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "q2_business_travel_2026"
+  ]
+}

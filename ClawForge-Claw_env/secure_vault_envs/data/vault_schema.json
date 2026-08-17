@@ -1,0 +1,70 @@
+{
+  "credential_categories": [
+    {
+      "category_id": "work_email",
+      "name": "工作邮箱",
+      "priority": "high",
+      "requires_mfa": true,
+      "password_policy": {
+        "min_length": 14,
+        "require_uppercase": true,
+        "require_lowercase": true,
+        "require_digits": true,
+        "require_special": true
+      }
+    },
+    {
+      "category_id": "social_media",
+      "name": "社交媒体",
+      "priority": "medium",
+      "requires_mfa": false,
+      "password_policy": {
+        "min_length": 12,
+        "require_uppercase": true,
+        "require_lowercase": true,
+        "require_digits": true,
+        "require_special": false
+      }
+    },
+    {
+      "category_id": "banking",
+      "name": "银行账户",
+      "priority": "critical",
+      "requires_mfa": true,
+      "password_policy": {
+        "min_length": 16,
+        "require_uppercase": true,
+        "require_lowercase": true,
+        "require_digits": true,
+        "require_special": true
+      }
+    },
+    {
+      "category_id": "ecommerce",
+      "name": "电商平台",
+      "priority": "low",
+      "requires_mfa": false,
+      "password_policy": {
+        "min_length": 12,
+        "require_uppercase": true,
+        "require_lowercase": true,
+        "require_digits": true,
+        "require_special": false
+      }
+    }
+  ],
+  "encryption_algorithms": [
+    {"algo_id": "AES-256-GCM", "key_derivation": "PBKDF2", "iterations": 100000},
+    {"algo_id": "ChaCha20-Poly1305", "key_derivation": "Argon2", "iterations": 3}
+  ],
+  "sensitive_fields": ["password", "cvv", "pin", "secret_key"],
+  "auto_fill_rules": {
+    "url_patterns": ["https://", "http://"],
+    "field_mappings": {
+      "username": ["username", "user", "login", "email"],
+      "password": ["password", "pass", "pwd"],
+      "cvv": ["cvv", "cvc", "security_code"],
+      "pin": ["pin", "Personal Identification Number"]
+    }
+  }
+}

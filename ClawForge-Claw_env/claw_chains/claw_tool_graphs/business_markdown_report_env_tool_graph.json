@@ -1,0 +1,258 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "aggregate_period_metrics",
+      "required_args": [
+        "--period"
+      ],
+      "id": "aggregate-period-metrics"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_markdown_report",
+      "required_args": [
+        "--period"
+      ],
+      "id": "generate-markdown-report"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_ledgers",
+      "required_args": [],
+      "id": "list-ledgers"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "preview_ledger",
+      "required_args": [
+        "--ledger-name"
+      ],
+      "id": "preview-ledger"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-markdown-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-markdown-report"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "aggregate-period-metrics",
+      "target": "generate-markdown-report"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-markdown-report",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-markdown-report",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-markdown-report",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "generate-markdown-report",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::business_markdown_report_weekly_q2_2026",
+      "tier": "gold",
+      "source": "list-ledgers",
+      "target": "preview-ledger"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-ledgers",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-ledgers",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "aggregate-period-metrics"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::business_markdown_report_weekly_q2_2026",
+      "tier": "gold",
+      "source": "preview-ledger",
+      "target": "generate-markdown-report"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "weak",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-ledgers"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    }
+  ]
+}

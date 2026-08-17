@@ -1,0 +1,7 @@
+task_id: wp_cloud_cost_ledger_env__005
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__005.md
+asset: wp_cloud_cost_ledger_env__005
+runtime:
+  cwd: assets/wp_cloud_cost_ledger_env__005
+  entry: python3
+  args: []

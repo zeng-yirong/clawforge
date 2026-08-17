@@ -1,0 +1,7 @@
+id: wp_post_mails__034
+prompt: tasks/prompts/wp_post_mails__034.md
+env_builder: tasks/wp_post_mails__034/env_builder.py
+verify: scripts/wp_post_mails__034/verify_workplace.py
+asset: wp_post_mails__034
+runtime:
+  base_image: python:3.10-slim

@@ -1,0 +1,8 @@
+prompt_path: tasks/prompts/wp_logistics_envs__008.md
+asset: wp_logistics_envs__008
+runtime:
+  cwd: assets/wp_logistics_envs__008
+  timeout: 120
+  resources:
+    cpu: 1
+    memory: 256

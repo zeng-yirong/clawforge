@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__033.md
+asset: wp_resume_interview_scheduler_env__033
+runtime:
+  cwd: assets/wp_resume_interview_scheduler_env__033
+  timeout: 120

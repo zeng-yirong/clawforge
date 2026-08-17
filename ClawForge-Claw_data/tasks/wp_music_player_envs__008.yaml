@@ -1,0 +1,6 @@
+task_id: wp_music_player_envs__008
+asset: wp_music_player_envs__008
+prompt: tasks/prompts/wp_music_player_envs__008.md
+runtime:
+  max_seconds: 300
+  environment: isolated

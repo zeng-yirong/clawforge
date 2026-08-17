@@ -1,0 +1,735 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "approve_request",
+      "required_args": [],
+      "id": "approve-request"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "bulk_approve_requests",
+      "required_args": [],
+      "id": "bulk-approve-requests"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "calculate_total_cost",
+      "required_args": [],
+      "id": "calculate-total-cost"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "cancel_booking",
+      "required_args": [],
+      "id": "cancel-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_approval_status",
+      "required_args": [],
+      "id": "check-approval-status"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check_policy_compliance",
+      "required_args": [],
+      "id": "check-policy-compliance"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compare_platform_prices",
+      "required_args": [],
+      "id": "compare-platform-prices"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "confirm_booking_received",
+      "required_args": [],
+      "id": "confirm-booking-received"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_booking",
+      "required_args": [],
+      "id": "create-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "escalate_approval",
+      "required_args": [],
+      "id": "escalate-approval"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "filter_platforms_by_region",
+      "required_args": [],
+      "id": "filter-platforms-by-region"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_approval_history",
+      "required_args": [],
+      "id": "get-approval-history"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_booking_details",
+      "required_args": [],
+      "id": "get-booking-details"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_booking_itinerary",
+      "required_args": [],
+      "id": "get-booking-itinerary"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_booking_statistics",
+      "required_args": [],
+      "id": "get-booking-statistics"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_domestic_international_policy",
+      "required_args": [],
+      "id": "get-domestic-international-policy"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_platform",
+      "required_args": [],
+      "id": "get-platform"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy",
+      "required_args": [],
+      "id": "get-policy"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy_approval_chain",
+      "required_args": [],
+      "id": "get-policy-approval-chain"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy_restrictions",
+      "required_args": [],
+      "id": "get-policy-restrictions"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy_travel_limits",
+      "required_args": [],
+      "id": "get-policy-travel-limits"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "initiate_approval_request",
+      "required_args": [],
+      "id": "initiate-approval-request"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_bookings",
+      "required_args": [],
+      "id": "list-bookings"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_pending_approvals",
+      "required_args": [],
+      "id": "list-pending-approvals"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_platforms",
+      "required_args": [],
+      "id": "list-platforms"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_policies",
+      "required_args": [],
+      "id": "list-policies"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "platform_discounts",
+      "required_args": [],
+      "id": "platform-discounts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "platform_fee_structure",
+      "required_args": [],
+      "id": "platform-fee-structure"
+    },
+    {
+      "layer": "cli",
+      "role": "guard",
+      "action": "reject_request",
+      "required_args": [],
+      "id": "reject-request"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "search_flights",
+      "required_args": [],
+      "id": "search-flights"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_booking",
+      "required_args": [],
+      "id": "update-booking"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "validate_booking_against_policy",
+      "required_args": [],
+      "id": "validate-booking-against-policy"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "approve-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "reject-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "approve-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "reject-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-booking"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "approve-request",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "approve-request",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "approve-request",
+      "target": "finish"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::q2_business_travel_2026",
+      "tier": "gold",
+      "source": "compare-platform-prices",
+      "target": "validate-booking-against-policy"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after comparing prices, you may calculate total cost for a specific option",
+      "tier": "llm_weak",
+      "source": "compare-platform-prices",
+      "target": "calculate-total-cost"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-booking",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-booking",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-booking",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after creating a booking, you often confirm that it was received",
+      "tier": "llm_weak",
+      "source": "create-booking",
+      "target": "confirm-booking-received"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-approval-history",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-approval-history",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-details",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-details",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-itinerary",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-itinerary",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-statistics",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-booking-statistics",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-domestic-international-policy",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-domestic-international-policy",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-platform",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-platform",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting platform details, you might look into its fee structure",
+      "tier": "llm_weak",
+      "source": "get-platform",
+      "target": "platform-fee-structure"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-approval-chain",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-approval-chain",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-restrictions",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-restrictions",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-travel-limits",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-travel-limits",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::q2_business_travel_2026",
+      "tier": "gold",
+      "source": "initiate-approval-request",
+      "target": "create-booking"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-bookings",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-bookings",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-pending-approvals",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-pending-approvals",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing pending approvals, you often approve one",
+      "tier": "llm_weak",
+      "source": "list-pending-approvals",
+      "target": "approve-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-platforms",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-platforms",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-policies",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-policies",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reject-request",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "reject-request",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "reject-request",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-flights",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "search-flights",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after searching flights, you often compare prices across platforms",
+      "tier": "llm_weak",
+      "source": "search-flights",
+      "target": "compare-platform-prices"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-booking",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-booking",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-booking",
+      "target": "finish"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::q2_business_travel_2026",
+      "tier": "gold",
+      "source": "validate-booking-against-policy",
+      "target": "initiate-approval-request"
+    }
+  ]
+}

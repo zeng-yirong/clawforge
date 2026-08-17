@@ -1,0 +1,9 @@
+id: wp_doc_clue_memory_env__008
+name: "Document Clue Memory – HelioSync Edge Inference Fabric"
+asset: wp_doc_clue_memory_env__008
+prompt: tasks/prompts/wp_doc_clue_memory_env__008.md
+runtime:
+  image: python:3.12-slim
+  entrypoint: ["python", "-c"]
+  commands:
+    - "cd /workplace && python -c \"exec(open('scripts/wp_doc_clue_memory_env__008/verify_workplace.py').read())\""

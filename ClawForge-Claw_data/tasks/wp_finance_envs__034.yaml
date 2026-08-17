@@ -1,0 +1,6 @@
+asset: wp_finance_envs__034
+prompt_path: tasks/prompts/wp_finance_envs__034.md
+runtime:
+  language: python
+  version: "3.10"
+  filesystem: true

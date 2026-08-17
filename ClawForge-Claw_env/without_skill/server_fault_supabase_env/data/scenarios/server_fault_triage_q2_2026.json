@@ -1,0 +1,57 @@
+{
+  "scenario_id": "server_fault_triage_q2_2026",
+  "title": "Triage UPS outage and service-down incidents, write processed rows to Supabase memory, and preserve audit logs",
+  "task_prompt": "You are operating in Northstar Infrastructure Response. Traverse the server fault incident pool, filter UPS outage and service-down risk work orders, execute the remediation logic for the actionable incidents, then write the processed handling records into the simulated Supabase in-memory database. Preserve a complete audit trail of the actions taken. Avoid processing unrelated categories such as network degradation or watchlist-only database lag tickets.",
+  "current_time": "2026-06-17T09:00:00+00:00",
+  "workspace_account_id": "infra_response_team",
+  "incident_ids": [
+    "inc_ups_001",
+    "inc_srv_001",
+    "inc_srv_003",
+    "inc_net_002",
+    "inc_db_004"
+  ],
+  "attachment_paths": [
+    "runbook_ups_and_service.md",
+    "supabase_write_contract.md"
+  ],
+  "target_categories": [
+    "ups_outage",
+    "service_down"
+  ],
+  "target_statuses": [
+    "open",
+    "triaged"
+  ],
+  "expected_incident_ids": [
+    "inc_ups_001",
+    "inc_srv_001",
+    "inc_srv_003"
+  ],
+  "forbidden_incident_ids": [
+    "inc_net_002",
+    "inc_db_004"
+  ],
+  "expected_resolution_states": {
+    "inc_ups_001": "power_restored",
+    "inc_srv_001": "service_restarted",
+    "inc_srv_003": "service_restarted"
+  },
+  "required_attachment_paths": [
+    "runbook_ups_and_service.md",
+    "supabase_write_contract.md"
+  ],
+  "required_audit_actions": [
+    "screen_risk_incidents",
+    "batch_remediate",
+    "write_supabase_resolution"
+  ],
+  "required_actions": [
+    "task",
+    "screen_risk_incidents",
+    "read_attachment",
+    "batch_remediate",
+    "write_supabase_resolution",
+    "list_audit_logs"
+  ]
+}

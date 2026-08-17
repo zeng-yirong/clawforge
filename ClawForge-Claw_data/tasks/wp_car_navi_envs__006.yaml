@@ -1,0 +1,6 @@
+id: wp_car_navi_envs__006
+asset: wp_car_navi_envs__006
+prompt: tasks/prompts/wp_car_navi_envs__006.md
+runtime:
+  timeout: 120
+  workdir: cwd

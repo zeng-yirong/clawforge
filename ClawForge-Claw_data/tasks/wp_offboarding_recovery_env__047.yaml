@@ -1,0 +1,5 @@
+name: wp_offboarding_recovery_env__047
+asset: wp_offboarding_recovery_env__047
+prompt: tasks/prompts/wp_offboarding_recovery_env__047.md
+runtime:
+  type: file_ops

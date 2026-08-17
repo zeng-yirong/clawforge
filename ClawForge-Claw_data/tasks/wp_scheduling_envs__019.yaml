@@ -1,0 +1,7 @@
+task:
+  name: wp_scheduling_envs__019
+  asset: wp_scheduling_envs__019
+  prompt: tasks/prompts/wp_scheduling_envs__019.md
+  runtime:
+    cwd: assets/wp_scheduling_envs__019/
+    timeout: 300

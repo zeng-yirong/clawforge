@@ -1,0 +1,11 @@
+task_id: wp_security_envs__017
+asset: wp_security_envs__017
+prompt_path: tasks/prompts/wp_security_envs__017.md
+runtime:
+  max_seconds: 300
+  allowed_run: []
+  forbidden_run:
+    - "python -m security_envs"
+    - "pip"
+    - "curl"
+    - "wget"

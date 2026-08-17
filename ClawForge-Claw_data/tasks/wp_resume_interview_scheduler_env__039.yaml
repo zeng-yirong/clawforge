@@ -1,0 +1,5 @@
+asset: wp_resume_interview_scheduler_env__039
+prompt_path: tasks/prompts/wp_resume_interview_scheduler_env__039.md
+runtime_config:
+  timeout: 120
+  max_retries: 2

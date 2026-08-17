@@ -1,0 +1,11 @@
+task_id: wp_security_envs__004
+prompt_path: tasks/prompts/wp_security_envs__004.md
+asset: wp_security_envs__004
+runtime:
+  environment:
+    - name: SECURITY_SESSION_ID
+      value: "session-primary-004"
+    - name: SECURITY_STATE_ROOT
+      value: "/tmp/security_state"
+    - name: SECURITY_SCENARIO_ID
+      value: "intrusion_response"

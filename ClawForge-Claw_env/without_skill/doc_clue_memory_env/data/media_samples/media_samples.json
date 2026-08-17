@@ -1,0 +1,54 @@
+{
+  "media_samples": [
+    {
+      "sample_id": "media_001",
+      "title": "Launch Keynote Excerpt - Industrial Edge AI Stack",
+      "channel": "keynote_transcript",
+      "captured_at": "2026-06-09",
+      "tags": [
+        "launch",
+        "keynote",
+        "edge ai"
+      ],
+      "summary": "Public launch copy says HelioSync Edge Inference Fabric switches between vision and acoustic models in under 40 milliseconds.",
+      "solution_aliases": [
+        "HelioSync Edge Inference Fabric",
+        "HelioSync fabric"
+      ],
+      "content": "On stage, the spokesperson says HelioSync Edge Inference Fabric lets each edge box switch between visual and acoustic models in under 40 milliseconds while staying inside sealed thermal envelopes. The sample is consistent with the industrial inspection positioning seen elsewhere."
+    },
+    {
+      "sample_id": "media_002",
+      "title": "Trade Publication Draft - Runtime Control Layers",
+      "channel": "editorial_draft",
+      "captured_at": "2026-05-19",
+      "tags": [
+        "editorial",
+        "runtime",
+        "control layers"
+      ],
+      "summary": "Discusses runtime control layers and HelioStream Runtime, not the target fabric.",
+      "solution_aliases": [
+        "HelioStream Runtime"
+      ],
+      "content": "The draft focuses on middleware and fleet control layers. It mentions HelioStream Runtime rather than HelioSync Edge Inference Fabric."
+    },
+    {
+      "sample_id": "media_003",
+      "title": "Analyst Podcast Clip - Edge Vision Procurement",
+      "channel": "podcast_transcript",
+      "captured_at": "2026-06-02",
+      "tags": [
+        "podcast",
+        "procurement",
+        "edge vision"
+      ],
+      "summary": "An analyst notes that buyers abbreviate the target solution to HSEF in procurement threads.",
+      "solution_aliases": [
+        "HSEF",
+        "HelioSync fabric"
+      ],
+      "content": "In procurement calls, buyers increasingly shorten HelioSync fabric to HSEF. The clip reinforces the alias mapping, though it carries fewer deployment specifics than the launch keynote."
+    }
+  ]
+}

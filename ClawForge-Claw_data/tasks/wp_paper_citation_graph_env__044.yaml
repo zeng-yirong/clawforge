@@ -1,0 +1,6 @@
+task_id: wp_paper_citation_graph_env__044
+prompt_path: tasks/prompts/wp_paper_citation_graph_env__044.md
+asset: wp_paper_citation_graph_env__044
+runtime:
+  timeout: 300
+  max_retries: 2

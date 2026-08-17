@@ -1,0 +1,258 @@
+#!/usr/bin/env python3
+"""Small workspace file editor used by the str_replace_editor tool."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+import tempfile
+from pathlib import Path
+from typing import Any
+
+MAX_RESPONSE_LEN = int(os.getenv("STR_REPLACE_EDITOR_MAX_RESPONSE_LEN", "20000"))
+STATE_FILE_ENV = "STR_REPLACE_EDITOR_STATE_FILE"
+
+
+def _state_file() -> Path:
+    configured = os.getenv(STATE_FILE_ENV)
+    if configured:
+        return Path(configured)
+    return Path(tempfile.gettempdir()) / "uni_agent_str_replace_editor_state.json"
+
+
+def _read_text(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="utf-8", errors="replace")
+
+
+def _write_text(path: Path, content: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+
+
+def _load_history() -> dict[str, list[str]]:
+    try:
+        raw = _state_file().read_text(encoding="utf-8")
+        data = json.loads(raw)
+        if isinstance(data, dict):
+            return {str(k): list(v) for k, v in data.items() if isinstance(v, list)}
+    except FileNotFoundError:
+        pass
+    except Exception:
+        pass
+    return {}
+
+
+def _save_history(history: dict[str, list[str]]) -> None:
+    path = _state_file()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(history, ensure_ascii=False), encoding="utf-8")
+
+
+def _remember(path: Path, previous: str) -> None:
+    history = _load_history()
+    key = str(path.resolve())
+    history.setdefault(key, []).append(previous)
+    _save_history(history)
+
+
+def _pop_history(path: Path) -> str | None:
+    history = _load_history()
+    key = str(path.resolve())
+    values = history.get(key) or []
+    if not values:
+        return None
+    previous = values.pop()
+    history[key] = values
+    _save_history(history)
+    return previous
+
+
+def _clip(text: str) -> str:
+    if len(text) <= MAX_RESPONSE_LEN:
+        return text
+    return (
+        text[:MAX_RESPONSE_LEN]
+        + "\n<response clipped><NOTE>Output exceeded the tool limit. Use view_range or grep to inspect a smaller section.</NOTE>"
+    )
+
+
+def _numbered(text: str, *, start_line: int = 1) -> str:
+    lines = text.splitlines()
+    if not lines:
+        return "<empty file>"
+    return "\n".join(f"{idx:6}\t{line}" for idx, line in enumerate(lines, start=start_line))
+
+
+def _parse_view_range(value: str | None) -> list[int] | None:
+    if value is None:
+        return None
+    text = value.strip()
+    try:
+        parsed: Any = json.loads(text)
+    except json.JSONDecodeError:
+        parsed = [part for part in text.strip("[]()").replace(",", " ").split() if part]
+    if not isinstance(parsed, list) or len(parsed) != 2:
+        raise argparse.ArgumentTypeError("view_range must be a two-item list, such as [10, 20].")
+    try:
+        return [int(parsed[0]), int(parsed[1])]
+    except (TypeError, ValueError) as exc:
+        raise argparse.ArgumentTypeError("view_range values must be integers.") from exc
+
+
+def _validate_existing_file(path: Path) -> None:
+    if not path.exists():
+        raise ValueError(f"The path does not exist: {path}")
+    if path.is_dir():
+        raise ValueError(f"The path is a directory: {path}")
+
+
+def command_view(path: Path, view_range: list[int] | None) -> str:
+    if not path.exists():
+        raise ValueError(f"The path does not exist: {path}")
+    if path.is_dir():
+        if view_range is not None:
+            raise ValueError("view_range is only valid when viewing a file.")
+        entries: list[str] = []
+        root_depth = len(path.resolve().parts)
+        for item in sorted(path.rglob("*")):
+            rel_parts = item.resolve().parts[root_depth:]
+            if len(rel_parts) > 2 or any(part.startswith(".") for part in rel_parts):
+                continue
+            suffix = "/" if item.is_dir() else ""
+            entries.append(str(item.relative_to(path)) + suffix)
+            if len(entries) >= 500:
+                entries.append("<response clipped>")
+                break
+        listing = "\n".join(entries) if entries else "<empty directory>"
+        return f"Directory: {path}\n{listing}"
+
+    text = _read_text(path)
+    start_line = 1
+    if view_range is not None:
+        lines = text.splitlines()
+        if not lines:
+            return f"File: {path}\n<empty file>"
+        start, end = view_range
+        if start < 1:
+            raise ValueError("view_range start must be >= 1.")
+        if end == -1:
+            end = len(lines)
+        if end < start:
+            raise ValueError("view_range end must be >= start, or -1 for EOF.")
+        if start > len(lines):
+            raise ValueError(f"view_range start is beyond EOF: {start} > {len(lines)}.")
+        end = min(end, len(lines))
+        text = "\n".join(lines[start - 1 : end])
+        start_line = start
+    return _clip(f"File: {path}\n{_numbered(text, start_line=start_line)}")
+
+
+def command_create(path: Path, file_text: str | None) -> str:
+    if file_text is None:
+        raise ValueError("file_text is required for create.")
+    if path.exists():
+        raise ValueError(f"File already exists: {path}")
+    _write_text(path, file_text)
+    _remember(path, "")
+    return f"File created successfully at: {path}"
+
+
+def command_str_replace(path: Path, old_str: str | None, new_str: str | None) -> str:
+    _validate_existing_file(path)
+    if not old_str:
+        raise ValueError("old_str is required for str_replace and must not be empty.")
+    original = _read_text(path)
+    replacement = new_str or ""
+    occurrences = original.count(old_str)
+    if occurrences == 0:
+        raise ValueError(f"No replacement was performed. old_str was not found in {path}.")
+    if occurrences > 1:
+        raise ValueError(
+            f"No replacement was performed. old_str appears {occurrences} times in {path}; include more context."
+        )
+    _remember(path, original)
+    first_index = original.index(old_str)
+    start_line = original[:first_index].count("\n") + 1
+    updated = original.replace(old_str, replacement, 1)
+    _write_text(path, updated)
+    new_line_count = max(1, replacement.count("\n") + 1)
+    lines = updated.splitlines()
+    snippet_start = max(1, start_line - 2)
+    snippet_end = min(len(lines), start_line + new_line_count + 2)
+    snippet = "\n".join(lines[snippet_start - 1 : snippet_end])
+    return (
+        f"The file {path} has been edited. Review the snippet below.\n"
+        f"{_numbered(snippet, start_line=snippet_start)}"
+    )
+
+
+def command_insert(path: Path, insert_line: int | None, new_str: str | None) -> str:
+    _validate_existing_file(path)
+    if insert_line is None:
+        raise ValueError("insert_line is required for insert.")
+    if new_str is None:
+        raise ValueError("new_str is required for insert.")
+    original = _read_text(path)
+    lines = original.splitlines()
+    if insert_line < 0 or insert_line > len(lines):
+        raise ValueError(f"insert_line must be between 0 and {len(lines)}.")
+    _remember(path, original)
+    insert_lines = new_str.splitlines()
+    updated_lines = lines[:insert_line] + insert_lines + lines[insert_line:]
+    trailing_newline = "\n" if original.endswith("\n") else ""
+    updated = "\n".join(updated_lines) + trailing_newline
+    _write_text(path, updated)
+    snippet_start = max(1, insert_line - 2)
+    snippet_end = min(len(updated_lines), insert_line + max(1, len(insert_lines)) + 3)
+    snippet = "\n".join(updated_lines[snippet_start - 1 : snippet_end])
+    return (
+        f"The file {path} has been edited. Review the snippet below.\n"
+        f"{_numbered(snippet, start_line=snippet_start)}"
+    )
+
+
+def command_undo(path: Path) -> str:
+    previous = _pop_history(path)
+    if previous is None:
+        raise ValueError(f"No edit history found for {path}.")
+    _write_text(path, previous)
+    return f"Last edit to {path} undone successfully."
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="View, create, and edit files.")
+    parser.add_argument("command", choices=["view", "create", "str_replace", "insert", "undo_edit"])
+    parser.add_argument("--path", required=True)
+    parser.add_argument("--file_text", default=None)
+    parser.add_argument("--old_str", default=None)
+    parser.add_argument("--new_str", default=None)
+    parser.add_argument("--insert_line", type=int, default=None)
+    parser.add_argument("--view_range", type=_parse_view_range, default=None)
+    args = parser.parse_args()
+
+    path = Path(args.path)
+    try:
+        if args.command == "view":
+            output = command_view(path, args.view_range)
+        elif args.command == "create":
+            output = command_create(path, args.file_text)
+        elif args.command == "str_replace":
+            output = command_str_replace(path, args.old_str, args.new_str)
+        elif args.command == "insert":
+            output = command_insert(path, args.insert_line, args.new_str)
+        else:
+            output = command_undo(path)
+        print(output)
+        return 0
+    except Exception as exc:
+        print(f"str_replace_editor error: {exc}")
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

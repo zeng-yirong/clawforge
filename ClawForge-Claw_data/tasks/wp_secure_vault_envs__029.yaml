@@ -1,0 +1,10 @@
+task_id: wp_secure_vault_envs__029
+asset: wp_secure_vault_envs__029
+prompt_path: tasks/prompts/wp_secure_vault_envs__029.md
+runtime:
+  python: "3.10"
+  workspace: "assets/wp_secure_vault_envs__029"
+  setup:
+    - pip install -q --no-deps .
+  files:
+    - tasks/wp_secure_vault_envs__029/env_builder.py

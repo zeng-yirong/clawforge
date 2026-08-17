@@ -1,0 +1,10 @@
+name: wp_expense_envs__013
+prompt: tasks/prompts/wp_expense_envs__013.md
+asset: wp_expense_envs__013
+runtime:
+  python: "3.10"
+  cwd: assets/wp_expense_envs__013
+  env:
+    EXPENSE_SESSION_ID: "exp-013"
+    EXPENSE_SCENARIO_ID: "expense_analysis_001"
+    EXPENSE_STATE_ROOT: "."

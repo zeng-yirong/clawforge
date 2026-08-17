@@ -1,0 +1,6 @@
+task_id: "wp_flight_delay_envs__029"
+prompt_path: "tasks/prompts/wp_flight_delay_envs__029.md"
+asset: "wp_flight_delay_envs__029"
+runtime:
+  type: "sandbox"
+  cwd: "assets/wp_flight_delay_envs__029"

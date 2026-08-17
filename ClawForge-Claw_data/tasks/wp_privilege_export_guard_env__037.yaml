@@ -1,0 +1,15 @@
+name: wp_privilege_export_guard_env__037
+asset: wp_privilege_export_guard_env__037
+prompt: tasks/prompts/wp_privilege_export_guard_env__037.md
+env_builder: tasks/wp_privilege_export_guard_env__037/env_builder.py
+verify_workplace: scripts/wp_privilege_export_guard_env__037/verify_workplace.py
+runtime:
+  timeout: 60
+  max_stdout_lines: 100
+  allowed_commands:
+    - read
+    - write
+    - list
+    - find
+    - grep
+    - glob

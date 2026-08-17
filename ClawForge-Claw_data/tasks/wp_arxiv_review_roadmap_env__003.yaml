@@ -1,0 +1,6 @@
+asset: wp_arxiv_review_roadmap_env__003
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__003.md
+runtime:
+  timeout_seconds: 300
+  max_file_ops: 500
+  sandbox_type: filesystem

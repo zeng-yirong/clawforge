@@ -1,0 +1,10 @@
+{
+  "project_docs": [
+    {
+      "doc_id": "doc_langgraph_readme",
+      "project_id": "proj_langgraph_sim",
+      "title": "LangGraph Simulation README",
+      "path": "langgraph_readme.md"
+    }
+  ]
+}

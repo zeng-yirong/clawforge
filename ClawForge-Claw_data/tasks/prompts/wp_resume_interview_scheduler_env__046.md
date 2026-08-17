@@ -1,0 +1,1 @@
+嘿，我是HR部门的李明！我们这边急需为“高级后端工程师”职位安排面试。我这边有一堆候选人资料，但很多都不太对劲。在 `data/candidates/` 下有最新候选人的档案，`data/jobs/` 下有职位描述，还有一个 `schedule.json` 记录了最近可用的面试时间段。请你帮我找出技能最匹配该职位的活跃候选人，然后从可用时间段中选第一个空闲slot，生成一个面试邀请记录，放到 `ops/interview_invite.json` 里。字段包括：job_id, candidate_id, candidate_name, interview_time, reminder_time（提前1小时）。注意排除那些状态为非活跃的候选人。多谢！

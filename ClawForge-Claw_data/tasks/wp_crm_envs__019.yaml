@@ -1,0 +1,6 @@
+task_name: wp_crm_envs__019
+prompt: tasks/prompts/wp_crm_envs__019.md
+asset: wp_crm_envs__019
+runtime:
+  python: "3.10"
+  working_dir: "assets/wp_crm_envs__019"

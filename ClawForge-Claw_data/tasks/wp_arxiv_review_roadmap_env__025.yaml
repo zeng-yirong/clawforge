@@ -1,0 +1,7 @@
+name: wp_arxiv_review_roadmap_env__025
+asset: wp_arxiv_review_roadmap_env__025
+prompt: tasks/prompts/wp_arxiv_review_roadmap_env__025.md
+runtime:
+  base_image: python:3.11-slim
+  timeout: 120
+  max_steps: 50

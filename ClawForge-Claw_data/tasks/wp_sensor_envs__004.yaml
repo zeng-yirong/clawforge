@@ -1,0 +1,6 @@
+asset: wp_sensor_envs__004
+prompt: tasks/prompts/wp_sensor_envs__004.md
+runtime:
+  type: subprocess
+  cwd: assets/wp_sensor_envs__004
+  timeout: 120

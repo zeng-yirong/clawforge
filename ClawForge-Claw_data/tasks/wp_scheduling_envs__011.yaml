@@ -1,0 +1,8 @@
+name: wp_scheduling_envs__011
+asset: wp_scheduling_envs__011
+prompt: tasks/prompts/wp_scheduling_envs__011.md
+runtime:
+  type: file_workplace
+  cwd: assets/wp_scheduling_envs__011
+  max_steps: 30
+  timeout_seconds: 300

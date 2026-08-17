@@ -1,0 +1,15 @@
+{
+  "accounts": [
+    {
+      "account_id": "research_mapping_team",
+      "display_name": "Research Mapping Team",
+      "department": "Research Strategy",
+      "email": "research-mapping@northstar.example.com",
+      "permissions": [
+        "view_papers",
+        "generate_citation_graphs",
+        "view_cache"
+      ]
+    }
+  ]
+}

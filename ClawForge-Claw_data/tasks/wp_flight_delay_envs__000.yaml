@@ -1,0 +1,9 @@
+version: "1.0"
+asset: wp_flight_delay_envs__000
+prompt: tasks/prompts/wp_flight_delay_envs__000.md
+runtime:
+  cwd: "."
+  env:
+    - name: WORKSPACE
+      value: "."
+  actions: []

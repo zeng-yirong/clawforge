@@ -1,0 +1,1 @@
+嘿，我是市场部的Leo。我们一直在跟踪CloudMajor的referral渠道投放效果，老板想知道他们在2025年的referral拉新上总共砸了多少钱。相关数据都在`data/competitors/`和`data/users/`里，你帮我理一下，把结果存到`ops/report.json`里，格式简单点，我直接拿给老板看。对了，别搞错竞品，CloudMajor就是那个主做云服务的。时间紧，全靠你了！

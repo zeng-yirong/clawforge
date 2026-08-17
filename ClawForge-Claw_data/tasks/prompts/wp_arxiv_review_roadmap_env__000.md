@@ -1,0 +1,1 @@
+嘿，助手！我们组正为下周一的组会准备一份关于“高效视觉”（efficient_vision）的综述报告，但我实在没时间从头整理。我把论文库扔在了 `data/papers/papers.json`，里面混杂了好多方向的论文，还有几个方向字段带空格或连字符的冒牌货。我需要你帮我过滤出方向精确等于 `efficient_vision` 的论文，然后生成一篇 Markdown 综述，把每篇相关论文的摘要要点都塞进去（千万别漏掉），同时用 Mermaid 画一张时间线路线图，展示这些工作的出版年份和引用关系。最终产物请放到 `outputs/review_and_roadmap.md`。拜托了，注意只取精确匹配的，那些无关的 (比如 `tool_augmented_reasoning` 或 `efficient-vision`) 一个都不要混进来！

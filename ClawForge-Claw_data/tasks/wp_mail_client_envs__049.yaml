@@ -1,0 +1,5 @@
+prompt_path: tasks/prompts/wp_mail_client_envs__049.md
+asset: wp_mail_client_envs__049
+runtime:
+  image: python:3.11-slim
+  command: python -c "import sys; sys.path.insert(0,'.'); exec(open('tasks/wp_mail_client_envs__049/env_builder.py').read())"

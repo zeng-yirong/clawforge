@@ -1,0 +1,508 @@
+{
+  "env_name": "sku_competition_env",
+  "rel_path": "without_skill/sku_competition_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_competitor_brand_ids",
+    "expected_target_sku_ids",
+    "required_actions",
+    "required_attachment_paths",
+    "target_brand_id",
+    "target_category_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_region",
+          "type": "str",
+          "required": true,
+          "desc": "default_region (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/category_review_template.md",
+      "kind": "markdown_attachment",
+      "title": "Category Review Template",
+      "bytes": 463,
+      "desc": "markdown_attachment file data/attachments/category_review_template.md"
+    },
+    {
+      "path": "data/attachments/current_pricebook_notice.md",
+      "kind": "markdown_attachment",
+      "title": "Current Price Book Notice",
+      "bytes": 448,
+      "desc": "markdown_attachment file data/attachments/current_pricebook_notice.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 2,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "category_review_template.md",
+            "current_pricebook_notice.md"
+          ],
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Category Review Template",
+            "Current Price Book Notice"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "pricing_notice",
+            "report_template"
+          ],
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/brands/brands.json",
+      "kind": "collection",
+      "wrapper_key": "brands",
+      "record_key": "brand_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "brand_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "brand_id (str)"
+        },
+        {
+          "name": "brand_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "AquaPulse",
+            "DermVeil",
+            "LuminaSkin",
+            "PureLattice",
+            "SolarOat"
+          ],
+          "desc": "brand_name (str)"
+        },
+        {
+          "name": "hero_category_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "hero_category_id (str)"
+        },
+        {
+          "name": "hero_category_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Hydration Serum",
+            "UV Moisturizer"
+          ],
+          "desc": "hero_category_name (str)"
+        },
+        {
+          "name": "positioning",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "positioning (str)"
+        },
+        {
+          "name": "region_focus",
+          "type": "str",
+          "required": true,
+          "desc": "region_focus (str)"
+        },
+        {
+          "name": "price_tier",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "mid",
+            "mid-premium",
+            "premium",
+            "value"
+          ],
+          "desc": "price_tier (str)"
+        }
+      ],
+      "desc": "collection file data/brands/brands.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alina Bose",
+            "Jonas Li",
+            "Mira Tan"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Category Director",
+            "Merchandising Ops",
+            "Pricing Operations Lead"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "alina.bose@northstar.example.com",
+            "jonas.li@northstar.example.com",
+            "mira.tan@northstar.example.com"
+          ],
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/pricing/price_books.json",
+      "kind": "collection",
+      "wrapper_key": "price_books",
+      "record_key": "price_book_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "price_book_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "price_book_id (str)"
+        },
+        {
+          "name": "version",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "APAC-Q1-2026-ARCHIVE",
+            "APAC-Q2-2026-LIVE"
+          ],
+          "desc": "version (str)"
+        },
+        {
+          "name": "region",
+          "type": "str",
+          "required": true,
+          "desc": "region (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "approved",
+            "archived"
+          ],
+          "desc": "status (str)"
+        },
+        {
+          "name": "is_current",
+          "type": "bool",
+          "required": true,
+          "desc": "is_current (bool)"
+        },
+        {
+          "name": "effective_from",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "effective_from (str)"
+        },
+        {
+          "name": "entries",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "entries (list)"
+        }
+      ],
+      "desc": "collection file data/pricing/price_books.json"
+    },
+    {
+      "path": "data/skus/skus.json",
+      "kind": "collection",
+      "wrapper_key": "skus",
+      "record_key": "sku_id",
+      "count": 10,
+      "fields": [
+        {
+          "name": "sku_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "sku_id (str)"
+        },
+        {
+          "name": "brand_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "brand_id (str)"
+        },
+        {
+          "name": "brand_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "AquaPulse",
+            "DermVeil",
+            "LuminaSkin",
+            "PureLattice",
+            "SolarOat"
+          ],
+          "desc": "brand_name (str)"
+        },
+        {
+          "name": "category_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "category_id (str)"
+        },
+        {
+          "name": "category_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Hydration Serum",
+            "UV Moisturizer"
+          ],
+          "desc": "category_name (str)"
+        },
+        {
+          "name": "sku_name",
+          "type": "str",
+          "required": true,
+          "desc": "sku_name (str)"
+        },
+        {
+          "name": "size_value",
+          "type": "int",
+          "required": true,
+          "desc": "size_value (int)"
+        },
+        {
+          "name": "size_unit",
+          "type": "str",
+          "required": true,
+          "desc": "size_unit (str)"
+        },
+        {
+          "name": "pack_count",
+          "type": "int",
+          "required": true,
+          "desc": "pack_count (int)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "desc": "status (str)"
+        },
+        {
+          "name": "selling_points",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "selling_points (list)"
+        },
+        {
+          "name": "ingredients",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "ingredients (list)"
+        }
+      ],
+      "desc": "collection file data/skus/skus.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "brand_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/brands/brands.json",
+          "record_key": "brand_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "sku_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/skus/skus.json",
+          "record_key": "sku_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "price_book_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/pricing/price_books.json",
+          "record_key": "price_book_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "stale_price_book_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/pricing/price_books.json",
+          "record_key": "price_book_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_brand_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/brands/brands.json",
+          "record_key": "brand_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "active_price_book_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/pricing/price_books.json",
+          "record_key": "price_book_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_target_sku_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/skus/skus.json",
+          "record_key": "sku_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "expected_competitor_brand_ids",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/brands/brands.json",
+          "record_key": "brand_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+name: wp_smart_home_envs__026
+version: "1.0"
+description: Smart home health conflict detection task
+asset: wp_smart_home_envs__026
+prompt_path: tasks/prompts/wp_smart_home_envs__026.md
+runtime_config:
+  agent_workdir: "."
+  allowed_actions: ["read", "write", "list"]

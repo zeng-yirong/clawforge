@@ -1,0 +1,9 @@
+task_id: wp_crm_envs__015
+prompt: tasks/prompts/wp_crm_envs__015.md
+asset: wp_crm_envs__015
+runtime:
+  image: python:3.11-slim
+  entrypoint: python
+  args:
+    - "-c"
+    - "import sys,json; print('ok')"

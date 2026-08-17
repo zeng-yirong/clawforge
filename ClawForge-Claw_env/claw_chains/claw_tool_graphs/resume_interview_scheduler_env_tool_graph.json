@@ -1,0 +1,419 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_candidate",
+      "required_args": [
+        "--candidate-id"
+      ],
+      "id": "get-candidate"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_job",
+      "required_args": [
+        "--job-id"
+      ],
+      "id": "get-job"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_candidates",
+      "required_args": [],
+      "id": "list-candidates"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_jobs",
+      "required_args": [],
+      "id": "list-jobs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "match_candidate",
+      "required_args": [
+        "--candidate-id",
+        "--job-id"
+      ],
+      "id": "match-candidate"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "schedule_interview",
+      "required_args": [
+        "--candidate-id",
+        "--job-id",
+        "--slot"
+      ],
+      "id": "schedule-interview"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "schedule-interview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "schedule-interview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-candidate",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-candidate",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing candidate, often match to jobs",
+      "tier": "llm_weak",
+      "source": "get-candidate",
+      "target": "match-candidate"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting candidate, read resume attachment",
+      "tier": "llm_weak",
+      "source": "get-candidate",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-job",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-job",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing job, often match to candidates",
+      "tier": "llm_weak",
+      "source": "get-job",
+      "target": "match-candidate"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting job, read job description attachment",
+      "tier": "llm_weak",
+      "source": "get-job",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for",
+      "tier": "dataflow",
+      "source": "list-candidates",
+      "target": "get-candidate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for",
+      "tier": "dataflow",
+      "source": "list-candidates",
+      "target": "match-candidate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for",
+      "tier": "dataflow",
+      "source": "list-candidates",
+      "target": "schedule-interview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-candidates",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-candidates",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_job_id_for",
+      "tier": "dataflow",
+      "source": "list-jobs",
+      "target": "get-job"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_job_id_for",
+      "tier": "dataflow",
+      "source": "list-jobs",
+      "target": "match-candidate"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_job_id_for",
+      "tier": "dataflow",
+      "source": "list-jobs",
+      "target": "schedule-interview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-jobs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-jobs",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, read an attachment",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::resume_scheduler_ml_platform_q2_2026",
+      "tier": "gold",
+      "source": "match-candidate",
+      "target": "schedule-interview"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "schedule-interview",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "schedule-interview",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "schedule-interview",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after scheduling, review session summary",
+      "tier": "llm_weak",
+      "source": "schedule-interview",
+      "target": "session-summary"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-candidate"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-job"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-candidates"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-jobs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

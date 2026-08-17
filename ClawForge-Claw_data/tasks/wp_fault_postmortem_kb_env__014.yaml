@@ -1,0 +1,5 @@
+asset: wp_fault_postmortem_kb_env__014
+prompt: prompts/wp_fault_postmortem_kb_env__014.md
+runtime:
+  cwd: assets/wp_fault_postmortem_kb_env__014
+  timeout: 120

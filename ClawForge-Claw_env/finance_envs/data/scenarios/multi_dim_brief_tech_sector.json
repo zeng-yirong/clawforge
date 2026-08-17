@@ -1,0 +1,11 @@
+{
+  "scenario_id": "multi_dim_brief_tech_sector",
+  "title": "Generate multi-dimensional investment brief for Technology sector",
+  "task_prompt": "You are an equity analyst at InvestWise Research. Generate a comprehensive multi-dimensional investment brief covering the Technology sector for the week of June 16, 2026. Your brief should cover: 1) Market overview and macro context (Fed policy impact), 2) Earnings roundup (NXTC Q2 beat and guidance raise, TECH AI chip launch), 3) Key news developments (CloudMajor partnership, SEC inquiry for NXTC), 4) Stock screening to identify top opportunities based on growth and valuation, 5) Actionable investment recommendations with specific entry points and price targets. Focus on NXTC and TECH as primary coverage names. Follow investment research standards and cite specific data points from news, earnings, and market data.",
+  "current_time": "2026-06-16T09:00:00+00:00",
+  "workspace_account_id": "analyst_team",
+  "ticker_ids": ["TECH", "NXTC", "HLTH", "FNS", "ENGY", "GLBL", "MFST", "CONS"],
+  "news_ids": ["news_001", "news_002", "news_003", "news_004", "news_005", "news_006"],
+  "earnings_ids": ["earn_001", "earn_002", "earn_003"],
+  "required_actions": ["list_stocks", "get_stock", "list_news", "list_earnings", "screen_stocks", "create_brief", "update_brief"]
+}

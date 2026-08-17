@@ -1,0 +1,1 @@
+嗨，Agent！我是HR部门的Lisa。我们刚收到招聘经理的紧急请求，需要为职位 **JOB-003（资深后端工程师）** 尽快安排一轮技术面试。这个职位要求的技术栈是：**Python、SQL、Docker**。请从 `data/candidates/candidates.json` 中找出最匹配的人选——注意只考虑状态为 `active` 的候选人。匹配完成后，请在 **明天（2025-03-21）下午3:00** 安排一场1小时的视频面试，面试官是Alice（她的联系人ID是 `CONT-001`，详细信息在 `data/contacts.json` 里）。把完整的面试计划放到 `schedules/` 目录下，文件名叫 `interview_plan.json`。记得给这次面试设置提醒，提前15分钟通知。谢谢！我需要一个可以直接拿去用的计划文件。

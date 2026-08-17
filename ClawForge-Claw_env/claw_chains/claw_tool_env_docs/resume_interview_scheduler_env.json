@@ -1,0 +1,323 @@
+{
+  "env_name": "resume_interview_scheduler_env",
+  "rel_path": "without_skill/resume_interview_scheduler_env",
+  "cli_module": "without_skill.resume_interview_scheduler_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "RESUME_INTERVIEW_SCHEDULER_SESSION_ID",
+    "state_env": "RESUME_INTERVIEW_SCHEDULER_STATE_ROOT",
+    "scenario_env": "RESUME_INTERVIEW_SCHEDULER_SCENARIO_ID",
+    "default_scenario_id": "resume_scheduler_ml_platform_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "get-candidate",
+      "action": "get_candidate",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--candidate-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-job",
+      "action": "get_job",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--job-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-candidates",
+      "action": "list_candidates",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-jobs",
+      "action": "list_jobs",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "match-candidate",
+      "action": "match_candidate",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--candidate-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--job-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "read-attachment",
+      "action": "read_attachment",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--attachment-path",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "schedule-interview",
+      "action": "schedule_interview",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--candidate-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--job-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--slot",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-candidates",
+      "dst": "get-candidate",
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for"
+    },
+    {
+      "src": "list-candidates",
+      "dst": "match-candidate",
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for"
+    },
+    {
+      "src": "list-candidates",
+      "dst": "schedule-interview",
+      "weight": 0.8,
+      "relationship": "produces_candidate_id_for"
+    },
+    {
+      "src": "list-jobs",
+      "dst": "get-job",
+      "weight": 0.8,
+      "relationship": "produces_job_id_for"
+    },
+    {
+      "src": "list-jobs",
+      "dst": "match-candidate",
+      "weight": 0.8,
+      "relationship": "produces_job_id_for"
+    },
+    {
+      "src": "list-jobs",
+      "dst": "schedule-interview",
+      "weight": 0.8,
+      "relationship": "produces_job_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "resume_scheduler_ml_platform_q2_2026": [
+      "match_candidate",
+      "schedule_interview"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions",
+    "target_candidate_id",
+    "target_job_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "resume_scheduler_ml_platform_q2_2026"
+  ]
+}

@@ -1,0 +1,6 @@
+task_name: wp_mail_client_envs__038
+prompt_path: tasks/prompts/wp_mail_client_envs__038.md
+asset: wp_mail_client_envs__038
+runtime:
+  timeout_seconds: 300
+  max_iterations: 50

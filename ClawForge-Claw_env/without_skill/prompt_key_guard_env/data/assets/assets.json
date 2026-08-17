@@ -1,0 +1,20 @@
+{
+  "assets": [
+    {
+      "asset_id": "asset_prompt_vault",
+      "asset_name": "Prompt Vault",
+      "asset_type": "prompt_store",
+      "classification": "restricted",
+      "owner_team": "Model Platform",
+      "read_policy": "encrypted_breakglass_only"
+    },
+    {
+      "asset_id": "asset_api_key_vault",
+      "asset_name": "API Key Vault",
+      "asset_type": "credential_store",
+      "classification": "restricted",
+      "owner_team": "Platform Security",
+      "read_policy": "encrypted_breakglass_only"
+    }
+  ]
+}

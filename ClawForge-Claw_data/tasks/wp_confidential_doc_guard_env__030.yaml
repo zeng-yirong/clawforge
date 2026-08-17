@@ -1,0 +1,7 @@
+name: wp_confidential_doc_guard_env__030
+asset: wp_confidential_doc_guard_env__030
+prompt_path: tasks/prompts/wp_confidential_doc_guard_env__030.md
+runtime:
+  cwd: assets/wp_confidential_doc_guard_env__030
+  entrypoint: python3
+  timeout: 120

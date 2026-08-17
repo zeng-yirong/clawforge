@@ -1,0 +1,44 @@
+{
+  "policy_id": "travel_policy_001",
+  "name": "Acme Corp Business Travel Policy",
+  "version": "2026.1",
+  "max_cost_per_booking": 5000,
+  "max_single_booking_cost": 8000,
+  "allowed_cabin_classes": ["economy", "premium_economy"],
+  "min_advance_booking_days": 7,
+  "requires_approval_above": 1500,
+  "preferred_vendors": ["skybook", "flightpro"],
+  "restricted_routes": ["North Korea", "Iran"],
+  "required_documents": ["Receipt over $75", " boarding pass"],
+  "no_refund_cabin_classes": ["business", "first"],
+  "approval_levels": {
+    "level1": {
+      "threshold": 1500,
+      "role": "manager",
+      "approver": "John Manager",
+      "email": "john.manager@acme.com"
+    },
+    "level2": {
+      "threshold": 3000,
+      "role": "director",
+      "approver": "Sarah Director",
+      "email": "sarah.director@acme.com"
+    },
+    "level3": {
+      "threshold": 5000,
+      "role": "vp",
+      "approver": "Mike VP",
+      "email": "mike.vp@acme.com"
+    }
+  },
+  "max_daily_limit": 2000,
+  "max_monthly_limit": 15000,
+  "max_trips_per_month": 10,
+  "requires_receipt_above": 75,
+  "allow_upgrade_at_company_cost": false,
+  "domestic_max_cost": 3000,
+  "domestic_approval_threshold": 1000,
+  "international_max_cost": 5000,
+  "international_approval_threshold": 1500,
+  "international_requirements": ["Passport", "Visa if required"]
+}

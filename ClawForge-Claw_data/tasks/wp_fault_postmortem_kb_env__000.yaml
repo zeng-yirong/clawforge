@@ -1,0 +1,6 @@
+prompt: tasks/prompts/wp_fault_postmortem_kb_env__000.md
+asset: wp_fault_postmortem_kb_env__000
+runtime:
+  image: python:3.11-slim
+  entrypoint: python
+  cwd: assets/wp_fault_postmortem_kb_env__000

@@ -1,0 +1,1 @@
+小王（安全组）刚才在群里喊我：“老大刚批了我们的审计权限，但账户权限还是老样子——只能看 customer_data，architecture_data 碰不得。我拉了一份待处理的批量导出请求清单，就在 `data/requests/requests.json` 里。有几个请求状态还是 pending，但目标资产可能是我们没权限导出的架构数据。你帮我把那些越权的请求滤出来，ID 列个表塞到 `ops/deny_requests.json`，我好直接驳回。动作快点，别让数据流出去！”

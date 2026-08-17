@@ -1,0 +1,1 @@
+嘿，我是安全运营的 Alex。刚收到一批紧急的 Vault 访问请求，我怀疑里面混进了社会工程钓鱼！我已经把请求列表丢在 `data/requests.json` 了，还有我们的员工账户目录 `data/accounts.json` 和资产清单 `data/assets.json`。另外，我写了一个访问策略贴在 `data/attachments.json` 里，策略文件的具体路径是 `vault_access_policy.md`。我需要你帮我揪出那些试图绕过策略、瞄着 Prompt Vault 或 API Key Vault 的可疑请求，把它们的 request_id 整理成一个 JSON 数组，保存到 `ops/denied_ids.json`。动作要快，别让鱼跑了！

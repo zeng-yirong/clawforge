@@ -1,0 +1,289 @@
+{
+  "env_name": "performance_review_env",
+  "rel_path": "without_skill/performance_review_env",
+  "cli_module": "without_skill.performance_review_env.cli",
+  "has_skill_md": false,
+  "bindings": {
+    "session_env": "PERFORMANCE_REVIEW_SESSION_ID",
+    "state_env": "PERFORMANCE_REVIEW_STATE_ROOT",
+    "scenario_env": "PERFORMANCE_REVIEW_SCENARIO_ID",
+    "default_scenario_id": "performance_review_engineering_q2_2026"
+  },
+  "visible_verbs": [
+    {
+      "verb": "generate-performance-profile",
+      "action": "generate_performance_profile",
+      "role": "produce",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-employee",
+      "action": "get_employee",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-output-ledger",
+      "action": "get_output_ledger",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--employee-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-performance-profile",
+      "action": "get_performance_profile",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--profile-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-scoring-rule",
+      "action": "get_scoring_rule",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--role-code",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-employees",
+      "action": "list_employees",
+      "role": "read",
+      "help": "",
+      "args": [
+        {
+          "name": "--department",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-performance-profiles",
+      "action": "list_performance_profiles",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-employees",
+      "dst": "get-employee",
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for"
+    },
+    {
+      "src": "list-employees",
+      "dst": "get-output-ledger",
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for"
+    },
+    {
+      "src": "list-employees",
+      "dst": "generate-performance-profile",
+      "weight": 0.8,
+      "relationship": "produces_employee_id_for"
+    },
+    {
+      "src": "generate-performance-profile",
+      "dst": "get-performance-profile",
+      "weight": 0.8,
+      "relationship": "produces_profile_id_for"
+    },
+    {
+      "src": "list-performance-profiles",
+      "dst": "get-performance-profile",
+      "weight": 0.8,
+      "relationship": "produces_profile_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "performance_review_engineering_q2_2026": [
+      "get_output_ledger",
+      "get_scoring_rule",
+      "generate_performance_profile"
+    ]
+  },
+  "anchor_keys": [
+    "expected_band",
+    "expected_score",
+    "required_actions",
+    "target_employee_id"
+  ],
+  "evaluator": {
+    "dimensions": [
+      "required_action_score",
+      "retrieval_score",
+      "artifact_score"
+    ],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "performance_review_engineering_q2_2026"
+  ]
+}

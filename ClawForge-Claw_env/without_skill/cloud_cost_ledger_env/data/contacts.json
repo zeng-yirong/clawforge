@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "contact_id": "finops_lead_001",
+      "name": "Tara Ng",
+      "role": "Cloud FinOps Lead",
+      "email": "tara.ng@northstar.example.com"
+    },
+    {
+      "contact_id": "cloud_ops_mgr_001",
+      "name": "Daniel Song",
+      "role": "Cloud Operations Manager",
+      "email": "daniel.song@northstar.example.com"
+    },
+    {
+      "contact_id": "data_platform_001",
+      "name": "Leah Kumar",
+      "role": "Data Platform Director",
+      "email": "leah.kumar@northstar.example.com"
+    }
+  ]
+}

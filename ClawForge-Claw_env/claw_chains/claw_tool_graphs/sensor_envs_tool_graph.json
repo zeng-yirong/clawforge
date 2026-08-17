@@ -1,0 +1,339 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "cli",
+      "role": "other",
+      "description": "",
+      "action": "read",
+      "required_args": [],
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "active",
+      "required_args": [],
+      "id": "active"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "alerts",
+      "required_args": [],
+      "id": "alerts"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "analyze",
+      "required_args": [],
+      "id": "analyze"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "anomaly",
+      "required_args": [],
+      "id": "anomaly"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "check",
+      "required_args": [],
+      "id": "check"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compose_anomaly",
+      "required_args": [
+        "--recipient",
+        "--contact",
+        "--anomaly-id"
+      ],
+      "id": "compose-anomaly"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "create",
+      "required_args": [
+        "--type",
+        "--severity",
+        "--title",
+        "--description",
+        "--sensor-id",
+        "--location-id",
+        "--type",
+        "--recipient",
+        "--contact",
+        "--subject",
+        "--body"
+      ],
+      "id": "create"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "daily",
+      "required_args": [],
+      "id": "daily"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "energy",
+      "required_args": [],
+      "id": "energy"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "hourly",
+      "required_args": [],
+      "id": "hourly"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "info",
+      "required_args": [],
+      "id": "info"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "list",
+      "required_args": [],
+      "id": "list"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "monitoring",
+      "required_args": [],
+      "id": "monitoring"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "monthly",
+      "required_args": [],
+      "id": "monthly"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "moving_average",
+      "required_args": [],
+      "id": "moving-average"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "notifications",
+      "required_args": [],
+      "id": "notifications"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reports",
+      "required_args": [],
+      "id": "reports"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "reset",
+      "required_args": [],
+      "id": "reset"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "resolve",
+      "required_args": [
+        "--resolution",
+        "--resolution"
+      ],
+      "id": "resolve"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "seasonality",
+      "required_args": [],
+      "id": "seasonality"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "sensors",
+      "required_args": [],
+      "id": "sensors"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "set_threshold",
+      "required_args": [],
+      "id": "set-threshold"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "stats",
+      "required_args": [
+        "--start",
+        "--end"
+      ],
+      "id": "stats"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "summary",
+      "required_args": [],
+      "id": "summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "trends",
+      "required_args": [],
+      "id": "trends"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.25,
+      "relationship": "after reading sensor data, often analyze trend",
+      "tier": "llm_weak",
+      "source": "read",
+      "target": "analyze"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting active alerts, resolve one",
+      "tier": "llm_weak",
+      "source": "active",
+      "target": "resolve"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after analyzing, get trend summary",
+      "tier": "llm_weak",
+      "source": "analyze",
+      "target": "summary"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_anomaly_id_for",
+      "tier": "dataflow",
+      "source": "anomaly",
+      "target": "compose-anomaly"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after checking for anomalies, compose anomaly alert",
+      "tier": "llm_weak",
+      "source": "check",
+      "target": "compose-anomaly"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating daily report, check for anomalies",
+      "tier": "llm_weak",
+      "source": "daily",
+      "target": "check"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after detecting seasonality, calculate moving average",
+      "tier": "llm_weak",
+      "source": "seasonality",
+      "target": "moving-average"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_sensor_id_for",
+      "tier": "dataflow",
+      "source": "sensors",
+      "target": "create"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after setting threshold, start monitoring",
+      "tier": "llm_weak",
+      "source": "set-threshold",
+      "target": "monitoring"
+    }
+  ]
+}

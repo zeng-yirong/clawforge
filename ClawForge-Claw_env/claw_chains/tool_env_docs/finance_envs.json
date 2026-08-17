@@ -1,0 +1,594 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_brief",
+  "description": "Create a new investment brief.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "ticker": {
+     "type": "string",
+     "description": "stock ticker symbol"
+    },
+    "title": {
+     "type": "string",
+     "description": "brief title"
+    },
+    "brief_type": {
+     "type": "string",
+     "description": "type of brief"
+    },
+    "summary": {
+     "type": "string",
+     "description": "brief summary text"
+    },
+    "investment_rationale": {
+     "type": "string",
+     "description": "Comma-separated list"
+    },
+    "risks": {
+     "type": "string",
+     "description": "Comma-separated list"
+    },
+    "valuation_methodology": {
+     "type": "string",
+     "description": "valuation method used"
+    },
+    "key_metrics": {
+     "type": "string",
+     "description": "JSON string"
+    }
+   },
+   "required": [
+    "ticker",
+    "title",
+    "brief_type",
+    "summary",
+    "investment_rationale",
+    "risks",
+    "valuation_methodology",
+    "key_metrics"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_earnings_summary",
+  "description": "Create earnings summary for multiple tickers.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "symbols": {
+     "type": "string",
+     "description": "Comma-separated tickers"
+    }
+   },
+   "required": [
+    "symbols"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "generate_sector_overview",
+  "description": "Generate sector overview report.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sector": {
+     "type": "string",
+     "description": "target sector for overview"
+    }
+   },
+   "required": [
+    "sector"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_brief",
+  "description": "Get detailed brief content.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brief_id": {
+     "type": "string",
+     "description": "unique identifier of brief"
+    }
+   },
+   "required": [
+    "brief_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_earnings",
+  "description": "Get detailed earnings information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "earnings_id": {
+     "type": "string",
+     "description": "unique earnings record id"
+    }
+   },
+   "required": [
+    "earnings_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_news",
+  "description": "Get full news article content.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "news_id": {
+     "type": "string",
+     "description": "unique news article id"
+    }
+   },
+   "required": [
+    "news_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "get_stock",
+  "description": "Get detailed stock information.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "symbol": {
+     "type": "string",
+     "description": "stock ticker symbol"
+    }
+   },
+   "required": [
+    "symbol"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_briefs",
+  "description": "List investment briefs.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "search query string",
+     "default": ""
+    },
+    "ticker": {
+     "type": "string",
+     "description": "filter by ticker"
+    },
+    "brief_type": {
+     "type": "string",
+     "description": "filter by type"
+    },
+    "status": {
+     "type": "string",
+     "description": "filter by status"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "max number of results"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_earnings",
+  "description": "List earnings records.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "symbol": {
+     "type": "string",
+     "description": "stock symbol filter"
+    },
+    "beat_only": {
+     "type": "boolean",
+     "description": "only show beats"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "max results count"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_news",
+  "description": "List financial news articles.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "search query text",
+     "default": ""
+    },
+    "symbol": {
+     "type": "string",
+     "description": "filter by ticker"
+    },
+    "category": {
+     "type": "string",
+     "description": "news category filter"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "max articles to return"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_stocks",
+  "description": "List available stocks.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "stock name/symbol search",
+     "default": ""
+    },
+    "sector": {
+     "type": "string",
+     "description": "filter by sector"
+    },
+    "min_market_cap": {
+     "type": "integer",
+     "description": "minimum market cap"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "max stocks to list"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "provide_recommendations",
+  "description": "Get investment recommendations for tickers.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "symbols": {
+     "type": "string",
+     "description": "Comma-separated tickers"
+    }
+   },
+   "required": [
+    "symbols"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "review_brief",
+  "description": "Review a submitted brief.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brief_id": {
+     "type": "string",
+     "description": "brief to review"
+    },
+    "decision": {
+     "type": "string",
+     "description": "approve/reject decision",
+     "enum": [
+      "approve",
+      "reject",
+      "request_changes"
+     ]
+    },
+    "comments": {
+     "type": "string",
+     "description": "review comments"
+    }
+   },
+   "required": [
+    "brief_id",
+    "decision"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "screen_stocks",
+  "description": "Screen stocks by criteria.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "sector": {
+     "type": "string",
+     "description": "sector filter"
+    },
+    "min_market_cap": {
+     "type": "integer",
+     "description": "minimum market cap"
+    },
+    "max_pe_ratio": {
+     "type": "number",
+     "description": "maximum P/E ratio"
+    },
+    "min_revenue_growth": {
+     "type": "number",
+     "description": "minimum revenue growth"
+    },
+    "min_dividend_yield": {
+     "type": "number",
+     "description": "minimum dividend yield"
+    },
+    "sort_by": {
+     "type": "string",
+     "description": "sort field (e.g., market cap)",
+     "default": "market_cap"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "submit_brief",
+  "description": "Submit brief for review.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brief_id": {
+     "type": "string",
+     "description": "brief ID to submit"
+    }
+   },
+   "required": [
+    "brief_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "update_brief",
+  "description": "Update brief content.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "brief_id": {
+     "type": "string",
+     "description": "brief ID to update"
+    },
+    "updates": {
+     "type": "string",
+     "description": "JSON string"
+    }
+   },
+   "required": [
+    "brief_id",
+    "updates"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

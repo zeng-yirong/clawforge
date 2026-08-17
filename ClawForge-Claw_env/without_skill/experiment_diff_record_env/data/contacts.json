@@ -1,0 +1,10 @@
+{
+  "contacts": [
+    {
+      "contact_id": "lab_mgr_001",
+      "name": "Quinn Xu",
+      "role": "Lab Manager",
+      "email": "quinn.xu@northstar.example.com"
+    }
+  ]
+}

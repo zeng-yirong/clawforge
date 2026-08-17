@@ -1,0 +1,6 @@
+name: wp_paper_citation_graph_env__026
+asset: wp_paper_citation_graph_env__026
+prompt: tasks/prompts/wp_paper_citation_graph_env__026.md
+runtime:
+  timeout: 600
+  workspace: /home/user/workplace

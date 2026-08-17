@@ -1,0 +1,17 @@
+task_id: wp_smart_home_envs__004
+asset: wp_smart_home_envs__004
+prompt: tasks/prompts/wp_smart_home_envs__004.md
+runtime:
+  cwd: assets/wp_smart_home_envs__004/
+  agent_timeout_seconds: 600
+  allowed_tools:
+    - read
+    - write
+    - edit
+    - list_dir
+    - grep
+    - glob
+  env_vars:
+    SMART_HOME_SESSION_ID: "smh-20250701T080000Z-9999"
+    SMART_HOME_STATE_ROOT: "."
+    SMART_HOME_SCENARIO_ID: "energy_aware_climate"

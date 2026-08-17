@@ -1,0 +1,12 @@
+name: wp_doc_clue_memory_env__024
+description: "Extract clue records for HelioSync Edge Inference Fabric from reports, presentations, and media samples."
+asset: wp_doc_clue_memory_env__024
+prompt: tasks/prompts/wp_doc_clue_memory_env__024.md
+runtime:
+  cwd: assets/wp_doc_clue_memory_env__024
+  exec_mode: file_ops
+  allowed_actions:
+    - read
+    - write
+    - list
+    - mkdir

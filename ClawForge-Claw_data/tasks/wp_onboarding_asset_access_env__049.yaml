@@ -1,0 +1,11 @@
+task_id: wp_onboarding_asset_access_env__049
+asset: wp_onboarding_asset_access_env__049
+prompt_path: tasks/prompts/wp_onboarding_asset_access_env__049.md
+runtime:
+  workflow: default
+  actions:
+    - read
+    - write
+    - mkdir
+  agent_timeout_seconds: 600
+  setup_script: ""

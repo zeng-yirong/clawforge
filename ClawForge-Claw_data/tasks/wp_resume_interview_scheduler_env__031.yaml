@@ -1,0 +1,6 @@
+task_id: wp_resume_interview_scheduler_env__031
+name: "Resume Interview Scheduler"
+asset: wp_resume_interview_scheduler_env__031
+prompt: tasks/prompts/wp_resume_interview_scheduler_env__031.md
+runtime:
+  work_dir: ./

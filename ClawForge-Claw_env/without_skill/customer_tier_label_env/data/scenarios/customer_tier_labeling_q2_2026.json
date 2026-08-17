@@ -1,0 +1,13 @@
+{
+  "scenario_id": "customer_tier_labeling_q2_2026",
+  "title": "Apply customer segmentation labels",
+  "task_prompt": "Read the segmentation rules, inspect the target customer's spend and activity logs, and update the customer profile with the correct labels.",
+  "current_time": "2026-06-23T11:30:00Z",
+  "workspace_account_id": "crm_ops_segmentation",
+  "customer_ids": ["cust_fin_001", "cust_health_001"],
+  "attachment_paths": ["segmentation_rules.md"],
+  "required_attachment_path": "segmentation_rules.md",
+  "target_customer_id": "cust_fin_001",
+  "expected_labels": ["low_engagement", "retention_risk"],
+  "required_actions": ["list_customers", "get_customer_metrics", "read_attachment", "update_customer_labels"]
+}

@@ -1,0 +1,298 @@
+{
+  "env_name": "car_navi_envs",
+  "rel_path": "car_navi_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "account_id",
+        "battery_capacity",
+        "current_charge",
+        "default_route_preference",
+        "ev_mode",
+        "preferred_language",
+        "profile_name"
+      ],
+      "desc": "json_blob file data/accounts.json"
+    },
+    {
+      "path": "data/offline_maps.json",
+      "kind": "collection",
+      "wrapper_key": "regions",
+      "record_key": "region_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "region_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "region_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "市中心区域",
+            "机场区域",
+            "郊区扩展区域"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "center",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "lat",
+            "lon"
+          ],
+          "desc": "center (dict)"
+        },
+        {
+          "name": "radius_km",
+          "type": "int",
+          "required": true,
+          "desc": "radius_km (int)"
+        },
+        {
+          "name": "map_version",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "2024.05.15",
+            "2024.06.01"
+          ],
+          "desc": "map_version (str)"
+        }
+      ],
+      "desc": "collection file data/offline_maps.json"
+    },
+    {
+      "path": "data/pois.json",
+      "kind": "collection",
+      "wrapper_key": "pois",
+      "record_key": "poi_id",
+      "count": 17,
+      "fields": [
+        {
+          "name": "poi_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "poi_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "attraction",
+            "charging",
+            "food",
+            "hospital",
+            "parking",
+            "rest_area",
+            "shopping"
+          ],
+          "desc": "category (str)"
+        },
+        {
+          "name": "lat",
+          "type": "float",
+          "required": true,
+          "desc": "lat (float)"
+        },
+        {
+          "name": "lon",
+          "type": "float",
+          "required": true,
+          "desc": "lon (float)"
+        },
+        {
+          "name": "address",
+          "type": "str",
+          "required": true,
+          "desc": "address (str)"
+        },
+        {
+          "name": "charge_rate_kw",
+          "type": "int",
+          "required": false,
+          "desc": "charge_rate_kw (int)"
+        },
+        {
+          "name": "hourly_rate",
+          "type": "int",
+          "required": false,
+          "desc": "hourly_rate (int)"
+        }
+      ],
+      "desc": "collection file data/pois.json"
+    },
+    {
+      "path": "data/regions.json",
+      "kind": "collection",
+      "wrapper_key": "regions",
+      "record_key": "region_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "region_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "region_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "北京市中心",
+            "朝阳区",
+            "海淀区"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "center",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "lat",
+            "lon"
+          ],
+          "desc": "center (dict)"
+        },
+        {
+          "name": "radius_km",
+          "type": "int",
+          "required": true,
+          "desc": "radius_km (int)"
+        }
+      ],
+      "desc": "collection file data/regions.json"
+    },
+    {
+      "path": "data/route_preferences.json",
+      "kind": "collection",
+      "wrapper_key": "preferences",
+      "record_key": "preference_id",
+      "count": 6,
+      "fields": [
+        {
+          "name": "preference_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "preference_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "最快路线",
+            "最短路线",
+            "经济路线",
+            "避开拥堵",
+            "避开高速",
+            "风景路线"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "优先选择不上高速的路线",
+            "优先选择交通畅通的路线",
+            "优先选择时间最短的路线",
+            "优先选择能耗最低的路线",
+            "优先选择距离最短的路线",
+            "优先选择风景优美的路线"
+          ],
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/route_preferences.json"
+    },
+    {
+      "path": "data/traffic_data.json",
+      "kind": "collection",
+      "wrapper_key": "road_segments",
+      "record_key": "segment_id",
+      "count": 5,
+      "fields": [
+        {
+          "name": "segment_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "segment_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "中环路",
+            "外环高速",
+            "延安高架路",
+            "沪渝高速",
+            "陆家嘴环路"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "condition",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "congested",
+            "slow",
+            "smooth"
+          ],
+          "desc": "condition (str)"
+        },
+        {
+          "name": "congestion_level",
+          "type": "int",
+          "required": true,
+          "desc": "congestion_level (int)"
+        }
+      ],
+      "desc": "collection file data/traffic_data.json"
+    },
+    {
+      "path": "data/vehicle.json",
+      "kind": "json_blob",
+      "top_keys": [
+        "battery_capacity_kwh",
+        "has_ev_support",
+        "has_offline_maps",
+        "has_traffic_live",
+        "max_charge_rate_kw",
+        "model",
+        "vehicle_id"
+      ],
+      "desc": "json_blob file data/vehicle.json"
+    }
+  ],
+  "scenario_id_pools": [],
+  "scenario_anchor_refs": []
+}

@@ -1,0 +1,204 @@
+{
+  "price_books": [
+    {
+      "price_book_id": "pb_apac_q2_2026_live",
+      "version": "APAC-Q2-2026-LIVE",
+      "region": "APAC",
+      "status": "approved",
+      "is_current": true,
+      "effective_from": "2026-06-01",
+      "entries": [
+        {
+          "sku_id": "sku_lum_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 28.0,
+          "sale_price": 26.0,
+          "member_price": 24.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_lum_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 41.0,
+          "sale_price": 38.0,
+          "member_price": 35.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_lum_003",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 32.0,
+          "sale_price": 29.0,
+          "member_price": 27.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_aqp_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 18.0,
+          "sale_price": 16.0,
+          "member_price": 15.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_aqp_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 27.0,
+          "sale_price": 24.0,
+          "member_price": 22.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_drv_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 38.0,
+          "sale_price": 36.0,
+          "member_price": 33.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_drv_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 52.0,
+          "sale_price": 49.0,
+          "member_price": 46.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_plt_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 31.0,
+          "sale_price": 29.0,
+          "member_price": 27.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_plt_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 43.0,
+          "sale_price": 40.0,
+          "member_price": 37.0,
+          "effective_from": "2026-06-01"
+        },
+        {
+          "sku_id": "sku_sol_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 25.0,
+          "sale_price": 23.0,
+          "member_price": 21.0,
+          "effective_from": "2026-06-01"
+        }
+      ]
+    },
+    {
+      "price_book_id": "pb_apac_q1_2026_archive",
+      "version": "APAC-Q1-2026-ARCHIVE",
+      "region": "APAC",
+      "status": "archived",
+      "is_current": false,
+      "effective_from": "2026-03-01",
+      "entries": [
+        {
+          "sku_id": "sku_lum_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 27.0,
+          "sale_price": 24.0,
+          "member_price": 22.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_lum_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 39.0,
+          "sale_price": 35.0,
+          "member_price": 32.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_lum_003",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 30.0,
+          "sale_price": 27.0,
+          "member_price": 25.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_aqp_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 17.0,
+          "sale_price": 15.0,
+          "member_price": 14.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_aqp_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 25.0,
+          "sale_price": 22.0,
+          "member_price": 20.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_drv_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 37.0,
+          "sale_price": 34.0,
+          "member_price": 31.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_drv_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 50.0,
+          "sale_price": 46.0,
+          "member_price": 43.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_plt_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 30.0,
+          "sale_price": 27.0,
+          "member_price": 25.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_plt_002",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 41.0,
+          "sale_price": 37.0,
+          "member_price": 34.0,
+          "effective_from": "2026-03-01"
+        },
+        {
+          "sku_id": "sku_sol_001",
+          "currency": "USD",
+          "channel": "DTC",
+          "list_price": 24.0,
+          "sale_price": 21.0,
+          "member_price": 20.0,
+          "effective_from": "2026-03-01"
+        }
+      ]
+    }
+  ]
+}

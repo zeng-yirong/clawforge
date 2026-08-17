@@ -1,0 +1,6 @@
+name: wp_excel_data_envs__040
+asset: wp_excel_data_envs__040
+prompt: tasks/prompts/wp_excel_data_envs__040.md
+runtime:
+  cwd: assets/wp_excel_data_envs__040
+  entrypoint: tasks/wp_excel_data_envs__040/env_builder.py

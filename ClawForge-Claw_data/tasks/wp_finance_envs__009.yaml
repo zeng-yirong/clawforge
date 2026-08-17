@@ -1,0 +1,6 @@
+name: wp_finance_envs__009
+prompt: tasks/prompts/wp_finance_envs__009.md
+asset: wp_finance_envs__009
+runtime:
+  type: python
+  version: "3.11"

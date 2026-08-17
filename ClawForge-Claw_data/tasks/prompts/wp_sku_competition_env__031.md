@@ -1,0 +1,1 @@
+嘿，我是Mira，定价运营的。Q2竞争分析截稿日就是明天了，但LuminaSkin那边的价格数据还是一团糟。我手头有最新的系统快照，就在`data/`目录下——SKU主数据、品牌档案、还有两个价目表版本。你帮我跑一下：把LuminaSkin还在售的所有SKU拎出来，从当前正在用的价目表里找到它们的定价，按产品品类归好类，输出一份干净的清单到`reports/competitor_report.json`。注意那些已经停产的或者试用装的别混进来，价目表也一定要用最新的那个，别拿Q1的归档货。格式你用JSON，每条记录包括sku_id、sku_name、category_name、price就行。拜托了，明天一早Alina就要。

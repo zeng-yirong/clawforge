@@ -1,0 +1,5 @@
+asset: wp_sku_competition_env__020
+prompt: prompts/wp_sku_competition_env__020.md
+runtime:
+  python: "3.11"
+  commands: []

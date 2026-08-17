@@ -1,0 +1,6 @@
+task_name: "Experiment Diff Record"
+asset: "wp_experiment_diff_record_env__028"
+prompt_path: "tasks/prompts/wp_experiment_diff_record_env__028.md"
+runtime:
+  image: "python:3.10"
+  command: ["python", "-m", "task"]

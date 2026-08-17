@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_churn_retention_mail_env__020.md
+asset: wp_churn_retention_mail_env__020
+runtime:
+  cwd: assets/wp_churn_retention_mail_env__020

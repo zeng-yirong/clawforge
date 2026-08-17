@@ -1,0 +1,470 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return a complete snapshot of the environment's internal state.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_warehouse",
+    "description": "Register a new warehouse in the system.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Warehouse name"
+        },
+        "location": {
+          "type": "string",
+          "description": "Warehouse geographic location"
+        },
+        "capacity": {
+          "type": "integer",
+          "description": "Maximum inventory capacity"
+        },
+        "contact_info": {
+          "type": "dict",
+          "description": "Contact info, e.g. {\"manager\": \"Name\", \"phone\": \"Phone\"}"
+        }
+      },
+      "required": [
+        "name",
+        "location",
+        "capacity",
+        "contact_info"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_inventory",
+    "description": "Update warehouse inventory quantity (inbound/outbound).",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "warehouse_id": {
+          "type": "string",
+          "description": "Warehouse ID"
+        },
+        "product_sku": {
+          "type": "string",
+          "description": "Product SKU"
+        },
+        "quantity_change": {
+          "type": "integer",
+          "description": "Quantity change, positive means inbound, negative means outbound"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Change reason, e.g. \"purchase_in\", \"sale_out\", \"return_in\""
+        }
+      },
+      "required": [
+        "warehouse_id",
+        "product_sku",
+        "quantity_change",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_logistics_task",
+    "description": "Create a logistics status query task.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "tracking_number": {
+          "type": "string",
+          "description": "Logistics tracking number"
+        },
+        "order_id": {
+          "type": "string",
+          "description": "Associated order ID"
+        },
+        "priority": {
+          "type": "string",
+          "description": "Task priority, options: low/medium/high/urgent"
+        },
+        "expected_delivery": {
+          "type": "string",
+          "description": "Expected delivery date, ISO format"
+        }
+      },
+      "required": [
+        "tracking_number",
+        "order_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "query_logistics_status",
+    "description": "Execute logistics status query and update task status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "integer",
+          "description": "Logistics query task ID"
+        }
+      },
+      "required": [
+        "task_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_return_ticket",
+    "description": "Create a return/exchange ticket.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "order_id": {
+          "type": "string",
+          "description": "Order ID"
+        },
+        "product_sku": {
+          "type": "string",
+          "description": "Product SKU"
+        },
+        "quantity": {
+          "type": "integer",
+          "description": "Return quantity"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Return reason"
+        },
+        "customer_id": {
+          "type": "string",
+          "description": "Customer ID"
+        },
+        "requested_action": {
+          "type": "string",
+          "description": "Customer requested action: refund/exchange"
+        }
+      },
+      "required": [
+        "order_id",
+        "product_sku",
+        "quantity",
+        "reason",
+        "customer_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_return_ticket",
+    "description": "Process a return/exchange ticket, supporting state transitions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticket_id": {
+          "type": "integer",
+          "description": "Ticket ID"
+        },
+        "action": {
+          "type": "string",
+          "description": "Action to perform: assign/approve/reject/complete"
+        },
+        "approver_id": {
+          "type": "string",
+          "description": "Approver ID (required only for approve/reject)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Processing notes"
+        }
+      },
+      "required": [
+        "ticket_id",
+        "action"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "set_return_resolution",
+    "description": "Set ticket resolution.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticket_id": {
+          "type": "integer",
+          "description": "Ticket ID"
+        },
+        "resolution_type": {
+          "type": "string",
+          "description": "Resolution type: refund/exchange/credit"
+        },
+        "amount": {
+          "type": "number",
+          "description": "Refund amount (required only for refund)"
+        },
+        "exchange_sku": {
+          "type": "string",
+          "description": "Exchange product SKU (required only for exchange)"
+        },
+        "warehouse_id": {
+          "type": "string",
+          "description": "Processing warehouse ID"
+        }
+      },
+      "required": [
+        "ticket_id",
+        "resolution_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_inventory_reconciliation",
+    "description": "Create an inventory reconciliation record.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "warehouse_id": {
+          "type": "string",
+          "description": "Warehouse ID"
+        },
+        "product_sku": {
+          "type": "string",
+          "description": "Product SKU"
+        },
+        "system_quantity": {
+          "type": "integer",
+          "description": "System recorded quantity"
+        },
+        "physical_quantity": {
+          "type": "integer",
+          "description": "Actual physical count quantity"
+        },
+        "counted_by": {
+          "type": "string",
+          "description": "Counter ID"
+        }
+      },
+      "required": [
+        "warehouse_id",
+        "product_sku",
+        "system_quantity",
+        "physical_quantity",
+        "counted_by"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "resolve_reconciliation",
+    "description": "Resolve inventory discrepancy.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "record_id": {
+          "type": "integer",
+          "description": "Reconciliation record ID"
+        },
+        "resolution": {
+          "type": "string",
+          "description": "Resolution: adjusted/written_off/found"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Processing notes"
+        },
+        "resolved_by": {
+          "type": "string",
+          "description": "Resolver ID"
+        },
+        "adjust_inventory": {
+          "type": "boolean",
+          "description": "Whether to adjust system inventory"
+        }
+      },
+      "required": [
+        "record_id",
+        "resolution",
+        "notes",
+        "resolved_by"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_logistics_task",
+    "description": "Get logistics query task details.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "task_id": {
+          "type": "integer",
+          "description": "Task ID"
+        }
+      },
+      "required": [
+        "task_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_return_ticket",
+    "description": "Get return/exchange ticket details.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "ticket_id": {
+          "type": "integer",
+          "description": "Ticket ID"
+        }
+      },
+      "required": [
+        "ticket_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_reconciliation_record",
+    "description": "Get inventory reconciliation record details.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "record_id": {
+          "type": "integer",
+          "description": "Record ID"
+        }
+      },
+      "required": [
+        "record_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_logistics_tasks",
+    "description": "List logistics query tasks, with status and priority filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by status: pending/in_transit/delivered/delayed/lost"
+        },
+        "priority": {
+          "type": "string",
+          "description": "Filter by priority: low/medium/high/urgent"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_return_tickets",
+    "description": "List return/exchange tickets, with status and requested action filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by status: pending/processing/approved/rejected/completed"
+        },
+        "requested_action": {
+          "type": "string",
+          "description": "Filter by requested action: refund/exchange"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_reconciliation_records",
+    "description": "List inventory reconciliation records, with status and warehouse filtering.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter by status: pending/matched/mismatched/resolved"
+        },
+        "warehouse_id": {
+          "type": "string",
+          "description": "Filter by warehouse ID"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_operations_report",
+    "description": "Generate an operations report.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

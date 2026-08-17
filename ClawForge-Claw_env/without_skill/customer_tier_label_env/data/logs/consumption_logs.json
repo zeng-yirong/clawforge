@@ -1,0 +1,12 @@
+{
+  "consumption_logs": [
+    {
+      "customer_id": "cust_fin_001",
+      "quarter_spend_usd": 18000
+    },
+    {
+      "customer_id": "cust_health_001",
+      "quarter_spend_usd": 160000
+    }
+  ]
+}

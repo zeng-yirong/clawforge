@@ -1,0 +1,81 @@
+{
+  "tag_definitions": [
+    {
+      "tag_id": "tag_vip",
+      "name": "VIP",
+      "color": "#e74c3c",
+      "description": "High-value contacts requiring special attention",
+      "category": "priority"
+    },
+    {
+      "tag_id": "tag_decision_maker",
+      "name": "Decision Maker",
+      "color": "#9b59b6",
+      "description": "Contacts with authority to make purchasing decisions",
+      "category": "role"
+    },
+    {
+      "tag_id": "tag_tech",
+      "name": "Tech",
+      "color": "#3498db",
+      "description": "Technology industry contacts",
+      "category": "industry"
+    },
+    {
+      "tag_id": "tag_startup",
+      "name": "Startup",
+      "color": "#2ecc71",
+      "description": "Startup company contacts",
+      "category": "industry"
+    },
+    {
+      "tag_id": "tag_partner",
+      "name": "Partner",
+      "color": "#f39c12",
+      "description": "Strategic business partners",
+      "category": "relationship"
+    },
+    {
+      "tag_id": "tag_vendor",
+      "name": "Vendor",
+      "color": "#95a5a6",
+      "description": "Vendor and supplier contacts",
+      "category": "relationship"
+    },
+    {
+      "tag_id": "tag_former_client",
+      "name": "Former Client",
+      "color": "#7f8c8d",
+      "description": "Previous clients, potential reactivation",
+      "category": "status"
+    },
+    {
+      "tag_id": "tag_procurement",
+      "name": "Procurement",
+      "color": "#1abc9c",
+      "description": "Contacts in procurement department",
+      "category": "role"
+    },
+    {
+      "tag_id": "tag_college",
+      "name": "College",
+      "color": "#e67e22",
+      "description": "College friends and connections",
+      "category": "personal"
+    },
+    {
+      "tag_id": "tag_strategic",
+      "name": "Strategic",
+      "color": "#8e44ad",
+      "description": "Strategic accounts for business growth",
+      "category": "priority"
+    },
+    {
+      "tag_id": "tag_sales",
+      "name": "Sales",
+      "color": "#c0392b",
+      "description": "Sales department contacts",
+      "category": "role"
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "scenario_id": "in_car_navigation",
+  "title": "In-Car Navigation Assistant",
+  "description": "车载导航助手，帮助驾驶员进行目的地导航、POI搜索、路线规划和导航控制",
+  "task_prompt": "你是一位智能车载导航助手。请根据用户的需求，帮助完成以下导航相关任务：\n\n1. **离线地图导航**：使用离线地图数据查询位置、规划路线\n2. **POI搜索 + 导航**：搜索餐厅、加油站、充电站、酒店、景点等并发起导航\n3. **途经点管理**：添加、删除、排序途经点\n4. **路线偏好/切换**：选择最快、最短、避开高速、经济、避开拥堵等路线偏好\n5. **路况/行程查询**：查询当前路况、预计到达时间、剩余距离\n6. **充电/续航规划**：规划充电站点、计算续航里程\n7. **复杂行程规划**：多目的地顺序规划、预计总行程时间\n8. **目的地修正/变更**：修改目的地、重新规划路线\n9. **导航过程控制**：开始导航、暂停导航、重新规划、取消导航\n\n请使用自然语言与用户交互，准确理解用户需求并执行相应操作。",
+  "base_time": "2024-06-11T08:30:00Z",
+  "workspace_account_id": "acc_001",
+  "expected_actions": [
+    {
+      "action_type": "search_poi",
+      "description": "POI搜索",
+      "examples": [
+        "帮我找附近的充电站",
+        "搜索外滩附近的停车场",
+        "找一个川菜馆"
+      ],
+      "required_parameters": ["keyword", "category", "location"]
+    },
+    {
+      "action_type": "start_navigation",
+      "description": "开始导航",
+      "examples": [
+        "导航到上海中心大厦",
+        "去浦东机场",
+        "开始导航"
+      ],
+      "required_parameters": ["poi_id", "route_preference"]
+    },
+    {
+      "action_type": "add_waypoint",
+      "description": "添加途经点",
+      "examples": [
+        "途经一下充电站",
+        "加一个服务区",
+        "中途加个休息点"
+      ],
+      "required_parameters": ["poi_id"]
+    },
+    {
+      "action_type": "remove_waypoint",
+      "description": "删除途经点",
+      "examples": [
+        "删除第二个途经点",
+        "不要经过这里了",
+        "取消途经充电站"
+      ],
+      "required_parameters": ["waypoint_index"]
+    },
+    {
+      "action_type": "route_preference",
+      "description": "路线偏好设置",
+      "examples": [
+        "切换到经济模式",
+        "选择最短路线",
+        "避开高速"
+      ],
+      "required_parameters": ["preference"]
+    },
+    {
+      "action_type": "reroute",
+      "description": "重新规划路线",
+      "examples": [
+        "重新规划路线",
+        "换一条路",
+        "重新计算路线"
+      ],
+      "required_parameters": []
+    },
+    {
+      "action_type": "traffic_query",
+      "description": "路况查询",
+      "examples": [
+        "现在路况怎么样",
+        "前面堵不堵",
+        "预计到达时间是多少"
+      ],
+      "required_parameters": ["query_type"]
+    },
+    {
+      "action_type": "charging_plan",
+      "description": "充电规划",
+      "examples": [
+        "帮我规划充电路线",
+        "哪里可以充电",
+        "电量够不够到下一个充电站"
+      ],
+      "required_parameters": ["target_charge", "max_stops"]
+    },
+    {
+      "action_type": "arrive_waypoint",
+      "description": "到达途经点",
+      "examples": [
+        "到达服务区了",
+        "已经到第一个途经点"
+      ],
+      "required_parameters": ["waypoint_index"]
+    },
+    {
+      "action_type": "arrive_destination",
+      "description": "到达目的地",
+      "examples": [
+        "到了",
+        "导航结束",
+        "已经到达目的地"
+      ],
+      "required_parameters": []
+    },
+    {
+      "action_type": "cancel_navigation",
+      "description": "取消导航",
+      "examples": [
+        "取消导航",
+        "算了不去了",
+        "停止导航"
+      ],
+      "required_parameters": []
+    }
+  ],
+  "scoring_rules": {
+    "dimensions": [
+      {
+        "dimension": "poi_search",
+        "weight": 0.15,
+        "description": "POI搜索的准确性和完整性",
+        "evaluation_criteria": [
+          "正确识别搜索意图",
+          "返回相关POI结果",
+          "正确分类POI类型"
+        ]
+      },
+      {
+        "dimension": "navigation_start",
+        "weight": 0.15,
+        "description": "导航启动的准确性",
+        "evaluation_criteria": [
+          "正确识别目的地",
+          "正确设置路线偏好",
+          "成功开始导航"
+        ]
+      },
+      {
+        "dimension": "waypoint_management",
+        "weight": 0.15,
+        "description": "途经点管理的准确性",
+        "evaluation_criteria": [
+          "正确添加途经点",
+          "正确删除途经点",
+          "途经点顺序合理"
+        ]
+      },
+      {
+        "dimension": "route_planning",
+        "weight": 0.20,
+        "description": "路线规划的合理性",
+        "evaluation_criteria": [
+          "路线符合偏好设置",
+          "路线合理高效",
+          "正确切换路线"
+        ]
+      },
+      {
+        "dimension": "traffic_info",
+        "weight": 0.10,
+        "description": "路况信息提供的准确性",
+        "evaluation_criteria": [
+          "准确提供路况信息",
+          "准确预估到达时间",
+          "准确计算剩余距离"
+        ]
+      },
+      {
+        "dimension": "ev_planning",
+        "weight": 0.15,
+        "description": "电动车充电规划的合理性",
+        "evaluation_criteria": [
+          "正确规划充电站点",
+          "续航计算准确",
+          "充电计划合理"
+        ]
+      },
+      {
+        "dimension": "nav_control",
+        "weight": 0.10,
+        "description": "导航过程控制的准确性",
+        "evaluation_criteria": [
+          "正确响应导航控制指令",
+          "正确处理到达事件",
+          "正确取消导航"
+        ]
+      }
+    ],
+    "passing_score": 0.80,
+    "excellent_score": 0.90
+  }
+}

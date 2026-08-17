@@ -1,0 +1,480 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "guard",
+      "action": "deny_request",
+      "required_args": [
+        "--request-id",
+        "--reason-code"
+      ],
+      "id": "deny-request"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_asset",
+      "required_args": [
+        "--asset-id"
+      ],
+      "id": "get-asset"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_audit_log",
+      "required_args": [
+        "--audit-log-id"
+      ],
+      "id": "get-audit-log"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_request",
+      "required_args": [
+        "--request-id"
+      ],
+      "id": "get-request"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_assets",
+      "required_args": [],
+      "id": "list-assets"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_audit_logs",
+      "required_args": [],
+      "id": "list-audit-logs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_requests",
+      "required_args": [],
+      "id": "list-requests"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "deny-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "deny-request"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "deny-request",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "deny-request",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "deny-request",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "deny-request",
+      "target": "get-audit-log"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-asset",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-asset",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-audit-log",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-audit-log",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "get-audit-log",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::auditor_impersonation_access_q2_2026",
+      "tier": "gold",
+      "source": "get-request",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-request",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-request",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "get-request",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_asset_id_for",
+      "tier": "dataflow",
+      "source": "list-assets",
+      "target": "get-asset"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-assets",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-assets",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_audit-log_id_for",
+      "tier": "dataflow",
+      "source": "list-audit-logs",
+      "target": "get-audit-log"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-audit-logs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-audit-logs",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_request_id_for",
+      "tier": "gold",
+      "source": "list-requests",
+      "target": "get-request"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_request_id_for",
+      "tier": "dataflow",
+      "source": "list-requests",
+      "target": "deny-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-requests",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-requests",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "list-requests",
+      "target": "list-audit-logs"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::auditor_impersonation_access_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "deny-request"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "0.2",
+      "tier": "llm_weak",
+      "source": "session-summary",
+      "target": "list-audit-logs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-asset"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-audit-log"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-request"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-assets"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-audit-logs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-requests"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

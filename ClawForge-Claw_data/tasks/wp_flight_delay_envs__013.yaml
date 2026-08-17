@@ -1,0 +1,6 @@
+asset: wp_flight_delay_envs__013
+prompt: tasks/prompts/wp_flight_delay_envs__013.md
+runtime:
+  type: generic
+  resource: small
+  timeout: 300

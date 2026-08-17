@@ -1,0 +1,6 @@
+name: wp_privilege_export_guard_env__002
+prompt_path: tasks/prompts/wp_privilege_export_guard_env__002.md
+asset: wp_privilege_export_guard_env__002
+runtime:
+  timeout: 600
+  workdir: assets/wp_privilege_export_guard_env__002

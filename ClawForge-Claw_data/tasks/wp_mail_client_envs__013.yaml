@@ -1,0 +1,5 @@
+id: wp_mail_client_envs__013
+prompt: tasks/prompts/wp_mail_client_envs__013.md
+asset: wp_mail_client_envs__013
+runtime:
+  workspace: /home/user/workplace

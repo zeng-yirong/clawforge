@@ -1,0 +1,7 @@
+name: "Archiving a Bug Reproduction Ledger"
+description: "A research assistant needs to collate reproduction notes and archive a clean ledger into the knowledge base."
+prompt_path: "tasks/prompts/wp_reproduction_ledger_env__048.md"
+asset: "wp_reproduction_ledger_env__048"
+runtime:
+  type: "python"
+  version: "3.10"

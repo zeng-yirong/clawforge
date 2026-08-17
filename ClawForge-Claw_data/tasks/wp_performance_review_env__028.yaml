@@ -1,0 +1,6 @@
+asset: wp_performance_review_env__028
+prompt_path: tasks/prompts/wp_performance_review_env__028.md
+runtime:
+  max_steps: 50
+  memory_limit_mb: 256
+  file_limit: 100

@@ -1,0 +1,5 @@
+asset: wp_arxiv_review_roadmap_env__024
+prompt: prompts/wp_arxiv_review_roadmap_env__024.md
+runtime:
+  timeout: 300
+  workdir: assets/wp_arxiv_review_roadmap_env__024

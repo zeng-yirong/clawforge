@@ -1,0 +1,81 @@
+#!/usr/bin/env python3
+"""
+Description: Find workspace files using a glob pattern.
+
+Parameters:
+  --glob (string, required): Glob pattern to match.
+  --path (string, optional): Directory to search from.
+  --include_dirs (bool, optional): Whether to include directories in results.
+  --max_results (int, optional): Maximum number of matching paths to return.
+"""
+
+import argparse
+import sys
+from pathlib import Path
+
+
+def parse_bool(value: str) -> bool:
+    lowered = value.strip().lower()
+    if lowered in {"1", "true", "yes", "y", "on"}:
+        return True
+    if lowered in {"0", "false", "no", "n", "off"}:
+        return False
+    raise argparse.ArgumentTypeError(f"Invalid boolean value: {value}")
+
+
+def is_hidden(path: Path) -> bool:
+    return any(part.startswith(".") for part in path.parts if part not in {"."})
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Find workspace files using a glob pattern.")
+    parser.add_argument("--glob", required=True, type=str, help="Glob pattern to match.")
+    parser.add_argument("--path", default=".", type=str, help="Directory to search from.")
+    parser.add_argument(
+        "--include_dirs",
+        type=parse_bool,
+        default=False,
+        help="Whether to include directories in the result set.",
+    )
+    parser.add_argument("--max_results", type=int, default=500, help="Maximum number of matching paths to return.")
+    args = parser.parse_args()
+
+    search_root = Path(args.path)
+    if not search_root.exists():
+        print(f"Path does not exist: {search_root}")
+        sys.exit(1)
+    if not search_root.is_dir():
+        print(f"Path is not a directory: {search_root}")
+        sys.exit(1)
+    if args.max_results < 1:
+        print("max_results must be >= 1.")
+        sys.exit(1)
+
+    try:
+        matches = []
+        for candidate in search_root.glob(args.glob):
+            rel = candidate.relative_to(search_root)
+            if is_hidden(rel):
+                continue
+            if candidate.is_dir() and not args.include_dirs:
+                continue
+            matches.append(rel.as_posix() or ".")
+        matches = sorted(set(matches))
+    except Exception as exc:
+        print(f"Failed to search under {search_root}: {exc}")
+        sys.exit(1)
+
+    if not matches:
+        print(f"No paths matched glob {args.glob!r} under {search_root}.")
+        return
+
+    clipped = matches[: args.max_results]
+    print(f"Found {len(matches)} path(s) under {search_root}. Showing {len(clipped)}.")
+    for match in clipped:
+        print(match)
+    if len(matches) > args.max_results:
+        print(f"<truncated at max_results={args.max_results}>")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m py_compile \"personal_assistant__conversational.py\")",
+      "Bash(python -m py_compile \"personal_assistant__orchestration.py\")",
+      "Bash(python -m py_compile \"environment_adaptive__event_driven.py\")",
+      "Bash(python -m py_compile \"environment_adaptive__streaming.py\")",
+      "Bash(python -m py_compile reimbursement__crud.py reimbursement__matching.py reimbursement__orchestration.py reimbursement__pipeline.py reimbursement__state_machine.py ecommerce_logistics__crud.py ecommerce_logistics__orchestration.py ecommerce_logistics__pipeline.py ecommerce_logistics__state_machine.py travel_compliance__orchestration.py travel_compliance__pipeline.py travel_compliance__scheduling.py travel_compliance__state_machine.py travel_disruption__event_driven.py travel_disruption__orchestration.py travel_disruption__scheduling.py security_patrol__event_driven.py security_patrol__orchestration.py security_patrol__pipeline.py investment_research__matching.py investment_research__pipeline.py investment_research__streaming.py personal_assistant__conversational.py personal_assistant__orchestration.py environment_adaptive__event_driven.py environment_adaptive__streaming.py email_automation__event_driven.py email_automation__pipeline.py cross_modal_transcription__conversational.py cross_modal_transcription__pipeline.py)"
+    ]
+  }
+}

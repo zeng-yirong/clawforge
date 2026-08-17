@@ -1,0 +1,236 @@
+{
+  "env_name": "performance_review_env",
+  "rel_path": "without_skill/performance_review_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "expected_band",
+    "expected_score",
+    "required_actions",
+    "target_employee_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/employees/employees.json",
+      "kind": "collection",
+      "wrapper_key": "employees",
+      "record_key": "employee_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "employee_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "employee_id (str)"
+        },
+        {
+          "name": "employee_name",
+          "type": "str",
+          "required": true,
+          "desc": "employee_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "role_code",
+          "type": "str",
+          "required": true,
+          "desc": "role_code (str)"
+        }
+      ],
+      "desc": "collection file data/employees/employees.json"
+    },
+    {
+      "path": "data/ledgers/monthly_outputs.json",
+      "kind": "collection",
+      "wrapper_key": "monthly_outputs",
+      "record_key": "employee_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "employee_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "employee_id (str)"
+        },
+        {
+          "name": "feature_delivery",
+          "type": "int",
+          "required": true,
+          "desc": "feature_delivery (int)"
+        },
+        {
+          "name": "quality_score",
+          "type": "int",
+          "required": true,
+          "desc": "quality_score (int)"
+        },
+        {
+          "name": "collaboration_score",
+          "type": "int",
+          "required": true,
+          "desc": "collaboration_score (int)"
+        }
+      ],
+      "desc": "collection file data/ledgers/monthly_outputs.json"
+    },
+    {
+      "path": "data/rules/scoring_rules.json",
+      "kind": "collection",
+      "wrapper_key": "scoring_rules",
+      "record_key": null,
+      "count": 1,
+      "fields": [
+        {
+          "name": "role_code",
+          "type": "str",
+          "required": true,
+          "desc": "role_code (str)"
+        },
+        {
+          "name": "feature_delivery_weight",
+          "type": "float",
+          "required": true,
+          "desc": "feature_delivery_weight (float)"
+        },
+        {
+          "name": "quality_weight",
+          "type": "float",
+          "required": true,
+          "desc": "quality_weight (float)"
+        },
+        {
+          "name": "collaboration_weight",
+          "type": "float",
+          "required": true,
+          "desc": "collaboration_weight (float)"
+        }
+      ],
+      "desc": "collection file data/rules/scoring_rules.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "employee_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/employees/employees.json",
+          "record_key": "employee_id"
+        },
+        {
+          "file": "data/ledgers/monthly_outputs.json",
+          "record_key": "employee_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_employee_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/employees/employees.json",
+          "record_key": "employee_id"
+        },
+        {
+          "file": "data/ledgers/monthly_outputs.json",
+          "record_key": "employee_id"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+name: wp_privilege_export_guard_env__036
+asset: wp_privilege_export_guard_env__036
+prompt_path: prompts/wp_privilege_export_guard_env__036.md
+runtime:
+  platform: linux
+  timeout: 300
+  workdir: /home/agent/workspace

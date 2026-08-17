@@ -1,0 +1,6 @@
+name: wp_car_control_envs__016
+prompt: tasks/prompts/wp_car_control_envs__016.md
+asset: wp_car_control_envs__016
+runtime:
+  timeout: 300
+  max_steps: 20

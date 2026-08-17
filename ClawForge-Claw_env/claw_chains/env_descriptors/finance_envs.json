@@ -1,0 +1,688 @@
+{
+  "env_name": "finance_envs",
+  "rel_path": "finance_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        },
+        {
+          "name": "default_universe",
+          "type": "str",
+          "required": true,
+          "desc": "default_universe (str)"
+        },
+        {
+          "name": "voice",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "voice (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/analysts/analysts.json",
+      "kind": "collection",
+      "wrapper_key": "analysts",
+      "record_key": "analyst_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "analyst_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "analyst_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Emily Brown",
+            "Mike Johnson",
+            "Sarah Chen",
+            "Tom Davis"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "firm",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Capital Markets",
+            "Global Equities",
+            "InvestWise Research"
+          ],
+          "desc": "firm (str)"
+        },
+        {
+          "name": "coverage",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "coverage (list)"
+        },
+        {
+          "name": "rating",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Analyst",
+            "Associate",
+            "Senior"
+          ],
+          "desc": "rating (str)"
+        }
+      ],
+      "desc": "collection file data/analysts/analysts.json"
+    },
+    {
+      "path": "data/briefs/briefs.json",
+      "kind": "collection",
+      "wrapper_key": "briefs",
+      "record_key": "brief_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "brief_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "brief_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "NXTC - Q2 Earnings Preview",
+            "TECH - Initiating Coverage - Buy"
+          ],
+          "desc": "title (str)"
+        },
+        {
+          "name": "ticker",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "NXTC",
+            "TECH"
+          ],
+          "desc": "ticker (str)"
+        },
+        {
+          "name": "created_by",
+          "type": "str",
+          "required": true,
+          "desc": "created_by (str)"
+        },
+        {
+          "name": "created_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "created_at (str)"
+        },
+        {
+          "name": "updated_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "updated_at (str)"
+        },
+        {
+          "name": "brief_type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "earnings_preview",
+            "initiating_coverage"
+          ],
+          "desc": "brief_type (str)"
+        },
+        {
+          "name": "status",
+          "type": "str",
+          "required": true,
+          "desc": "status (str)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "investment_rationale",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "investment_rationale (list)"
+        },
+        {
+          "name": "risks",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "risks (list)"
+        },
+        {
+          "name": "valuation_methodology",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "DCF with 2027 projections",
+            "Relative multiple analysis"
+          ],
+          "desc": "valuation_methodology (str)"
+        },
+        {
+          "name": "key_metrics",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "pe",
+            "target_price",
+            "upside"
+          ],
+          "desc": "key_metrics (dict)"
+        }
+      ],
+      "desc": "collection file data/briefs/briefs.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 4,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "James Smith",
+            "Lisa Wang",
+            "Mike Johnson",
+            "Sarah Chen"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "james.smith@investwise.example.com",
+            "lisa.wang@techventures.example.com",
+            "mike.johnson@investwise.example.com",
+            "sarah.chen@investwise.example.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Analyst",
+            "Editor",
+            "IR Director",
+            "Senior Analyst"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Editorial",
+            "Healthcare",
+            "Investor Relations",
+            "Technology"
+          ],
+          "desc": "team (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/earnings/earnings.json",
+      "kind": "collection",
+      "wrapper_key": "earnings",
+      "record_key": "earnings_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "earnings_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "earnings_id (str)"
+        },
+        {
+          "name": "ticker",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "MFST",
+            "NXTC",
+            "TECH"
+          ],
+          "desc": "ticker (str)"
+        },
+        {
+          "name": "quarter",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Q1 2026",
+            "Q2 2026"
+          ],
+          "desc": "quarter (str)"
+        },
+        {
+          "name": "report_date",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "report_date (str)"
+        },
+        {
+          "name": "revenue_actual",
+          "type": "int",
+          "required": true,
+          "desc": "revenue_actual (int)"
+        },
+        {
+          "name": "revenue_estimate",
+          "type": "int",
+          "required": true,
+          "desc": "revenue_estimate (int)"
+        },
+        {
+          "name": "revenue_beat",
+          "type": "bool",
+          "required": true,
+          "desc": "revenue_beat (bool)"
+        },
+        {
+          "name": "revenue_beat_pct",
+          "type": "float",
+          "required": true,
+          "desc": "revenue_beat_pct (float)"
+        },
+        {
+          "name": "eps_actual",
+          "type": "float",
+          "required": true,
+          "desc": "eps_actual (float)"
+        },
+        {
+          "name": "eps_estimate",
+          "type": "float",
+          "required": true,
+          "desc": "eps_estimate (float)"
+        },
+        {
+          "name": "eps_beat",
+          "type": "bool",
+          "required": true,
+          "desc": "eps_beat (bool)"
+        },
+        {
+          "name": "eps_beat_pct",
+          "type": "float",
+          "required": true,
+          "desc": "eps_beat_pct (float)"
+        },
+        {
+          "name": "gross_margin_actual",
+          "type": "float",
+          "required": true,
+          "desc": "gross_margin_actual (float)"
+        },
+        {
+          "name": "net_margin_actual",
+          "type": "float",
+          "required": true,
+          "desc": "net_margin_actual (float)"
+        },
+        {
+          "name": "key_highlights",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "key_highlights (list)"
+        }
+      ],
+      "desc": "collection file data/earnings/earnings.json"
+    },
+    {
+      "path": "data/news/news.json",
+      "kind": "collection",
+      "wrapper_key": "news",
+      "record_key": "news_id",
+      "count": 6,
+      "fields": [
+        {
+          "name": "news_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "news_id (str)"
+        },
+        {
+          "name": "headline",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "headline (str)"
+        },
+        {
+          "name": "summary",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "summary (str)"
+        },
+        {
+          "name": "category",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "earnings",
+            "macro",
+            "partnership",
+            "product",
+            "regulatory",
+            "sector"
+          ],
+          "desc": "category (str)"
+        },
+        {
+          "name": "source",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Bloomberg",
+            "CNBC",
+            "Modern Healthcare",
+            "Reuters",
+            "TechCrunch",
+            "WSJ"
+          ],
+          "desc": "source (str)"
+        },
+        {
+          "name": "published_at",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "published_at (str)"
+        },
+        {
+          "name": "sentiment",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "bearish",
+            "bullish",
+            "neutral"
+          ],
+          "desc": "sentiment (str)"
+        },
+        {
+          "name": "impact",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "medium"
+          ],
+          "desc": "impact (str)"
+        },
+        {
+          "name": "related_tickers",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "related_tickers (list)"
+        }
+      ],
+      "desc": "collection file data/news/news.json"
+    },
+    {
+      "path": "data/stocks/stocks.json",
+      "kind": "collection",
+      "wrapper_key": "stocks",
+      "record_key": null,
+      "count": 8,
+      "fields": [
+        {
+          "name": "ticker",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "CONS",
+            "ENGY",
+            "FNS",
+            "GLBL",
+            "HLTH",
+            "MFST",
+            "NXTC",
+            "TECH"
+          ],
+          "desc": "ticker (str)"
+        },
+        {
+          "name": "company_name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "ConsumerFirst Brands",
+            "FinServe Corp",
+            "Global Retail Inc",
+            "HealthLink Systems",
+            "MegaFast Shipping",
+            "Nexa Technologies",
+            "PowerGrid Energy",
+            "TechVentures Inc"
+          ],
+          "desc": "company_name (str)"
+        },
+        {
+          "name": "sector",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Consumer Cyclical",
+            "Consumer Defensive",
+            "Financial Services",
+            "Healthcare",
+            "Industrials",
+            "Technology",
+            "Utilities"
+          ],
+          "desc": "sector (str)"
+        },
+        {
+          "name": "current_price",
+          "type": "float",
+          "required": true,
+          "desc": "current_price (float)"
+        },
+        {
+          "name": "open_price",
+          "type": "float",
+          "required": true,
+          "desc": "open_price (float)"
+        },
+        {
+          "name": "change_pct",
+          "type": "float",
+          "required": true,
+          "desc": "change_pct (float)"
+        },
+        {
+          "name": "volume",
+          "type": "int",
+          "required": true,
+          "desc": "volume (int)"
+        },
+        {
+          "name": "market_cap",
+          "type": "int",
+          "required": true,
+          "desc": "market_cap (int)"
+        },
+        {
+          "name": "pe_ratio",
+          "type": "float",
+          "required": true,
+          "desc": "pe_ratio (float)"
+        },
+        {
+          "name": "revenue_growth_yoy",
+          "type": "float",
+          "required": true,
+          "desc": "revenue_growth_yoy (float)"
+        },
+        {
+          "name": "eps_growth_yoy",
+          "type": "float",
+          "required": true,
+          "desc": "eps_growth_yoy (float)"
+        },
+        {
+          "name": "dividend_yield",
+          "type": "float",
+          "required": true,
+          "desc": "dividend_yield (float)"
+        },
+        {
+          "name": "debt_to_equity",
+          "type": "float",
+          "required": true,
+          "desc": "debt_to_equity (float)"
+        },
+        {
+          "name": "analyst_rating",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Buy",
+            "Hold"
+          ],
+          "desc": "analyst_rating (str)"
+        },
+        {
+          "name": "target_price_mean",
+          "type": "float",
+          "required": true,
+          "desc": "target_price_mean (float)"
+        },
+        {
+          "name": "fifty_two_week_high",
+          "type": "float",
+          "required": true,
+          "desc": "fifty_two_week_high (float)"
+        },
+        {
+          "name": "fifty_two_week_low",
+          "type": "float",
+          "required": true,
+          "desc": "fifty_two_week_low (float)"
+        }
+      ],
+      "desc": "collection file data/stocks/stocks.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "news_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/news/news.json",
+          "record_key": "news_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "earnings_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/earnings/earnings.json",
+          "record_key": "earnings_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

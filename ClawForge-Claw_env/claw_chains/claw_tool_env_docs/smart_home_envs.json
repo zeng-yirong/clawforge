@@ -1,0 +1,706 @@
+{
+  "env_name": "smart_home_envs",
+  "rel_path": "smart_home_envs",
+  "cli_module": "smart_home_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "SMART_HOME_SESSION_ID",
+    "state_env": "SMART_HOME_STATE_ROOT",
+    "scenario_env": "SMART_HOME_SCENARIO_ID",
+    "default_scenario_id": "energy_aware_climate"
+  },
+  "visible_verbs": [
+    {
+      "verb": "analyze-health-conflicts",
+      "action": "analyze_health_conflicts",
+      "role": "other",
+      "help": "Analyze health-comfort conflicts.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-temp",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-humidity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "analyze-weather-comfort",
+      "action": "analyze_weather_comfort",
+      "role": "other",
+      "help": "Analyze weather comfort level.",
+      "args": [
+        {
+          "name": "--temperature",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--humidity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "calculate-power-consumption",
+      "action": "calculate_power_consumption",
+      "role": "other",
+      "help": "Calculate device power consumption.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--hours",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "check-cost-saving",
+      "action": "check_cost_saving",
+      "role": "other",
+      "help": "Check cost saving opportunities.",
+      "args": [
+        {
+          "name": "--device-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-setting",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "check-extreme-weather",
+      "action": "check_extreme_weather",
+      "role": "other",
+      "help": "Check for extreme weather conditions.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "check-health-alerts",
+      "action": "check_health_alerts",
+      "role": "other",
+      "help": "Check health alerts.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-temp",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-humidity",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-all-devices",
+      "action": "get_all_devices",
+      "role": "read",
+      "help": "Get all devices.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-daily-rate-schedule",
+      "action": "get_daily_rate_schedule",
+      "role": "read",
+      "help": "Get daily electricity rate schedule.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-device-status",
+      "action": "get_device_status",
+      "role": "read",
+      "help": "Get device status.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-devices-by-type",
+      "action": "get_devices_by_type",
+      "role": "read",
+      "help": "Get devices by type.",
+      "args": [
+        {
+          "name": "--device-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-electricity-rate",
+      "action": "get_electricity_rate",
+      "role": "read",
+      "help": "Get current electricity rate.",
+      "args": [
+        {
+          "name": "--timestamp",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-health-recommendations",
+      "action": "get_health_recommendations",
+      "role": "read",
+      "help": "Get health-based recommendations.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-optimal-window",
+      "action": "get_optimal_window",
+      "role": "read",
+      "help": "Get optimal operation window for device.",
+      "args": [
+        {
+          "name": "--duration-hours",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--preferred-start",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-recommended-temperature",
+      "action": "get_recommended_temperature",
+      "role": "read",
+      "help": "Get recommended temperature based on conditions.",
+      "args": [
+        {
+          "name": "--current-temp",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--current-humidity",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--user-health-priority",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-user-health",
+      "action": "get_user_health",
+      "role": "read",
+      "help": "Get user health profile.",
+      "args": [
+        {
+          "name": "--user-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-weather",
+      "action": "get_weather",
+      "role": "read",
+      "help": "Get current weather information.",
+      "args": [
+        {
+          "name": "--timestamp",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-weather-forecast",
+      "action": "get_weather_forecast",
+      "role": "read",
+      "help": "Get weather forecast.",
+      "args": [
+        {
+          "name": "--hours-ahead",
+          "required": false,
+          "has_default": true,
+          "default": 24,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "set-air-conditioner",
+      "action": "set_air_conditioner",
+      "role": "other",
+      "help": "Set air conditioner settings.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--temperature",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "float",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": true,
+          "default": "auto",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--fan-speed",
+          "required": false,
+          "has_default": true,
+          "default": "auto",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "set-humidifier",
+      "action": "set_humidifier",
+      "role": "other",
+      "help": "Set humidifier settings.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--humidity-level",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": true,
+          "default": "auto",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "set-smart-plug",
+      "action": "set_smart_plug",
+      "role": "other",
+      "help": "Set smart plug state.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--power-state",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "turn-off-device",
+      "action": "turn_off_device",
+      "role": "other",
+      "help": "Turn off a device.",
+      "args": [
+        {
+          "name": "--device-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "get-all-devices",
+      "dst": "get-device-status",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-all-devices",
+      "dst": "set-air-conditioner",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-all-devices",
+      "dst": "set-humidifier",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-all-devices",
+      "dst": "set-smart-plug",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-all-devices",
+      "dst": "turn-off-device",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-all-devices",
+      "dst": "calculate-power-consumption",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "get-device-status",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "set-air-conditioner",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "set-humidifier",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "set-smart-plug",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "turn-off-device",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    },
+    {
+      "src": "get-devices-by-type",
+      "dst": "calculate-power-consumption",
+      "weight": 0.8,
+      "relationship": "produces_device_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "energy_aware_climate"
+  ]
+}

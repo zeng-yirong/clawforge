@@ -1,0 +1,1 @@
+嘿，小张，昨晚的A/B实验跑完了，数据在 `data/experiments/experiment_results.csv` 里。你帮我快速比对一下 batch_001 和 batch_002 这两个批次，看看每个 group 的 accuracy、latency 和 cost 到底差了多少。老规矩，把差异按 group 整理成一条记录，放到 `ops/diff_record.json` 里。格式跟之前一样，用 group 名做 key，里面只放差值，别加多余的东西。我待会直接拿这个去给老板汇报。谢啦！

@@ -1,0 +1,116 @@
+{
+  "scenario_id": "expense_analysis_001",
+  "title": "差旅费用预算执行分析",
+  "description": "根据公司差旅政策，自动核算差旅费用预算，对比实际消费数据生成预算执行分析表",
+  "task_prompt": "你是一位差旅费用审核助理。请根据公司差旅政策文件，完成以下任务：\n\n1. **加载差旅政策**：根据员工级别和目的地加载对应的差旅报销政策\n2. **核算费用预算**：根据差旅天数和政策计算各项费用预算（交通、住宿、餐饮等）\n3. **加载消费数据**：读取实际差旅消费记录\n4. **生成分析表**：对比预算与实际消费，生成预算执行分析表\n5. **识别超支项**：标记超出预算的消费项\n6. **生成总结报告**：输出费用汇总和超支原因分析\n\n请确保分析过程符合公司差旅报销规定。",
+  "base_time": "2024-06-20T10:00:00Z",
+  "workspace_account_id": "acc_001",
+  "expected_actions": [
+    {
+      "action_type": "load_policy",
+      "description": "加载差旅政策",
+      "examples": [
+        "加载标准差旅政策",
+        "查看P6级别报销标准",
+        "获取北京目的地差旅政策"
+      ],
+      "required_parameters": ["policy_tier"]
+    },
+    {
+      "action_type": "calculate_budget",
+      "description": "计算费用预算",
+      "examples": [
+        "计算3天北京差旅预算",
+        "核算差旅总预算",
+        "列出各项预算明细"
+      ],
+      "required_parameters": ["destination", "duration_days"]
+    },
+    {
+      "action_type": "load_consumption",
+      "description": "加载消费记录",
+      "examples": [
+        "加载本次差旅消费记录",
+        "导入员工消费数据",
+        "读取实际支出明细"
+      ],
+      "required_parameters": ["trip_id"]
+    },
+    {
+      "action_type": "generate_analysis",
+      "description": "生成执行分析表",
+      "examples": [
+        "生成预算执行分析表",
+        "对比预算与实际",
+        "分析超支情况"
+      ],
+      "required_parameters": []
+    },
+    {
+      "action_type": "export_report",
+      "description": "导出分析报告",
+      "examples": [
+        "导出分析报告",
+        "生成费用汇总表",
+        "输出超支分析"
+      ],
+      "required_parameters": ["format"]
+    }
+  ],
+  "scoring_rules": {
+    "dimensions": [
+      {
+        "dimension": "policy_loading",
+        "weight": 0.15,
+        "description": "差旅政策加载的准确性",
+        "evaluation_criteria": [
+          "正确识别员工政策级别",
+          "正确加载对应政策文件",
+          "准确理解报销标准"
+        ]
+      },
+      {
+        "dimension": "budget_calculation",
+        "weight": 0.25,
+        "description": "预算计算的准确性",
+        "evaluation_criteria": [
+          "正确计算各项费用预算",
+          "正确应用政策标准",
+          "预算总额准确"
+        ]
+      },
+      {
+        "dimension": "consumption_loading",
+        "weight": 0.15,
+        "description": "消费数据加载的完整性",
+        "evaluation_criteria": [
+          "正确加载所有消费记录",
+          "消费分类准确",
+          "金额计算准确"
+        ]
+      },
+      {
+        "dimension": "analysis_generation",
+        "weight": 0.25,
+        "description": "分析表生成的准确性",
+        "evaluation_criteria": [
+          "预算vs实际对比正确",
+          "超支项识别准确",
+          "分析逻辑合理"
+        ]
+      },
+      {
+        "dimension": "report_export",
+        "weight": 0.20,
+        "description": "报告导出的完整性",
+        "evaluation_criteria": [
+          "报告格式正确",
+          "数据完整无误",
+          "超支原因分析到位"
+        ]
+      }
+    ],
+    "passing_score": 0.80,
+    "excellent_score": 0.90
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "em_004",
+  "thread_id": "th_orbital_final",
+  "folder": "inbox",
+  "sender_id": "c_legal",
+  "subject": "Approved: Orbital Note launch brief v3 + FAQ",
+  "timestamp": "2026-06-17T12:10:00+00:00",
+  "importance": "high",
+  "labels": [
+    "launch",
+    "brief",
+    "approved"
+  ],
+  "body": "Legal signed off on the final launch brief and the external FAQ. Use v3 only. The earlier v1 draft is obsolete. Pricing must stay off social copy until the pricing page is live.",
+  "attachments": [
+    {
+      "attachment_id": "att_orbital_brief_v3",
+      "file_name": "orbital_note_brief_v3.md",
+      "mime_type": "text/markdown",
+      "relative_path": "orbital_note_brief_v3.md",
+      "tags": [
+        "brief",
+        "approved",
+        "launch"
+      ]
+    },
+    {
+      "attachment_id": "att_orbital_faq",
+      "file_name": "orbital_note_faq.md",
+      "mime_type": "text/markdown",
+      "relative_path": "orbital_note_faq.md",
+      "tags": [
+        "faq",
+        "support"
+      ]
+    }
+  ]
+}

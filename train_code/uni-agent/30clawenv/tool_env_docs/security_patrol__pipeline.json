@@ -1,0 +1,400 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_zone",
+    "description": "Register a new monitoring zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Unique zone identifier (e.g. 'warehouse_b')."
+        },
+        "zone_type": {
+          "type": "string",
+          "description": "Zone category, e.g. 'entry_point', 'indoor', 'office', 'restricted'."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Human-readable description of the zone."
+        }
+      },
+      "required": [
+        "name",
+        "zone_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_zones",
+    "description": "List registered monitoring zones, optionally filtered by type.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone_type": {
+          "type": "string",
+          "description": "[Optional] Filter by zone type (e.g. 'entry_point', 'restricted')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_zone_status",
+    "description": "Retrieve the current status of a specific monitoring zone.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Zone identifier."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_contact",
+    "description": "Register a new responsible contact for security notifications.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "contact_id": {
+          "type": "string",
+          "description": "Unique contact identifier (e.g. 'manager_b')."
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the contact person."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number for SMS and call notifications."
+        },
+        "role": {
+          "type": "string",
+          "description": "[Optional] Role label, e.g. 'owner', 'security', 'staff'. Defaults to 'staff'."
+        },
+        "notify_sms": {
+          "type": "boolean",
+          "description": "[Optional] Whether to send SMS notifications. Defaults to True."
+        },
+        "notify_call": {
+          "type": "boolean",
+          "description": "[Optional] Whether to trigger voice call notifications. Defaults to False."
+        }
+      },
+      "required": [
+        "contact_id",
+        "name",
+        "phone"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_contacts",
+    "description": "List registered contacts, optionally filtered by role.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "role": {
+          "type": "string",
+          "description": "[Optional] Filter by role (e.g. 'owner', 'security')."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ingest_alert",
+    "description": "Ingest a security alert into the pipeline for response processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "zone": {
+          "type": "string",
+          "description": "Zone identifier where the alert was triggered. Must be registered."
+        },
+        "alert_type": {
+          "type": "string",
+          "description": "Type of security event. Must be one of: intrusion, motion, door_forced, camera_offline, sensor_tamper, unknown."
+        },
+        "severity": {
+          "type": "string",
+          "description": "[Optional] Severity level — 'low', 'medium', 'high', or 'critical'. Defaults to 'high'."
+        },
+        "description": {
+          "type": "string",
+          "description": "[Optional] Free-text description of the observed anomaly."
+        },
+        "snapshot_url": {
+          "type": "string",
+          "description": "[Optional] URL or path to the triggering camera snapshot."
+        }
+      },
+      "required": [
+        "zone",
+        "alert_type"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process",
+    "description": "Execute the full closed-loop response pipeline for a pending alert.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "The alert ID returned by ingest_alert()."
+        },
+        "params": {
+          "type": "dict",
+          "description": "[Optional] Processing overrides: - actions (List[str]): Explicit list of actions to execute. Overrides auto-selection. Valid values: lock_door, call_police, backup_video, send_sms, unlock_door, trigger_alarm. - contact_ids (List[str]): Specific contacts to notify. Defaults to all contacts. - video_duration_seconds (int): Duration of video clip to backup. Defaults to 30. - cloud_bucket (str): Target cloud storage bucket name. Defaults to 'security-backup'. - police_number (str): Emergency number to dial. Defaults to '110'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_alert",
+    "description": "Retrieve the full state of a security alert record.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert ID."
+        }
+      },
+      "required": [
+        "alert_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_alerts",
+    "description": "List all security alerts, optionally filtered by status, zone, or severity.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by alert status. Must be one of: pending, processing, responded, false_alarm, escalated."
+        },
+        "zone": {
+          "type": "string",
+          "description": "[Optional] Filter by zone identifier."
+        },
+        "severity": {
+          "type": "string",
+          "description": "[Optional] Filter by severity level (low, medium, high, critical)."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "mark_false_alarm",
+    "description": "Mark a responded or pending alert as a false alarm.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert ID to mark as false alarm."
+        },
+        "reason": {
+          "type": "string",
+          "description": "[Optional] Explanation for the false alarm classification."
+        }
+      },
+      "required": [
+        "alert_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "escalate_alert",
+    "description": "Escalate an alert for additional response actions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_id": {
+          "type": "integer",
+          "description": "Alert ID to escalate."
+        },
+        "reason": {
+          "type": "string",
+          "description": "[Optional] Reason for escalation."
+        }
+      },
+      "required": [
+        "alert_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_action",
+    "description": "Retrieve the full record of a specific response action.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "action_id": {
+          "type": "integer",
+          "description": "Action ID."
+        }
+      },
+      "required": [
+        "action_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_actions",
+    "description": "List all executed response actions, optionally filtered by type or status.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "action_type": {
+          "type": "string",
+          "description": "[Optional] Filter by action type (e.g. 'lock_door', 'send_sms')."
+        },
+        "status": {
+          "type": "string",
+          "description": "[Optional] Filter by action status (pending, executing, completed, failed)."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "aggregate",
+    "description": "Aggregate response results from multiple completed security alerts.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_ids": {
+          "type": "array",
+          "description": "List of alert IDs to aggregate. Minimum 2 required."
+        },
+        "dedup_key": {
+          "type": "string",
+          "description": "Field name used for deduplication across alerts. Defaults to 'zone'. Other useful values: 'alert_type', 'action_type'."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "generate_output",
+    "description": "Generate a structured incident report from one or more responded alerts.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "alert_ids": {
+          "type": "array",
+          "description": "One or more alert IDs to include in the report. All referenced alerts must have status 'responded', 'false_alarm', or 'escalated'."
+        },
+        "output_format": {
+          "type": "string",
+          "description": "Output format — 'markdown', 'bullet', 'json', or 'timeline'. Defaults to 'markdown'."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title for the generated report. Auto-generated if empty."
+        }
+      },
+      "required": [
+        "alert_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_outputs",
+    "description": "List all generated incident reports and output records.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

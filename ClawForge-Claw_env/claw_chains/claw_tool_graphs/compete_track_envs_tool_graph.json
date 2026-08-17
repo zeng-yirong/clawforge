@@ -1,0 +1,972 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "acknowledge_alert",
+      "required_args": [
+        "--alert-id",
+        "--acknowledged-by"
+      ],
+      "id": "acknowledge-alert"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "analyze_acquisition_sources",
+      "required_args": [],
+      "id": "analyze-acquisition-sources"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "compare_competitors",
+      "required_args": [
+        "--competitor-ids"
+      ],
+      "id": "compare-competitors"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_alert",
+      "required_args": [
+        "--alert-type",
+        "--title",
+        "--description",
+        "--severity"
+      ],
+      "id": "create-alert"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "create_market_report",
+      "required_args": [
+        "--title",
+        "--report-type",
+        "--competitor-ids",
+        "--include-sections",
+        "--findings"
+      ],
+      "id": "create-market-report"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "filter_policies_by_competitor",
+      "required_args": [
+        "--competitor-id"
+      ],
+      "id": "filter-policies-by-competitor"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "finalize_report",
+      "required_args": [
+        "--report-id"
+      ],
+      "id": "finalize-report"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_competitive_landscape",
+      "required_args": [
+        "--competitor-ids"
+      ],
+      "id": "generate-competitive-landscape"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_regulatory_summary",
+      "required_args": [],
+      "id": "generate-regulatory-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_user_acquisition_analysis",
+      "required_args": [],
+      "id": "generate-user-acquisition-analysis"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_competitor",
+      "required_args": [
+        "--competitor-id"
+      ],
+      "id": "get-competitor"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy",
+      "required_args": [
+        "--policy-id"
+      ],
+      "id": "get-policy"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_policy_impact",
+      "required_args": [
+        "--policy-id"
+      ],
+      "id": "get-policy-impact"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_regulatory_risks",
+      "required_args": [],
+      "id": "get-regulatory-risks"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_user",
+      "required_args": [
+        "--user-id"
+      ],
+      "id": "get-user"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_alerts",
+      "required_args": [],
+      "id": "list-alerts"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_competitors",
+      "required_args": [],
+      "id": "list-competitors"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_policies",
+      "required_args": [],
+      "id": "list-policies"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_reports",
+      "required_args": [],
+      "id": "list-reports"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_users",
+      "required_args": [],
+      "id": "list-users"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "screen_competitors",
+      "required_args": [],
+      "id": "screen-competitors"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "screen_users",
+      "required_args": [],
+      "id": "screen-users"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "update_user_tier",
+      "required_args": [
+        "--user-id",
+        "--new-tier",
+        "--reason"
+      ],
+      "id": "update-user-tier"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-alert"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "create-market-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-competitive-landscape"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-regulatory-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-user-acquisition-analysis"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-alert"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "create-market-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-competitive-landscape"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-regulatory-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-user-acquisition-analysis"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "analyze-acquisition-sources",
+      "target": "create-market-report"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "analyze-acquisition-sources",
+      "target": "generate-user-acquisition-analysis"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for",
+      "tier": "dataflow",
+      "source": "compare-competitors",
+      "target": "get-competitor"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for",
+      "tier": "dataflow",
+      "source": "compare-competitors",
+      "target": "filter-policies-by-competitor"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "compare-competitors",
+      "target": "list-policies"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "compare-competitors",
+      "target": "generate-competitive-landscape"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for",
+      "tier": "dataflow",
+      "source": "create-alert",
+      "target": "acknowledge-alert"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-alert",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-alert",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-alert",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_report_id_for",
+      "tier": "dataflow",
+      "source": "create-market-report",
+      "target": "finalize-report"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "create-market-report",
+      "target": "create-alert"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-market-report",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "create-market-report",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "create-market-report",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-competitive-landscape",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-competitive-landscape",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-competitive-landscape",
+      "target": "finish"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-regulatory-summary",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-regulatory-summary",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-regulatory-summary",
+      "target": "finish"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "generate-user-acquisition-analysis",
+      "target": "get-user"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "generate-user-acquisition-analysis",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-user-acquisition-analysis",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-user-acquisition-analysis",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-user-acquisition-analysis",
+      "target": "finish"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "get-competitor",
+      "target": "screen-competitors"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-competitor",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-competitor",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "get-policy",
+      "target": "get-policy-impact"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "get-policy-impact",
+      "target": "get-regulatory-risks"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-impact",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-policy-impact",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "get-regulatory-risks",
+      "target": "list-users"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-regulatory-risks",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-regulatory-risks",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "get-regulatory-risks",
+      "target": "generate-regulatory-summary"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-user",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-user",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "get-user",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_alert_id_for",
+      "tier": "dataflow",
+      "source": "list-alerts",
+      "target": "acknowledge-alert"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-alerts",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-alerts",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_competitor_id_for",
+      "tier": "gold",
+      "source": "list-competitors",
+      "target": "get-competitor"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for",
+      "tier": "dataflow",
+      "source": "list-competitors",
+      "target": "filter-policies-by-competitor"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-competitors",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-competitors",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "list-competitors",
+      "target": "compare-competitors"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "list-policies",
+      "target": "get-policy"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-policies",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-policies",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "list-policies",
+      "target": "filter-policies-by-competitor"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_report_id_for",
+      "tier": "dataflow",
+      "source": "list-reports",
+      "target": "finalize-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reports",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-reports",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "list-users",
+      "target": "get-user"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "list-users",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "list-users",
+      "target": "analyze-acquisition-sources"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-users",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-users",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "plausible follow-up",
+      "tier": "llm_weak",
+      "source": "list-users",
+      "target": "screen-users"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for",
+      "tier": "dataflow",
+      "source": "screen-competitors",
+      "target": "get-competitor"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_competitor_id_for",
+      "tier": "dataflow",
+      "source": "screen-competitors",
+      "target": "filter-policies-by-competitor"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::competitor_monitoring_q2_2026",
+      "tier": "gold",
+      "source": "screen-competitors",
+      "target": "compare-competitors"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "screen-users",
+      "target": "get-user"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_user_id_for",
+      "tier": "dataflow",
+      "source": "screen-users",
+      "target": "update-user-tier"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-competitor"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-policy"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-policy-impact"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-regulatory-risks"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-user"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-alerts"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-competitors"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-policies"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-reports"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-users"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-user-tier",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "update-user-tier",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "update-user-tier",
+      "target": "finish"
+    }
+  ]
+}

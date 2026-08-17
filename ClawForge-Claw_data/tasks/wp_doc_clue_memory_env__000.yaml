@@ -1,0 +1,8 @@
+asset: wp_doc_clue_memory_env__000
+prompt: tasks/prompts/wp_doc_clue_memory_env__000.md
+runtime:
+  base_image: python:3.11-slim
+  constraints:
+    cpu: 1
+    memory: 512Mi
+  entrypoint: ["python", "-m", "tasks.wp_doc_clue_memory_env__000.env_builder"]

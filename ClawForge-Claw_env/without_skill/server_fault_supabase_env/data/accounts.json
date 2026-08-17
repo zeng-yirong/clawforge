@@ -1,0 +1,23 @@
+{
+  "accounts": [
+    {
+      "account_id": "infra_response_team",
+      "display_name": "Northstar Infrastructure Response",
+      "department": "Site Reliability Operations",
+      "email": "sre-response@northstar.example.com",
+      "permissions": [
+        "view_incidents",
+        "screen_risk_incidents",
+        "run_remediation",
+        "write_supabase_memory",
+        "read_audit_logs"
+      ],
+      "default_region": "APAC",
+      "voice": [
+        "operational",
+        "succinct",
+        "evidence-first"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "env_name": "resume_interview_scheduler_env",
+  "rel_path": "without_skill/resume_interview_scheduler_env",
+  "has_skill_md": false,
+  "anchor_keys": [
+    "required_actions",
+    "target_candidate_id",
+    "target_job_id"
+  ],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "department",
+          "type": "str",
+          "required": true,
+          "desc": "department (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "permissions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "permissions (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/interview_invite_guideline.md",
+      "kind": "markdown_attachment",
+      "title": "Interview Invite Guideline",
+      "bytes": 163,
+      "desc": "markdown_attachment file data/attachments/interview_invite_guideline.md"
+    },
+    {
+      "path": "data/attachments.json",
+      "kind": "collection",
+      "wrapper_key": "attachments",
+      "record_key": null,
+      "count": 1,
+      "fields": [
+        {
+          "name": "path",
+          "type": "str",
+          "required": true,
+          "desc": "path (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "kind",
+          "type": "str",
+          "required": true,
+          "desc": "kind (str)"
+        },
+        {
+          "name": "description",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "description (str)"
+        }
+      ],
+      "desc": "collection file data/attachments.json"
+    },
+    {
+      "path": "data/candidates/candidates.json",
+      "kind": "collection",
+      "wrapper_key": "candidates",
+      "record_key": "candidate_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "candidate_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "candidate_id (str)"
+        },
+        {
+          "name": "candidate_name",
+          "type": "str",
+          "required": true,
+          "desc": "candidate_name (str)"
+        },
+        {
+          "name": "skills",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "skills (list)"
+        }
+      ],
+      "desc": "collection file data/candidates/candidates.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "desc": "name (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    },
+    {
+      "path": "data/jobs/jobs.json",
+      "kind": "collection",
+      "wrapper_key": "jobs",
+      "record_key": "job_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "job_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "job_id (str)"
+        },
+        {
+          "name": "title",
+          "type": "str",
+          "required": true,
+          "desc": "title (str)"
+        },
+        {
+          "name": "required_skills",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "required_skills (list)"
+        }
+      ],
+      "desc": "collection file data/jobs/jobs.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "candidate_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/candidates/candidates.json",
+          "record_key": "candidate_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "job_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/jobs/jobs.json",
+          "record_key": "job_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_candidate_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/candidates/candidates.json",
+          "record_key": "candidate_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "target_job_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/jobs/jobs.json",
+          "record_key": "job_id"
+        }
+      ]
+    }
+  ]
+}

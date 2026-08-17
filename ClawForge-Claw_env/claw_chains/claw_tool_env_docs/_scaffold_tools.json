@@ -1,0 +1,56 @@
+[
+  {
+    "name": "read",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "write",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "edit",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "str_replace_editor",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "ls",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "find",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "grep",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "execute_bash",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  },
+  {
+    "name": "finish",
+    "layer": "scaffold",
+    "description": "",
+    "parameters": {}
+  }
+]

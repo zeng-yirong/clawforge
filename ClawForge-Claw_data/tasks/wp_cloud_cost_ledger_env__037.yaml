@@ -1,0 +1,5 @@
+task_id: wp_cloud_cost_ledger_env__037
+prompt: tasks/prompts/wp_cloud_cost_ledger_env__037.md
+asset: wp_cloud_cost_ledger_env__037
+runtime:
+  python_version: "3.9"

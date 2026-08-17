@@ -1,0 +1,68 @@
+{
+  "contacts": [
+    {
+      "contact_id": "c_boss",
+      "name": "John Manager",
+      "email": "john.manager@company.com",
+      "role": "Manager",
+      "team": "Leadership",
+      "priority": "high"
+    },
+    {
+      "contact_id": "c_colleague",
+      "name": "Sarah Developer",
+      "email": "sarah.dev@company.com",
+      "role": "Developer",
+      "team": "Engineering",
+      "priority": "normal"
+    },
+    {
+      "contact_id": "c_client",
+      "name": "Alice Client",
+      "email": "alice@clientcorp.com",
+      "role": "Client",
+      "team": "External",
+      "priority": "high"
+    },
+    {
+      "contact_id": "c_vendor",
+      "name": "Bob Vendor",
+      "email": "bob@vendor-services.com",
+      "role": "Vendor",
+      "team": "External",
+      "priority": "normal"
+    },
+    {
+      "contact_id": "c_hr",
+      "name": "HR Department",
+      "email": "hr@company.com",
+      "role": "HR",
+      "team": "Human Resources",
+      "priority": "normal"
+    },
+    {
+      "contact_id": "c_newsletter",
+      "name": "Tech Weekly",
+      "email": "newsletter@techweekly.com",
+      "role": "Newsletter",
+      "team": "External",
+      "priority": "low"
+    },
+    {
+      "contact_id": "c_friend",
+      "name": "Tom Friend",
+      "email": "tom.friend@gmail.com",
+      "role": "Friend",
+      "team": "Personal",
+      "priority": "low"
+    },
+    {
+      "contact_id": "c_spam",
+      "name": "Lottery Scam",
+      "email": "winner@lottery-scam.com",
+      "role": "Spammer",
+      "team": "External",
+      "priority": "low"
+    }
+  ]
+}

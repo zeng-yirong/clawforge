@@ -1,0 +1,8 @@
+asset: wp_privilege_export_guard_env__031
+name: Privilege Export Guard - Session 031
+prompt_path: tasks/prompts/wp_privilege_export_guard_env__031.md
+runtime:
+  entrypoint: /bin/bash
+  workdir: /app
+  env:
+    - WORKSPACE=/app

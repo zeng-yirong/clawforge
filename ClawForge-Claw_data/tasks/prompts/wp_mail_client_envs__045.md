@@ -1,0 +1,1 @@
+嘿，AI助手！我刚收到一封来自Alice Client的紧急邮件，她项目要延期了，标题里写着'URGENT: Project Delay'。我还没来得及看，你先帮我看看这封邮件，然后从联系人列表里把Alice的完整联系方式提取出来，存成contact_info.json放在工作区根目录。注意，只要Alice的，别搞错了，其他邮件不用管。联系人信息在data/contacts.json里，邮件都在data/emails/下。快帮我搞定！

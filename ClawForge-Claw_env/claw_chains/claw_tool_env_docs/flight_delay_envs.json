@@ -1,0 +1,1232 @@
+{
+  "env_name": "flight_delay_envs",
+  "rel_path": "flight_delay_envs",
+  "cli_module": "flight_delay_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "FLIGHT_DELAY_SESSION_ID",
+    "state_env": "FLIGHT_DELAY_STATE_ROOT",
+    "scenario_env": "FLIGHT_DELAY_SCENARIO_ID",
+    "default_scenario_id": "flight_delay_cascade"
+  },
+  "visible_verbs": [
+    {
+      "verb": "adjust-hotel-booking",
+      "action": "adjust_hotel_booking",
+      "role": "other",
+      "help": "Adjust hotel booking check-in/check-out times.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-check-in",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-check-out",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "cancel-hotel-booking",
+      "action": "cancel_hotel_booking",
+      "role": "other",
+      "help": "Cancel a hotel booking.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cancellation-reason",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "cancel-transport-booking",
+      "action": "cancel_transport_booking",
+      "role": "other",
+      "help": "Cancel a transport booking.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--cancellation-reason",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "check-flight-status",
+      "action": "check_flight_status",
+      "role": "other",
+      "help": "Check flight status and delay information.",
+      "args": [
+        {
+          "name": "--flight-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "compose-delay-notification",
+      "action": "compose_delay_notification",
+      "role": "other",
+      "help": "Compose a flight delay notification for a recipient.",
+      "args": [
+        {
+          "name": "--flight-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--recipient-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--recipient-email",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-hotel-booking",
+      "action": "create_hotel_booking",
+      "role": "produce",
+      "help": "Create a new hotel booking.",
+      "args": [
+        {
+          "name": "--hotel-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--hotel-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--check-in",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--check-out",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--guest-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--guest-count",
+          "required": false,
+          "has_default": true,
+          "default": 1,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--room-type",
+          "required": false,
+          "has_default": true,
+          "default": "standard",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--special-requests",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--linked-flight-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "create-transport-booking",
+      "action": "create_transport_booking",
+      "role": "produce",
+      "help": "Create a new transport booking.",
+      "args": [
+        {
+          "name": "--transport-type",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--service-provider",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--passenger-name",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--passenger-phone",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--pickup-location",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--dropoff-location",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--pickup-time",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--vehicle-type",
+          "required": false,
+          "has_default": true,
+          "default": "standard",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--passengers-count",
+          "required": false,
+          "has_default": true,
+          "default": 1,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--special-requests",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--linked-flight-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "detect-delayed-flights",
+      "action": "detect_delayed_flights",
+      "role": "other",
+      "help": "Detect all delayed flights in the session.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "get-affected-connections",
+      "action": "get_affected_connections",
+      "role": "read",
+      "help": "Get hotel and transport bookings affected by a flight delay.",
+      "args": [
+        {
+          "name": "--flight-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-conference",
+      "action": "get_conference",
+      "role": "read",
+      "help": "Get detailed conference information.",
+      "args": [
+        {
+          "name": "--conference-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-flight",
+      "action": "get_flight",
+      "role": "read",
+      "help": "Get detailed flight information.",
+      "args": [
+        {
+          "name": "--flight-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-hotel-booking",
+      "action": "get_hotel_booking",
+      "role": "read",
+      "help": "Get detailed hotel booking information.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-notification",
+      "action": "get_notification",
+      "role": "read",
+      "help": "Get detailed notification information.",
+      "args": [
+        {
+          "name": "--notification-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "get-transport-booking",
+      "action": "get_transport_booking",
+      "role": "read",
+      "help": "Get detailed transport booking information.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-attendees",
+      "action": "list_attendees",
+      "role": "read",
+      "help": "List conference attendees.",
+      "args": [
+        {
+          "name": "--conference-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--attending",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-conferences",
+      "action": "list_conferences",
+      "role": "read",
+      "help": "List conferences.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--location",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-flights",
+      "action": "list_flights",
+      "role": "read",
+      "help": "List available flights.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--airline",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-hotel-bookings",
+      "action": "list_hotel_bookings",
+      "role": "read",
+      "help": "List hotel bookings.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--guest-name",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-notifications",
+      "action": "list_notifications",
+      "role": "read",
+      "help": "List notifications.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--notification-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--recipient-email",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-transport-bookings",
+      "action": "list_transport_bookings",
+      "role": "read",
+      "help": "List transport bookings.",
+      "args": [
+        {
+          "name": "--query",
+          "required": false,
+          "has_default": true,
+          "default": "",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--status",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--transport-type",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--limit",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "notification-stats",
+      "action": "notification_stats",
+      "role": "other",
+      "help": "Get notification statistics.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reschedule-transport-booking",
+      "action": "reschedule_transport_booking",
+      "role": "other",
+      "help": "Reschedule a transport booking.",
+      "args": [
+        {
+          "name": "--booking-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--new-pickup-time",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "send-notification",
+      "action": "send_notification",
+      "role": "other",
+      "help": "Send a notification.",
+      "args": [
+        {
+          "name": "--notification-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Show session progress and summary.",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "task",
+      "action": "task",
+      "role": "other",
+      "help": "Show the task prompt and workspace summary.",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [
+        {
+          "name": "--scenario-id",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-bindings",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--show-task",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--overwrite",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "bool",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": [
+        "create-session"
+      ]
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": [
+        "reset-session"
+      ]
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-flights",
+      "dst": "get-flight",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "list-flights",
+      "dst": "check-flight-status",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "list-flights",
+      "dst": "get-affected-connections",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "list-flights",
+      "dst": "compose-delay-notification",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "detect-delayed-flights",
+      "dst": "get-flight",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "detect-delayed-flights",
+      "dst": "check-flight-status",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "detect-delayed-flights",
+      "dst": "get-affected-connections",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "detect-delayed-flights",
+      "dst": "compose-delay-notification",
+      "weight": 0.8,
+      "relationship": "produces_flight_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "get-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "adjust-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "cancel-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "get-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "reschedule-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "cancel-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "get-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "adjust-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "cancel-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "get-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "reschedule-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-hotel-booking",
+      "dst": "cancel-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "get-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "adjust-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "cancel-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "get-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "reschedule-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-transport-bookings",
+      "dst": "cancel-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "get-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "adjust-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "cancel-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "get-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "reschedule-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "create-transport-booking",
+      "dst": "cancel-transport-booking",
+      "weight": 0.8,
+      "relationship": "produces_booking_id_for"
+    },
+    {
+      "src": "list-hotel-bookings",
+      "dst": "create-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for"
+    },
+    {
+      "src": "get-hotel-booking",
+      "dst": "create-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for"
+    },
+    {
+      "src": "adjust-hotel-booking",
+      "dst": "create-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for"
+    },
+    {
+      "src": "cancel-hotel-booking",
+      "dst": "create-hotel-booking",
+      "weight": 0.8,
+      "relationship": "produces_hotel_id_for"
+    },
+    {
+      "src": "list-notifications",
+      "dst": "get-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "list-notifications",
+      "dst": "send-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "compose-delay-notification",
+      "dst": "get-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "compose-delay-notification",
+      "dst": "send-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "notification-stats",
+      "dst": "get-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "notification-stats",
+      "dst": "send-notification",
+      "weight": 0.8,
+      "relationship": "produces_notification_id_for"
+    },
+    {
+      "src": "list-conferences",
+      "dst": "get-conference",
+      "weight": 0.8,
+      "relationship": "produces_conference_id_for"
+    },
+    {
+      "src": "list-conferences",
+      "dst": "list-attendees",
+      "weight": 0.8,
+      "relationship": "produces_conference_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {
+    "flight_delay_cascade": [
+      "check_flight_status",
+      "get_affected_connections",
+      "adjust_hotel_booking",
+      "reschedule_transport_booking",
+      "compose_delay_notification",
+      "send_notification"
+    ]
+  },
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "flight_delay_cascade"
+  ]
+}

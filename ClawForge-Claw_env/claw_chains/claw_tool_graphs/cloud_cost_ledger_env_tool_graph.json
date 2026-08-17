@@ -1,0 +1,567 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "read"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "write"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "edit"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "str_replace_editor"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "ls"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "find"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "grep"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "execute_bash"
+    },
+    {
+      "layer": "scaffold",
+      "role": "scaffold",
+      "description": "",
+      "id": "finish"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "aggregate_cluster_usage",
+      "required_args": [
+        "--cluster-id"
+      ],
+      "id": "aggregate-cluster-usage"
+    },
+    {
+      "layer": "cli",
+      "role": "produce",
+      "action": "generate_cost_report",
+      "required_args": [
+        "--catalog-id"
+      ],
+      "id": "generate-cost-report"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_cache_entry",
+      "required_args": [
+        "--entry-id"
+      ],
+      "id": "get-cache-entry"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_cluster",
+      "required_args": [
+        "--cluster-id"
+      ],
+      "id": "get-cluster"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_ledger_entry",
+      "required_args": [
+        "--entry-id"
+      ],
+      "id": "get-ledger-entry"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "get_pricing_catalog",
+      "required_args": [
+        "--catalog-id"
+      ],
+      "id": "get-pricing-catalog"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_attachments",
+      "required_args": [],
+      "id": "list-attachments"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_cache",
+      "required_args": [],
+      "id": "list-cache"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_clusters",
+      "required_args": [],
+      "id": "list-clusters"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_ledger_entries",
+      "required_args": [],
+      "id": "list-ledger-entries"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_pricing_catalogs",
+      "required_args": [],
+      "id": "list-pricing-catalogs"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "list_scenarios",
+      "required_args": [],
+      "id": "list-scenarios"
+    },
+    {
+      "layer": "cli",
+      "role": "read",
+      "action": "read_attachment",
+      "required_args": [
+        "--attachment-path"
+      ],
+      "id": "read-attachment"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "session_summary",
+      "required_args": [],
+      "id": "session-summary"
+    },
+    {
+      "layer": "cli",
+      "role": "other",
+      "action": "task",
+      "required_args": [],
+      "id": "task"
+    }
+  ],
+  "links": [
+    {
+      "weight": 0.5,
+      "relationship": "inspect_task",
+      "tier": "bridge",
+      "source": "read",
+      "target": "task"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "write",
+      "target": "finish"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "edit",
+      "target": "finish"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "find",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "filter_then_produce",
+      "tier": "bridge",
+      "source": "grep",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::cloud_cluster_monthly_cost_q2_2026",
+      "tier": "gold",
+      "source": "aggregate-cluster-usage",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-cost-report",
+      "target": "write"
+    },
+    {
+      "weight": 0.4,
+      "relationship": "produce_then_persist",
+      "tier": "bridge",
+      "source": "generate-cost-report",
+      "target": "edit"
+    },
+    {
+      "weight": 0.6,
+      "relationship": "complete_task",
+      "tier": "bridge",
+      "source": "generate-cost-report",
+      "target": "finish"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after generating report, may list cache to verify",
+      "tier": "llm_weak",
+      "source": "generate-cost-report",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cache-entry",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cluster",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-cluster",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting cluster details, may aggregate its usage",
+      "tier": "llm_weak",
+      "source": "get-cluster",
+      "target": "aggregate-cluster-usage"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-ledger-entry",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-ledger-entry",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::cloud_cluster_monthly_cost_q2_2026",
+      "tier": "gold",
+      "source": "get-pricing-catalog",
+      "target": "read-attachment"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-pricing-catalog",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "get-pricing-catalog",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after getting pricing, may generate cost report",
+      "tier": "llm_weak",
+      "source": "get-pricing-catalog",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-attachments",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-cache",
+      "target": "find"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_cluster_id_for",
+      "tier": "dataflow",
+      "source": "list-clusters",
+      "target": "get-cluster"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_cluster_id_for",
+      "tier": "dataflow",
+      "source": "list-clusters",
+      "target": "aggregate-cluster-usage"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::cloud_cluster_monthly_cost_q2_2026",
+      "tier": "gold",
+      "source": "list-clusters",
+      "target": "list-ledger-entries"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-clusters",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-clusters",
+      "target": "find"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::cloud_cluster_monthly_cost_q2_2026",
+      "tier": "gold",
+      "source": "list-ledger-entries",
+      "target": "list-pricing-catalogs"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-ledger-entries",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-ledger-entries",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after viewing ledger entries, may generate report",
+      "tier": "llm_weak",
+      "source": "list-ledger-entries",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "produces_catalog_id_for",
+      "tier": "gold",
+      "source": "list-pricing-catalogs",
+      "target": "get-pricing-catalog"
+    },
+    {
+      "weight": 0.8,
+      "relationship": "produces_catalog_id_for",
+      "tier": "dataflow",
+      "source": "list-pricing-catalogs",
+      "target": "generate-cost-report"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-pricing-catalogs",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-pricing-catalogs",
+      "target": "find"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "list-scenarios",
+      "target": "find"
+    },
+    {
+      "weight": 0.25,
+      "relationship": "after listing scenarios, may view task prompt",
+      "tier": "llm_weak",
+      "source": "list-scenarios",
+      "target": "task"
+    },
+    {
+      "weight": 0.9,
+      "relationship": "gold_next::cloud_cluster_monthly_cost_q2_2026",
+      "tier": "gold",
+      "source": "read-attachment",
+      "target": "aggregate-cluster-usage"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "grep"
+    },
+    {
+      "weight": 0.3,
+      "relationship": "read_then_filter",
+      "tier": "bridge",
+      "source": "read-attachment",
+      "target": "find"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-cache-entry"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-cluster"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-ledger-entry"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "get-pricing-catalog"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-attachments"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-cache"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-clusters"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-ledger-entries"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-pricing-catalogs"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "list-scenarios"
+    },
+    {
+      "weight": 0.5,
+      "relationship": "task_then_read",
+      "tier": "bridge",
+      "source": "task",
+      "target": "read-attachment"
+    }
+  ]
+}

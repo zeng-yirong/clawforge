@@ -1,0 +1,5 @@
+prompt: "tasks/prompts/wp_car_control_envs__011.md"
+asset: "wp_car_control_envs__011"
+runtime:
+  cwd: "assets/wp_car_control_envs__011/"
+  tools: []

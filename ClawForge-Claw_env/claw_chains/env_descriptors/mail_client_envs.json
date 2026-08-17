@@ -1,0 +1,354 @@
+{
+  "env_name": "mail_client_envs",
+  "rel_path": "mail_client_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "forbidden_phrases",
+    "required_archive",
+    "required_attachment_reads",
+    "required_classifications",
+    "required_delete",
+    "required_replies",
+    "required_todos"
+  ],
+  "files": [
+    {
+      "path": "data/emails/<record_id>.json",
+      "dir": "data/emails",
+      "kind": "per_record",
+      "record_key": "id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "id (str)"
+        },
+        {
+          "name": "thread_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "thread_id (str)"
+        },
+        {
+          "name": "folder",
+          "type": "str",
+          "required": true,
+          "desc": "folder (str)"
+        },
+        {
+          "name": "sender_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "sender_id (str)"
+        },
+        {
+          "name": "subject",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "subject (str)"
+        },
+        {
+          "name": "timestamp",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "timestamp (str)"
+        },
+        {
+          "name": "importance",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "low",
+            "normal"
+          ],
+          "desc": "importance (str)"
+        },
+        {
+          "name": "labels",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "labels (list)"
+        },
+        {
+          "name": "has_read",
+          "type": "bool",
+          "required": true,
+          "desc": "has_read (bool)"
+        },
+        {
+          "name": "body",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "body (str)"
+        },
+        {
+          "name": "attachments",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "attachments (list)"
+        },
+        {
+          "name": "auto_classify_suggestion",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "finance",
+            "hr",
+            "newsletter",
+            "personal",
+            "spam",
+            "work"
+          ],
+          "desc": "auto_classify_suggestion (str)"
+        },
+        {
+          "name": "auto_archive_candidates",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "auto_archive_candidates (list)"
+        }
+      ],
+      "examples": [
+        "mc_001",
+        "mc_002",
+        "mc_003",
+        "mc_004",
+        "mc_005"
+      ],
+      "desc": "per_record file data/emails/<record_id>.json"
+    },
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        },
+        {
+          "name": "email_address",
+          "type": "str",
+          "required": true,
+          "desc": "email_address (str)"
+        },
+        {
+          "name": "default_signature",
+          "type": "str",
+          "required": true,
+          "desc": "default_signature (str)"
+        },
+        {
+          "name": "auto_classify_enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "auto_classify_enabled (bool)"
+        },
+        {
+          "name": "reply_templates_enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "reply_templates_enabled (bool)"
+        },
+        {
+          "name": "task_generation_enabled",
+          "type": "bool",
+          "required": true,
+          "desc": "task_generation_enabled (bool)"
+        },
+        {
+          "name": "folders",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "folders (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/attachments/Feedback_Summary.docx.md",
+      "kind": "markdown_attachment",
+      "title": "Client Feedback Summary - Phase 1",
+      "bytes": 1210,
+      "desc": "markdown_attachment file data/attachments/Feedback_Summary.docx.md"
+    },
+    {
+      "path": "data/attachments/Invoice_INV-2026-056.pdf.md",
+      "kind": "markdown_attachment",
+      "title": "Invoice INV-2026-056",
+      "bytes": 740,
+      "desc": "markdown_attachment file data/attachments/Invoice_INV-2026-056.pdf.md"
+    },
+    {
+      "path": "data/attachments/Q3_Planning_Document.pdf.md",
+      "kind": "markdown_attachment",
+      "title": "Q3 Planning Document",
+      "bytes": 1040,
+      "desc": "markdown_attachment file data/attachments/Q3_Planning_Document.pdf.md"
+    },
+    {
+      "path": "data/attachments/Training_Instructions.pdf.md",
+      "kind": "markdown_attachment",
+      "title": "Annual Compliance Training Instructions",
+      "bytes": 1482,
+      "desc": "markdown_attachment file data/attachments/Training_Instructions.pdf.md"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "collection",
+      "wrapper_key": "contacts",
+      "record_key": "contact_id",
+      "count": 8,
+      "fields": [
+        {
+          "name": "contact_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "contact_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Alice Client",
+            "Bob Vendor",
+            "HR Department",
+            "John Manager",
+            "Lottery Scam",
+            "Sarah Developer",
+            "Tech Weekly",
+            "Tom Friend"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "alice@clientcorp.com",
+            "bob@vendor-services.com",
+            "hr@company.com",
+            "john.manager@company.com",
+            "newsletter@techweekly.com",
+            "sarah.dev@company.com",
+            "tom.friend@gmail.com",
+            "winner@lottery-scam.com"
+          ],
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Client",
+            "Developer",
+            "Friend",
+            "HR",
+            "Manager",
+            "Newsletter",
+            "Spammer",
+            "Vendor"
+          ],
+          "desc": "role (str)"
+        },
+        {
+          "name": "team",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Engineering",
+            "External",
+            "Human Resources",
+            "Leadership",
+            "Personal"
+          ],
+          "desc": "team (str)"
+        },
+        {
+          "name": "priority",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high",
+            "low",
+            "normal"
+          ],
+          "desc": "priority (str)"
+        }
+      ],
+      "desc": "collection file data/contacts.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "email_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/emails/<record_id>.json",
+          "record_key": "id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "required_archive",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/emails/<record_id>.json",
+          "record_key": "id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "required_delete",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/emails/<record_id>.json",
+          "record_key": "id"
+        }
+      ]
+    }
+  ]
+}

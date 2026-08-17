@@ -1,0 +1,32 @@
+{
+  "poi_categories": [
+    {"category_id": "food", "name": "餐饮", "examples": ["川菜", "火锅", "咖啡厅", "快餐"]},
+    {"category_id": "shopping", "name": "购物", "examples": ["商场", "超市", "便利店"]},
+    {"category_id": "gas", "name": "加油站", "examples": ["中石化", "中石油", "壳牌"]},
+    {"category_id": "charging", "name": "充电站", "examples": ["国家电网", "特来电", "星星充电"]},
+    {"category_id": "hotel", "name": "酒店", "examples": ["五星级", "商务酒店", "民宿"]},
+    {"category_id": "attraction", "name": "景点", "examples": ["公园", "博物馆", "景区"]},
+    {"category_id": "hospital", "name": "医院", "examples": ["三甲医院", "社区医院"]},
+    {"category_id": "parking", "name": "停车场", "examples": ["地下停车场", "地上停车场"]},
+    {"category_id": "rest_area", "name": "休息区", "examples": ["服务区", "休息站"]}
+  ],
+  "pois": [
+    {"poi_id": "poi_001", "name": "上海中心大厦", "category": "attraction", "lat": 31.2354, "lon": 121.4718, "address": "上海市浦东新区陆家嘴环路479号"},
+    {"poi_id": "poi_002", "name": "外滩", "category": "attraction", "lat": 31.2396, "lon": 121.4904, "address": "上海市黄浦区中山东一路"},
+    {"poi_id": "poi_003", "name": "豫园", "category": "attraction", "lat": 31.2258, "lon": 121.4899, "address": "上海市黄浦区豫园路"},
+    {"poi_id": "poi_004", "name": "上海迪士尼乐园", "category": "attraction", "lat": 31.1432, "lon": 121.6572, "address": "上海市浦东新区川沙镇"},
+    {"poi_id": "poi_005", "name": "复旦大学附属华山医院", "category": "hospital", "lat": 31.2482, "lon": 121.4588, "address": "上海市静安区乌鲁木齐中路12号"},
+    {"poi_id": "poi_006", "name": "浦东机场", "category": "attraction", "lat": 31.1443, "lon": 121.8083, "address": "上海市浦东新区迎宾大道"},
+    {"poi_id": "poi_007", "name": "虹桥机场", "category": "attraction", "lat": 31.1971, "lon": 121.3344, "address": "上海市闵行区虹翔三路"},
+    {"poi_id": "poi_008", "name": "上海站", "category": "attraction", "lat": 31.2522, "lon": 121.4518, "address": "上海市静安区秣陵路303号"},
+    {"poi_id": "poi_009", "name": "国家电网充电站(浦东)", "category": "charging", "lat": 31.2300, "lon": 121.5400, "address": "上海市浦东新区某路", "charge_rate_kw": 60},
+    {"poi_id": "poi_010", "name": "特来电充电站(虹桥)", "category": "charging", "lat": 31.1900, "lon": 121.3200, "address": "上海市闵行区某路", "charge_rate_kw": 120},
+    {"poi_id": "poi_011", "name": "川菜馆", "category": "food", "lat": 31.2350, "lon": 121.4800, "address": "上海市浦东新区某路"},
+    {"poi_id": "poi_012", "name": "海底捞火锅", "category": "food", "lat": 31.2400, "lon": 121.4900, "address": "上海市黄浦区某路"},
+    {"poi_id": "poi_013", "name": "星巴克咖啡", "category": "food", "lat": 31.2380, "lon": 121.4750, "address": "上海市浦东新区某路"},
+    {"poi_id": "poi_014", "name": "购物中心", "category": "shopping", "lat": 31.2360, "lon": 121.4850, "address": "上海市浦东新区某路"},
+    {"poi_id": "poi_015", "name": "地下停车场(外滩)", "category": "parking", "lat": 31.2390, "lon": 121.4890, "address": "上海市黄浦区中山东路", "hourly_rate": 15},
+    {"poi_id": "poi_016", "name": "休息区G50", "category": "rest_area", "lat": 31.0500, "lon": 121.3500, "address": "G50沪渝高速"},
+    {"poi_id": "poi_017", "name": "服务区嘉闵", "category": "rest_area", "lat": 31.1200, "lon": 121.2800, "address": "嘉闵高架路"}
+  ]
+}

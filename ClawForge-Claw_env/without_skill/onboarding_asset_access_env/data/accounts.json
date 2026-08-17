@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "people_ops_onboarding",
+      "display_name": "People Ops Onboarding",
+      "department": "People Operations",
+      "email": "people-ops-onboarding@northstar.example.com",
+      "permissions": ["view_contracts", "create_email_profiles", "assign_access", "allocate_equipment", "post_welcome_messages"]
+    }
+  ]
+}

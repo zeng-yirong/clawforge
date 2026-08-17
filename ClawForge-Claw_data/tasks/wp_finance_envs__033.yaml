@@ -1,0 +1,9 @@
+asset: wp_finance_envs__033
+prompt_path: tasks/prompts/wp_finance_envs__033.md
+runtime:
+  type: universal
+  max_iterations: 15
+  allowed_tools:
+    - read
+    - edit
+    - finish

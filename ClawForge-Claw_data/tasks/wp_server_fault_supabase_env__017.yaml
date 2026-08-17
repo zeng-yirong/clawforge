@@ -1,0 +1,14 @@
+name: wp_server_fault_supabase_env__017
+description: 筛选UPS中断与服务宕机风险工单并执行批量修复，输出处理报告
+asset: wp_server_fault_supabase_env__017
+prompt: tasks/prompts/wp_server_fault_supabase_env__017.md
+runtime:
+  image: python:3.11-slim
+  memory_mb: 512
+  timeout_seconds: 300
+  environment:
+    WORKSPACE: /home/user/workplace
+  entrypoint:
+    - python
+    - -c
+    - "import sys; sys.path.insert(0, '/home/user/workspace'); from without_skill.server_fault_supabase_env.cli import main; main()"

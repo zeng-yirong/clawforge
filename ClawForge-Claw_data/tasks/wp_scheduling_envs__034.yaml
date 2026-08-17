@@ -1,0 +1,7 @@
+schema_version: "1.0"
+asset: wp_scheduling_envs__034
+prompt: tasks/prompts/wp_scheduling_envs__034.md
+runtime:
+  base_image: "python:3.11-slim"
+  timeout_seconds: 300
+  disk_mb: 100

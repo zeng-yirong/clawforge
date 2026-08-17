@@ -1,0 +1,62 @@
+transaction_id,date,product_id,product_name,category,subcategory,region,city,customer_id,customer_name,sales_amount,quantity,discount,payment_method,salesperson_id,salesperson_name,channel
+TXN001,2026-01-03,P001,Laptop Pro 15,Electronics,Computers,North,New York,C001,John Smith,1299.99,1,0,Credit Card,SP001,Alice Johnson,Online
+TXN002,2026-01-03,P002,Wireless Mouse,Electronics,Accessories,North,New York,C002,Jane Doe,29.99,2,0,Cash,SP002,Bob Williams,In-Store
+TXN001,2026-01-03,P001,Laptop Pro 15,Electronics,Computers,North,New York,C001,John Smith,1299.99,1,0,Credit Card,SP001,Alice Johnson,Online
+TXN003,2026-01-04,P003,Office Desk,Furniture,Tables,South,Houston,C003,Mike Brown,449.99,1,50,Credit Card,SP003,Carol Davis,In-Store
+TXN004,2026-01-04,P004,Running Shoes,Sports,Footwear,East,Boston,C004,Sarah Wilson,129.99,1,0,Debit Card,SP004,David Lee,In-Store
+TXN005,2026-01-05,P005,Coffee Maker,Home,Kitchen,West,Los Angeles,,,79.99,2,10,Credit Card,SP005,Emma Taylor,Online
+TXN006,2026-01-05,P001,Laptop Pro 15,Electronics,Computers,West,Los Angeles,C006,Tom Anderson,1199.99,1,100,Credit Card,SP001,Alice Johnson,Online
+TXN007,2026-01-06,P006,Winter Jacket,Sports,Apparel,North,Chicago,C007,Lisa Martinez,199.99,1,0,Cash,SP006,Frank Garcia,In-Store
+TXN002,2026-01-03,P002,Wireless Mouse,Electronics,Accessories,North,New York,C002,Jane Doe,29.99,2,0,Cash,SP002,Bob Williams,In-Store
+TXN008,2026-01-07,P007,Monitor 27 inch,Electronics,Computers,South,Miami,C008,Kevin White,349.99,1,0,Credit Card,SP007,Nancy Clark,In-Store
+TXN009,2026-01-07,P008,Tennis Racket,Sports,Equipment,East,Philadelphia,C009,Amy Robinson,189.99,1,20,Debit Card,SP004,David Lee,Online
+TXN010,2026-01-08,P009,Bookshelf,Furniture,Storage,West,San Francisco,C010,Chris Lee,159.99,1,0,Credit Card,SP008,Patricia Moore,In-Store
+TXN011,2026-01-08,P010,Blender,Home,Kitchen,North,Detroit,,Walk-in Customer,49.99,1,5,Cash,SP009,Steven Hall,In-Store
+TXN012,2026-01-09,P011,Dumbbells Set,Sports,Equipment,South,Atlanta,C012,Ruth Adams,299.99,1,0,Credit Card,SP003,Carol Davis,In-Store
+TXN001,2026-01-03,P001,Laptop Pro 15,Electronics,Computers,North,New York,C001,John Smith,1299.99,1,0,Credit Card,SP001,Alice Johnson,Online
+TXN013,2026-01-10,P012,Keyboard Mechanical,Electronics,Accessories,East,Boston,C013,Paul Young,149.99,1,0,Credit Card,SP004,David Lee,Online
+TXN014,2026-01-10,P013,Office Chair,Furniture,Seating,West,Seattle,C014,Laura King,279.99,1,30,Credit Card,SP005,Emma Taylor,In-Store
+TXN015,2026-01-11,P014,Headphones Wireless,Electronics,Accessories,North,New York,C015,Mark Scott,89.99,2,0,Debit Card,SP001,Alice Johnson,Online
+TXN016,2026-01-11,P015,Yoga Mat,Sports,Accessories,South,Dallas,C016,Helen Wright,39.99,3,0,Cash,SP010,George Turner,In-Store
+TXN017,2026-01-12,P001,Laptop Pro 15,Electronics,Computers,East,Washington DC,C017,Brian Harris,1249.99,1,50,Credit Card,SP004,David Lee,In-Store
+TXN018,2026-01-12,P016,Refrigerator,Home,Appliances,West,San Diego,C018,Sandra Lewis,899.99,1,100,Credit Card,SP008,Patricia Moore,In-Store
+TXN019,2026-01-13,P017,Basketball,Sports,Equipment,North,Cleveland,C019,Daniel Walker,34.99,5,0,Cash,SP006,Frank Garcia,In-Store
+TXN020,2026-01-13,P018,Microwave,Home,Appliances,South,Phoenix,C020,Barbara Allen,129.99,1,0,Credit Card,SP007,Nancy Clark,Online
+TXN003,2026-01-04,P003,Office Desk,Furniture,Tables,South,Houston,C003,Mike Brown,449.99,1,50,Credit Card,SP003,Carol Davis,In-Store
+TXN021,2026-01-14,P019,Desk Lamp,Home,Lighting,East,Baltimore,C021,Ronald Baker,45.99,2,0,Debit Card,SP004,David Lee,Online
+TXN022,2026-01-14,P020,Cycling Helmet,Sports,Apparel,West,Denver,C022,Elizabeth Perez,79.99,1,10,Credit Card,SP005,Emma Taylor,In-Store
+TXN023,2026-01-15,P021,External HDD 1TB,Electronics,Storage,North,Minneapolis,C023,Kenneth Hill,89.99,1,0,Credit Card,SP001,Alice Johnson,Online
+TXN024,2026-01-15,P022,Air Purifier,Home,Appliances,South,New Orleans,C024,Betty Collins,199.99,1,20,Credit Card,SP003,Carol Davis,In-Store
+TXN025,2026-01-16,P023,Tent 4 Person,Sports,Outdoor,West,Portland,C025,Jason Reed,249.99,1,0,Credit Card,SP008,Patricia Moore,Online
+TXN026,2026-01-16,P024,Electric Kettle,Home,Kitchen,North,Milwaukee,C026,Michelle Cox,39.99,2,0,Cash,SP009,Steven Hall,In-Store
+TXN027,2026-01-17,P025,Smart Watch,Electronics,Wearables,East,Pittsburgh,C027,Brian Murphy,299.99,1,0,Credit Card,SP004,David Lee,Online
+TXN028,2026-01-17,P026,Sofa Set,Furniture,Living Room,South,Charlotte,C028,Sharon Torres,1299.99,1,200,Credit Card,SP010,George Turner,In-Store
+TXN029,2026-01-18,P027,Printer All-in-One,Electronics,Computers,West,Las Vegas,C029,Timothy Perez,179.99,1,0,Debit Card,SP005,Emma Taylor,Online
+TXN030,2026-01-18,P028,Garden Tools Set,Sports,Outdoor,North,Kansas City,C030,Laura Evans,99.99,1,10,Credit Card,SP006,Frank Garcia,In-Store
+TXN006,2026-01-05,P001,Laptop Pro 15,Electronics,Computers,West,Los Angeles,C006,Tom Anderson,1199.99,1,100,Credit Card,SP001,Alice Johnson,Online
+TXN031,2026-01-19,P029,USB Hub,Electronics,Accessories,East,Cincinnati,C031,Angela Richardson,24.99,3,0,Cash,SP004,David Lee,In-Store
+TXN032,2026-01-19,P030,Dining Table,Furniture,Tables,South,Nashville,C032,Jeffrey Stewart,599.99,1,50,Credit Card,SP007,Nancy Clark,In-Store
+TXN033,2026-01-20,P031,Resistance Bands,Sports,Equipment,West,Phoenix,C033,Angela Hughes,29.99,2,0,Debit Card,SP008,Patricia Moore,Online
+TXN034,2026-01-20,P032,Wine Cooler,Home,Appliances,North,Indianapolis,C034,Joshua Bell,349.99,1,0,Credit Card,SP009,Steven Hall,In-Store
+TXN035,2026-01-21,P033,Tablet 10 inch,Electronics,Computers,East,Columbus,C035,Kimberly Rivera,449.99,1,50,Credit Card,SP004,David Lee,Online
+TXN036,2026-01-21,P034,Standing Desk,Furniture,Tables,South,Austin,C036,Jonathan Butler,399.99,1,0,Credit Card,SP010,George Turner,In-Store
+TXN037,2026-01-22,P035,Drill Set,Home,Tools,West,San Jose,C037,Nicole Brooks,149.99,1,0,Cash,SP005,Emma Taylor,In-Store
+TXN038,2026-01-22,P036,Badminton Set,Sports,Equipment,North,St. Louis,C038,Eric Barnes,69.99,1,0,Credit Card,SP006,Frank Garcia,In-Store
+TXN039,2026-01-23,P037,Router WiFi 6,Electronics,Networking,South,San Antonio,C039,Michelle Ward,159.99,1,0,Debit Card,SP007,Nancy Clark,Online
+TXN040,2026-01-23,P038,Cookware Set,Home,Kitchen,East,Tampa,C040,Jason Price,199.99,1,20,Credit Card,SP003,Carol Davis,In-Store
+TXN004,2026-01-04,P004,Running Shoes,Sports,Footwear,East,Boston,C004,Sarah Wilson,129.99,1,0,Debit Card,SP004,David Lee,In-Store
+TXN041,2026-01-24,P039,Webcam HD,Electronics,Accessories,West,Sacramento,C041,Brian Foster,79.99,1,0,Credit Card,SP005,Emma Taylor,Online
+TXN042,2026-01-24,P040,Area Rug,Furniture,Decor,North,Memphis,C042,Rachel Green,129.99,1,0,Cash,SP009,Steven Hall,In-Store
+TXN043,2026-01-25,P041,Fitness Tracker,Electronics,Wearables,South,Louisville,C043,Jonathan Perry,99.99,2,0,Credit Card,SP010,George Turner,Online
+TXN044,2026-01-25,P042,Luggage Set,Sports,Travel,East,Orlando,C044,Angela Nelson,249.99,1,30,Debit Card,SP004,David Lee,In-Store
+TXN045,2026-01-26,P043,Ceiling Fan,Home,Lighting,West,Fresno,C045,Eric Barnes,179.99,1,0,Credit Card,SP008,Patricia Moore,In-Store
+TXN046,2026-01-26,P044,Mountain Bike,Sports,Cycling,North,Oklahoma City,C046,Laura Adams,699.99,1,50,Credit Card,SP006,Frank Garcia,In-Store
+TXN047,2026-01-27,P045,Soundbar,Electronics,Audio,South,El Paso,C047,Kimberly Williams,199.99,1,0,Credit Card,SP007,Nancy Clark,Online
+TXN048,2026-01-27,P046,Armchair,Furniture,Seating,East,Raleigh,C048,David Clark,349.99,1,0,Cash,SP003,Carol Davis,In-Store
+TXN049,2026-01-28,P047,Power Bank,Electronics,Accessories,West,Long Beach,C049,Sarah Martinez,49.99,2,0,Debit Card,SP005,Emma Taylor,Online
+TXN050,2026-01-28,P048,Hiking Backpack,Sports,Outdoor,North,Tucson,C050,Mark Johnson,149.99,1,0,Credit Card,SP009,Steven Hall,In-Store
+TXN051,2026-01-29,P049,USB Cable Set,Electronics,Accessories,South,Albuquerque,C051,Lisa Anderson,19.99,5,0,Cash,SP010,George Turner,In-Store
+TXN052,2026-01-29,P050,Nightstand,Furniture,Bedroom,East,Fresno,C052,John Thompson,89.99,2,0,Credit Card,SP004,David Lee,In-Store
+TXN053,2026-01-30,P051,Electric Scooter,Sports,Cycling,West,Mesa,C053,Nancy Hall,399.99,1,0,Credit Card,SP008,Patricia Moore,Online
+TXN054,2026-01-30,P052,Pressure Cooker,Home,Kitchen,North,Omaha,C054,Robert Young,89.99,1,10,Debit Card,SP001,Alice Johnson,In-Store
+TXN055,2026-01-31,P053,Gaming Headset,Electronics,Audio,South,Kansas City,C055,Karen King,129.99,1,0,Credit Card,SP007,Nancy Clark,Online

@@ -1,0 +1,5 @@
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__006.md
+asset: wp_auditor_impersonation_guard_env__006
+runtime:
+  workspace: .
+  entrypoint: python -c "from env_builder import build_env; build_env()"

@@ -1,0 +1,6 @@
+name: wp_reproduction_ledger_env__018
+asset: wp_reproduction_ledger_env__018
+prompt_path: tasks/prompts/wp_reproduction_ledger_env__018.md
+runtime:
+  environment: default
+  timeout: 300

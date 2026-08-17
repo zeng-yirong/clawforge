@@ -1,0 +1,7 @@
+task_id: wp_doc_clue_memory_env__015
+prompt_path: tasks/prompts/wp_doc_clue_memory_env__015.md
+asset: wp_doc_clue_memory_env__015
+runtime:
+  python: 3.10
+  memory: 256
+  timeout: 300

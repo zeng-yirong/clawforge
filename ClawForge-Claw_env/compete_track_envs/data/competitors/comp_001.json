@@ -1,0 +1,44 @@
+{
+  "competitor_id": "comp_001",
+  "name": "TechCorp",
+  "description": "Leading enterprise software company specializing in cloud infrastructure and AI solutions.",
+  "sector": "Enterprise Software",
+  "market_cap": 850000000000,
+  "market_share": 0.23,
+  "revenue": 125000000000,
+  "user_count": 25000000,
+  "growth_rate": 0.18,
+  "financials": {
+    "pe_ratio": 32.5,
+    "profit_margin": 0.24,
+    "debt_to_equity": 0.45,
+    "revenue_growth_yoy": 0.18,
+    "quarterly_earnings": [
+      {"quarter": "Q1 2026", "revenue": 30000000000, "net_income": 7200000000},
+      {"quarter": "Q2 2026", "revenue": 32000000000, "net_income": 7680000000}
+    ]
+  },
+  "products": [
+    {"product_id": "prod_001", "name": "TechCorp Cloud", "category": "IaaS", "market_share": 0.22},
+    {"product_id": "prod_002", "name": "TechCorp AI", "category": "AI/ML", "market_share": 0.31},
+    {"product_id": "prod_003", "name": "TechCorp Analytics", "category": "Analytics", "market_share": 0.18}
+  ],
+  "news": [
+    {
+      "news_id": "news_comp_001",
+      "title": "TechCorp announces new AI chip",
+      "category": "product",
+      "sentiment": "positive",
+      "published_at": "2026-06-10T08:00:00Z",
+      "summary": "TechCorp unveiled its next-generation AI accelerator chip with 40% performance improvement."
+    },
+    {
+      "news_id": "news_comp_002",
+      "title": "TechCorp faces regulatory scrutiny",
+      "category": "regulatory",
+      "sentiment": "negative",
+      "published_at": "2026-06-08T14:30:00Z",
+      "summary": "EU regulators announced investigation into TechCorp's market dominance in cloud services."
+    }
+  ]
+}

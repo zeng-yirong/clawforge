@@ -1,0 +1,6 @@
+name: "CRM April Birthday Lookup"
+prompt_path: "tasks/prompts/wp_crm_envs__004.md"
+asset: "wp_crm_envs__004"
+runtime:
+  cwd: "assets/wp_crm_envs__004"
+  allowed_actions: []

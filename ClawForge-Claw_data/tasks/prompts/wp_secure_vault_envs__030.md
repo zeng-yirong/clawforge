@@ -1,0 +1,1 @@
+老王：安全审计的反馈真让人头疼！他们说我管的密码库乱七八糟——好多凭证分类压根不对，密码强度也参差不齐。我把最新的分类标准扔在 `data/vault_schema.json` 里了，所有凭证的原始数据在 `data/credentials.json`。你帮我按标准重新理一遍：每个凭证该归哪个分类（填上正确的 `category_id`），再对照着每类的密码策略检查一下密码是否达标（标记个 `strength_compliant` 是 true 还是 false）。弄完放到 `ops/classified_credentials.json`，我直接导入更新库。拜托了，快点搞定！

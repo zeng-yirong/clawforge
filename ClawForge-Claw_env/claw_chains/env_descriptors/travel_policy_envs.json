@@ -1,0 +1,350 @@
+{
+  "env_name": "travel_policy_envs",
+  "rel_path": "travel_policy_envs",
+  "has_skill_md": true,
+  "anchor_keys": [
+    "required_actions"
+  ],
+  "files": [
+    {
+      "path": "data/platforms/<record_id>.json",
+      "dir": "data/platforms",
+      "kind": "per_record",
+      "record_key": "platform_id",
+      "count": 3,
+      "fields": [
+        {
+          "name": "platform_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "platform_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "AeroCheap",
+            "FlightPro",
+            "SkyBook"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "region",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Asia Pacific",
+            "Europe",
+            "North America"
+          ],
+          "desc": "region (str)"
+        },
+        {
+          "name": "is_active",
+          "type": "bool",
+          "required": true,
+          "desc": "is_active (bool)"
+        },
+        {
+          "name": "transaction_fee",
+          "type": "float",
+          "required": true,
+          "desc": "transaction_fee (float)"
+        },
+        {
+          "name": "service_fee",
+          "type": "float",
+          "required": true,
+          "desc": "service_fee (float)"
+        },
+        {
+          "name": "payment_methods",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "payment_methods (list)"
+        },
+        {
+          "name": "cancellation_policy",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "cancellation_policy (str)"
+        },
+        {
+          "name": "discounts",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "discounts (list)"
+        },
+        {
+          "name": "promotions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "promotions (list)"
+        },
+        {
+          "name": "loyalty_program",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "name",
+            "points_per_dollar",
+            "redemption_rate"
+          ],
+          "desc": "loyalty_program (dict)"
+        }
+      ],
+      "examples": [
+        "aerocheap",
+        "flightpro",
+        "skybook"
+      ],
+      "desc": "per_record file data/platforms/<record_id>.json"
+    },
+    {
+      "path": "data/policies/<record_id>.json",
+      "dir": "data/policies",
+      "kind": "per_record",
+      "record_key": "policy_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "policy_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "policy_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Acme Corp Business Travel Policy",
+            "Acme Corp Executive Travel Policy"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "version",
+          "type": "str",
+          "required": true,
+          "desc": "version (str)"
+        },
+        {
+          "name": "max_cost_per_booking",
+          "type": "int",
+          "required": true,
+          "desc": "max_cost_per_booking (int)"
+        },
+        {
+          "name": "max_single_booking_cost",
+          "type": "int",
+          "required": true,
+          "desc": "max_single_booking_cost (int)"
+        },
+        {
+          "name": "allowed_cabin_classes",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "allowed_cabin_classes (list)"
+        },
+        {
+          "name": "min_advance_booking_days",
+          "type": "int",
+          "required": true,
+          "desc": "min_advance_booking_days (int)"
+        },
+        {
+          "name": "requires_approval_above",
+          "type": "int",
+          "required": true,
+          "desc": "requires_approval_above (int)"
+        },
+        {
+          "name": "preferred_vendors",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "preferred_vendors (list)"
+        },
+        {
+          "name": "restricted_routes",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "restricted_routes (list)"
+        },
+        {
+          "name": "required_documents",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "required_documents (list)"
+        },
+        {
+          "name": "no_refund_cabin_classes",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "no_refund_cabin_classes (list)"
+        },
+        {
+          "name": "approval_levels",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "level1",
+            "level2",
+            "level3"
+          ],
+          "desc": "approval_levels (dict)"
+        },
+        {
+          "name": "max_daily_limit",
+          "type": "int",
+          "required": true,
+          "desc": "max_daily_limit (int)"
+        },
+        {
+          "name": "max_monthly_limit",
+          "type": "int",
+          "required": true,
+          "desc": "max_monthly_limit (int)"
+        },
+        {
+          "name": "max_trips_per_month",
+          "type": "int",
+          "required": true,
+          "desc": "max_trips_per_month (int)"
+        },
+        {
+          "name": "requires_receipt_above",
+          "type": "int",
+          "required": true,
+          "desc": "requires_receipt_above (int)"
+        },
+        {
+          "name": "allow_upgrade_at_company_cost",
+          "type": "bool",
+          "required": true,
+          "desc": "allow_upgrade_at_company_cost (bool)"
+        },
+        {
+          "name": "domestic_max_cost",
+          "type": "int",
+          "required": true,
+          "desc": "domestic_max_cost (int)"
+        },
+        {
+          "name": "domestic_approval_threshold",
+          "type": "int",
+          "required": true,
+          "desc": "domestic_approval_threshold (int)"
+        },
+        {
+          "name": "international_max_cost",
+          "type": "int",
+          "required": true,
+          "desc": "international_max_cost (int)"
+        },
+        {
+          "name": "international_approval_threshold",
+          "type": "int",
+          "required": true,
+          "desc": "international_approval_threshold (int)"
+        },
+        {
+          "name": "international_requirements",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "international_requirements (list)"
+        }
+      ],
+      "examples": [
+        "travel_policy_001",
+        "travel_policy_002"
+      ],
+      "desc": "per_record file data/policies/<record_id>.json"
+    },
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": null,
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "company_name",
+          "type": "str",
+          "required": true,
+          "desc": "company_name (str)"
+        },
+        {
+          "name": "travel_budget",
+          "type": "int",
+          "required": true,
+          "desc": "travel_budget (int)"
+        },
+        {
+          "name": "currency",
+          "type": "str",
+          "required": true,
+          "desc": "currency (str)"
+        },
+        {
+          "name": "approvers",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "dict",
+          "desc": "approvers (list)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/contacts.json",
+      "kind": "json_blob",
+      "top_keys": [],
+      "desc": "json_blob file data/contacts.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "policy_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/policies/<record_id>.json",
+          "record_key": "policy_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "platform_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/platforms/<record_id>.json",
+          "record_key": "platform_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": []
+}

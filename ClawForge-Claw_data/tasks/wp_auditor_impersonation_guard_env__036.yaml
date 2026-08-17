@@ -1,0 +1,12 @@
+asset: wp_auditor_impersonation_guard_env__036
+prompt: tasks/prompts/wp_auditor_impersonation_guard_env__036.md
+runtime:
+  workspace: .
+  timeout: 300
+  max_retries: 2
+  tools:
+    - read
+    - write
+    - list
+    - delete
+    - move

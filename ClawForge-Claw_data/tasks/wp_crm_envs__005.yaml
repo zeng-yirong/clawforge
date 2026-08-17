@@ -1,0 +1,4 @@
+prompt: tasks/prompts/wp_crm_envs__005.md
+asset: wp_crm_envs__005
+runtime:
+  cwd: assets/wp_crm_envs__005

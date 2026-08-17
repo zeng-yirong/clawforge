@@ -1,0 +1,422 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "返回环境的完整内部状态。",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "login",
+    "description": "用户登录系统。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "用户名"
+        },
+        "password": {
+          "type": "string",
+          "description": "密码"
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "logout",
+    "description": "用户登出系统。",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_login_status",
+    "description": "获取当前登录状态。",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "add_user",
+    "description": "添加用户到系统（仅管理员可用）。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "用户名"
+        },
+        "role": {
+          "type": "string",
+          "description": "用户角色，可选值为 \"employee\", \"manager\", \"admin\""
+        }
+      },
+      "required": [
+        "username",
+        "role"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "ocr_process_receipt",
+    "description": "OCR处理票据并添加到系统。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "image_data": {
+          "type": "string",
+          "description": "票据图像数据（base64编码或其他标识）"
+        },
+        "receipt_date": {
+          "type": "string",
+          "description": "票据日期，格式 \"YYYY-MM-DD\""
+        },
+        "amount": {
+          "type": "number",
+          "description": "票据金额"
+        },
+        "category": {
+          "type": "string",
+          "description": "费用类别"
+        },
+        "merchant": {
+          "type": "string",
+          "description": "商户名称，默认为空"
+        },
+        "tax_amount": {
+          "type": "number",
+          "description": "税额，默认为0.0"
+        },
+        "description": {
+          "type": "string",
+          "description": "票据描述，默认为空"
+        }
+      },
+      "required": [
+        "image_data",
+        "receipt_date",
+        "amount",
+        "category"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "import_bank_transaction",
+    "description": "导入银行交易流水。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "transaction_date": {
+          "type": "string",
+          "description": "交易日期，格式 \"YYYY-MM-DD\""
+        },
+        "amount": {
+          "type": "number",
+          "description": "交易金额（正数为收入，负数为支出）"
+        },
+        "description": {
+          "type": "string",
+          "description": "交易描述"
+        },
+        "counterparty": {
+          "type": "string",
+          "description": "交易对手方，默认为空"
+        }
+      },
+      "required": [
+        "transaction_date",
+        "amount",
+        "description"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "auto_match_receipts",
+    "description": "自动匹配票据和银行交易流水。",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_reimbursement_request",
+    "description": "创建报销申请。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "receipt_ids": {
+          "type": "array",
+          "description": "票据ID列表"
+        },
+        "description": {
+          "type": "string",
+          "description": "报销申请描述，默认为空"
+        },
+        "is_urgent": {
+          "type": "boolean",
+          "description": "是否为紧急报销，默认为False"
+        }
+      },
+      "required": [
+        "receipt_ids"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_reimbursement_request",
+    "description": "获取报销申请详情。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "integer",
+          "description": "报销申请ID"
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_reimbursement_request",
+    "description": "更新报销申请信息。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "integer",
+          "description": "报销申请ID"
+        },
+        "updates": {
+          "type": "dict",
+          "description": "更新字段字典，支持更新 description, urgent"
+        }
+      },
+      "required": [
+        "request_id",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "approve_reimbursement_request",
+    "description": "审批报销申请（仅经理/管理员可用）。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "integer",
+          "description": "报销申请ID"
+        },
+        "notes": {
+          "type": "string",
+          "description": "审批意见，默认为空"
+        },
+        "discrepancy_amount": {
+          "type": "number",
+          "description": "差额金额，默认为0.0"
+        },
+        "discrepancy_notes": {
+          "type": "string",
+          "description": "差额说明，默认为空"
+        }
+      },
+      "required": [
+        "request_id"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "reject_reimbursement_request",
+    "description": "拒绝报销申请（仅经理/管理员可用）。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "integer",
+          "description": "报销申请ID"
+        },
+        "reason": {
+          "type": "string",
+          "description": "拒绝原因"
+        }
+      },
+      "required": [
+        "request_id",
+        "reason"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "process_payment",
+    "description": "处理报销申请付款（仅财务/管理员可用）。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "request_id": {
+          "type": "integer",
+          "description": "报销申请ID"
+        },
+        "payment_date": {
+          "type": "string",
+          "description": "付款日期，格式 \"YYYY-MM-DD\""
+        },
+        "payment_method": {
+          "type": "string",
+          "description": "付款方式，默认为 \"bank_transfer\""
+        }
+      },
+      "required": [
+        "request_id",
+        "payment_date"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_user_receipts",
+    "description": "获取当前用户的票据列表。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "matched": {
+          "type": "boolean",
+          "description": "筛选是否已匹配，默认为None（不过滤）"
+        },
+        "category": {
+          "type": "string",
+          "description": "筛选费用类别，默认为None（不过滤）"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_user_requests",
+    "description": "获取当前用户的报销申请列表。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "筛选状态，默认为None（不过滤）"
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "calculate_statistics",
+    "description": "计算当前用户的报销统计信息。",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_system_config",
+    "description": "更新系统配置（仅管理员可用）。",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "配置键"
+        },
+        "value": {
+          "type": "string|number|integer|array",
+          "description": "配置值"
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

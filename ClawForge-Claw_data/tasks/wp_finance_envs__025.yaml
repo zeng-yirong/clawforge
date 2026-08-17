@@ -1,0 +1,8 @@
+task_id: wp_finance_envs__025
+asset: wp_finance_envs__025
+prompt_path: tasks/prompts/wp_finance_envs__025.md
+runtime:
+  cwd: assets/wp_finance_envs__025
+  env:
+    FINANCE_ENV: "1"
+  max_steps: 100

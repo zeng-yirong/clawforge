@@ -1,0 +1,334 @@
+{
+  "env_name": "music_player_envs",
+  "rel_path": "music_player_envs",
+  "cli_module": "music_player_envs.cli",
+  "has_skill_md": true,
+  "bindings": {
+    "session_env": "MUSIC_SESSION_ID",
+    "state_env": "MUSIC_STATE_ROOT",
+    "scenario_env": "MUSIC_SCENARIO_ID",
+    "default_scenario_id": "music_in_car"
+  },
+  "visible_verbs": [
+    {
+      "verb": "list-players",
+      "action": "list_players",
+      "role": "read",
+      "help": "List available players",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-playlists",
+      "action": "list_playlists",
+      "role": "read",
+      "help": "List all playlists",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-scenarios",
+      "action": "list_scenarios",
+      "role": "read",
+      "help": "List available scenarios",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "list-songs",
+      "action": "list_songs",
+      "role": "read",
+      "help": "List all songs",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "next",
+      "action": "next",
+      "role": "other",
+      "help": "Next track",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "pause",
+      "action": "pause",
+      "role": "other",
+      "help": "Pause playback",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "play",
+      "action": "play",
+      "role": "other",
+      "help": "Play a song by ID",
+      "args": [
+        {
+          "name": "--song-id",
+          "required": true,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "previous",
+      "action": "previous",
+      "role": "other",
+      "help": "Previous track",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "resume",
+      "action": "resume",
+      "role": "other",
+      "help": "Resume playback",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "search",
+      "action": "search",
+      "role": "other",
+      "help": "Search songs",
+      "args": [
+        {
+          "name": "--title",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--artist",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--album",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--brand",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--tag",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--scene",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--style",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--language",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--era",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--crowd",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        },
+        {
+          "name": "--similar-to",
+          "required": false,
+          "has_default": false,
+          "default": null,
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "seek",
+      "action": "seek",
+      "role": "other",
+      "help": "Seek to position",
+      "args": [
+        {
+          "name": "--position",
+          "required": false,
+          "has_default": true,
+          "default": 0,
+          "type": "int",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "session-summary",
+      "action": "session_summary",
+      "role": "other",
+      "help": "Get session summary",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "set-mode",
+      "action": "set_mode",
+      "role": "other",
+      "help": "Set play mode",
+      "args": [
+        {
+          "name": "--mode",
+          "required": false,
+          "has_default": true,
+          "default": "repeat_all",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    },
+    {
+      "verb": "status",
+      "action": "status",
+      "role": "other",
+      "help": "Get current playback status",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "switch-player",
+      "action": "switch_player",
+      "role": "other",
+      "help": "Switch audio player",
+      "args": [
+        {
+          "name": "--player",
+          "required": false,
+          "has_default": true,
+          "default": "local",
+          "type": "str",
+          "choices": [],
+          "help": "",
+          "hidden": false
+        }
+      ],
+      "aliases": []
+    }
+  ],
+  "hidden_verbs": [
+    {
+      "verb": "evaluate",
+      "action": "evaluate",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "prepare-rollout",
+      "action": "prepare_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    },
+    {
+      "verb": "reset-rollout",
+      "action": "reset_rollout",
+      "role": "other",
+      "help": "",
+      "args": [],
+      "aliases": []
+    }
+  ],
+  "dataflow_edges": [
+    {
+      "src": "list-songs",
+      "dst": "play",
+      "weight": 0.8,
+      "relationship": "produces_song_id_for"
+    }
+  ],
+  "gold_actions_by_scenario": {},
+  "anchor_keys": [
+    "expected_actions"
+  ],
+  "evaluator": {
+    "dimensions": [],
+    "has_forbidden_penalty": false
+  },
+  "scenario_ids": [
+    "music_in_car"
+  ]
+}

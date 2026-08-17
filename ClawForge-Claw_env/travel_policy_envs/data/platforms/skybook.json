@@ -1,0 +1,22 @@
+{
+  "platform_id": "skybook",
+  "name": "SkyBook",
+  "region": "North America",
+  "is_active": true,
+  "transaction_fee": 0.02,
+  "service_fee": 15.0,
+  "payment_methods": ["Credit Card", "Corporate Card", "Bank Transfer"],
+  "cancellation_policy": "Full refund if cancelled 24+ hours before departure",
+  "discounts": [
+    {"code": "CORP10", "description": "10% corporate discount", "min_booking": 500},
+    {"code": "BULK20", "description": "20% off for 5+ bookings", "min_booking": 2000}
+  ],
+  "promotions": [
+    {"title": "Early Bird", "discount_percent": 15, "conditions": "Book 30+ days in advance"}
+  ],
+  "loyalty_program": {
+    "name": "SkyBook Rewards",
+    "points_per_dollar": 2,
+    "redemption_rate": 0.01
+  }
+}

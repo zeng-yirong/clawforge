@@ -1,0 +1,6 @@
+task_id: wp_prompt_key_guard_env__020
+asset: wp_prompt_key_guard_env__020
+prompt: tasks/prompts/wp_prompt_key_guard_env__020.md
+environment:
+  cwd: assets/wp_prompt_key_guard_env__020
+  filesystem: read_write

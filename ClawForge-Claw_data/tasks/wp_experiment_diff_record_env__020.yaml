@@ -1,0 +1,5 @@
+name: wp_experiment_diff_record_env__020
+prompt: tasks/prompts/wp_experiment_diff_record_env__020.md
+asset: wp_experiment_diff_record_env__020
+runtime:
+  python: "3.10"

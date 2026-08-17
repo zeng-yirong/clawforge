@@ -1,0 +1,68 @@
+{
+  "contacts": [
+    {
+      "contact_id": "c_nina",
+      "name": "Nina Santos",
+      "email": "nina.santos@auroralabs.com",
+      "role": "Product Marketing Lead",
+      "team": "Marketing",
+      "social_handle": "@ninasantos_pm"
+    },
+    {
+      "contact_id": "c_owen",
+      "name": "Owen Park",
+      "email": "owen.park@auroralabs.com",
+      "role": "Community Lead",
+      "team": "Community",
+      "social_handle": "@owen_builds"
+    },
+    {
+      "contact_id": "c_legal",
+      "name": "Mira Chen",
+      "email": "mira.chen@auroralabs.com",
+      "role": "Legal Counsel",
+      "team": "Legal",
+      "social_handle": "@mirachen_legal"
+    },
+    {
+      "contact_id": "c_finance",
+      "name": "Rafael Moore",
+      "email": "rafael.moore@auroralabs.com",
+      "role": "Finance Director",
+      "team": "Finance",
+      "social_handle": "@rafaelmoore"
+    },
+    {
+      "contact_id": "c_support",
+      "name": "Priya Dev",
+      "email": "priya.dev@auroralabs.com",
+      "role": "Support Manager",
+      "team": "Support",
+      "social_handle": "@priyadev_ops"
+    },
+    {
+      "contact_id": "c_reddit_mia",
+      "name": "Mia Hart",
+      "email": "mia@example.com",
+      "role": "Power User",
+      "team": "External",
+      "social_handle": "mia_hart"
+    },
+    {
+      "contact_id": "c_x_jon",
+      "name": "Jon Bell",
+      "email": "jon@example.com",
+      "role": "Founder",
+      "team": "External",
+      "social_handle": "@jonbellops"
+    },
+    {
+      "contact_id": "c_x_ava",
+      "name": "Ava Price",
+      "email": "ava@example.com",
+      "role": "Creator",
+      "team": "External",
+      "social_handle": "@avapractical"
+    }
+  ]
+}

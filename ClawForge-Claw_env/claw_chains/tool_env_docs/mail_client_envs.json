@@ -1,0 +1,439 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "archive_email",
+  "description": "Archive an email.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "email_id": {
+     "type": "string",
+     "description": "ID of email to archive"
+    }
+   },
+   "required": [
+    "email_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "classify_email",
+  "description": "Classify an email into a folder with labels.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "email_id": {
+     "type": "string",
+     "description": "ID of email to classify"
+    },
+    "folder": {
+     "type": "string",
+     "description": "Folder to move the email into"
+    },
+    "labels": {
+     "type": "string",
+     "description": "Labels to apply to the email"
+    }
+   },
+   "required": [
+    "email_id",
+    "folder",
+    "labels"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "complete_todo",
+  "description": "Mark a TODO item as completed.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "todo_id": {
+     "type": "string",
+     "description": "ID of TODO item to complete"
+    }
+   },
+   "required": [
+    "todo_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_reply",
+  "description": "Send a reply to an email.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "target_email_id": {
+     "type": "string",
+     "description": "ID of email being replied to"
+    },
+    "content": {
+     "type": "string",
+     "description": "Content of the reply message"
+    }
+   },
+   "required": [
+    "target_email_id",
+    "content"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "create_todo",
+  "description": "Create a new TODO item from an email.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "source_email_id": {
+     "type": "string",
+     "description": "ID of source email for TODO"
+    },
+    "title": {
+     "type": "string",
+     "description": "Title of the TODO item"
+    },
+    "description": {
+     "type": "string",
+     "description": "Description of the TODO item"
+    },
+    "priority": {
+     "type": "string",
+     "description": "Priority level of TODO",
+     "default": "normal"
+    },
+    "due_date": {
+     "type": "string",
+     "description": "Due date for the TODO"
+    }
+   },
+   "required": [
+    "source_email_id",
+    "title",
+    "description"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "delete_email",
+  "description": "Move an email to trash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "email_id": {
+     "type": "string",
+     "description": "ID of email to delete"
+    }
+   },
+   "required": [
+    "email_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_emails",
+  "description": "List emails in the inbox.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query": {
+     "type": "string",
+     "description": "Search query to filter emails",
+     "default": ""
+    },
+    "folder": {
+     "type": "string",
+     "description": "Folder to list emails from"
+    },
+    "label": {
+     "type": "string",
+     "description": "Label to filter by"
+    },
+    "unread_only": {
+     "type": "boolean",
+     "description": "Show only unread emails"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of emails to list"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_replies",
+  "description": "List sent replies.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "target_email_id": {
+     "type": "string",
+     "description": "ID of email with replies"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of replies to list"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_todos",
+  "description": "List TODO items.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "completed_only": {
+     "type": "boolean",
+     "description": "Show only completed TODOs"
+    },
+    "pending_only": {
+     "type": "boolean",
+     "description": "Show only pending TODOs"
+    },
+    "priority": {
+     "type": "string",
+     "description": "Filter by priority level"
+    },
+    "limit": {
+     "type": "integer",
+     "description": "Maximum number of TODOs to list"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_attachment",
+  "description": "Read an attachment and mark it as opened.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "attachment_id": {
+     "type": "string",
+     "description": "ID of attachment to read"
+    }
+   },
+   "required": [
+    "attachment_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "read_email",
+  "description": "Open an email and mark it as read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "email_id": {
+     "type": "string",
+     "description": "ID of email to open and read"
+    }
+   },
+   "required": [
+    "email_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Show session progress and summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "task",
+  "description": "Show the task prompt and workspace summary.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

@@ -1,0 +1,11 @@
+{
+  "accounts": [
+    {
+      "account_id": "research_repro_ops",
+      "display_name": "Research Repro Ops",
+      "department": "Applied Research",
+      "email": "research-repro@northstar.example.com",
+      "permissions": ["view_project_docs", "archive_reproduction_ledgers"]
+    }
+  ]
+}

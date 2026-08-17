@@ -1,0 +1,344 @@
+{
+  "env_name": "smart_home_envs",
+  "rel_path": "smart_home_envs",
+  "has_skill_md": true,
+  "anchor_keys": [],
+  "files": [
+    {
+      "path": "data/accounts.json",
+      "kind": "collection",
+      "wrapper_key": "accounts",
+      "record_key": "account_id",
+      "count": 1,
+      "fields": [
+        {
+          "name": "account_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "account_id (str)"
+        },
+        {
+          "name": "account_name",
+          "type": "str",
+          "required": true,
+          "desc": "account_name (str)"
+        },
+        {
+          "name": "email",
+          "type": "str",
+          "required": true,
+          "desc": "email (str)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "required": true,
+          "desc": "role (str)"
+        },
+        {
+          "name": "display_name",
+          "type": "str",
+          "required": true,
+          "desc": "display_name (str)"
+        }
+      ],
+      "desc": "collection file data/accounts.json"
+    },
+    {
+      "path": "data/devices/devices.json",
+      "kind": "collection",
+      "wrapper_key": "devices",
+      "record_key": "device_id",
+      "count": 7,
+      "fields": [
+        {
+          "name": "device_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "device_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Bedroom AC",
+            "Bedroom Humidifier",
+            "Desk Setup Smart Plug",
+            "Floor Lamp Smart Plug",
+            "Living Room AC",
+            "Living Room Humidifier",
+            "TV Smart Plug"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "type",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "air_conditioner",
+            "humidifier",
+            "smart_plug"
+          ],
+          "desc": "type (str)"
+        },
+        {
+          "name": "location",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "bedroom",
+            "living_room",
+            "study_room"
+          ],
+          "desc": "location (str)"
+        },
+        {
+          "name": "power_watts",
+          "type": "int",
+          "required": true,
+          "desc": "power_watts (int)"
+        },
+        {
+          "name": "default_settings",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "fan_speed",
+            "humidity_level",
+            "mode",
+            "temperature"
+          ],
+          "desc": "default_settings (dict)"
+        }
+      ],
+      "desc": "collection file data/devices/devices.json"
+    },
+    {
+      "path": "data/electricity/rates.json",
+      "kind": "collection",
+      "wrapper_key": "rates",
+      "record_key": null,
+      "count": 5,
+      "fields": [
+        {
+          "name": "period",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "high_peak",
+            "mid_peak",
+            "mid_peak_evening",
+            "off_peak",
+            "peak"
+          ],
+          "desc": "period (str)"
+        },
+        {
+          "name": "start_hour",
+          "type": "int",
+          "required": true,
+          "desc": "start_hour (int)"
+        },
+        {
+          "name": "end_hour",
+          "type": "int",
+          "required": true,
+          "desc": "end_hour (int)"
+        },
+        {
+          "name": "rate_per_kwh",
+          "type": "float",
+          "required": true,
+          "desc": "rate_per_kwh (float)"
+        },
+        {
+          "name": "label",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "High-Peak",
+            "Mid-Peak",
+            "Off-Peak",
+            "Peak"
+          ],
+          "desc": "label (str)"
+        }
+      ],
+      "desc": "collection file data/electricity/rates.json"
+    },
+    {
+      "path": "data/health/health.json",
+      "kind": "collection",
+      "wrapper_key": "users",
+      "record_key": "user_id",
+      "count": 2,
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "str",
+          "required": true,
+          "is_key": true,
+          "desc": "user_id (str)"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "Jane Smith",
+            "John Smith"
+          ],
+          "desc": "name (str)"
+        },
+        {
+          "name": "age",
+          "type": "int",
+          "required": true,
+          "desc": "age (int)"
+        },
+        {
+          "name": "health_conditions",
+          "type": "list",
+          "required": true,
+          "list_elem_type": "str",
+          "desc": "health_conditions (list)"
+        },
+        {
+          "name": "respiratory_issues",
+          "type": "bool",
+          "required": true,
+          "desc": "respiratory_issues (bool)"
+        },
+        {
+          "name": "cardiovascular_risk",
+          "type": "bool",
+          "required": true,
+          "desc": "cardiovascular_risk (bool)"
+        },
+        {
+          "name": "temperature_preference",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "comfort_high",
+            "comfort_low",
+            "optimal"
+          ],
+          "desc": "temperature_preference (dict)"
+        },
+        {
+          "name": "humidity_preference",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "comfort_high",
+            "comfort_low",
+            "optimal"
+          ],
+          "desc": "humidity_preference (dict)"
+        },
+        {
+          "name": "sleep_schedule",
+          "type": "dict",
+          "required": true,
+          "dict_keys": [
+            "bedtime",
+            "wake_time"
+          ],
+          "desc": "sleep_schedule (dict)"
+        }
+      ],
+      "desc": "collection file data/health/health.json"
+    },
+    {
+      "path": "data/weather/weather.json",
+      "kind": "collection",
+      "wrapper_key": "weather_data",
+      "record_key": null,
+      "count": 24,
+      "fields": [
+        {
+          "name": "timestamp",
+          "type": "str",
+          "required": true,
+          "free_text": true,
+          "desc": "timestamp (str)"
+        },
+        {
+          "name": "temperature",
+          "type": "float",
+          "required": true,
+          "desc": "temperature (float)"
+        },
+        {
+          "name": "humidity",
+          "type": "int",
+          "required": true,
+          "desc": "humidity (int)"
+        },
+        {
+          "name": "conditions",
+          "type": "str",
+          "required": true,
+          "enum": [
+            "cloudy",
+            "partly_cloudy",
+            "sunny"
+          ],
+          "desc": "conditions (str)"
+        },
+        {
+          "name": "feels_like",
+          "type": "float",
+          "required": true,
+          "desc": "feels_like (float)"
+        },
+        {
+          "name": "uv_index",
+          "type": "int",
+          "required": true,
+          "desc": "uv_index (int)"
+        }
+      ],
+      "desc": "collection file data/weather/weather.json"
+    }
+  ],
+  "scenario_id_pools": [
+    {
+      "scenario_key": "user_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/health/health.json",
+          "record_key": "user_id"
+        }
+      ]
+    },
+    {
+      "scenario_key": "device_ids",
+      "kind": "id_pool",
+      "points_to": [
+        {
+          "file": "data/devices/devices.json",
+          "record_key": "device_id"
+        }
+      ]
+    }
+  ],
+  "scenario_anchor_refs": [
+    {
+      "scenario_key": "workspace_account_id",
+      "kind": "anchor",
+      "points_to": [
+        {
+          "file": "data/accounts.json",
+          "record_key": "account_id"
+        }
+      ]
+    }
+  ]
+}

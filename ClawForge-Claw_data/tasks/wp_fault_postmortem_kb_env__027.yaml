@@ -1,0 +1,6 @@
+task_name: "wp_fault_postmortem_kb_env__027"
+asset: "wp_fault_postmortem_kb_env__027"
+prompt_path: "tasks/prompts/wp_fault_postmortem_kb_env__027.md"
+runtime:
+  cwd: "assets/wp_fault_postmortem_kb_env__027"
+  timeout_seconds: 300

@@ -1,0 +1,360 @@
+[
+  {
+    "name": "get_env_state",
+    "description": "Return the current internal state of the environment.",
+    "parameters": {
+      "type": "dict",
+      "properties": {},
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "register_social_profile",
+    "description": "Register a social media profile for automated posting.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform": {
+          "type": "string",
+          "description": "Social platform - must be one of: reddit, twitter, linkedin, slack, internal_blog."
+        },
+        "profile_name": {
+          "type": "string",
+          "description": "Unique name for this profile (e.g., 'company_twitter')."
+        },
+        "credentials": {
+          "type": "dict",
+          "description": "Platform-specific authentication credentials."
+        },
+        "default_topics": {
+          "type": "array",
+          "description": "Default topics/hashtags for this profile."
+        }
+      },
+      "required": [
+        "platform",
+        "profile_name",
+        "credentials"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_profile_topics",
+    "description": "Update monitored topics for a social profile.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "profile_name": {
+          "type": "string",
+          "description": "Name of the registered profile."
+        },
+        "topics": {
+          "type": "array",
+          "description": "New topics/hashtags to monitor."
+        },
+        "mode": {
+          "type": "string",
+          "description": "'replace' to replace all topics, 'add' to append, 'remove' to delete. Defaults to 'replace'."
+        }
+      },
+      "required": [
+        "profile_name",
+        "topics"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_profiles",
+    "description": "List registered social media profiles.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "platform_filter": {
+          "type": "string",
+          "description": "Filter by platform name."
+        },
+        "active_only": {
+          "type": "boolean",
+          "description": "If True, return only active profiles. Defaults to False."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_brief_template",
+    "description": "Create a template for extracting briefs from emails.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "template_name": {
+          "type": "string",
+          "description": "Unique name for this template."
+        },
+        "extraction_patterns": {
+          "type": "array",
+          "description": "Patterns to extract content. Each pattern has 'field' (email_field) and 'pattern' (regex)."
+        },
+        "format_string": {
+          "type": "string",
+          "description": "Format string for the final brief content. Use {field_name} placeholders for extracted values."
+        },
+        "platforms": {
+          "type": "array",
+          "description": "Target platforms for this template."
+        }
+      },
+      "required": [
+        "template_name",
+        "extraction_patterns",
+        "format_string",
+        "platforms"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "extract_brief_from_email",
+    "description": "Extract a brief from email content using a template.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "email_content": {
+          "type": "dict",
+          "description": "Email content with fields like subject, body, sender."
+        },
+        "template_name": {
+          "type": "string",
+          "description": "Name of the template to use."
+        }
+      },
+      "required": [
+        "email_content",
+        "template_name"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "create_rule",
+    "description": "Create an automation rule for email-to-social processing.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Human-readable rule name."
+        },
+        "trigger_type": {
+          "type": "string",
+          "description": "Event type that triggers evaluation."
+        },
+        "condition": {
+          "type": "dict",
+          "description": "Condition specification with keys:"
+        },
+        "actions": {
+          "type": "array",
+          "description": "Ordered list of actions to execute. Each action has 'type' and 'params'."
+        },
+        "template_name": {
+          "type": "string",
+          "description": "Brief template to use for extraction."
+        },
+        "target_profiles": {
+          "type": "array",
+          "description": "Specific social profiles to target."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "update_rule",
+    "description": "Update fields of an existing rule.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "rule_id": {
+          "type": "integer",
+          "description": "ID of the rule to update."
+        },
+        "updates": {
+          "type": "dict",
+          "description": "Fields to change. Allowed keys: name, enabled, trigger_type, condition, actions, template_name, target_profiles."
+        }
+      },
+      "required": [
+        "rule_id",
+        "updates"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "list_rules",
+    "description": "List configured automation rules.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "enabled_only": {
+          "type": "boolean",
+          "description": "If True, return only enabled rules."
+        },
+        "trigger_type": {
+          "type": "string",
+          "description": "Filter by trigger type."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "receive_email",
+    "description": "Simulate receiving an email and trigger rule evaluation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "sender": {
+          "type": "string",
+          "description": "Sender email address."
+        },
+        "recipient": {
+          "type": "string",
+          "description": "Recipient email address."
+        },
+        "subject": {
+          "type": "string",
+          "description": "Email subject line."
+        },
+        "body": {
+          "type": "string",
+          "description": "Email body content."
+        },
+        "metadata": {
+          "type": "dict",
+          "description": "Additional email metadata."
+        }
+      },
+      "required": [
+        "sender",
+        "recipient",
+        "subject",
+        "body"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "search_emails",
+    "description": "Search through email history.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "search_query": {
+          "type": "string",
+          "description": "Search query string."
+        },
+        "field": {
+          "type": "string",
+          "description": "Field to search in: 'sender', 'subject', 'body', or 'all'."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum results to return."
+        }
+      },
+      "required": [
+        "search_query"
+      ]
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_analytics",
+    "description": "Get analytics for email-to-social automation.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "time_period": {
+          "type": "string",
+          "description": "Time period for analytics: 'day', 'week', 'month', or 'all'."
+        },
+        "profile_filter": {
+          "type": "string",
+          "description": "Filter by profile name."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_action_log",
+    "description": "Retrieve history of executed actions.",
+    "parameters": {
+      "type": "dict",
+      "properties": {
+        "profile_name": {
+          "type": "string",
+          "description": "Filter by profile name."
+        },
+        "platform": {
+          "type": "string",
+          "description": "Filter by platform."
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Maximum actions to return."
+        }
+      },
+      "required": []
+    },
+    "response": {
+      "type": "dict",
+      "properties": {}
+    }
+  }
+]

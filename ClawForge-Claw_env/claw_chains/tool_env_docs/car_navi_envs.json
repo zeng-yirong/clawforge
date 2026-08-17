@@ -1,0 +1,345 @@
+[
+ {
+  "name": "read",
+  "description": "Scaffold tool: read.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "write",
+  "description": "Scaffold tool: write.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "edit",
+  "description": "Scaffold tool: edit.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "str_replace_editor",
+  "description": "Scaffold tool: str_replace_editor.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "ls",
+  "description": "Scaffold tool: ls.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "find",
+  "description": "Scaffold tool: find.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "grep",
+  "description": "Scaffold tool: grep.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "execute_bash",
+  "description": "Scaffold tool: execute_bash.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "finish",
+  "description": "Scaffold tool: finish.",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "add_waypoint",
+  "description": "Add a waypoint to the route.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "poi_id": {
+     "type": "string",
+     "description": "ID of the point of interest"
+    }
+   },
+   "required": [
+    "poi_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "arrive_destination",
+  "description": "Confirm arrival at destination",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "arrive_waypoint",
+  "description": "Confirm arrival at a specific waypoint.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "waypoint_index": {
+     "type": "integer",
+     "description": "Index of waypoint to confirm",
+     "default": 0
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "cancel_nav",
+  "description": "Cancel navigation",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "charging_plan",
+  "description": "Plan EV charging stops along the route.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "target_charge": {
+     "type": "number",
+     "description": "Target charge percentage",
+     "default": 80
+    },
+    "max_stops": {
+     "type": "integer",
+     "description": "Maximum number of charging stops",
+     "default": 3
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "list_scenarios",
+  "description": "List available scenarios",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "remove_waypoint",
+  "description": "Remove a waypoint from the route.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "waypoint_index": {
+     "type": "integer",
+     "description": "Index of waypoint to remove",
+     "default": 0
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "reroute",
+  "description": "Recalculate route",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "route_preference",
+  "description": "Set the route preference (e.g., fastest, eco).",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "preference": {
+     "type": "string",
+     "description": "Route preference setting",
+     "default": "fastest"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "search_poi",
+  "description": "Search for points of interest by category and keyword.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "category": {
+     "type": "string",
+     "description": "POI category"
+    },
+    "keyword": {
+     "type": "string",
+     "description": "Search keyword"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "session_summary",
+  "description": "Get session summary",
+  "parameters": {
+   "type": "dict",
+   "properties": {},
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "start_nav",
+  "description": "Start navigation to a destination POI.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "poi_id": {
+     "type": "string",
+     "description": "ID of destination POI"
+    }
+   },
+   "required": [
+    "poi_id"
+   ]
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ },
+ {
+  "name": "traffic",
+  "description": "Query traffic information for the route.",
+  "parameters": {
+   "type": "dict",
+   "properties": {
+    "query_type": {
+     "type": "string",
+     "description": "Type of traffic query"
+    }
+   },
+   "required": []
+  },
+  "response": {
+   "type": "dict",
+   "properties": {}
+  }
+ }
+]

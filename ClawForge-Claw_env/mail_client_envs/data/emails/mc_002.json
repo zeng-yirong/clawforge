@@ -1,0 +1,23 @@
+{
+  "id": "mc_002",
+  "thread_id": "th_invoice",
+  "folder": "inbox",
+  "sender_id": "c_vendor",
+  "subject": "Invoice #INV-2026-056 - Payment Due",
+  "timestamp": "2026-06-17T14:30:00+00:00",
+  "importance": "normal",
+  "labels": ["finance"],
+  "has_read": false,
+  "body": "Dear Accounts Payable, Please find attached invoice #INV-2026-056 for services rendered. Payment is due within 30 days. The total amount is $4,500 USD for the monthly cloud services. Please process this at your earliest convenience.",
+  "attachments": [
+    {
+      "attachment_id": "mcatt_002",
+      "file_name": "Invoice_INV-2026-056.pdf",
+      "mime_type": "application/pdf",
+      "tags": ["invoice", "payment"],
+      "relative_path": "attachments/Invoice_INV-2026-056.pdf.md"
+    }
+  ],
+  "auto_classify_suggestion": "finance",
+  "auto_archive_candidates": ["finance"]
+}

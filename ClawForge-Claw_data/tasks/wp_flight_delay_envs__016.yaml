@@ -1,0 +1,7 @@
+name: "Flight Delay Cascade – Hotel & Transport Adjustment"
+description: "Agent must analyze a delayed flight, adjust hotel and transport bookings, and generate a summary report."
+asset: wp_flight_delay_envs__016
+prompt: tasks/prompts/wp_flight_delay_envs__016.md
+runtime:
+  type: none
+  timeout_seconds: 300
