@@ -16,6 +16,19 @@ ClawForge addresses that gap with two connected components:
 
 The paper uses nine interaction archetypes: transactional workspace, cross-tool pipeline, human-agent interaction, asynchronous events, constraint-guided state machines, temporal scheduling, bilateral matching, workflow orchestration, and fault-tolerant streaming.
 
+## Environment taxonomy
+
+ClawForge contains **139 executable environments**, matching the environment inventory reported in the paper. The collection is deliberately split by agent setting rather than treating every Python module as a general tool-use environment:
+
+| Paper category | Repository location | Count | Intended interaction setting |
+| --- | --- | ---: | --- |
+| General tool-use environments | [ClawForge-Tool_env](./ClawForge-Tool_env) root | 70 | Stateful Python environments with application-level tool interfaces |
+| Claw-specific tool environments | [ClawForge-Tool_env/claw](./ClawForge-Tool_env/claw) | 30 | Claw-oriented, multi-step tool interaction patterns |
+| Claw workspace environments | [ClawForge-Claw_env](./ClawForge-Claw_env) | 39 | CLI-first, persistent-workspace environments for long-horizon rollouts |
+| **Total** |  | **139** | **70 general + 69 Claw-specific environments** |
+
+The **69 Claw-specific environments** therefore comprise both the 30 tool-interaction environments under ClawForge-Tool_env/claw and the 39 workspace environments under ClawForge-Claw_env. The latter contains 19 environments with SKILL.md guidance and 20 intentionally released without SKILL.md.
+
 ## Paper results
 
 The accompanying manuscript reports that RL on ClawForge data improves both Claw-style and general tool-use performance. Selected results are below; scores are percentages.
@@ -29,19 +42,20 @@ The accompanying manuscript reports that RL on ClawForge data improves both Claw
 
 On PinchBench, ClawForge-Claw training also reduced average inference tokens for Qwen3-8B from 13.69K to 8.84K per task.
 
-The manuscript reports a full audited corpus of 139 interactive environments and 19,777 tasks. The checked-in data is the release snapshot described in the next section; its counts are deliberately reported separately from the paper-wide totals.
+The manuscript reports a full audited corpus of 139 interactive environments and 19,777 tasks. The 139 environment implementations are organized in this repository according to the taxonomy above. The checked-in task data is the release snapshot described in the next section, so its task-record counts are reported separately from the paper-wide total.
 
 ## Released assets
 
 | Asset | Contents in this repository snapshot |
 | --- | --- |
-| General executable environments | 100 Python environment modules in [ClawForge-Tool_env](./ClawForge-Tool_env) |
+| General tool-use environments | 70 Python modules at the root of [ClawForge-Tool_env](./ClawForge-Tool_env) |
+| Claw-specific tool environments | 30 Python modules in [ClawForge-Tool_env/claw](./ClawForge-Tool_env/claw) |
 | General tool-use data | 7,396 JSONL records in [ClawForge-Tool_data.jsonl](./ClawForge-Tool_data.jsonl), referencing 67 environment names |
-| Claw workspace environments | 39 CLI-first environment packages in [ClawForge-Claw_env](./ClawForge-Claw_env): 19 with SKILL.md and 20 in without_skill |
-| Claw workplace tasks | 991 manifest-complete task bundles across the 39 Claw environments in [ClawForge-Claw_data](./ClawForge-Claw_data) |
+| Claw workspace environments | 39 CLI-first packages in [ClawForge-Claw_env](./ClawForge-Claw_env): 19 with SKILL.md and 20 in without_skill |
+| Claw workplace tasks | 991 manifest-complete task bundles across the 39 workspace environments in [ClawForge-Claw_data](./ClawForge-Claw_data) |
 | Training integration | A vendored [Uni-Agent + VERL stack](./train_code/uni-agent) |
 
-Each general tool-use record contains a user plan plus metadata such as the initial environment state, a deterministic validation protocol, a sampled tool chain, and scenario information. Each Claw workplace task is stored as a prompt, an environment builder, a task descriptor, and a code-only verifier.
+Each general tool-use record contains a user plan plus metadata such as the initial environment state, a deterministic validation protocol, a sampled tool chain, and scenario information. The checked-in Claw workplace tasks target the 39 CLI/workspace environments; each task is stored as a prompt, an environment builder, a task descriptor, and a code-only verifier.
 
 The task [manifest](./ClawForge-Claw_data/_manifest.json) is the source of truth for task completeness. It records five incomplete generation entries in addition to the 991 complete entries; downstream training should consume only complete task bundles.
 
@@ -49,11 +63,13 @@ The task [manifest](./ClawForge-Claw_data/_manifest.json) is the source of truth
 
 ~~~
 ClawForge/
-├── ClawForge-Tool_env/          # Generated stateful Python environments
+├── ClawForge-Tool_env/
+│   ├── *.py                     # 70 general tool-use environments
+│   └── claw/*.py                # 30 Claw-specific tool environments
 ├── ClawForge-Tool_data.jsonl    # General tool-use RL task records
-├── ClawForge-Claw_env/          # CLI/workspace environments and synthesis utilities
-│   ├── <environment>/           # Environment package; many include README.md and SKILL.md
-│   ├── without_skill/           # Environments intentionally released without SKILL.md
+├── ClawForge-Claw_env/          # 39 Claw workspace environments and synthesis utilities
+│   ├── <environment>/           # 19 environment packages with README.md and SKILL.md
+│   ├── without_skill/           # 20 environments intentionally released without SKILL.md
 │   └── claw_chains/             # Tool extraction, graph building, task-generation pipeline
 ├── ClawForge-Claw_data/         # Native workplace task packages and manifest
 │   ├── tasks/prompts/           # User-facing task prompts
