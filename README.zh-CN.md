@@ -13,6 +13,8 @@
 [![环境数量](https://img.shields.io/badge/Environments-139-orange.svg)](#-环境分类)
 [![任务数量](https://img.shields.io/badge/Tasks-19%2C777-brightgreen.svg)](#-发布资产)
 [![状态](https://img.shields.io/badge/Status-Anonymous%20submission-lightgrey.svg)](#-引用)
+[![Dataset](https://img.shields.io/badge/Dataset-ClawForge%2Fclawforge-yellow.svg)](https://huggingface.co/datasets/ClawForge/clawforge)
+[![Model](https://img.shields.io/badge/Model-ClawForge%2Fclawforge-orange.svg)](https://huggingface.co/ClawForge/clawforge)
 
 </div>
 
@@ -33,6 +35,15 @@ ClawForge 由两个互补的引擎构成：
 
 ---
 
+## 🤗 Hugging Face
+
+| 资源 | 链接 |
+| --- | --- |
+| 📊 **数据集** | [ClawForge/clawforge](https://huggingface.co/datasets/ClawForge/clawforge) |
+| 🤖 **模型** | [ClawForge/clawforge](https://huggingface.co/ClawForge/clawforge) *（占位，即将发布）* |
+
+---
+
 ## ✨ 亮点
 
 - ✅ **真正可执行，而非模拟** —— 真实的 Python 沙箱，具备持久状态与确定性状态转移，而非由 LLM 模拟的响应。
@@ -47,22 +58,23 @@ ClawForge 由两个互补的引擎构成：
 ## 🗂️ 目录
 
 1. [概述](#-概述)
-2. [亮点](#-亮点)
-3. [架构](#-架构)
-4. [环境分类](#-环境分类)
-5. [与既有工作的对比](#-与既有工作的对比)
-6. [论文结果](#-论文结果)
-7. [发布资产](#-发布资产)
-8. [仓库结构](#-仓库结构)
-9. [快速开始](#-快速开始)
-10. [Claw 任务格式与奖励](#-claw-任务格式与奖励)
-11. [重新生成 Claw 工具链](#-重新生成-claw-工具链)
-12. [使用 Uni-Agent 与 VERL 训练](#-使用-uni-agent-与-verl-训练)
-13. [可复现性说明](#-可复现性说明)
-14. [局限性](#-局限性)
-15. [引用](#-引用)
-16. [许可证](#-许可证)
-17. [贡献](#-贡献)
+2. [Hugging Face](#-hugging-face)
+3. [亮点](#-亮点)
+4. [架构](#-架构)
+5. [环境分类](#-环境分类)
+6. [与既有工作的对比](#-与既有工作的对比)
+7. [论文结果](#-论文结果)
+8. [发布资产](#-发布资产)
+9. [仓库结构](#-仓库结构)
+10. [快速开始](#-快速开始)
+11. [Claw 任务格式与奖励](#-claw-任务格式与奖励)
+12. [重新生成 Claw 工具链](#-重新生成-claw-工具链)
+13. [使用 Uni-Agent 与 VERL 训练](#-使用-uni-agent-与-verl-训练)
+14. [可复现性说明](#-可复现性说明)
+15. [局限性](#-局限性)
+16. [引用](#-引用)
+17. [许可证](#-许可证)
+18. [贡献](#-贡献)
 
 ---
 

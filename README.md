@@ -13,6 +13,8 @@
 [![Environments](https://img.shields.io/badge/Environments-139-orange.svg)](#-environment-taxonomy)
 [![Tasks](https://img.shields.io/badge/Tasks-19%2C777-brightgreen.svg)](#-released-assets)
 [![Status](https://img.shields.io/badge/Status-Anonymous%20submission-lightgrey.svg)](#-citation)
+[![Dataset](https://img.shields.io/badge/Dataset-ClawForge%2Fclawforge-yellow.svg)](https://huggingface.co/datasets/ClawForge/clawforge)
+[![Model](https://img.shields.io/badge/Model-ClawForge%2Fclawforge-orange.svg)](https://huggingface.co/ClawForge/clawforge)
 
 </div>
 
@@ -33,6 +35,15 @@ The framework produces **139 interactive environments** and **19,777 tasks** spa
 
 ---
 
+## 🤗 Hugging Face
+
+| Resource | Link |
+| --- | --- |
+| 📊 **Dataset** | [ClawForge/clawforge](https://huggingface.co/datasets/ClawForge/clawforge) |
+| 🤖 **Model** | [ClawForge/clawforge](https://huggingface.co/ClawForge/clawforge) *(placeholder — coming soon)* |
+
+---
+
 ## ✨ Highlights
 
 - ✅ **Executable, not mocked** — real Python sandboxes with persistent state and deterministic transitions, not LLM-simulated responses.
@@ -47,22 +58,23 @@ The framework produces **139 interactive environments** and **19,777 tasks** spa
 ## 🗂️ Table of Contents
 
 1. [Overview](#-overview)
-2. [Highlights](#-highlights)
-3. [Architecture](#-architecture)
-4. [Environment taxonomy](#-environment-taxonomy)
-5. [Comparison with prior work](#-comparison-with-prior-work)
-6. [Paper results](#-paper-results)
-7. [Released assets](#-released-assets)
-8. [Repository layout](#-repository-layout)
-9. [Quick start](#-quick-start)
-10. [Claw task format and reward](#-claw-task-format-and-reward)
-11. [Regenerating Claw tool chains](#-regenerating-claw-tool-chains)
-12. [Training with Uni-Agent and VERL](#-training-with-uni-agent-and-verl)
-13. [Reproducibility notes](#-reproducibility-notes)
-14. [Limitations](#-limitations)
-15. [Citation](#-citation)
-16. [License](#-license)
-17. [Contributing](#-contributing)
+2. [Hugging Face](#-hugging-face)
+3. [Highlights](#-highlights)
+4. [Architecture](#-architecture)
+5. [Environment taxonomy](#-environment-taxonomy)
+6. [Comparison with prior work](#-comparison-with-prior-work)
+7. [Paper results](#-paper-results)
+8. [Released assets](#-released-assets)
+9. [Repository layout](#-repository-layout)
+10. [Quick start](#-quick-start)
+11. [Claw task format and reward](#-claw-task-format-and-reward)
+12. [Regenerating Claw tool chains](#-regenerating-claw-tool-chains)
+13. [Training with Uni-Agent and VERL](#-training-with-uni-agent-and-verl)
+14. [Reproducibility notes](#-reproducibility-notes)
+15. [Limitations](#-limitations)
+16. [Citation](#-citation)
+17. [License](#-license)
+18. [Contributing](#-contributing)
 
 ---
 
