@@ -68,26 +68,9 @@ The framework produces **139 interactive environments** and **19,777 tasks** spa
 
 ## 🏗️ Architecture
 
-```mermaid
-flowchart LR
-    subgraph ENV["Environment Synthesis Engine"]
-        SCN["Scenario Collection<br/>41 general · 42 Claw"] --> ESP["Environment Spec"]
-        ARC["9 Interaction Archetypes"] --> SYN["Sandbox Synthesis"]
-        ESP --> SYN
-        TSP["Tool Spec"] --> SYN
-        SYN --> AUD["Quality Auditing<br/>AST + Runtime"]
-        AUD --> LIB["139 Executable Environments"]
-    end
+![Environment and task synthesis pipeline](img.png)
 
-    subgraph DATA["Topology-aware Data Generation Engine"]
-        EXT["Tool Extraction"] --> GRP["Bi-level Dependency Graph"]
-        GRP --> SMP["Weighted Random Walk Sampling"]
-        SMP --> GEN["Intent + Verifier Generation"]
-        GEN --> TSK["19,777 Tasks"]
-    end
-
-    LIB --> EXT
-```
+> **Figure 3 — Environment and task synthesis pipeline.** Given natural-language descriptions, the Environment Synthesis Engine generates executable sandboxes (state + tools + docs); the Data Synthesis Engine samples tool chains and synthesizes RL tasks.
 
 The synthesis engine turns a scenario into a specification (`Espec` + `Tspec`), synthesizes an executable sandbox guided by a matched interaction archetype, and passes it through a dual-stage audit (static AST analysis + dynamic runtime testing). The data engine extracts the tool surface, builds a bi-level dependency graph, samples coherent tool chains, and reverse-engineers multi-turn user intents with deterministic verification scripts.
 
@@ -152,8 +135,6 @@ The manuscript reports a full audited corpus of **139 interactive environments**
 | Training integration | A vendored [Uni-Agent + VERL stack](./train_code/uni-agent) |
 
 Each general tool-use record contains a user plan plus metadata such as the initial environment state, a deterministic validation protocol, a sampled tool chain, and scenario information. The checked-in Claw workplace tasks target the 39 CLI/workspace environments; each task is stored as a prompt, an environment builder, a task descriptor, and a code-only verifier.
-
-The task [`manifest`](./ClawForge-Claw_data/_manifest.json) is the source of truth for task completeness. It records **five incomplete** generation entries in addition to the **991 complete** entries; downstream training should consume only complete task bundles.
 
 ---
 
@@ -297,7 +278,6 @@ For the local task runtime, see:
 ## ⚠️ Limitations
 
 - All environments are synthetic research artifacts, not production integrations.
-- The repository does not distribute base models, model checkpoints, API credentials, or external services.
 - The full manuscript-scale corpus and the checked-in release snapshot have different counts; use the manifest and file layout in this repository when reproducing a release-level experiment.
 - Generated examples may resemble operational domains such as finance, healthcare, human resources, security, or travel, but they are not suitable for real-world decision making.
 
